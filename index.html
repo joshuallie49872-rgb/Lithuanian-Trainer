@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Lithuanian Trainer</title>
+</head>
+<body>
+  <div class="wrap">
+    <h1 id="title"></h1>
+    <div id="prompt" class="prompt"></div>
+
+    <div class="controls">
+      <button id="prevBtn">Back</button>
+      <button id="speakBtn" style="display:none;">🔊 Hear it</button>
+      <button id="mapBtn">🗺️ Course Map</button>
+      <button id="resetBtn">Restart lesson</button>
+    </div>
+
+    <div id="mapScreen" class="map-screen" style="display:none;">
+      <div class="map-header">
+        <div class="map-title">Lithuanian Quest</div>
+        <div class="map-subtitle">Tap a node to play</div>
+      </div>
+
+      <div id="mapWrap" class="map-wrap">
+        <svg id="mapSvg" class="map-svg"></svg>
+        <div id="mapNodes" class="map-nodes"></div>
+      </div>
+    </div>
+
+    <div id="lessonScreen">
+      <div id="content" class="card"></div>
+    </div>
+  </div>
+
+  <!-- Mikas coach (right side) -->
+  <div id="mikasDock" class="mikasDock" aria-hidden="false">
+    <img id="mikasImg" class="mikasImg" src="mikas/neutral.png" alt="Mikas" />
+    <div id="mikasBubble" class="mikasBubble"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

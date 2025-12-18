@@ -1,0 +1,294 @@
+:root{
+  /* Your palette */
+  --bg: #FFF7ED;          /* warm cream */
+  --card: #FFFFFF;        /* card background */
+  --primary: #F4C430;     /* soft golden yellow */
+  --secondary: #6FAF8E;   /* sage green */
+  --tertiary: #E07A5F;    /* soft terracotta */
+  --text: #2F2F2F;        /* main text */
+  --textSoft: #6B7280;    /* soft text */
+  --border: rgba(47,47,47,0.10);
+  --shadow: 0 12px 30px rgba(47,47,47,0.10);
+}
+
+body{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: var(--text);
+
+  /* warm, app-like background */
+  background:
+    radial-gradient(circle at 18% 12%, rgba(244,196,48,0.20) 0%, rgba(255,247,237,1) 45%),
+    radial-gradient(circle at 85% 20%, rgba(111,175,142,0.18) 0%, rgba(255,247,237,1) 55%),
+    radial-gradient(circle at 70% 92%, rgba(224,122,95,0.16) 0%, rgba(255,247,237,1) 55%),
+    var(--bg);
+}
+
+.wrap{
+  max-width: 760px;
+  margin: 22px auto;
+  padding: 16px;
+}
+
+#title{
+  margin: 6px 0 10px;
+  font-size: 40px;
+  letter-spacing: 0.2px;
+}
+
+.prompt{
+  color: var(--textSoft);
+  margin-bottom: 12px;
+}
+
+.controls{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+button{
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  box-shadow: 0 8px 18px rgba(47,47,47,0.08);
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+
+button:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(47,47,47,0.10);
+}
+
+button:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#mapBtn{
+  background: linear-gradient(180deg, rgba(244,196,48,1), rgba(244,196,48,0.88));
+  border-color: rgba(244,196,48,0.35);
+}
+
+#resetBtn{
+  background: linear-gradient(180deg, rgba(224,122,95,0.95), rgba(224,122,95,0.85));
+  border-color: rgba(224,122,95,0.35);
+  color: #fff;
+}
+
+#speakBtn{
+  background: linear-gradient(180deg, rgba(111,175,142,0.95), rgba(111,175,142,0.85));
+  border-color: rgba(111,175,142,0.35);
+  color: #fff;
+}
+
+.card{
+  background: var(--card);
+  padding: 16px;
+  border-radius: 18px;
+  min-height: 120px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.q{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+input{
+  padding: 10px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  outline: none;
+}
+
+input:focus{
+  border-color: rgba(244,196,48,0.7);
+  box-shadow: 0 0 0 4px rgba(244,196,48,0.18);
+}
+
+#choices button{
+  display: block;
+  margin: 8px 0;
+  width: 320px;
+  max-width: 100%;
+}
+
+#feedback{
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* ===== Course Map ===== */
+.map-wrap{
+  position: relative;
+  height: 70vh;
+  overflow: auto;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.65);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+/* JS sets svg + nodes height dynamically */
+.map-svg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.map-nodes{
+  position: relative;
+}
+
+.map-node{
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
+  border: 2px solid rgba(47,47,47,0.12);
+  box-shadow: 0 12px 22px rgba(47,47,47,0.14);
+}
+
+.map-node:hover{
+  transform: translateY(-2px) scale(1.03);
+}
+
+.map-node .mini{
+  position: absolute;
+  bottom: -10px;
+  font-size: 12px;
+  opacity: 0.9;
+  color: var(--textSoft);
+}
+
+.node-unlocked{
+  background: linear-gradient(180deg, rgba(244,196,48,1), rgba(244,196,48,0.86));
+}
+
+.node-complete{
+  background: linear-gradient(180deg, rgba(111,175,142,0.98), rgba(111,175,142,0.84));
+  filter: drop-shadow(0 0 10px rgba(111,175,142,0.25));
+  color: #fff;
+}
+
+.node-locked{
+  background: linear-gradient(180deg, rgba(107,114,128,0.22), rgba(107,114,128,0.12));
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.node-current{
+  animation: pulse 1.4s infinite ease-in-out;
+}
+
+@keyframes pulse{
+  0%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(244,196,48,0)); }
+  50%{ transform: scale(1.06); filter: drop-shadow(0 0 14px rgba(244,196,48,0.35)); }
+  100%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(244,196,48,0)); }
+}
+
+.path-stroke{
+  stroke: rgba(47,47,47,0.16);
+  stroke-width: 8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 2 14;
+}
+
+/* ========================= */
+/* Mikas coach (right side) */
+/* ========================= */
+.mikasDock{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 240px;
+  max-width: 46vw;
+  z-index: 50;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .25s ease, transform .25s ease;
+
+  /* IMPORTANT: never block taps/clicks */
+  pointer-events: none;
+}
+
+/* If older code ever adds this class, don't let it hide Mikas anymore */
+.mikasHidden{
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.mikasImg{
+  width: 240px;
+  height: auto;
+
+  /* ensure PNG never stretches / never blurs */
+  display: block;
+  object-fit: contain;
+  image-rendering: auto;
+
+  filter: drop-shadow(0 14px 24px rgba(47,47,47,0.18));
+}
+
+.mikasBubble{
+  display: none;
+  max-width: 240px;
+  background: rgba(255,255,255,0.98);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--text);
+  box-shadow: 0 10px 25px rgba(47,47,47,0.12);
+  line-height: 1.25;
+}
+
+.mikasBubble.show{ display:block; }
+
+/* keep him from covering controls on small screens */
+@media (max-width: 720px){
+  .mikasDock{
+    right: 10px;
+    bottom: 92px; /* clears the button row */
+    width: 190px;
+    max-width: 52vw;
+  }
+  .mikasImg{ width: 190px; }
+  .mikasBubble{ max-width: 190px; }
+}
+
+/* very small phones */
+@media (max-width: 420px){
+  .mikasDock{
+    bottom: 110px;
+    width: 165px;
+    max-width: 58vw;
+  }
+  .mikasImg{ width: 165px; }
+  .mikasBubble{ max-width: 165px; font-size: 13px; }
+}
