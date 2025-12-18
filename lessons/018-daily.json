@@ -1,0 +1,266 @@
+{
+  "id": "018-daily",
+  "title": "Daily Routine",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "dirbu",
+      "choices": [
+        "I work",
+        "I eat",
+        "I go",
+        "I sleep"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "dirbu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "miegu",
+      "choices": [
+        "I sleep",
+        "I wake",
+        "I eat",
+        "I go"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "miegu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "valgau",
+      "choices": [
+        "I eat",
+        "I drink",
+        "I go",
+        "I sleep"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "valgau"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "einu",
+      "choices": [
+        "I go",
+        "I come",
+        "I work",
+        "I eat"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "einu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "keliuosi",
+      "choices": [
+        "I wake up",
+        "I sleep",
+        "I eat",
+        "I go"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "keliuosi"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I work",
+      "answers": [
+        "dirbu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "dirbu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I sleep",
+      "answers": [
+        "miegu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "miegu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I eat",
+      "answers": [
+        "valgau"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "valgau"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I go",
+      "answers": [
+        "einu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "einu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I wake up",
+      "answers": [
+        "keliuosi"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "keliuosi"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "dirbu",
+      "choices": [
+        "I work",
+        "I eat",
+        "I go",
+        "I sleep"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "dirbu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "miegu",
+      "choices": [
+        "I sleep",
+        "I wake",
+        "I eat",
+        "I go"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "miegu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "valgau",
+      "choices": [
+        "I eat",
+        "I drink",
+        "I go",
+        "I sleep"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "valgau"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "einu",
+      "choices": [
+        "I go",
+        "I come",
+        "I work",
+        "I eat"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "einu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "keliuosi",
+      "choices": [
+        "I wake up",
+        "I sleep",
+        "I eat",
+        "I go"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "keliuosi"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I work",
+      "answers": [
+        "dirbu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "dirbu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I sleep",
+      "answers": [
+        "miegu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "miegu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I eat",
+      "answers": [
+        "valgau"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "valgau"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I go",
+      "answers": [
+        "einu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "einu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I wake up",
+      "answers": [
+        "keliuosi"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "keliuosi"
+      }
+    }
+  ]
+}

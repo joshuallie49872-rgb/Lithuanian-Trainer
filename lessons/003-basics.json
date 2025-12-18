@@ -1,0 +1,33 @@
+{
+  "id": "003-basics",
+  "title": "Basics 3",
+  "items": [
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "noriu", "choices": ["I want", "I have", "I am", "I go"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"noriu"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "turiu", "choices": ["I have", "I want", "I see", "I eat"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"turiu"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "valgau", "choices": ["I eat", "I drink", "I go", "I see"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"valgau"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "geriu", "choices": ["I drink", "I eat", "I want", "I go"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"geriu"} },
+
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "vanduo", "choices": ["water", "coffee", "beer", "milk"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"vanduo"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "kava", "choices": ["coffee", "tea", "water", "juice"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"kava"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "alus", "choices": ["beer", "wine", "water", "milk"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"alus"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "duona", "choices": ["bread", "meat", "rice", "soup"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"duona"} },
+
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "I want water", "answers": ["noriu vandens"], "tts": {"lang":"lt-LT","text":"noriu vandens"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "I want coffee", "answers": ["noriu kavos"], "tts": {"lang":"lt-LT","text":"noriu kavos"} },
+
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "čia", "choices": ["here", "there", "now", "later"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"čia"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "ten", "choices": ["there", "here", "today", "tomorrow"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"ten"} },
+
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "Here is water", "answers": ["čia vanduo"], "tts": {"lang":"lt-LT","text":"čia vanduo"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "There is coffee", "answers": ["ten kava"], "tts": {"lang":"lt-LT","text":"ten kava"} },
+
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "prašau vandens", "choices": ["water please", "thank you", "I want bread", "no water"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"prašau vandens"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "noriu alaus", "choices": ["I want beer", "I drink beer", "I have beer", "Beer is here"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"noriu alaus"} },
+
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "I drink water", "answers": ["geriu vandenį"], "tts": {"lang":"lt-LT","text":"geriu vandenį"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "I eat bread", "answers": ["valgau duoną"], "tts": {"lang":"lt-LT","text":"valgau duoną"} },
+
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "gerai", "choices": ["okay", "bad", "hungry", "thirsty"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"gerai"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "Okay", "answers": ["gerai"], "tts": {"lang":"lt-LT","text":"gerai"} }
+  ]
+}

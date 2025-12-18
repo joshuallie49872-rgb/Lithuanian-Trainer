@@ -1,0 +1,268 @@
+{
+  "id": "193-stories",
+  "title": "Stories & Narratives",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "istorija",
+      "choices": [
+        "story",
+        "history",
+        "news",
+        "book"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "istorija"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pasakojimas",
+      "choices": [
+        "narrative",
+        "meeting",
+        "problem",
+        "event"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pasakojimas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pradžia",
+      "choices": [
+        "beginning",
+        "end",
+        "middle",
+        "result"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pradžia"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pabaiga",
+      "choices": [
+        "ending",
+        "start",
+        "problem",
+        "plan"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pabaiga"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "nutiko",
+      "choices": [
+        "happened",
+        "planned",
+        "said",
+        "left"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nutiko"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Story",
+      "answers": [
+        "istorija"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "istorija"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Narrative",
+      "answers": [
+        "pasakojimas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pasakojimas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Beginning",
+      "answers": [
+        "pradžia",
+        "pradzia"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pradžia"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "End",
+      "answers": [
+        "pabaiga"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pabaiga"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Happened",
+      "answers": [
+        "nutiko"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nutiko"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "istorija",
+      "choices": [
+        "story",
+        "history",
+        "news",
+        "book"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "istorija"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pasakojimas",
+      "choices": [
+        "narrative",
+        "meeting",
+        "problem",
+        "event"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pasakojimas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pradžia",
+      "choices": [
+        "beginning",
+        "end",
+        "middle",
+        "result"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pradžia"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pabaiga",
+      "choices": [
+        "ending",
+        "start",
+        "problem",
+        "plan"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pabaiga"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "nutiko",
+      "choices": [
+        "happened",
+        "planned",
+        "said",
+        "left"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nutiko"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Story",
+      "answers": [
+        "istorija"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "istorija"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Narrative",
+      "answers": [
+        "pasakojimas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pasakojimas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Beginning",
+      "answers": [
+        "pradžia",
+        "pradzia"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pradžia"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "End",
+      "answers": [
+        "pabaiga"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pabaiga"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Happened",
+      "answers": [
+        "nutiko"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nutiko"
+      }
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "id": "067-health",
+  "title": "Health & Body",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "skausmas",
+      "choices": [
+        "pain",
+        "health",
+        "body",
+        "head"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "skausmas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "galva",
+      "choices": [
+        "head",
+        "arm",
+        "leg",
+        "hand"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "galva"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "ranką",
+      "choices": [
+        "hand",
+        "leg",
+        "foot",
+        "head"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ranką"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "koja",
+      "choices": [
+        "leg",
+        "arm",
+        "hand",
+        "head"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "koja"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "gydytojas",
+      "choices": [
+        "doctor",
+        "nurse",
+        "police",
+        "teacher"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "gydytojas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Pain",
+      "answers": [
+        "skausmas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "skausmas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Head",
+      "answers": [
+        "galva"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "galva"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Hand",
+      "answers": [
+        "ranka",
+        "ranką"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ranka"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Leg",
+      "answers": [
+        "koja"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "koja"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Doctor",
+      "answers": [
+        "gydytojas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "gydytojas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "skausmas",
+      "choices": [
+        "pain",
+        "health",
+        "body",
+        "head"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "skausmas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "galva",
+      "choices": [
+        "head",
+        "arm",
+        "leg",
+        "hand"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "galva"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "ranką",
+      "choices": [
+        "hand",
+        "leg",
+        "foot",
+        "head"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ranką"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "koja",
+      "choices": [
+        "leg",
+        "arm",
+        "hand",
+        "head"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "koja"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "gydytojas",
+      "choices": [
+        "doctor",
+        "nurse",
+        "police",
+        "teacher"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "gydytojas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Pain",
+      "answers": [
+        "skausmas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "skausmas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Head",
+      "answers": [
+        "galva"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "galva"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Hand",
+      "answers": [
+        "ranka",
+        "ranką"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ranka"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Leg",
+      "answers": [
+        "koja"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "koja"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Doctor",
+      "answers": [
+        "gydytojas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "gydytojas"
+      }
+    }
+  ]
+}

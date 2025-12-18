@@ -1,0 +1,266 @@
+{
+  "id": "036-travel",
+  "title": "Travel & Transport",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "autobusas",
+      "choices": [
+        "bus",
+        "train",
+        "car",
+        "plane"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "autobusas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "traukinys",
+      "choices": [
+        "train",
+        "bus",
+        "plane",
+        "taxi"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "traukinys"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "bilietas",
+      "choices": [
+        "ticket",
+        "passport",
+        "hotel",
+        "map"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "bilietas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "taksi",
+      "choices": [
+        "taxi",
+        "bus",
+        "train",
+        "bike"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "taksi"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kelionė",
+      "choices": [
+        "trip",
+        "hotel",
+        "food",
+        "street"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kelionė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Bus",
+      "answers": [
+        "autobusas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "autobusas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Train",
+      "answers": [
+        "traukinys"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "traukinys"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Ticket",
+      "answers": [
+        "bilietas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "bilietas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Taxi",
+      "answers": [
+        "taksi"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "taksi"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Trip",
+      "answers": [
+        "kelionė"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kelionė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "autobusas",
+      "choices": [
+        "bus",
+        "train",
+        "car",
+        "plane"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "autobusas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "traukinys",
+      "choices": [
+        "train",
+        "bus",
+        "plane",
+        "taxi"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "traukinys"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "bilietas",
+      "choices": [
+        "ticket",
+        "passport",
+        "hotel",
+        "map"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "bilietas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "taksi",
+      "choices": [
+        "taxi",
+        "bus",
+        "train",
+        "bike"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "taksi"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kelionė",
+      "choices": [
+        "trip",
+        "hotel",
+        "food",
+        "street"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kelionė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Bus",
+      "answers": [
+        "autobusas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "autobusas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Train",
+      "answers": [
+        "traukinys"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "traukinys"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Ticket",
+      "answers": [
+        "bilietas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "bilietas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Taxi",
+      "answers": [
+        "taksi"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "taksi"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Trip",
+      "answers": [
+        "kelionė"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kelionė"
+      }
+    }
+  ]
+}

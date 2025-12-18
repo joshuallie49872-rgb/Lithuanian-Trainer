@@ -1,0 +1,268 @@
+{
+  "id": "038-emergency",
+  "title": "Emergencies & Help",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "pagalba",
+      "choices": [
+        "help",
+        "danger",
+        "hospital",
+        "police"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pagalba"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "policija",
+      "choices": [
+        "police",
+        "doctor",
+        "fire",
+        "hotel"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "policija"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "ligoninė",
+      "choices": [
+        "hospital",
+        "pharmacy",
+        "hotel",
+        "school"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ligoninė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "gaisras",
+      "choices": [
+        "fire",
+        "accident",
+        "storm",
+        "flood"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "gaisras"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pavojus",
+      "choices": [
+        "danger",
+        "help",
+        "safe",
+        "slow"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pavojus"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Help",
+      "answers": [
+        "pagalba"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pagalba"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Police",
+      "answers": [
+        "policija"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "policija"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Hospital",
+      "answers": [
+        "ligoninė",
+        "ligonine"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ligoninė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Fire",
+      "answers": [
+        "gaisras"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "gaisras"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Danger",
+      "answers": [
+        "pavojus"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pavojus"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pagalba",
+      "choices": [
+        "help",
+        "danger",
+        "hospital",
+        "police"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pagalba"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "policija",
+      "choices": [
+        "police",
+        "doctor",
+        "fire",
+        "hotel"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "policija"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "ligoninė",
+      "choices": [
+        "hospital",
+        "pharmacy",
+        "hotel",
+        "school"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ligoninė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "gaisras",
+      "choices": [
+        "fire",
+        "accident",
+        "storm",
+        "flood"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "gaisras"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pavojus",
+      "choices": [
+        "danger",
+        "help",
+        "safe",
+        "slow"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pavojus"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Help",
+      "answers": [
+        "pagalba"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pagalba"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Police",
+      "answers": [
+        "policija"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "policija"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Hospital",
+      "answers": [
+        "ligoninė",
+        "ligonine"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ligoninė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Fire",
+      "answers": [
+        "gaisras"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "gaisras"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Danger",
+      "answers": [
+        "pavojus"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pavojus"
+      }
+    }
+  ]
+}

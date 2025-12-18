@@ -1,0 +1,272 @@
+{
+  "id": "025-weather",
+  "title": "Weather & Plans",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "oras",
+      "choices": [
+        "weather",
+        "wind",
+        "rain",
+        "sun"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "oras"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "lietus",
+      "choices": [
+        "rain",
+        "snow",
+        "sun",
+        "wind"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "lietus"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "saulė",
+      "choices": [
+        "sun",
+        "rain",
+        "cloud",
+        "wind"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "saulė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "šalta",
+      "choices": [
+        "cold",
+        "hot",
+        "warm",
+        "cool"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šalta"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "karšta",
+      "choices": [
+        "hot",
+        "cold",
+        "warm",
+        "cool"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "karšta"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Weather",
+      "answers": [
+        "oras"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "oras"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Rain",
+      "answers": [
+        "lietus"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "lietus"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Sun",
+      "answers": [
+        "saulė",
+        "saule"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "saulė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Cold",
+      "answers": [
+        "šalta",
+        "salta"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šalta"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Hot",
+      "answers": [
+        "karšta",
+        "karsta"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "karšta"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "oras",
+      "choices": [
+        "weather",
+        "wind",
+        "rain",
+        "sun"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "oras"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "lietus",
+      "choices": [
+        "rain",
+        "snow",
+        "sun",
+        "wind"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "lietus"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "saulė",
+      "choices": [
+        "sun",
+        "rain",
+        "cloud",
+        "wind"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "saulė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "šalta",
+      "choices": [
+        "cold",
+        "hot",
+        "warm",
+        "cool"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šalta"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "karšta",
+      "choices": [
+        "hot",
+        "cold",
+        "warm",
+        "cool"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "karšta"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Weather",
+      "answers": [
+        "oras"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "oras"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Rain",
+      "answers": [
+        "lietus"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "lietus"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Sun",
+      "answers": [
+        "saulė",
+        "saule"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "saulė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Cold",
+      "answers": [
+        "šalta",
+        "salta"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šalta"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Hot",
+      "answers": [
+        "karšta",
+        "karsta"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "karšta"
+      }
+    }
+  ]
+}

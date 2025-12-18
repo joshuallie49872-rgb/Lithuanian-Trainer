@@ -1,0 +1,269 @@
+{
+  "id": "006-food",
+  "title": "Food & Drinks",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "vanduo",
+      "choices": [
+        "water",
+        "wine",
+        "coffee",
+        "beer"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vanduo"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kava",
+      "choices": [
+        "coffee",
+        "tea",
+        "beer",
+        "milk"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kava"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "arbata",
+      "choices": [
+        "tea",
+        "coffee",
+        "juice",
+        "water"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "arbata"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "alus",
+      "choices": [
+        "beer",
+        "wine",
+        "juice",
+        "milk"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "alus"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "vynas",
+      "choices": [
+        "wine",
+        "beer",
+        "water",
+        "tea"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vynas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Water",
+      "answers": [
+        "vanduo"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vanduo"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Coffee",
+      "answers": [
+        "kava"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kava"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Tea",
+      "answers": [
+        "arbata"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "arbata"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Beer",
+      "answers": [
+        "alus"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "alus"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Wine",
+      "answers": [
+        "vynas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vynas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "duona",
+      "choices": [
+        "bread",
+        "meat",
+        "cheese",
+        "fish"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "duona"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "sūris",
+      "choices": [
+        "cheese",
+        "meat",
+        "fish",
+        "bread"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "sūris"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "mėsa",
+      "choices": [
+        "meat",
+        "fish",
+        "cheese",
+        "bread"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "mėsa"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "žuvis",
+      "choices": [
+        "fish",
+        "meat",
+        "cheese",
+        "bread"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "žuvis"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Bread",
+      "answers": [
+        "duona"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "duona"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Cheese",
+      "answers": [
+        "sūris",
+        "suris"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "sūris"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Meat",
+      "answers": [
+        "mėsa",
+        "mesa"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "mėsa"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Fish",
+      "answers": [
+        "žuvis",
+        "zuvis"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "žuvis"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "skanu",
+      "choices": [
+        "tasty",
+        "bad",
+        "hot",
+        "cold"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "skanu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Tasty",
+      "answers": [
+        "skanu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "skanu"
+      }
+    }
+  ]
+}

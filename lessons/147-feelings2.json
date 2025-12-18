@@ -1,0 +1,270 @@
+{
+  "id": "147-feelings2",
+  "title": "Feelings & Reactions",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "nustebęs",
+      "choices": [
+        "surprised",
+        "angry",
+        "happy",
+        "sad"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nustebęs"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "piktas",
+      "choices": [
+        "angry",
+        "happy",
+        "sad",
+        "tired"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "piktas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "ramus",
+      "choices": [
+        "calm",
+        "angry",
+        "sad",
+        "busy"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ramus"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "susirūpinęs",
+      "choices": [
+        "worried",
+        "happy",
+        "calm",
+        "excited"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susirūpinęs"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "patenkintas",
+      "choices": [
+        "satisfied",
+        "angry",
+        "sad",
+        "tired"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "patenkintas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Surprised",
+      "answers": [
+        "nustebęs",
+        "nustebes"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nustebęs"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Angry",
+      "answers": [
+        "piktas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "piktas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Calm",
+      "answers": [
+        "ramus"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ramus"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Worried",
+      "answers": [
+        "susirūpinęs",
+        "susirupines"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susirūpinęs"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Satisfied",
+      "answers": [
+        "patenkintas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "patenkintas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "nustebęs",
+      "choices": [
+        "surprised",
+        "angry",
+        "happy",
+        "sad"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nustebęs"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "piktas",
+      "choices": [
+        "angry",
+        "happy",
+        "sad",
+        "tired"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "piktas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "ramus",
+      "choices": [
+        "calm",
+        "angry",
+        "sad",
+        "busy"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ramus"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "susirūpinęs",
+      "choices": [
+        "worried",
+        "happy",
+        "calm",
+        "excited"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susirūpinęs"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "patenkintas",
+      "choices": [
+        "satisfied",
+        "angry",
+        "sad",
+        "tired"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "patenkintas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Surprised",
+      "answers": [
+        "nustebęs",
+        "nustebes"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nustebęs"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Angry",
+      "answers": [
+        "piktas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "piktas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Calm",
+      "answers": [
+        "ramus"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ramus"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Worried",
+      "answers": [
+        "susirūpinęs",
+        "susirupines"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susirūpinęs"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Satisfied",
+      "answers": [
+        "patenkintas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "patenkintas"
+      }
+    }
+  ]
+}

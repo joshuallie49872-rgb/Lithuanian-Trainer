@@ -1,0 +1,270 @@
+{
+  "id": "011-shopping",
+  "title": "Shopping & Money",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "parduotuvė",
+      "choices": [
+        "shop",
+        "market",
+        "bank",
+        "hotel"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "parduotuvė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kaina",
+      "choices": [
+        "price",
+        "money",
+        "change",
+        "bill"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kaina"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pinigai",
+      "choices": [
+        "money",
+        "card",
+        "shop",
+        "bag"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pinigai"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kortelė",
+      "choices": [
+        "card",
+        "cash",
+        "bank",
+        "bill"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kortelė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "grynais",
+      "choices": [
+        "cash",
+        "card",
+        "cheap",
+        "expensive"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "grynais"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Shop",
+      "answers": [
+        "parduotuvė",
+        "parduotuve"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "parduotuvė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Price",
+      "answers": [
+        "kaina"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kaina"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Money",
+      "answers": [
+        "pinigai"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pinigai"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Card",
+      "answers": [
+        "kortelė",
+        "kortele"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kortelė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Cash",
+      "answers": [
+        "grynais"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "grynais"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "parduotuvė",
+      "choices": [
+        "shop",
+        "market",
+        "bank",
+        "hotel"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "parduotuvė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kaina",
+      "choices": [
+        "price",
+        "money",
+        "change",
+        "bill"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kaina"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pinigai",
+      "choices": [
+        "money",
+        "card",
+        "shop",
+        "bag"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pinigai"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kortelė",
+      "choices": [
+        "card",
+        "cash",
+        "bank",
+        "bill"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kortelė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "grynais",
+      "choices": [
+        "cash",
+        "card",
+        "cheap",
+        "expensive"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "grynais"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Shop",
+      "answers": [
+        "parduotuvė",
+        "parduotuve"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "parduotuvė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Price",
+      "answers": [
+        "kaina"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kaina"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Money",
+      "answers": [
+        "pinigai"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pinigai"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Card",
+      "answers": [
+        "kortelė",
+        "kortele"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kortelė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Cash",
+      "answers": [
+        "grynais"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "grynais"
+      }
+    }
+  ]
+}

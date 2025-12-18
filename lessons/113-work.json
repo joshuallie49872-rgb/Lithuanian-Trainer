@@ -1,0 +1,268 @@
+{
+  "id": "113-work",
+  "title": "Work & Office",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "darbas",
+      "choices": [
+        "work",
+        "office",
+        "job",
+        "money"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "darbas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "biuras",
+      "choices": [
+        "office",
+        "school",
+        "shop",
+        "hotel"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "biuras"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "susitikimas",
+      "choices": [
+        "meeting",
+        "party",
+        "call",
+        "break"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susitikimas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "el. paštas",
+      "choices": [
+        "email",
+        "phone",
+        "letter",
+        "message"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "el. paštas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "projektas",
+      "choices": [
+        "project",
+        "problem",
+        "plan",
+        "report"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "projektas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Work",
+      "answers": [
+        "darbas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "darbas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Office",
+      "answers": [
+        "biuras"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "biuras"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Meeting",
+      "answers": [
+        "susitikimas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susitikimas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Email",
+      "answers": [
+        "el. paštas",
+        "pastas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "el. paštas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Project",
+      "answers": [
+        "projektas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "projektas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "darbas",
+      "choices": [
+        "work",
+        "office",
+        "job",
+        "money"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "darbas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "biuras",
+      "choices": [
+        "office",
+        "school",
+        "shop",
+        "hotel"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "biuras"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "susitikimas",
+      "choices": [
+        "meeting",
+        "party",
+        "call",
+        "break"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susitikimas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "el. paštas",
+      "choices": [
+        "email",
+        "phone",
+        "letter",
+        "message"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "el. paštas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "projektas",
+      "choices": [
+        "project",
+        "problem",
+        "plan",
+        "report"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "projektas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Work",
+      "answers": [
+        "darbas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "darbas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Office",
+      "answers": [
+        "biuras"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "biuras"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Meeting",
+      "answers": [
+        "susitikimas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susitikimas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Email",
+      "answers": [
+        "el. paštas",
+        "pastas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "el. paštas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Project",
+      "answers": [
+        "projektas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "projektas"
+      }
+    }
+  ]
+}

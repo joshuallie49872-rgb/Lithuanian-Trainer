@@ -1,0 +1,266 @@
+{
+  "id": "005-questions",
+  "title": "Questions & Answers",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "kas",
+      "choices": [
+        "who",
+        "what",
+        "where",
+        "when"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "ką",
+      "choices": [
+        "what",
+        "who",
+        "where",
+        "why"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ką"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kur",
+      "choices": [
+        "where",
+        "when",
+        "how",
+        "who"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kur"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kada",
+      "choices": [
+        "when",
+        "where",
+        "why",
+        "how"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kada"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kodėl",
+      "choices": [
+        "why",
+        "when",
+        "where",
+        "who"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kodėl"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Who?",
+      "answers": [
+        "kas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "What?",
+      "answers": [
+        "ką"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ką"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Where?",
+      "answers": [
+        "kur"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kur"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "When?",
+      "answers": [
+        "kada"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kada"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Why?",
+      "answers": [
+        "kodėl"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kodėl"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "taip",
+      "choices": [
+        "yes",
+        "no",
+        "maybe",
+        "later"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "taip"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "ne",
+      "choices": [
+        "no",
+        "yes",
+        "later",
+        "always"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ne"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Yes",
+      "answers": [
+        "taip"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "taip"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "No",
+      "answers": [
+        "ne"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "ne"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "gerai",
+      "choices": [
+        "okay",
+        "bad",
+        "no",
+        "later"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "gerai"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Okay",
+      "answers": [
+        "gerai"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "gerai"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "blogai",
+      "choices": [
+        "badly",
+        "well",
+        "good",
+        "okay"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "blogai"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Badly",
+      "answers": [
+        "blogai"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "blogai"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kaip",
+      "choices": [
+        "how",
+        "why",
+        "when",
+        "where"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kaip"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "How?",
+      "answers": [
+        "kaip"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kaip"
+      }
+    }
+  ]
+}

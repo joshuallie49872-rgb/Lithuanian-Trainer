@@ -1,0 +1,1123 @@
+{
+  "region": "westus2",
+  "voice": "lt-LT-LeonasNeural",
+  "generatedAt": "2025-12-17T23:07:18.039Z",
+  "items": [
+    {
+      "text": "labas",
+      "id": "6cc9a313fd56dc22",
+      "file": "audio\\lt\\6cc9a313fd56dc22_labas.mp3",
+      "sourceFile": "001-basics.json"
+    },
+    {
+      "text": "ačiū",
+      "id": "2fc2e4750aea8b65",
+      "file": "audio\\lt\\2fc2e4750aea8b65_a_i.mp3",
+      "sourceFile": "001-basics.json"
+    },
+    {
+      "text": "taip",
+      "id": "9b43c701f3c1c79c",
+      "file": "audio\\lt\\9b43c701f3c1c79c_taip.mp3",
+      "sourceFile": "001-basics.json"
+    },
+    {
+      "text": "ne",
+      "id": "f60d2a2f7993d582",
+      "file": "audio\\lt\\f60d2a2f7993d582_ne.mp3",
+      "sourceFile": "001-basics.json"
+    },
+    {
+      "text": "prašau",
+      "id": "785db9d8ab283b68",
+      "file": "audio\\lt\\785db9d8ab283b68_pra_au.mp3",
+      "sourceFile": "001-basics.json"
+    },
+    {
+      "text": "atsiprašau",
+      "id": "1a295d7d63d036aa",
+      "file": "audio\\lt\\1a295d7d63d036aa_atsipra_au.mp3",
+      "sourceFile": "001-basics.json"
+    },
+    {
+      "text": "viso gero",
+      "id": "db20135bb30045a4",
+      "file": "audio\\lt\\db20135bb30045a4_viso_gero.mp3",
+      "sourceFile": "001-basics.json"
+    },
+    {
+      "text": "iki",
+      "id": "6394210ce21ac27f",
+      "file": "audio\\lt\\6394210ce21ac27f_iki.mp3",
+      "sourceFile": "001-basics.json"
+    },
+    {
+      "text": "gerai",
+      "id": "86bebd0a3ffecb31",
+      "file": "audio\\lt\\86bebd0a3ffecb31_gerai.mp3",
+      "sourceFile": "001-basics.json"
+    },
+    {
+      "text": "blogai",
+      "id": "c2ae7a8f177cc553",
+      "file": "audio\\lt\\c2ae7a8f177cc553_blogai.mp3",
+      "sourceFile": "001-basics.json"
+    },
+    {
+      "text": "vienas",
+      "id": "a4d19272eb869d92",
+      "file": "audio\\lt\\a4d19272eb869d92_vienas.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "du",
+      "id": "fa114377ef35b25e",
+      "file": "audio\\lt\\fa114377ef35b25e_du.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "trys",
+      "id": "12ca740608d6e57e",
+      "file": "audio\\lt\\12ca740608d6e57e_trys.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "keturi",
+      "id": "c3afb97c05c0faa6",
+      "file": "audio\\lt\\c3afb97c05c0faa6_keturi.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "penki",
+      "id": "a7e8bce50ac08a62",
+      "file": "audio\\lt\\a7e8bce50ac08a62_penki.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "raudona",
+      "id": "40ffd2385fe78547",
+      "file": "audio\\lt\\40ffd2385fe78547_raudona.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "mėlyna",
+      "id": "71d301ed70544e19",
+      "file": "audio\\lt\\71d301ed70544e19_m_lyna.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "žalia",
+      "id": "7c66c1acf9c2fc4e",
+      "file": "audio\\lt\\7c66c1acf9c2fc4e_alia.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "juoda",
+      "id": "a8bfee90859f5d99",
+      "file": "audio\\lt\\a8bfee90859f5d99_juoda.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "balta",
+      "id": "63fb3e162e0d03cc",
+      "file": "audio\\lt\\63fb3e162e0d03cc_balta.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "mama",
+      "id": "99df988b77e60a17",
+      "file": "audio\\lt\\99df988b77e60a17_mama.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "tėtis",
+      "id": "5b3ad430b6c512e8",
+      "file": "audio\\lt\\5b3ad430b6c512e8_t_tis.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "brolis",
+      "id": "0d2c1165d9a8902f",
+      "file": "audio\\lt\\0d2c1165d9a8902f_brolis.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "sesuo",
+      "id": "18787b12e7dab67b",
+      "file": "audio\\lt\\18787b12e7dab67b_sesuo.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "šeima",
+      "id": "bb9f980a167bfee9",
+      "file": "audio\\lt\\bb9f980a167bfee9_eima.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "vanduo",
+      "id": "ff5718fe2d0ceaa0",
+      "file": "audio\\lt\\ff5718fe2d0ceaa0_vanduo.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "kava",
+      "id": "f00b78600728240b",
+      "file": "audio\\lt\\f00b78600728240b_kava.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "duona",
+      "id": "faaa354a516f8fcc",
+      "file": "audio\\lt\\faaa354a516f8fcc_duona.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "viešbutis",
+      "id": "e51610f4a32db6a6",
+      "file": "audio\\lt\\e51610f4a32db6a6_vie_butis.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "bilietas",
+      "id": "22dfe5563e3fa8a0",
+      "file": "audio\\lt\\22dfe5563e3fa8a0_bilietas.mp3",
+      "sourceFile": "002-basics.json"
+    },
+    {
+      "text": "noriu",
+      "id": "eacbe4be5acf9567",
+      "file": "audio\\lt\\eacbe4be5acf9567_noriu.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "turiu",
+      "id": "b0c1f67927340b6c",
+      "file": "audio\\lt\\b0c1f67927340b6c_turiu.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "valgau",
+      "id": "96916a806143f1fc",
+      "file": "audio\\lt\\96916a806143f1fc_valgau.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "geriu",
+      "id": "69f79a0180052d07",
+      "file": "audio\\lt\\69f79a0180052d07_geriu.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "alus",
+      "id": "a7d1b47a7c13140a",
+      "file": "audio\\lt\\a7d1b47a7c13140a_alus.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "noriu vandens",
+      "id": "b9faec2fdecfb193",
+      "file": "audio\\lt\\b9faec2fdecfb193_noriu_vandens.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "noriu kavos",
+      "id": "0105c06d73eb297d",
+      "file": "audio\\lt\\0105c06d73eb297d_noriu_kavos.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "čia",
+      "id": "d2d85f086f22b23a",
+      "file": "audio\\lt\\d2d85f086f22b23a_ia.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "ten",
+      "id": "dd3562449147ffc7",
+      "file": "audio\\lt\\dd3562449147ffc7_ten.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "čia vanduo",
+      "id": "67ad89917148a0c4",
+      "file": "audio\\lt\\67ad89917148a0c4_ia_vanduo.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "ten kava",
+      "id": "f75eb21bdfd14acd",
+      "file": "audio\\lt\\f75eb21bdfd14acd_ten_kava.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "prašau vandens",
+      "id": "8df7e0c936557d58",
+      "file": "audio\\lt\\8df7e0c936557d58_pra_au_vandens.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "noriu alaus",
+      "id": "a7ab8aee029da1c9",
+      "file": "audio\\lt\\a7ab8aee029da1c9_noriu_alaus.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "geriu vandenį",
+      "id": "544cb8b0436f6989",
+      "file": "audio\\lt\\544cb8b0436f6989_geriu_vanden.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "valgau duoną",
+      "id": "9a9c08b3ccb54905",
+      "file": "audio\\lt\\9a9c08b3ccb54905_valgau_duon.mp3",
+      "sourceFile": "003-basics.json"
+    },
+    {
+      "text": "kairė",
+      "id": "74131bf065dc25ed",
+      "file": "audio\\lt\\74131bf065dc25ed_kair.mp3",
+      "sourceFile": "004-travel.json"
+    },
+    {
+      "text": "dešinė",
+      "id": "3c7eef49ca7c1bc2",
+      "file": "audio\\lt\\3c7eef49ca7c1bc2_de_in.mp3",
+      "sourceFile": "004-travel.json"
+    },
+    {
+      "text": "tiesiai",
+      "id": "ae03c6492dc75a10",
+      "file": "audio\\lt\\ae03c6492dc75a10_tiesiai.mp3",
+      "sourceFile": "004-travel.json"
+    },
+    {
+      "text": "miestas",
+      "id": "9891c10241ddbcf0",
+      "file": "audio\\lt\\9891c10241ddbcf0_miestas.mp3",
+      "sourceFile": "004-travel.json"
+    },
+    {
+      "text": "gatvė",
+      "id": "f6c413130d9e83f7",
+      "file": "audio\\lt\\f6c413130d9e83f7_gatv.mp3",
+      "sourceFile": "004-travel.json"
+    },
+    {
+      "text": "stotis",
+      "id": "f14f4ea62a07ddb1",
+      "file": "audio\\lt\\f14f4ea62a07ddb1_stotis.mp3",
+      "sourceFile": "004-travel.json"
+    },
+    {
+      "text": "oro uostas",
+      "id": "0bce50c11697b185",
+      "file": "audio\\lt\\0bce50c11697b185_oro_uostas.mp3",
+      "sourceFile": "004-travel.json"
+    },
+    {
+      "text": "kas",
+      "id": "21313a463d0b8597",
+      "file": "audio\\lt\\21313a463d0b8597_kas.mp3",
+      "sourceFile": "005-questions.json"
+    },
+    {
+      "text": "ką",
+      "id": "db75407102bcda48",
+      "file": "audio\\lt\\db75407102bcda48_k.mp3",
+      "sourceFile": "005-questions.json"
+    },
+    {
+      "text": "kur",
+      "id": "8bcac5dabf062198",
+      "file": "audio\\lt\\8bcac5dabf062198_kur.mp3",
+      "sourceFile": "005-questions.json"
+    },
+    {
+      "text": "kada",
+      "id": "d3fe10f2d47c2fad",
+      "file": "audio\\lt\\d3fe10f2d47c2fad_kada.mp3",
+      "sourceFile": "005-questions.json"
+    },
+    {
+      "text": "kodėl",
+      "id": "082b5ef8a3eed2ce",
+      "file": "audio\\lt\\082b5ef8a3eed2ce_kod_l.mp3",
+      "sourceFile": "005-questions.json"
+    },
+    {
+      "text": "kaip",
+      "id": "aa07cae7866051d8",
+      "file": "audio\\lt\\aa07cae7866051d8_kaip.mp3",
+      "sourceFile": "005-questions.json"
+    },
+    {
+      "text": "arbata",
+      "id": "17477a92eef1b96e",
+      "file": "audio\\lt\\17477a92eef1b96e_arbata.mp3",
+      "sourceFile": "006-food.json"
+    },
+    {
+      "text": "vynas",
+      "id": "b2524ee920250c4d",
+      "file": "audio\\lt\\b2524ee920250c4d_vynas.mp3",
+      "sourceFile": "006-food.json"
+    },
+    {
+      "text": "sūris",
+      "id": "ff2e1fed111bd2b0",
+      "file": "audio\\lt\\ff2e1fed111bd2b0_s_ris.mp3",
+      "sourceFile": "006-food.json"
+    },
+    {
+      "text": "mėsa",
+      "id": "7361bdf33e7c81e9",
+      "file": "audio\\lt\\7361bdf33e7c81e9_m_sa.mp3",
+      "sourceFile": "006-food.json"
+    },
+    {
+      "text": "žuvis",
+      "id": "ce0f9928094a1a74",
+      "file": "audio\\lt\\ce0f9928094a1a74_uvis.mp3",
+      "sourceFile": "006-food.json"
+    },
+    {
+      "text": "skanu",
+      "id": "72bc338d29260c5e",
+      "file": "audio\\lt\\72bc338d29260c5e_skanu.mp3",
+      "sourceFile": "006-food.json"
+    },
+    {
+      "text": "meniu",
+      "id": "a7c4b4ca59dcc026",
+      "file": "audio\\lt\\a7c4b4ca59dcc026_meniu.mp3",
+      "sourceFile": "007-cafe.json"
+    },
+    {
+      "text": "sąskaita",
+      "id": "4a9e3bd597c07799",
+      "file": "audio\\lt\\4a9e3bd597c07799_s_skaita.mp3",
+      "sourceFile": "007-cafe.json"
+    },
+    {
+      "text": "stalas",
+      "id": "193f70f3c0a6af82",
+      "file": "audio\\lt\\193f70f3c0a6af82_stalas.mp3",
+      "sourceFile": "007-cafe.json"
+    },
+    {
+      "text": "parduotuvė",
+      "id": "d24898e70a927d08",
+      "file": "audio\\lt\\d24898e70a927d08_parduotuv.mp3",
+      "sourceFile": "010-shopping.json"
+    },
+    {
+      "text": "kaina",
+      "id": "7ba91774681eded7",
+      "file": "audio\\lt\\7ba91774681eded7_kaina.mp3",
+      "sourceFile": "010-shopping.json"
+    },
+    {
+      "text": "pinigai",
+      "id": "47bc772e45691c9d",
+      "file": "audio\\lt\\47bc772e45691c9d_pinigai.mp3",
+      "sourceFile": "010-shopping.json"
+    },
+    {
+      "text": "kortelė",
+      "id": "8dfb95b6f30ee4a0",
+      "file": "audio\\lt\\8dfb95b6f30ee4a0_kortel.mp3",
+      "sourceFile": "010-shopping.json"
+    },
+    {
+      "text": "grynais",
+      "id": "9a917bd1525b71d5",
+      "file": "audio\\lt\\9a917bd1525b71d5_grynais.mp3",
+      "sourceFile": "010-shopping.json"
+    },
+    {
+      "text": "šiandien",
+      "id": "4fca8b91d9cd1ee3",
+      "file": "audio\\lt\\4fca8b91d9cd1ee3_iandien.mp3",
+      "sourceFile": "013-time.json"
+    },
+    {
+      "text": "rytoj",
+      "id": "115bf1305751667a",
+      "file": "audio\\lt\\115bf1305751667a_rytoj.mp3",
+      "sourceFile": "013-time.json"
+    },
+    {
+      "text": "vakar",
+      "id": "310d112788ade3bf",
+      "file": "audio\\lt\\310d112788ade3bf_vakar.mp3",
+      "sourceFile": "013-time.json"
+    },
+    {
+      "text": "dabar",
+      "id": "9945f4a1b7837b4a",
+      "file": "audio\\lt\\9945f4a1b7837b4a_dabar.mp3",
+      "sourceFile": "013-time.json"
+    },
+    {
+      "text": "valanda",
+      "id": "0364a4bae7cddd3b",
+      "file": "audio\\lt\\0364a4bae7cddd3b_valanda.mp3",
+      "sourceFile": "013-time.json"
+    },
+    {
+      "text": "dirbu",
+      "id": "80e18af0fac384c5",
+      "file": "audio\\lt\\80e18af0fac384c5_dirbu.mp3",
+      "sourceFile": "016-daily.json"
+    },
+    {
+      "text": "miegu",
+      "id": "ea04dfcfd8af1b73",
+      "file": "audio\\lt\\ea04dfcfd8af1b73_miegu.mp3",
+      "sourceFile": "016-daily.json"
+    },
+    {
+      "text": "einu",
+      "id": "84aa0ad60af0059c",
+      "file": "audio\\lt\\84aa0ad60af0059c_einu.mp3",
+      "sourceFile": "016-daily.json"
+    },
+    {
+      "text": "keliuosi",
+      "id": "c576d82017c7a01e",
+      "file": "audio\\lt\\c576d82017c7a01e_keliuosi.mp3",
+      "sourceFile": "016-daily.json"
+    },
+    {
+      "text": "malonu",
+      "id": "61acf2573589eafb",
+      "file": "audio\\lt\\61acf2573589eafb_malonu.mp3",
+      "sourceFile": "019-social.json"
+    },
+    {
+      "text": "geras",
+      "id": "00e08c687c5e6272",
+      "file": "audio\\lt\\00e08c687c5e6272_geras.mp3",
+      "sourceFile": "019-social.json"
+    },
+    {
+      "text": "vėliau",
+      "id": "a08cb7dabae8caaa",
+      "file": "audio\\lt\\a08cb7dabae8caaa_v_liau.mp3",
+      "sourceFile": "020-plans.json"
+    },
+    {
+      "text": "planuoju",
+      "id": "7c7bed5a312f8f47",
+      "file": "audio\\lt\\7c7bed5a312f8f47_planuoju.mp3",
+      "sourceFile": "020-plans.json"
+    },
+    {
+      "text": "susitiksime",
+      "id": "37650d2c2c605fdc",
+      "file": "audio\\lt\\37650d2c2c605fdc_susitiksime.mp3",
+      "sourceFile": "020-plans.json"
+    },
+    {
+      "text": "autobusas",
+      "id": "3a15d97648b5a68d",
+      "file": "audio\\lt\\3a15d97648b5a68d_autobusas.mp3",
+      "sourceFile": "021-travel.json"
+    },
+    {
+      "text": "traukinys",
+      "id": "180e5625e6549d23",
+      "file": "audio\\lt\\180e5625e6549d23_traukinys.mp3",
+      "sourceFile": "021-travel.json"
+    },
+    {
+      "text": "taksi",
+      "id": "ece5170527106fe0",
+      "file": "audio\\lt\\ece5170527106fe0_taksi.mp3",
+      "sourceFile": "021-travel.json"
+    },
+    {
+      "text": "kelionė",
+      "id": "bbca19fe89a70d5d",
+      "file": "audio\\lt\\bbca19fe89a70d5d_kelion.mp3",
+      "sourceFile": "021-travel.json"
+    },
+    {
+      "text": "kambarys",
+      "id": "3ec44662f57984a0",
+      "file": "audio\\lt\\3ec44662f57984a0_kambarys.mp3",
+      "sourceFile": "022-hotel.json"
+    },
+    {
+      "text": "raktas",
+      "id": "1bd8c54db1ed4adb",
+      "file": "audio\\lt\\1bd8c54db1ed4adb_raktas.mp3",
+      "sourceFile": "022-hotel.json"
+    },
+    {
+      "text": "lova",
+      "id": "d6d6dd48ce518e59",
+      "file": "audio\\lt\\d6d6dd48ce518e59_lova.mp3",
+      "sourceFile": "022-hotel.json"
+    },
+    {
+      "text": "registracija",
+      "id": "f1c4837f2f30c19b",
+      "file": "audio\\lt\\f1c4837f2f30c19b_registracija.mp3",
+      "sourceFile": "022-hotel.json"
+    },
+    {
+      "text": "nakvynė",
+      "id": "cd36d0b4af3c5199",
+      "file": "audio\\lt\\cd36d0b4af3c5199_nakvyn.mp3",
+      "sourceFile": "022-hotel.json"
+    },
+    {
+      "text": "pagalba",
+      "id": "73d35c78876ccca4",
+      "file": "audio\\lt\\73d35c78876ccca4_pagalba.mp3",
+      "sourceFile": "023-emergency.json"
+    },
+    {
+      "text": "policija",
+      "id": "c13c1068f0ee483d",
+      "file": "audio\\lt\\c13c1068f0ee483d_policija.mp3",
+      "sourceFile": "023-emergency.json"
+    },
+    {
+      "text": "ligoninė",
+      "id": "c1e5c98fd31a8167",
+      "file": "audio\\lt\\c1e5c98fd31a8167_ligonin.mp3",
+      "sourceFile": "023-emergency.json"
+    },
+    {
+      "text": "gaisras",
+      "id": "f34c9c05b7f69133",
+      "file": "audio\\lt\\f34c9c05b7f69133_gaisras.mp3",
+      "sourceFile": "023-emergency.json"
+    },
+    {
+      "text": "pavojus",
+      "id": "c25a51d9106d2edb",
+      "file": "audio\\lt\\c25a51d9106d2edb_pavojus.mp3",
+      "sourceFile": "023-emergency.json"
+    },
+    {
+      "text": "draugas",
+      "id": "66418a2f66586098",
+      "file": "audio\\lt\\66418a2f66586098_draugas.mp3",
+      "sourceFile": "024-social.json"
+    },
+    {
+      "text": "vardas",
+      "id": "7eb740fdc691a28c",
+      "file": "audio\\lt\\7eb740fdc691a28c_vardas.mp3",
+      "sourceFile": "024-social.json"
+    },
+    {
+      "text": "susitikti",
+      "id": "ab20b4122b009599",
+      "file": "audio\\lt\\ab20b4122b009599_susitikti.mp3",
+      "sourceFile": "024-social.json"
+    },
+    {
+      "text": "oras",
+      "id": "a1ce7ae924adbc50",
+      "file": "audio\\lt\\a1ce7ae924adbc50_oras.mp3",
+      "sourceFile": "025-weather.json"
+    },
+    {
+      "text": "lietus",
+      "id": "7a3c3432c64dbbbf",
+      "file": "audio\\lt\\7a3c3432c64dbbbf_lietus.mp3",
+      "sourceFile": "025-weather.json"
+    },
+    {
+      "text": "saulė",
+      "id": "d3edad798deb40c1",
+      "file": "audio\\lt\\d3edad798deb40c1_saul.mp3",
+      "sourceFile": "025-weather.json"
+    },
+    {
+      "text": "šalta",
+      "id": "7cc8be7751b1da6c",
+      "file": "audio\\lt\\7cc8be7751b1da6c_alta.mp3",
+      "sourceFile": "025-weather.json"
+    },
+    {
+      "text": "karšta",
+      "id": "12c8f484f0997ce9",
+      "file": "audio\\lt\\12c8f484f0997ce9_kar_ta.mp3",
+      "sourceFile": "025-weather.json"
+    },
+    {
+      "text": "pasas",
+      "id": "3728c74a624cdadc",
+      "file": "audio\\lt\\3728c74a624cdadc_pasas.mp3",
+      "sourceFile": "041-travel2.json"
+    },
+    {
+      "text": "sienos",
+      "id": "4c174f0d49789e8c",
+      "file": "audio\\lt\\4c174f0d49789e8c_sienos.mp3",
+      "sourceFile": "041-travel2.json"
+    },
+    {
+      "text": "keliauti",
+      "id": "70b5cf3d9669b9d0",
+      "file": "audio\\lt\\70b5cf3d9669b9d0_keliauti.mp3",
+      "sourceFile": "041-travel2.json"
+    },
+    {
+      "text": "lagaminas",
+      "id": "e8f79c30b551a339",
+      "file": "audio\\lt\\e8f79c30b551a339_lagaminas.mp3",
+      "sourceFile": "041-travel2.json"
+    },
+    {
+      "text": "muitinė",
+      "id": "12eade71344191d8",
+      "file": "audio\\lt\\12eade71344191d8_muitin.mp3",
+      "sourceFile": "041-travel2.json"
+    },
+    {
+      "text": "siena",
+      "id": "5de5f7ed4762f3e6",
+      "file": "audio\\lt\\5de5f7ed4762f3e6_siena.mp3",
+      "sourceFile": "041-travel2.json"
+    },
+    {
+      "text": "laimingas",
+      "id": "c859f12c7b244bec",
+      "file": "audio\\lt\\c859f12c7b244bec_laimingas.mp3",
+      "sourceFile": "042-social2.json"
+    },
+    {
+      "text": "liūdnas",
+      "id": "1fb63c19de2a8b6d",
+      "file": "audio\\lt\\1fb63c19de2a8b6d_li_dnas.mp3",
+      "sourceFile": "042-social2.json"
+    },
+    {
+      "text": "pavargęs",
+      "id": "b1cb4b441eb0dbbe",
+      "file": "audio\\lt\\b1cb4b441eb0dbbe_pavarg_s.mp3",
+      "sourceFile": "042-social2.json"
+    },
+    {
+      "text": "džiaugiuosi",
+      "id": "d32bfc074b417b37",
+      "file": "audio\\lt\\d32bfc074b417b37_d_iaugiuosi.mp3",
+      "sourceFile": "042-social2.json"
+    },
+    {
+      "text": "bijau",
+      "id": "a2b3db6d7d1b839d",
+      "file": "audio\\lt\\a2b3db6d7d1b839d_bijau.mp3",
+      "sourceFile": "042-social2.json"
+    },
+    {
+      "text": "skausmas",
+      "id": "ffb21c68f8ea2ffd",
+      "file": "audio\\lt\\ffb21c68f8ea2ffd_skausmas.mp3",
+      "sourceFile": "043-health.json"
+    },
+    {
+      "text": "galva",
+      "id": "9fc3b91426bac559",
+      "file": "audio\\lt\\9fc3b91426bac559_galva.mp3",
+      "sourceFile": "043-health.json"
+    },
+    {
+      "text": "ranką",
+      "id": "9094f6e55b90c0cf",
+      "file": "audio\\lt\\9094f6e55b90c0cf_rank.mp3",
+      "sourceFile": "043-health.json"
+    },
+    {
+      "text": "koja",
+      "id": "8f14bfb756551c0f",
+      "file": "audio\\lt\\8f14bfb756551c0f_koja.mp3",
+      "sourceFile": "043-health.json"
+    },
+    {
+      "text": "gydytojas",
+      "id": "2eef8107bd1e7750",
+      "file": "audio\\lt\\2eef8107bd1e7750_gydytojas.mp3",
+      "sourceFile": "043-health.json"
+    },
+    {
+      "text": "ranka",
+      "id": "89372048fae8f8f5",
+      "file": "audio\\lt\\89372048fae8f8f5_ranka.mp3",
+      "sourceFile": "043-health.json"
+    },
+    {
+      "text": "man patinka",
+      "id": "6a6196bc205c741f",
+      "file": "audio\\lt\\6a6196bc205c741f_man_patinka.mp3",
+      "sourceFile": "044-opinions.json"
+    },
+    {
+      "text": "nepatinka",
+      "id": "6eebdf33eee9dea1",
+      "file": "audio\\lt\\6eebdf33eee9dea1_nepatinka.mp3",
+      "sourceFile": "044-opinions.json"
+    },
+    {
+      "text": "mėgstu",
+      "id": "d247009e93985a09",
+      "file": "audio\\lt\\d247009e93985a09_m_gstu.mp3",
+      "sourceFile": "044-opinions.json"
+    },
+    {
+      "text": "nenoriu",
+      "id": "bcd15b6e98e13e06",
+      "file": "audio\\lt\\bcd15b6e98e13e06_nenoriu.mp3",
+      "sourceFile": "044-opinions.json"
+    },
+    {
+      "text": "svarbu",
+      "id": "21288d9594c3e738",
+      "file": "audio\\lt\\21288d9594c3e738_svarbu.mp3",
+      "sourceFile": "044-opinions.json"
+    },
+    {
+      "text": "darbas",
+      "id": "df079d3ef60e9e2a",
+      "file": "audio\\lt\\df079d3ef60e9e2a_darbas.mp3",
+      "sourceFile": "081-work.json"
+    },
+    {
+      "text": "biuras",
+      "id": "da12bec9fae64caa",
+      "file": "audio\\lt\\da12bec9fae64caa_biuras.mp3",
+      "sourceFile": "081-work.json"
+    },
+    {
+      "text": "susitikimas",
+      "id": "4ef61702036cc990",
+      "file": "audio\\lt\\4ef61702036cc990_susitikimas.mp3",
+      "sourceFile": "081-work.json"
+    },
+    {
+      "text": "el. paštas",
+      "id": "1efab0f45082c4a8",
+      "file": "audio\\lt\\1efab0f45082c4a8_el_pa_tas.mp3",
+      "sourceFile": "081-work.json"
+    },
+    {
+      "text": "projektas",
+      "id": "8028bcbc89d0175e",
+      "file": "audio\\lt\\8028bcbc89d0175e_projektas.mp3",
+      "sourceFile": "081-work.json"
+    },
+    {
+      "text": "namai",
+      "id": "8d93297edb648732",
+      "file": "audio\\lt\\8d93297edb648732_namai.mp3",
+      "sourceFile": "082-home.json"
+    },
+    {
+      "text": "butas",
+      "id": "3702da8b54c9fe36",
+      "file": "audio\\lt\\3702da8b54c9fe36_butas.mp3",
+      "sourceFile": "082-home.json"
+    },
+    {
+      "text": "virtuvė",
+      "id": "8c354632d92ec42d",
+      "file": "audio\\lt\\8c354632d92ec42d_virtuv.mp3",
+      "sourceFile": "082-home.json"
+    },
+    {
+      "text": "vonios kambarys",
+      "id": "5d5063a6c2c58300",
+      "file": "audio\\lt\\5d5063a6c2c58300_vonios_kambarys.mp3",
+      "sourceFile": "082-home.json"
+    },
+    {
+      "text": "švara",
+      "id": "5fb181738a117116",
+      "file": "audio\\lt\\5fb181738a117116_vara.mp3",
+      "sourceFile": "082-home.json"
+    },
+    {
+      "text": "atgal",
+      "id": "90f773b50962a4d3",
+      "file": "audio\\lt\\90f773b50962a4d3_atgal.mp3",
+      "sourceFile": "083-directions.json"
+    },
+    {
+      "text": "arti",
+      "id": "def1ef8a42b1c43b",
+      "file": "audio\\lt\\def1ef8a42b1c43b_arti.mp3",
+      "sourceFile": "083-directions.json"
+    },
+    {
+      "text": "telefonas",
+      "id": "d2a0eb466ed05f27",
+      "file": "audio\\lt\\d2a0eb466ed05f27_telefonas.mp3",
+      "sourceFile": "084-tech.json"
+    },
+    {
+      "text": "kompiuteris",
+      "id": "434a8ebdf3ba67a6",
+      "file": "audio\\lt\\434a8ebdf3ba67a6_kompiuteris.mp3",
+      "sourceFile": "084-tech.json"
+    },
+    {
+      "text": "internetas",
+      "id": "8415e7c39c027a90",
+      "file": "audio\\lt\\8415e7c39c027a90_internetas.mp3",
+      "sourceFile": "084-tech.json"
+    },
+    {
+      "text": "programa",
+      "id": "e7d92c1fed9e967d",
+      "file": "audio\\lt\\e7d92c1fed9e967d_programa.mp3",
+      "sourceFile": "084-tech.json"
+    },
+    {
+      "text": "žinutė",
+      "id": "f843e76ee96929e5",
+      "file": "audio\\lt\\f843e76ee96929e5_inut.mp3",
+      "sourceFile": "084-tech.json"
+    },
+    {
+      "text": "pusryčiai",
+      "id": "910a4747dab44102",
+      "file": "audio\\lt\\910a4747dab44102_pusry_iai.mp3",
+      "sourceFile": "121-food2.json"
+    },
+    {
+      "text": "pietūs",
+      "id": "0ae5e5aed4493007",
+      "file": "audio\\lt\\0ae5e5aed4493007_piet_s.mp3",
+      "sourceFile": "121-food2.json"
+    },
+    {
+      "text": "vakarienė",
+      "id": "b643abe393090263",
+      "file": "audio\\lt\\b643abe393090263_vakarien.mp3",
+      "sourceFile": "121-food2.json"
+    },
+    {
+      "text": "alkanas",
+      "id": "4344061ad5d9681e",
+      "file": "audio\\lt\\4344061ad5d9681e_alkanas.mp3",
+      "sourceFile": "121-food2.json"
+    },
+    {
+      "text": "brangu",
+      "id": "255f828f184a73a7",
+      "file": "audio\\lt\\255f828f184a73a7_brangu.mp3",
+      "sourceFile": "122-shopping2.json"
+    },
+    {
+      "text": "pigu",
+      "id": "ed0cfce149c3f9f5",
+      "file": "audio\\lt\\ed0cfce149c3f9f5_pigu.mp3",
+      "sourceFile": "122-shopping2.json"
+    },
+    {
+      "text": "nuolaida",
+      "id": "f143fbe6e8df3373",
+      "file": "audio\\lt\\f143fbe6e8df3373_nuolaida.mp3",
+      "sourceFile": "122-shopping2.json"
+    },
+    {
+      "text": "kasininkas",
+      "id": "067de1a6551171b3",
+      "file": "audio\\lt\\067de1a6551171b3_kasininkas.mp3",
+      "sourceFile": "122-shopping2.json"
+    },
+    {
+      "text": "čekis",
+      "id": "3c50bbc7e4245ec3",
+      "file": "audio\\lt\\3c50bbc7e4245ec3_ekis.mp3",
+      "sourceFile": "122-shopping2.json"
+    },
+    {
+      "text": "nustebęs",
+      "id": "10b107c1948f0d0c",
+      "file": "audio\\lt\\10b107c1948f0d0c_nusteb_s.mp3",
+      "sourceFile": "123-feelings2.json"
+    },
+    {
+      "text": "piktas",
+      "id": "a8b4cc73cca3319c",
+      "file": "audio\\lt\\a8b4cc73cca3319c_piktas.mp3",
+      "sourceFile": "123-feelings2.json"
+    },
+    {
+      "text": "ramus",
+      "id": "edaa5d452fa41b12",
+      "file": "audio\\lt\\edaa5d452fa41b12_ramus.mp3",
+      "sourceFile": "123-feelings2.json"
+    },
+    {
+      "text": "susirūpinęs",
+      "id": "c0b98210e22d8ab4",
+      "file": "audio\\lt\\c0b98210e22d8ab4_susir_pin_s.mp3",
+      "sourceFile": "123-feelings2.json"
+    },
+    {
+      "text": "patenkintas",
+      "id": "4dc65d9eb4d42b9a",
+      "file": "audio\\lt\\4dc65d9eb4d42b9a_patenkintas.mp3",
+      "sourceFile": "123-feelings2.json"
+    },
+    {
+      "text": "šventė",
+      "id": "3d32a507d2143778",
+      "file": "audio\\lt\\3d32a507d2143778_vent.mp3",
+      "sourceFile": "124-culture.json"
+    },
+    {
+      "text": "tradicija",
+      "id": "fc3c8073aa1c22cb",
+      "file": "audio\\lt\\fc3c8073aa1c22cb_tradicija.mp3",
+      "sourceFile": "124-culture.json"
+    },
+    {
+      "text": "paprotys",
+      "id": "97678f14e19d8fab",
+      "file": "audio\\lt\\97678f14e19d8fab_paprotys.mp3",
+      "sourceFile": "124-culture.json"
+    },
+    {
+      "text": "laisvalaikis",
+      "id": "9f948dc6b03a518a",
+      "file": "audio\\lt\\9f948dc6b03a518a_laisvalaikis.mp3",
+      "sourceFile": "124-culture.json"
+    },
+    {
+      "text": "renginys",
+      "id": "ee6e60fac28ab009",
+      "file": "audio\\lt\\ee6e60fac28ab009_renginys.mp3",
+      "sourceFile": "124-culture.json"
+    },
+    {
+      "text": "istorija",
+      "id": "f8134ec042414dde",
+      "file": "audio\\lt\\f8134ec042414dde_istorija.mp3",
+      "sourceFile": "161-stories.json"
+    },
+    {
+      "text": "pasakojimas",
+      "id": "6c51d1f103194480",
+      "file": "audio\\lt\\6c51d1f103194480_pasakojimas.mp3",
+      "sourceFile": "161-stories.json"
+    },
+    {
+      "text": "pradžia",
+      "id": "69cacd99405a1b8a",
+      "file": "audio\\lt\\69cacd99405a1b8a_prad_ia.mp3",
+      "sourceFile": "161-stories.json"
+    },
+    {
+      "text": "pabaiga",
+      "id": "1f1ea00f40904e44",
+      "file": "audio\\lt\\1f1ea00f40904e44_pabaiga.mp3",
+      "sourceFile": "161-stories.json"
+    },
+    {
+      "text": "nutiko",
+      "id": "7b26d50054b8d7ee",
+      "file": "audio\\lt\\7b26d50054b8d7ee_nutiko.mp3",
+      "sourceFile": "161-stories.json"
+    },
+    {
+      "text": "manau",
+      "id": "bf9d6ae94da25553",
+      "file": "audio\\lt\\bf9d6ae94da25553_manau.mp3",
+      "sourceFile": "162-opinions2.json"
+    },
+    {
+      "text": "sutinku",
+      "id": "b9d2c58fa3c7729b",
+      "file": "audio\\lt\\b9d2c58fa3c7729b_sutinku.mp3",
+      "sourceFile": "162-opinions2.json"
+    },
+    {
+      "text": "nesutinku",
+      "id": "90de2750d0541496",
+      "file": "audio\\lt\\90de2750d0541496_nesutinku.mp3",
+      "sourceFile": "162-opinions2.json"
+    },
+    {
+      "text": "nuomonė",
+      "id": "f79b49074cf79504",
+      "file": "audio\\lt\\f79b49074cf79504_nuomon.mp3",
+      "sourceFile": "162-opinions2.json"
+    },
+    {
+      "text": "argumentas",
+      "id": "683b21cab35ec6ba",
+      "file": "audio\\lt\\683b21cab35ec6ba_argumentas.mp3",
+      "sourceFile": "162-opinions2.json"
+    },
+    {
+      "text": "sprendimas",
+      "id": "270074f87ec8e3c9",
+      "file": "audio\\lt\\270074f87ec8e3c9_sprendimas.mp3",
+      "sourceFile": "163-advancedlife.json"
+    },
+    {
+      "text": "problema",
+      "id": "c98484f0d20db923",
+      "file": "audio\\lt\\c98484f0d20db923_problema.mp3",
+      "sourceFile": "163-advancedlife.json"
+    },
+    {
+      "text": "pasirinkimas",
+      "id": "766137cd0a9b6477",
+      "file": "audio\\lt\\766137cd0a9b6477_pasirinkimas.mp3",
+      "sourceFile": "163-advancedlife.json"
+    },
+    {
+      "text": "patirtis",
+      "id": "90e0b9d8fb610f10",
+      "file": "audio\\lt\\90e0b9d8fb610f10_patirtis.mp3",
+      "sourceFile": "163-advancedlife.json"
+    },
+    {
+      "text": "rezultatas",
+      "id": "92c03c0974b9c02e",
+      "file": "audio\\lt\\92c03c0974b9c02e_rezultatas.mp3",
+      "sourceFile": "163-advancedlife.json"
+    },
+    {
+      "text": "žiniasklaida",
+      "id": "df3f52c544c6edc3",
+      "file": "audio\\lt\\df3f52c544c6edc3_iniasklaida.mp3",
+      "sourceFile": "164-culture2.json"
+    },
+    {
+      "text": "visuomenė",
+      "id": "0a38c12cc8bd2b6f",
+      "file": "audio\\lt\\0a38c12cc8bd2b6f_visuomen.mp3",
+      "sourceFile": "164-culture2.json"
+    },
+    {
+      "text": "nuomonės",
+      "id": "80a2cff475b8f26c",
+      "file": "audio\\lt\\80a2cff475b8f26c_nuomon_s.mp3",
+      "sourceFile": "164-culture2.json"
+    },
+    {
+      "text": "diskusija",
+      "id": "d38b235b91b68462",
+      "file": "audio\\lt\\d38b235b91b68462_diskusija.mp3",
+      "sourceFile": "164-culture2.json"
+    },
+    {
+      "text": "kultūra",
+      "id": "bcd92fcfa6b56ef7",
+      "file": "audio\\lt\\bcd92fcfa6b56ef7_kult_ra.mp3",
+      "sourceFile": "164-culture2.json"
+    }
+  ]
+}

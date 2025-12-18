@@ -1,0 +1,268 @@
+{
+  "id": "064-opinions",
+  "title": "Opinions & Preferences",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "man patinka",
+      "choices": [
+        "I like",
+        "I want",
+        "I need",
+        "I go"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "man patinka"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "nepatinka",
+      "choices": [
+        "I don't like",
+        "I like",
+        "I want",
+        "I need"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nepatinka"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "mėgstu",
+      "choices": [
+        "I enjoy",
+        "I hate",
+        "I go",
+        "I eat"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "mėgstu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "nenoriu",
+      "choices": [
+        "I don't want",
+        "I want",
+        "I like",
+        "I need"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nenoriu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "svarbu",
+      "choices": [
+        "important",
+        "cheap",
+        "easy",
+        "fast"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "svarbu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I like",
+      "answers": [
+        "man patinka"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "man patinka"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I don't like",
+      "answers": [
+        "nepatinka"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nepatinka"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I enjoy",
+      "answers": [
+        "mėgstu",
+        "megstu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "mėgstu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I don't want",
+      "answers": [
+        "nenoriu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nenoriu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Important",
+      "answers": [
+        "svarbu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "svarbu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "man patinka",
+      "choices": [
+        "I like",
+        "I want",
+        "I need",
+        "I go"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "man patinka"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "nepatinka",
+      "choices": [
+        "I don't like",
+        "I like",
+        "I want",
+        "I need"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nepatinka"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "mėgstu",
+      "choices": [
+        "I enjoy",
+        "I hate",
+        "I go",
+        "I eat"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "mėgstu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "nenoriu",
+      "choices": [
+        "I don't want",
+        "I want",
+        "I like",
+        "I need"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nenoriu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "svarbu",
+      "choices": [
+        "important",
+        "cheap",
+        "easy",
+        "fast"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "svarbu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I like",
+      "answers": [
+        "man patinka"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "man patinka"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I don't like",
+      "answers": [
+        "nepatinka"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nepatinka"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I enjoy",
+      "answers": [
+        "mėgstu",
+        "megstu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "mėgstu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I don't want",
+      "answers": [
+        "nenoriu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nenoriu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Important",
+      "answers": [
+        "svarbu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "svarbu"
+      }
+    }
+  ]
+}

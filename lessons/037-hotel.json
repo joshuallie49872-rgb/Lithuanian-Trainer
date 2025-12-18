@@ -1,0 +1,266 @@
+{
+  "id": "037-hotel",
+  "title": "Hotel & Stay",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "kambarys",
+      "choices": [
+        "room",
+        "key",
+        "hotel",
+        "bed"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kambarys"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "raktas",
+      "choices": [
+        "key",
+        "door",
+        "room",
+        "window"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "raktas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "lova",
+      "choices": [
+        "bed",
+        "table",
+        "chair",
+        "door"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "lova"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "registracija",
+      "choices": [
+        "check-in",
+        "breakfast",
+        "exit",
+        "key"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "registracija"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "nakvynė",
+      "choices": [
+        "overnight",
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nakvynė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Room",
+      "answers": [
+        "kambarys"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kambarys"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Key",
+      "answers": [
+        "raktas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "raktas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Bed",
+      "answers": [
+        "lova"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "lova"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Check-in",
+      "answers": [
+        "registracija"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "registracija"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Overnight",
+      "answers": [
+        "nakvynė"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nakvynė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kambarys",
+      "choices": [
+        "room",
+        "key",
+        "hotel",
+        "bed"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kambarys"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "raktas",
+      "choices": [
+        "key",
+        "door",
+        "room",
+        "window"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "raktas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "lova",
+      "choices": [
+        "bed",
+        "table",
+        "chair",
+        "door"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "lova"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "registracija",
+      "choices": [
+        "check-in",
+        "breakfast",
+        "exit",
+        "key"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "registracija"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "nakvynė",
+      "choices": [
+        "overnight",
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nakvynė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Room",
+      "answers": [
+        "kambarys"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kambarys"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Key",
+      "answers": [
+        "raktas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "raktas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Bed",
+      "answers": [
+        "lova"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "lova"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Check-in",
+      "answers": [
+        "registracija"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "registracija"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Overnight",
+      "answers": [
+        "nakvynė"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nakvynė"
+      }
+    }
+  ]
+}

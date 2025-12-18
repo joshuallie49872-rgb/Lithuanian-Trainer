@@ -1,0 +1,268 @@
+{
+  "id": "014-time",
+  "title": "Time & Dates",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "šiandien",
+      "choices": [
+        "today",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šiandien"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "rytoj",
+      "choices": [
+        "tomorrow",
+        "today",
+        "later",
+        "yesterday"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "rytoj"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "vakar",
+      "choices": [
+        "yesterday",
+        "today",
+        "now",
+        "later"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vakar"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "dabar",
+      "choices": [
+        "now",
+        "later",
+        "today",
+        "tomorrow"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "dabar"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "valanda",
+      "choices": [
+        "hour",
+        "minute",
+        "day",
+        "week"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "valanda"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Today",
+      "answers": [
+        "šiandien",
+        "siandien"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šiandien"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Tomorrow",
+      "answers": [
+        "rytoj"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "rytoj"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Yesterday",
+      "answers": [
+        "vakar"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vakar"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Now",
+      "answers": [
+        "dabar"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "dabar"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Hour",
+      "answers": [
+        "valanda"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "valanda"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "šiandien",
+      "choices": [
+        "today",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šiandien"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "rytoj",
+      "choices": [
+        "tomorrow",
+        "today",
+        "later",
+        "yesterday"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "rytoj"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "vakar",
+      "choices": [
+        "yesterday",
+        "today",
+        "now",
+        "later"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vakar"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "dabar",
+      "choices": [
+        "now",
+        "later",
+        "today",
+        "tomorrow"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "dabar"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "valanda",
+      "choices": [
+        "hour",
+        "minute",
+        "day",
+        "week"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "valanda"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Today",
+      "answers": [
+        "šiandien",
+        "siandien"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šiandien"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Tomorrow",
+      "answers": [
+        "rytoj"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "rytoj"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Yesterday",
+      "answers": [
+        "vakar"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vakar"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Now",
+      "answers": [
+        "dabar"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "dabar"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Hour",
+      "answers": [
+        "valanda"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "valanda"
+      }
+    }
+  ]
+}

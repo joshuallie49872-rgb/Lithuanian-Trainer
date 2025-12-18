@@ -1,0 +1,268 @@
+{
+  "id": "039-social",
+  "title": "Social & Small Talk",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "draugas",
+      "choices": [
+        "friend",
+        "family",
+        "colleague",
+        "stranger"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "draugas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "šeima",
+      "choices": [
+        "family",
+        "friend",
+        "child",
+        "parent"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šeima"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "vardas",
+      "choices": [
+        "name",
+        "address",
+        "number",
+        "city"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vardas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "malonu",
+      "choices": [
+        "nice",
+        "sorry",
+        "thanks",
+        "okay"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "malonu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "susitikti",
+      "choices": [
+        "to meet",
+        "to leave",
+        "to go",
+        "to eat"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susitikti"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Friend",
+      "answers": [
+        "draugas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "draugas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Family",
+      "answers": [
+        "šeima",
+        "seima"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šeima"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Name",
+      "answers": [
+        "vardas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vardas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Nice",
+      "answers": [
+        "malonu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "malonu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "To meet",
+      "answers": [
+        "susitikti"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susitikti"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "draugas",
+      "choices": [
+        "friend",
+        "family",
+        "colleague",
+        "stranger"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "draugas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "šeima",
+      "choices": [
+        "family",
+        "friend",
+        "child",
+        "parent"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šeima"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "vardas",
+      "choices": [
+        "name",
+        "address",
+        "number",
+        "city"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vardas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "malonu",
+      "choices": [
+        "nice",
+        "sorry",
+        "thanks",
+        "okay"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "malonu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "susitikti",
+      "choices": [
+        "to meet",
+        "to leave",
+        "to go",
+        "to eat"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susitikti"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Friend",
+      "answers": [
+        "draugas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "draugas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Family",
+      "answers": [
+        "šeima",
+        "seima"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šeima"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Name",
+      "answers": [
+        "vardas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vardas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Nice",
+      "answers": [
+        "malonu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "malonu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "To meet",
+      "answers": [
+        "susitikti"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susitikti"
+      }
+    }
+  ]
+}

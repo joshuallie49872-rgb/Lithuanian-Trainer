@@ -1,0 +1,270 @@
+{
+  "id": "070-social2",
+  "title": "Conversation & Feelings",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "laimingas",
+      "choices": [
+        "happy",
+        "sad",
+        "angry",
+        "tired"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "laimingas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "liūdnas",
+      "choices": [
+        "sad",
+        "happy",
+        "angry",
+        "excited"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "liūdnas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pavargęs",
+      "choices": [
+        "tired",
+        "happy",
+        "sad",
+        "angry"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pavargęs"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "džiaugiuosi",
+      "choices": [
+        "I am happy",
+        "I am sad",
+        "I am angry",
+        "I am tired"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "džiaugiuosi"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "bijau",
+      "choices": [
+        "I am afraid",
+        "I am hungry",
+        "I am tired",
+        "I am happy"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "bijau"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Happy",
+      "answers": [
+        "laimingas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "laimingas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Sad",
+      "answers": [
+        "liūdnas",
+        "liudnas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "liūdnas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Tired",
+      "answers": [
+        "pavargęs",
+        "pavarges"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pavargęs"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I am happy",
+      "answers": [
+        "džiaugiuosi"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "džiaugiuosi"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I am afraid",
+      "answers": [
+        "bijau"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "bijau"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "laimingas",
+      "choices": [
+        "happy",
+        "sad",
+        "angry",
+        "tired"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "laimingas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "liūdnas",
+      "choices": [
+        "sad",
+        "happy",
+        "angry",
+        "excited"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "liūdnas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pavargęs",
+      "choices": [
+        "tired",
+        "happy",
+        "sad",
+        "angry"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pavargęs"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "džiaugiuosi",
+      "choices": [
+        "I am happy",
+        "I am sad",
+        "I am angry",
+        "I am tired"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "džiaugiuosi"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "bijau",
+      "choices": [
+        "I am afraid",
+        "I am hungry",
+        "I am tired",
+        "I am happy"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "bijau"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Happy",
+      "answers": [
+        "laimingas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "laimingas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Sad",
+      "answers": [
+        "liūdnas",
+        "liudnas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "liūdnas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Tired",
+      "answers": [
+        "pavargęs",
+        "pavarges"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pavargęs"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I am happy",
+      "answers": [
+        "džiaugiuosi"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "džiaugiuosi"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I am afraid",
+      "answers": [
+        "bijau"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "bijau"
+      }
+    }
+  ]
+}

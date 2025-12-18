@@ -1,0 +1,270 @@
+{
+  "id": "020-plans",
+  "title": "Plans & Simple Future",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "šiandien",
+      "choices": [
+        "today",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šiandien"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "rytoj",
+      "choices": [
+        "tomorrow",
+        "today",
+        "later",
+        "yesterday"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "rytoj"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "vėliau",
+      "choices": [
+        "later",
+        "now",
+        "today",
+        "tomorrow"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vėliau"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "planuoju",
+      "choices": [
+        "I plan",
+        "I eat",
+        "I go",
+        "I work"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "planuoju"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "susitiksime",
+      "choices": [
+        "we will meet",
+        "we eat",
+        "we go",
+        "we sleep"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susitiksime"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Today",
+      "answers": [
+        "šiandien",
+        "siandien"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šiandien"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Tomorrow",
+      "answers": [
+        "rytoj"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "rytoj"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Later",
+      "answers": [
+        "vėliau",
+        "veliau"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vėliau"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I plan",
+      "answers": [
+        "planuoju"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "planuoju"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "We will meet",
+      "answers": [
+        "susitiksime"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susitiksime"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "šiandien",
+      "choices": [
+        "today",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šiandien"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "rytoj",
+      "choices": [
+        "tomorrow",
+        "today",
+        "later",
+        "yesterday"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "rytoj"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "vėliau",
+      "choices": [
+        "later",
+        "now",
+        "today",
+        "tomorrow"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vėliau"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "planuoju",
+      "choices": [
+        "I plan",
+        "I eat",
+        "I go",
+        "I work"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "planuoju"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "susitiksime",
+      "choices": [
+        "we will meet",
+        "we eat",
+        "we go",
+        "we sleep"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susitiksime"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Today",
+      "answers": [
+        "šiandien",
+        "siandien"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "šiandien"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Tomorrow",
+      "answers": [
+        "rytoj"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "rytoj"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Later",
+      "answers": [
+        "vėliau",
+        "veliau"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vėliau"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "I plan",
+      "answers": [
+        "planuoju"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "planuoju"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "We will meet",
+      "answers": [
+        "susitiksime"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "susitiksime"
+      }
+    }
+  ]
+}

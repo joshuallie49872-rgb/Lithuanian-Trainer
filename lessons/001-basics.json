@@ -1,0 +1,27 @@
+{
+  "id": "001-basics",
+  "title": "Basics 1",
+  "items": [
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "labas", "choices": ["hello", "thank you", "yes", "no"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"labas"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "ačiū", "choices": ["sorry", "thank you", "please", "hello"], "answerIndex": 1, "tts": {"lang":"lt-LT","text":"ačiū"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "taip", "choices": ["yes", "no", "goodbye", "please"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"taip"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "ne", "choices": ["yes", "no", "thanks", "hi"], "answerIndex": 1, "tts": {"lang":"lt-LT","text":"ne"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "prašau", "choices": ["please / you're welcome", "goodbye", "sorry", "hello"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"prašau"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "atsiprašau", "choices": ["excuse me / sorry", "please", "thanks", "yes"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"atsiprašau"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "viso gero", "choices": ["goodbye", "good morning", "good night", "see you"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"viso gero"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "iki", "choices": ["see you", "hello", "thanks", "no"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"iki"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "gerai", "choices": ["okay / good", "bad", "please", "tomorrow"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"gerai"} },
+    { "type": "choose", "prompt": "Pick the correct meaning", "lt": "blogai", "choices": ["badly", "well", "hello", "thanks"], "answerIndex": 0, "tts": {"lang":"lt-LT","text":"blogai"} },
+
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "Hello", "answers": ["labas"], "tts": {"lang":"lt-LT","text":"labas"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "Thank you", "answers": ["ačiū", "aciu"], "tts": {"lang":"lt-LT","text":"ačiū"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "Yes", "answers": ["taip"], "tts": {"lang":"lt-LT","text":"taip"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "No", "answers": ["ne"], "tts": {"lang":"lt-LT","text":"ne"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "Please", "answers": ["prašau", "prasau"], "tts": {"lang":"lt-LT","text":"prašau"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "Sorry / Excuse me", "answers": ["atsiprašau", "atsiprasau"], "tts": {"lang":"lt-LT","text":"atsiprašau"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "Goodbye", "answers": ["viso gero"], "tts": {"lang":"lt-LT","text":"viso gero"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "See you", "answers": ["iki"], "tts": {"lang":"lt-LT","text":"iki"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "Okay", "answers": ["gerai"], "tts": {"lang":"lt-LT","text":"gerai"} },
+    { "type": "translate", "prompt": "Translate to Lithuanian", "en": "Badly", "answers": ["blogai"], "tts": {"lang":"lt-LT","text":"blogai"} }
+  ]
+}

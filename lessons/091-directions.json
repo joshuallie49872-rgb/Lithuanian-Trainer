@@ -1,0 +1,270 @@
+{
+  "id": "091-directions",
+  "title": "Directions & Movement",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "kairė",
+      "choices": [
+        "left",
+        "right",
+        "straight",
+        "back"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kairė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "dešinė",
+      "choices": [
+        "right",
+        "left",
+        "straight",
+        "back"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "dešinė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "tiesiai",
+      "choices": [
+        "straight",
+        "left",
+        "right",
+        "back"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "tiesiai"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "atgal",
+      "choices": [
+        "back",
+        "forward",
+        "left",
+        "right"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "atgal"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "arti",
+      "choices": [
+        "near",
+        "far",
+        "inside",
+        "outside"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "arti"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Left",
+      "answers": [
+        "kairė",
+        "kaire"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kairė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Right",
+      "answers": [
+        "dešinė",
+        "desine"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "dešinė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Straight",
+      "answers": [
+        "tiesiai"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "tiesiai"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Back",
+      "answers": [
+        "atgal"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "atgal"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Near",
+      "answers": [
+        "arti"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "arti"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kairė",
+      "choices": [
+        "left",
+        "right",
+        "straight",
+        "back"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kairė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "dešinė",
+      "choices": [
+        "right",
+        "left",
+        "straight",
+        "back"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "dešinė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "tiesiai",
+      "choices": [
+        "straight",
+        "left",
+        "right",
+        "back"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "tiesiai"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "atgal",
+      "choices": [
+        "back",
+        "forward",
+        "left",
+        "right"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "atgal"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "arti",
+      "choices": [
+        "near",
+        "far",
+        "inside",
+        "outside"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "arti"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Left",
+      "answers": [
+        "kairė",
+        "kaire"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kairė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Right",
+      "answers": [
+        "dešinė",
+        "desine"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "dešinė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Straight",
+      "answers": [
+        "tiesiai"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "tiesiai"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Back",
+      "answers": [
+        "atgal"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "atgal"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Near",
+      "answers": [
+        "arti"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "arti"
+      }
+    }
+  ]
+}

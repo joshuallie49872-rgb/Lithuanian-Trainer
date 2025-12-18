@@ -1,0 +1,266 @@
+{
+  "id": "183-advancedlife",
+  "title": "Advanced Daily Life",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "sprendimas",
+      "choices": [
+        "solution",
+        "problem",
+        "idea",
+        "mistake"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "sprendimas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "problema",
+      "choices": [
+        "problem",
+        "solution",
+        "idea",
+        "plan"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "problema"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pasirinkimas",
+      "choices": [
+        "choice",
+        "option",
+        "decision",
+        "plan"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pasirinkimas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "patirtis",
+      "choices": [
+        "experience",
+        "story",
+        "memory",
+        "lesson"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "patirtis"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "rezultatas",
+      "choices": [
+        "result",
+        "reason",
+        "argument",
+        "idea"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "rezultatas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Solution",
+      "answers": [
+        "sprendimas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "sprendimas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Problem",
+      "answers": [
+        "problema"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "problema"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Choice",
+      "answers": [
+        "pasirinkimas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pasirinkimas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Experience",
+      "answers": [
+        "patirtis"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "patirtis"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Result",
+      "answers": [
+        "rezultatas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "rezultatas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "sprendimas",
+      "choices": [
+        "solution",
+        "problem",
+        "idea",
+        "mistake"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "sprendimas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "problema",
+      "choices": [
+        "problem",
+        "solution",
+        "idea",
+        "plan"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "problema"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pasirinkimas",
+      "choices": [
+        "choice",
+        "option",
+        "decision",
+        "plan"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pasirinkimas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "patirtis",
+      "choices": [
+        "experience",
+        "story",
+        "memory",
+        "lesson"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "patirtis"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "rezultatas",
+      "choices": [
+        "result",
+        "reason",
+        "argument",
+        "idea"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "rezultatas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Solution",
+      "answers": [
+        "sprendimas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "sprendimas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Problem",
+      "answers": [
+        "problema"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "problema"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Choice",
+      "answers": [
+        "pasirinkimas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pasirinkimas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Experience",
+      "answers": [
+        "patirtis"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "patirtis"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Result",
+      "answers": [
+        "rezultatas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "rezultatas"
+      }
+    }
+  ]
+}

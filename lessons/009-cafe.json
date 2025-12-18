@@ -1,0 +1,270 @@
+{
+  "id": "009-cafe",
+  "title": "Ordering at a Café",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "prašau",
+      "choices": [
+        "please",
+        "thanks",
+        "hello",
+        "no"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "prašau"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "meniu",
+      "choices": [
+        "menu",
+        "bill",
+        "table",
+        "drink"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "meniu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "sąskaita",
+      "choices": [
+        "bill",
+        "menu",
+        "coffee",
+        "water"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "sąskaita"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "stalas",
+      "choices": [
+        "table",
+        "chair",
+        "menu",
+        "food"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "stalas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kava",
+      "choices": [
+        "coffee",
+        "tea",
+        "beer",
+        "wine"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kava"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Menu",
+      "answers": [
+        "meniu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "meniu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Bill",
+      "answers": [
+        "sąskaita",
+        "saskaita"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "sąskaita"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Table",
+      "answers": [
+        "stalas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "stalas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Coffee",
+      "answers": [
+        "kava"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kava"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Please",
+      "answers": [
+        "prašau",
+        "prasau"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "prašau"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "prašau",
+      "choices": [
+        "please",
+        "thanks",
+        "hello",
+        "no"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "prašau"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "meniu",
+      "choices": [
+        "menu",
+        "bill",
+        "table",
+        "drink"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "meniu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "sąskaita",
+      "choices": [
+        "bill",
+        "menu",
+        "coffee",
+        "water"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "sąskaita"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "stalas",
+      "choices": [
+        "table",
+        "chair",
+        "menu",
+        "food"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "stalas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kava",
+      "choices": [
+        "coffee",
+        "tea",
+        "beer",
+        "wine"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kava"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Menu",
+      "answers": [
+        "meniu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "meniu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Bill",
+      "answers": [
+        "sąskaita",
+        "saskaita"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "sąskaita"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Table",
+      "answers": [
+        "stalas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "stalas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Coffee",
+      "answers": [
+        "kava"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kava"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Please",
+      "answers": [
+        "prašau",
+        "prasau"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "prašau"
+      }
+    }
+  ]
+}

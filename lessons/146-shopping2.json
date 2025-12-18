@@ -1,0 +1,268 @@
+{
+  "id": "146-shopping2",
+  "title": "Shopping & Services",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "brangu",
+      "choices": [
+        "expensive",
+        "cheap",
+        "free",
+        "fast"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "brangu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pigu",
+      "choices": [
+        "cheap",
+        "expensive",
+        "slow",
+        "bad"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pigu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "nuolaida",
+      "choices": [
+        "discount",
+        "price",
+        "money",
+        "tax"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nuolaida"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kasininkas",
+      "choices": [
+        "cashier",
+        "buyer",
+        "seller",
+        "manager"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kasininkas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "čekis",
+      "choices": [
+        "receipt",
+        "bill",
+        "menu",
+        "card"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "čekis"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Expensive",
+      "answers": [
+        "brangu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "brangu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Cheap",
+      "answers": [
+        "pigu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pigu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Discount",
+      "answers": [
+        "nuolaida"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nuolaida"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Cashier",
+      "answers": [
+        "kasininkas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kasininkas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Receipt",
+      "answers": [
+        "čekis",
+        "cekis"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "čekis"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "brangu",
+      "choices": [
+        "expensive",
+        "cheap",
+        "free",
+        "fast"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "brangu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pigu",
+      "choices": [
+        "cheap",
+        "expensive",
+        "slow",
+        "bad"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pigu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "nuolaida",
+      "choices": [
+        "discount",
+        "price",
+        "money",
+        "tax"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nuolaida"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "kasininkas",
+      "choices": [
+        "cashier",
+        "buyer",
+        "seller",
+        "manager"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kasininkas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "čekis",
+      "choices": [
+        "receipt",
+        "bill",
+        "menu",
+        "card"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "čekis"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Expensive",
+      "answers": [
+        "brangu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "brangu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Cheap",
+      "answers": [
+        "pigu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pigu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Discount",
+      "answers": [
+        "nuolaida"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "nuolaida"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Cashier",
+      "answers": [
+        "kasininkas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "kasininkas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Receipt",
+      "answers": [
+        "čekis",
+        "cekis"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "čekis"
+      }
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "id": "157-food2",
+  "title": "Food & Dining (Expanded)",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "pusryčiai",
+      "choices": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pusryčiai"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pietūs",
+      "choices": [
+        "lunch",
+        "breakfast",
+        "dinner",
+        "snack"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pietūs"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "vakarienė",
+      "choices": [
+        "dinner",
+        "lunch",
+        "breakfast",
+        "snack"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vakarienė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "skanu",
+      "choices": [
+        "tasty",
+        "bad",
+        "cold",
+        "hot"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "skanu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "alkanas",
+      "choices": [
+        "hungry",
+        "full",
+        "thirsty",
+        "tired"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "alkanas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Breakfast",
+      "answers": [
+        "pusryčiai",
+        "pusryciai"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pusryčiai"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Lunch",
+      "answers": [
+        "pietūs",
+        "pietus"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pietūs"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Dinner",
+      "answers": [
+        "vakarienė",
+        "vakariene"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vakarienė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Tasty",
+      "answers": [
+        "skanu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "skanu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Hungry",
+      "answers": [
+        "alkanas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "alkanas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pusryčiai",
+      "choices": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pusryčiai"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pietūs",
+      "choices": [
+        "lunch",
+        "breakfast",
+        "dinner",
+        "snack"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pietūs"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "vakarienė",
+      "choices": [
+        "dinner",
+        "lunch",
+        "breakfast",
+        "snack"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vakarienė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "skanu",
+      "choices": [
+        "tasty",
+        "bad",
+        "cold",
+        "hot"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "skanu"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "alkanas",
+      "choices": [
+        "hungry",
+        "full",
+        "thirsty",
+        "tired"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "alkanas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Breakfast",
+      "answers": [
+        "pusryčiai",
+        "pusryciai"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pusryčiai"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Lunch",
+      "answers": [
+        "pietūs",
+        "pietus"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pietūs"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Dinner",
+      "answers": [
+        "vakarienė",
+        "vakariene"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "vakarienė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Tasty",
+      "answers": [
+        "skanu"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "skanu"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Hungry",
+      "answers": [
+        "alkanas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "alkanas"
+      }
+    }
+  ]
+}

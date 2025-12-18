@@ -1,0 +1,270 @@
+{
+  "id": "053-travel2",
+  "title": "Advanced Travel",
+  "items": [
+    {
+      "type": "choose",
+      "lt": "pasas",
+      "choices": [
+        "passport",
+        "ticket",
+        "hotel",
+        "map"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pasas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "sienos",
+      "choices": [
+        "borders",
+        "streets",
+        "doors",
+        "cities"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "sienos"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "keliauti",
+      "choices": [
+        "to travel",
+        "to stay",
+        "to eat",
+        "to sleep"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "keliauti"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "lagaminas",
+      "choices": [
+        "suitcase",
+        "bag",
+        "ticket",
+        "passport"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "lagaminas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "muitinė",
+      "choices": [
+        "customs",
+        "hotel",
+        "airport",
+        "police"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "muitinė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Passport",
+      "answers": [
+        "pasas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pasas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Border",
+      "answers": [
+        "siena",
+        "sienos"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "siena"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "To travel",
+      "answers": [
+        "keliauti"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "keliauti"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Suitcase",
+      "answers": [
+        "lagaminas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "lagaminas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Customs",
+      "answers": [
+        "muitinė",
+        "muitine"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "muitinė"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "pasas",
+      "choices": [
+        "passport",
+        "ticket",
+        "hotel",
+        "map"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pasas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "sienos",
+      "choices": [
+        "borders",
+        "streets",
+        "doors",
+        "cities"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "sienos"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "keliauti",
+      "choices": [
+        "to travel",
+        "to stay",
+        "to eat",
+        "to sleep"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "keliauti"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "lagaminas",
+      "choices": [
+        "suitcase",
+        "bag",
+        "ticket",
+        "passport"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "lagaminas"
+      }
+    },
+    {
+      "type": "choose",
+      "lt": "muitinė",
+      "choices": [
+        "customs",
+        "hotel",
+        "airport",
+        "police"
+      ],
+      "answerIndex": 0,
+      "tts": {
+        "lang": "lt-LT",
+        "text": "muitinė"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Passport",
+      "answers": [
+        "pasas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "pasas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Border",
+      "answers": [
+        "siena",
+        "sienos"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "siena"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "To travel",
+      "answers": [
+        "keliauti"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "keliauti"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Suitcase",
+      "answers": [
+        "lagaminas"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "lagaminas"
+      }
+    },
+    {
+      "type": "translate",
+      "en": "Customs",
+      "answers": [
+        "muitinė",
+        "muitine"
+      ],
+      "tts": {
+        "lang": "lt-LT",
+        "text": "muitinė"
+      }
+    }
+  ]
+}
