@@ -48,6 +48,7 @@ body{
   flex-wrap: wrap;
 }
 
+/* Base button look (existing) */
 button{
   padding: 10px 12px;
   border-radius: 12px;
@@ -291,4 +292,259 @@ input:focus{
   }
   .mikasImg{ width: 165px; }
   .mikasBubble{ max-width: 165px; font-size: 13px; }
+}
+
+/* ========================================================= */
+/* ACCOUNT / AUTH UI (NEW) — fixes "plain text / generic UI"  */
+/* ========================================================= */
+
+/* New button classes (optional, but index.html uses these) */
+.btn{
+  border: 1px solid rgba(0,0,0,0.10);
+  background: #fff;
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+}
+
+.btn:hover{ transform: translateY(-1px); filter: brightness(1.01); }
+.btn:active{ transform: translateY(0px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+.btn:disabled{ opacity: .55; cursor: not-allowed; box-shadow: none; transform: none; }
+
+.btn-primary{
+  background: linear-gradient(180deg, #F4C430, #E9B400);
+  border-color: rgba(0,0,0,0.08);
+}
+
+.btn-secondary{
+  background: linear-gradient(180deg, #7BBF9A, #6FAF8E);
+  border-color: rgba(0,0,0,0.08);
+}
+
+.btn-warn{
+  background: linear-gradient(180deg, #F28B7D, #E07A5F);
+  border-color: rgba(0,0,0,0.08);
+  color: #2F2F2F;
+}
+
+.btn-ghost{
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(6px);
+}
+
+.btn-ghost.danger{
+  border-color: rgba(224, 122, 95, 0.45);
+}
+
+.btn-account{
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.15);
+  display: inline-block;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.8);
+}
+.dot.on{ background: #58CC77; }
+
+/* Modal */
+body.modal-open{ overflow: hidden; }
+
+.modal{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.modal-backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.35);
+  backdrop-filter: blur(4px);
+}
+
+.modal-card{
+  position: relative;
+  width: min(520px, calc(100vw - 28px));
+  margin: 72px auto;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 22px;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.20);
+  padding: 18px 18px 16px;
+}
+
+.modal-head{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.modal-title{
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.modal-sub{
+  font-size: 13px;
+  color: var(--textSoft);
+  margin-top: 4px;
+}
+
+.icon-btn{
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.75);
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.pill-row{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 12px 0 14px;
+}
+
+.pill{
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 247, 237, 0.9);
+  border: 1px solid rgba(0,0,0,0.08);
+  color: var(--text);
+}
+
+/* Google button */
+.btn-google{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.10);
+  padding: 12px 14px;
+  width: 100%;
+}
+
+.g-badge{
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+
+/* Auth form */
+.field{ display: block; margin-top: 12px; }
+
+.field span{
+  display: block;
+  font-size: 12px;
+  color: var(--textSoft);
+  margin-bottom: 6px;
+}
+
+/* Ensure modal inputs look consistent even with global input{} */
+.field input{
+  width: 100%;
+  height: 48px;
+  max-width: none;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.9);
+  padding: 0 14px;
+  font-size: 15px;
+  outline: none;
+}
+
+.field input:focus{
+  border-color: rgba(244, 196, 48, 0.75);
+  box-shadow: 0 0 0 4px rgba(244, 196, 48, 0.20);
+}
+
+.row{
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+.row .btn{ flex: 1; }
+
+.divider{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 8px;
+  color: var(--textSoft);
+  font-size: 12px;
+}
+.divider::before,
+.divider::after{
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: rgba(0,0,0,0.10);
+}
+
+.msg{
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text);
+  background: rgba(111, 175, 142, 0.12);
+  border: 1px solid rgba(111, 175, 142, 0.25);
+  border-radius: 14px;
+  padding: 10px 12px;
+  display: none;
+}
+.msg.error{
+  background: rgba(224, 122, 95, 0.12);
+  border-color: rgba(224, 122, 95, 0.25);
+}
+
+/* Signed in block */
+.signed-panel{ margin-top: 6px; }
+
+.user-row{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(255, 247, 237, 0.7);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.avatar{
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid rgba(0,0,0,0.10);
+}
+
+.user-name{
+  font-weight: 800;
+  font-size: 14px;
+}
+.user-email{
+  font-size: 12px;
+  color: var(--textSoft);
+  margin-top: 2px;
 }
