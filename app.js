@@ -1,15 +1,10 @@
-// Lithuanian Trainer — App v5.3.1
-// Fixes:
-// - Auth is now SAFE (won't crash if Firebase scripts aren't loaded)
-// - Home screen shows Guest + Google + Email/Password when Firebase is available
-// - Progress saves to local always; saves to Firestore when logged in
-// - Multiple-choice shuffle stays fixed (correct answer not always A)
-// - Audio loading indicator stays
-// - Offline caching hooks remain (SW register + audio fetch warmup)
-//
-// IMPORTANT FIX (Dec 2025):
-// - ALWAYS call render() once at boot so Home + login UI appears immediately.
-//   Firebase onAuthStateChanged will re-render again when it fires.
+// Lithuanian Trainer — App v5.3.2 (Firebase Login + Firestore Progress Sync + Home + Map + Lesson)
+// - Google + Email/Password login
+// - progress ALWAYS saved locally
+// - if logged in, progress also saved to Firestore: collection "progress" doc = uid
+// - shows login UI on Home screen
+// - shuffle fix (correct not always A)
+// - SW register call kept
 
 const STORAGE_KEY = "lt_session_v6";
 const PROGRESS_KEY = "lt_progress_v2";
@@ -40,7 +35,7 @@ let session = {
 
 const el = (id) => document.getElementById(id);
 
-// ---------- Firebase / Auth (SAFE) ----------
+// ---------- Firebase / Auth ----------
 let currentUser = null;
 
 function firebaseReady() {
@@ -56,19 +51,19 @@ function firebaseReady() {
 function isAuthed() { return !!currentUser; }
 
 function signInWithGoogle() {
-  if (!firebaseReady()) return alert("Login not configured yet (Firebase scripts missing).");
+  if (!firebaseReady()) return alert("Firebase not loaded on this page.");
   const provider = new firebase.auth.GoogleAuthProvider();
   fbAuth.signInWithPopup(provider).catch(err => alert(err.message));
 }
 
 function signUpWithEmail(email, password) {
-  if (!firebaseReady()) return alert("Login not configured yet (Firebase scripts missing).");
+  if (!firebaseReady()) return alert("Firebase not loaded on this page.");
   return fbAuth.createUserWithEmailAndPassword(email, password)
     .catch(err => alert(err.message));
 }
 
 function signInWithEmail(email, password) {
-  if (!firebaseReady()) return alert("Login not configured yet (Firebase scripts missing).");
+  if (!firebaseReady()) return alert("Firebase not loaded on this page.");
   return fbAuth.signInWithEmailAndPassword(email, password)
     .catch(err => alert(err.message));
 }
@@ -88,7 +83,6 @@ async function loadProgressFromCloud() {
   if (snap.exists) {
     const data = snap.data();
     if (data && typeof data === "object") {
-      // Keep schema stable
       progress = {
         v: 2,
         completedLessons: Array.isArray(data.completedLessons) ? data.completedLessons : [],
@@ -96,6 +90,7 @@ async function loadProgressFromCloud() {
       saveProgress(); // also writes local
     }
   } else {
+    // create doc if missing
     await ref.set(progress);
   }
 }
@@ -108,22 +103,20 @@ async function saveProgressCloud() {
 function wireAuthListenerOnce() {
   if (!firebaseReady()) return;
 
-  // prevent double wiring
   if (wireAuthListenerOnce._wired) return;
   wireAuthListenerOnce._wired = true;
 
   fbAuth.onAuthStateChanged(async (user) => {
     currentUser = user || null;
 
-    // Always load local first
+    // local first
     loadProgress();
 
-    // If logged in, overlay cloud (source of truth)
+    // then cloud overlays local
     if (currentUser) {
       try { await loadProgressFromCloud(); } catch (e) { console.warn(e); }
     }
 
-    // Re-render when auth state arrives/changes
     render();
   });
 }
@@ -153,27 +146,14 @@ function setMikasMood(mood) {
   }
 }
 
-function showMikas(show) {
-  const dock = el("mikasDock");
-  if (!dock) return;
-  dock.style.display = show ? "block" : "none";
-  dock.setAttribute("aria-hidden", show ? "false" : "true");
-}
-
 function mikasShow(state = "neutral", bubbleText = "", autoHideMs = 0) {
   setMikasMood(state);
   const dock = el("mikasDock");
   if (dock) dock.classList.remove("mikasHidden");
 }
 
-function mikasHide() {
-  const dock = el("mikasDock");
-  if (dock) dock.classList.add("mikasHidden");
-}
-
 preloadMikasImages();
 setMikasMood("neutral");
-showMikas(true);
 
 // Thinking mood when typing in lesson inputs
 document.addEventListener("input", (e) => {
@@ -188,7 +168,7 @@ document.addEventListener("input", (e) => {
   if (isLessonInput) setMikasMood("thinking");
 });
 
-// ---------- Storage (safer) ----------
+// ---------- Storage ----------
 function safeParse(json, fallback) {
   try { return JSON.parse(json); } catch { return fallback; }
 }
@@ -204,28 +184,17 @@ function loadSession() {
   const loaded = safeParse(raw, null);
   if (!loaded || typeof loaded !== "object") return;
 
-  // detect older session formats
-  const loadedVersion = typeof loaded.v === "number" ? loaded.v : 0;
-
   session = {
     ...session,
     ...loaded,
     v: 6,
   };
 
-  // sanity
   if (!["home","map","lesson"].includes(session.screen)) session.screen = "home";
-
-  // IMPORTANT: if user came from older versions, force them onto home once
-  // so they actually see the Home UI (including login).
-  if (loadedVersion < 6) {
-    session.screen = "home";
-  }
 }
 
 function saveProgress() {
   localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
-  // fire & forget cloud sync if logged in
   if (currentUser) saveProgressCloud().catch(console.warn);
 }
 
@@ -235,15 +204,6 @@ function loadProgress() {
 
   const loaded = safeParse(raw, null);
   if (!loaded || typeof loaded !== "object") return;
-
-  if (!loaded.v) {
-    progress = {
-      v: 2,
-      completedLessons: Array.isArray(loaded.completedLessons) ? loaded.completedLessons : [],
-    };
-    saveProgress();
-    return;
-  }
 
   progress = {
     v: 2,
@@ -298,7 +258,6 @@ async function loadLtAudioManifestSafe() {
   }
 }
 
-// tiny loading UI on Speak button
 function setSpeakLoading(isLoading) {
   const b = el("speakBtn");
   if (!b) return;
@@ -307,7 +266,6 @@ function setSpeakLoading(isLoading) {
   b.textContent = isLoading ? "🔊 Loading…" : "🔊 Hear it";
 }
 
-// Returns {ok:boolean, audio?:HTMLAudioElement}
 function playLtMp3ByText(text) {
   const file = LT_AUDIO.get(text);
   if (!file) return { ok: false };
@@ -335,8 +293,6 @@ function speak(lang, text) {
   speechSynthesis.speak(u);
 }
 
-// MP3 first for Lithuanian, fallback TTS.
-// Adds loading indicator for MP3 playback.
 function speakSmart(lang, text) {
   const l = (lang || "").toLowerCase();
 
@@ -348,21 +304,17 @@ function speakSmart(lang, text) {
       const done = () => setSpeakLoading(false);
 
       res.audio.addEventListener("canplaythrough", async () => {
-        try { await res.audio.play(); }
-        catch (err) { console.warn("Audio play failed:", err); done(); }
+        try { await res.audio.play(); } catch (err) { console.warn("Audio play failed:", err); done(); }
       }, { once: true });
 
       res.audio.addEventListener("ended", done, { once: true });
       res.audio.addEventListener("error", done, { once: true });
 
-      // warm fetch for SW cache (harmless if SW not installed)
       try { fetch(res.audio.src, { cache: "force-cache" }); } catch {}
-
       return;
     }
   }
 
-  // fallback TTS
   setSpeakLoading(true);
   try {
     speak(lang, text);
@@ -399,7 +351,9 @@ function headerText(title, currentNumber, totalQuestions) {
 }
 
 function setControlsForQuestion(hasTTS) {
-  el("speakBtn").style.display = hasTTS ? "inline-block" : "none";
+  const b = el("speakBtn");
+  if (!b) return;
+  b.style.display = hasTTS ? "inline-block" : "none";
   if (hasTTS) setSpeakLoading(false);
 }
 
@@ -510,7 +464,6 @@ function showSummary(lesson) {
     (session.bestStreak ? ` 🔥Best ${session.bestStreak}` : "");
 
   el("prompt").textContent = "";
-
   mikasShow(perfect ? "celebrate" : "proud", "", 0);
 
   el("content").innerHTML = `
@@ -560,15 +513,7 @@ function renderHome() {
       <div class="homeHero">
         <div class="homeBrand">Lithuanian Quest</div>
         <div class="homeHeadline">Learn a new language — fast.</div>
-        <div class="homeSub">Start instantly. Sign in if you want progress synced across devices.</div>
-      </div>
-
-      <div class="langGrid">
-        <button class="langBtn" id="langLT">
-          <div class="flag">🇱🇹</div>
-          <div class="langName">Lithuanian</div>
-          <div class="langMeta">Available now</div>
-        </button>
+        <div class="homeSub">Start instantly. Sign in to sync progress across devices.</div>
       </div>
 
       <div class="homeActions">
@@ -604,7 +549,7 @@ function renderHome() {
           `}
         ` : `
           <div class="authSub" style="margin-top:10px;">
-            Login isn’t active yet (Firebase scripts not loaded on this page).
+            Firebase not loaded. (Check the firebase script tags.)
           </div>
         `}
       </div>
@@ -617,8 +562,6 @@ function renderHome() {
     saveSession();
   }
 
-  el("langLT").onclick = () => mikasShow("happy", "", 0);
-
   el("startBtn").onclick = async () => {
     const first = manifest.lessons[0]?.id || "001-basics";
     await startLesson(first);
@@ -629,7 +572,6 @@ function renderHome() {
     render();
   };
 
-  // auth handlers (only if Firebase loaded)
   if (fbOk) {
     el("googleBtn").onclick = signInWithGoogle;
 
@@ -764,7 +706,7 @@ async function startLesson(lessonId) {
   render();
 }
 
-// ---------- Shuffle helper (fixes A always correct) ----------
+// ---------- Shuffle helper ----------
 function shuffleInPlace(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -778,9 +720,7 @@ async function render() {
   loadSession();
   loadProgress();
 
-  mikasShow("neutral", "", 0);
-
-  // Hook buttons
+  // Hook top buttons
   el("mapBtn").onclick = () => { setScreen("map"); render(); };
   el("resetBtn").onclick = async () => {
     try {
@@ -792,28 +732,21 @@ async function render() {
     }
   };
 
-  // load manifest + audio map once
+  // Load manifest + audio once
   if (!manifest.lessons || manifest.lessons.length === 0) {
     await loadManifestSafe();
   }
   await loadLtAudioManifestSafe();
 
-  // home default
+  // default lesson
   if (!session.lessonId) {
     session.lessonId = manifest.lessons[0]?.id || "001-basics";
     saveSession();
   }
 
   // screens
-  if (session.screen === "home") {
-    renderHome();
-    return;
-  }
-
-  if (session.screen === "map") {
-    renderMap();
-    return;
-  }
+  if (session.screen === "home") { renderHome(); return; }
+  if (session.screen === "map") { renderMap(); return; }
 
   // lesson render
   const lesson = await loadLesson(session.lessonId);
@@ -898,7 +831,6 @@ async function render() {
 
     const c = el("choices");
 
-    // Build objects + shuffle so correct isn't always A
     const choiceObjs = item.choices.map((text, idx) => ({
       text,
       isCorrect: idx === item.answerIndex,
@@ -940,7 +872,7 @@ async function render() {
   el("prevBtn").disabled = true;
 }
 
-// ---------- Service Worker register (offline caching) ----------
+// ---------- Service Worker register ----------
 async function registerSW() {
   if (!("serviceWorker" in navigator)) return;
   try {
@@ -953,8 +885,11 @@ async function registerSW() {
 
 // boot
 registerSW();
-wireAuthListenerOnce();
 
-// IMPORTANT: ALWAYS render once immediately.
-// Firebase auth listener will re-render when it fires.
-render();
+// If Firebase is ready: auth listener will call render().
+// If not ready: render guest-only.
+if (firebaseReady()) {
+  wireAuthListenerOnce();
+} else {
+  render();
+}
