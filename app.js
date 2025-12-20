@@ -6,6 +6,10 @@
 // - Multiple-choice shuffle stays fixed (correct answer not always A)
 // - Audio loading indicator stays
 // - Offline caching hooks remain (SW register + audio fetch warmup)
+//
+// IMPORTANT FIX (Dec 2025):
+// - ALWAYS call render() once at boot so Home + login UI appears immediately.
+//   Firebase onAuthStateChanged will re-render again when it fires.
 
 const STORAGE_KEY = "lt_session_v6";
 const PROGRESS_KEY = "lt_progress_v2";
@@ -84,6 +88,7 @@ async function loadProgressFromCloud() {
   if (snap.exists) {
     const data = snap.data();
     if (data && typeof data === "object") {
+      // Keep schema stable
       progress = {
         v: 2,
         completedLessons: Array.isArray(data.completedLessons) ? data.completedLessons : [],
@@ -102,16 +107,23 @@ async function saveProgressCloud() {
 
 function wireAuthListenerOnce() {
   if (!firebaseReady()) return;
+
+  // prevent double wiring
   if (wireAuthListenerOnce._wired) return;
   wireAuthListenerOnce._wired = true;
 
   fbAuth.onAuthStateChanged(async (user) => {
     currentUser = user || null;
 
-    loadProgress(); // local first
+    // Always load local first
+    loadProgress();
+
+    // If logged in, overlay cloud (source of truth)
     if (currentUser) {
       try { await loadProgressFromCloud(); } catch (e) { console.warn(e); }
     }
+
+    // Re-render when auth state arrives/changes
     render();
   });
 }
@@ -163,6 +175,7 @@ preloadMikasImages();
 setMikasMood("neutral");
 showMikas(true);
 
+// Thinking mood when typing in lesson inputs
 document.addEventListener("input", (e) => {
   const t = e.target;
   if (!t) return;
@@ -191,12 +204,28 @@ function loadSession() {
   const loaded = safeParse(raw, null);
   if (!loaded || typeof loaded !== "object") return;
 
-  session = { ...session, ...loaded, v: 6 };
+  // detect older session formats
+  const loadedVersion = typeof loaded.v === "number" ? loaded.v : 0;
+
+  session = {
+    ...session,
+    ...loaded,
+    v: 6,
+  };
+
+  // sanity
   if (!["home","map","lesson"].includes(session.screen)) session.screen = "home";
+
+  // IMPORTANT: if user came from older versions, force them onto home once
+  // so they actually see the Home UI (including login).
+  if (loadedVersion < 6) {
+    session.screen = "home";
+  }
 }
 
 function saveProgress() {
   localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+  // fire & forget cloud sync if logged in
   if (currentUser) saveProgressCloud().catch(console.warn);
 }
 
@@ -246,7 +275,7 @@ async function loadLesson(id) {
 }
 
 // ---------- Pre-generated Lithuanian audio ----------
-let LT_AUDIO = new Map();
+let LT_AUDIO = new Map();      // text -> file
 let LT_AUDIO_READY = false;
 
 async function loadLtAudioManifestSafe() {
@@ -269,6 +298,7 @@ async function loadLtAudioManifestSafe() {
   }
 }
 
+// tiny loading UI on Speak button
 function setSpeakLoading(isLoading) {
   const b = el("speakBtn");
   if (!b) return;
@@ -277,6 +307,7 @@ function setSpeakLoading(isLoading) {
   b.textContent = isLoading ? "🔊 Loading…" : "🔊 Hear it";
 }
 
+// Returns {ok:boolean, audio?:HTMLAudioElement}
 function playLtMp3ByText(text) {
   const file = LT_AUDIO.get(text);
   if (!file) return { ok: false };
@@ -304,6 +335,8 @@ function speak(lang, text) {
   speechSynthesis.speak(u);
 }
 
+// MP3 first for Lithuanian, fallback TTS.
+// Adds loading indicator for MP3 playback.
 function speakSmart(lang, text) {
   const l = (lang || "").toLowerCase();
 
@@ -311,23 +344,31 @@ function speakSmart(lang, text) {
     const res = playLtMp3ByText(text);
     if (res.ok && res.audio) {
       setSpeakLoading(true);
+
       const done = () => setSpeakLoading(false);
 
       res.audio.addEventListener("canplaythrough", async () => {
-        try { await res.audio.play(); } catch (err) { console.warn("Audio play failed:", err); done(); }
+        try { await res.audio.play(); }
+        catch (err) { console.warn("Audio play failed:", err); done(); }
       }, { once: true });
 
       res.audio.addEventListener("ended", done, { once: true });
       res.audio.addEventListener("error", done, { once: true });
 
+      // warm fetch for SW cache (harmless if SW not installed)
       try { fetch(res.audio.src, { cache: "force-cache" }); } catch {}
+
       return;
     }
   }
 
+  // fallback TTS
   setSpeakLoading(true);
-  try { speak(lang, text); }
-  finally { setTimeout(() => setSpeakLoading(false), 600); }
+  try {
+    speak(lang, text);
+  } finally {
+    setTimeout(() => setSpeakLoading(false), 600);
+  }
 }
 
 // ---------- Helpers ----------
@@ -570,6 +611,7 @@ function renderHome() {
     </div>
   `;
 
+  // default lesson selection
   if (!session.lessonId && manifest.lessons.length) {
     session.lessonId = manifest.lessons[0].id;
     saveSession();
@@ -587,6 +629,7 @@ function renderHome() {
     render();
   };
 
+  // auth handlers (only if Firebase loaded)
   if (fbOk) {
     el("googleBtn").onclick = signInWithGoogle;
 
@@ -737,6 +780,7 @@ async function render() {
 
   mikasShow("neutral", "", 0);
 
+  // Hook buttons
   el("mapBtn").onclick = () => { setScreen("map"); render(); };
   el("resetBtn").onclick = async () => {
     try {
@@ -748,16 +792,19 @@ async function render() {
     }
   };
 
+  // load manifest + audio map once
   if (!manifest.lessons || manifest.lessons.length === 0) {
     await loadManifestSafe();
   }
   await loadLtAudioManifestSafe();
 
+  // home default
   if (!session.lessonId) {
     session.lessonId = manifest.lessons[0]?.id || "001-basics";
     saveSession();
   }
 
+  // screens
   if (session.screen === "home") {
     renderHome();
     return;
@@ -768,6 +815,7 @@ async function render() {
     return;
   }
 
+  // lesson render
   const lesson = await loadLesson(session.lessonId);
   const totalQuestions = lesson.items.length;
 
@@ -782,7 +830,7 @@ async function render() {
     return;
   }
 
-  const itemIndex = session.order[session.pos];
+  const itemIndex = getCurrentItemIndex();
   const item = lesson.items[itemIndex];
 
   el("title").textContent = headerText(lesson.title, session.pos + 1, totalQuestions);
@@ -850,6 +898,7 @@ async function render() {
 
     const c = el("choices");
 
+    // Build objects + shuffle so correct isn't always A
     const choiceObjs = item.choices.map((text, idx) => ({
       text,
       isCorrect: idx === item.answerIndex,
@@ -905,4 +954,7 @@ async function registerSW() {
 // boot
 registerSW();
 wireAuthListenerOnce();
-if (!firebaseReady()) render();
+
+// IMPORTANT: ALWAYS render once immediately.
+// Firebase auth listener will re-render when it fires.
+render();
