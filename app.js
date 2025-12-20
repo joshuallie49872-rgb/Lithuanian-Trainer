@@ -1,22 +1,28 @@
-// Lithuanian Trainer — App v5.2 (Azure MP3 Audio + Crash-proof Map + Unlock + Scoring)
-// CHANGE: Mikas is ALWAYS visible (no flashing / no auto-hide) + Emotion PNG triggers
+// Lithuanian Trainer — App v5.3.1
+// Fixes:
+// - Auth is now SAFE (won't crash if Firebase scripts aren't loaded)
+// - Home screen shows Guest + Google + Email/Password when Firebase is available
+// - Progress saves to local always; saves to Firestore when logged in
+// - Multiple-choice shuffle stays fixed (correct answer not always A)
+// - Audio loading indicator stays
+// - Offline caching hooks remain (SW register + audio fetch warmup)
 
-const STORAGE_KEY = "lt_session_v5";
-const PROGRESS_KEY = "lt_progress_v1";
+const STORAGE_KEY = "lt_session_v6";
+const PROGRESS_KEY = "lt_progress_v2";
 const MANIFEST_URL = "lessons/manifest.json";
-
-// Azure pre-generated audio manifest
 const LT_AUDIO_MANIFEST_URL = "audio/lt/manifest.json";
 
 let manifest = { lessons: [] };
 
 let progress = {
-  completedLessons: []
+  v: 2,
+  completedLessons: [],
 };
 
 let session = {
+  v: 6,
   lessonId: null,
-  screen: "map", // "map" | "lesson"
+  screen: "home", // "home" | "map" | "lesson"
   pos: 0,
   order: [],
   firstTry: {},
@@ -30,6 +36,86 @@ let session = {
 
 const el = (id) => document.getElementById(id);
 
+// ---------- Firebase / Auth (SAFE) ----------
+let currentUser = null;
+
+function firebaseReady() {
+  return (
+    typeof window !== "undefined" &&
+    window.firebase &&
+    window.fbAuth &&
+    window.fbDB &&
+    typeof window.fbAuth.onAuthStateChanged === "function"
+  );
+}
+
+function isAuthed() { return !!currentUser; }
+
+function signInWithGoogle() {
+  if (!firebaseReady()) return alert("Login not configured yet (Firebase scripts missing).");
+  const provider = new firebase.auth.GoogleAuthProvider();
+  fbAuth.signInWithPopup(provider).catch(err => alert(err.message));
+}
+
+function signUpWithEmail(email, password) {
+  if (!firebaseReady()) return alert("Login not configured yet (Firebase scripts missing).");
+  return fbAuth.createUserWithEmailAndPassword(email, password)
+    .catch(err => alert(err.message));
+}
+
+function signInWithEmail(email, password) {
+  if (!firebaseReady()) return alert("Login not configured yet (Firebase scripts missing).");
+  return fbAuth.signInWithEmailAndPassword(email, password)
+    .catch(err => alert(err.message));
+}
+
+function signOut() {
+  if (!firebaseReady()) return;
+  fbAuth.signOut().catch(err => alert(err.message));
+}
+
+// Firestore progress per user
+async function loadProgressFromCloud() {
+  if (!firebaseReady() || !currentUser) return;
+
+  const ref = fbDB.collection("progress").doc(currentUser.uid);
+  const snap = await ref.get();
+
+  if (snap.exists) {
+    const data = snap.data();
+    if (data && typeof data === "object") {
+      progress = {
+        v: 2,
+        completedLessons: Array.isArray(data.completedLessons) ? data.completedLessons : [],
+      };
+      saveProgress(); // also writes local
+    }
+  } else {
+    await ref.set(progress);
+  }
+}
+
+async function saveProgressCloud() {
+  if (!firebaseReady() || !currentUser) return;
+  await fbDB.collection("progress").doc(currentUser.uid).set(progress);
+}
+
+function wireAuthListenerOnce() {
+  if (!firebaseReady()) return;
+  if (wireAuthListenerOnce._wired) return;
+  wireAuthListenerOnce._wired = true;
+
+  fbAuth.onAuthStateChanged(async (user) => {
+    currentUser = user || null;
+
+    loadProgress(); // local first
+    if (currentUser) {
+      try { await loadProgressFromCloud(); } catch (e) { console.warn(e); }
+    }
+    render();
+  });
+}
+
 // ---------- Mikas Coach (PNG moods) ----------
 const MIKAS = {
   neutral: "mikas/neutral.png",
@@ -40,8 +126,6 @@ const MIKAS = {
   celebrate: "mikas/celebrate.png",
 };
 
-let mikasMood = "neutral";
-
 function preloadMikasImages() {
   Object.values(MIKAS).forEach((src) => {
     const i = new Image();
@@ -51,79 +135,103 @@ function preloadMikasImages() {
 
 function setMikasMood(mood) {
   if (!MIKAS[mood]) mood = "neutral";
-  mikasMood = mood;
-
   const img = el("mikasImg");
   if (img && img.getAttribute("src") !== MIKAS[mood]) {
     img.setAttribute("src", MIKAS[mood]);
   }
 }
 
-// NOTE: We keep the function signature, but we IGNORE autoHideMs now.
-// Mikas will remain visible unless you explicitly hide via CSS/DOM yourself.
-function mikasShow(state = "neutral", bubbleText = "", autoHideMs = 0) {
+function showMikas(show) {
   const dock = el("mikasDock");
-  const bubble = el("mikasBubble");
   if (!dock) return;
-
-  // Always visible
-  dock.style.display = "block";
-  dock.setAttribute("aria-hidden", "false");
-
-  setMikasMood(state);
-
-  if (bubble) {
-    if (bubbleText) {
-      bubble.textContent = bubbleText;
-      bubble.classList.add("show");
-    } else {
-      bubble.textContent = "";
-      bubble.classList.remove("show");
-    }
-  }
+  dock.style.display = show ? "block" : "none";
+  dock.setAttribute("aria-hidden", show ? "false" : "true");
 }
 
-// You can still hide manually if you ever want to,
-// but we won't call this automatically anywhere.
+function mikasShow(state = "neutral", bubbleText = "", autoHideMs = 0) {
+  setMikasMood(state);
+  const dock = el("mikasDock");
+  if (dock) dock.classList.remove("mikasHidden");
+}
+
 function mikasHide() {
   const dock = el("mikasDock");
-  if (!dock) return;
-  dock.style.display = "none";
-  dock.setAttribute("aria-hidden", "true");
+  if (dock) dock.classList.add("mikasHidden");
 }
 
-// Preload & set default mood once
 preloadMikasImages();
-mikasShow("neutral", "", 0);
+setMikasMood("neutral");
+showMikas(true);
 
-// Thinking = any typing in the translate input (your input id is "answer")
 document.addEventListener("input", (e) => {
   const t = e.target;
   if (!t) return;
-  if (t.id === "answer") {
-    setMikasMood("thinking");
-  }
+  const isLessonInput =
+    t.id === "answer" ||
+    t.id === "answerInput" ||
+    t.id === "translateInput" ||
+    t.classList?.contains("answerInput") ||
+    t.classList?.contains("translateInput");
+  if (isLessonInput) setMikasMood("thinking");
 });
 
-// ---------- Storage ----------
-function saveSession() { localStorage.setItem(STORAGE_KEY, JSON.stringify(session)); }
-function loadSession() { const s = localStorage.getItem(STORAGE_KEY); if (s) session = JSON.parse(s); }
+// ---------- Storage (safer) ----------
+function safeParse(json, fallback) {
+  try { return JSON.parse(json); } catch { return fallback; }
+}
 
-function saveProgress() { localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress)); }
-function loadProgress() { const p = localStorage.getItem(PROGRESS_KEY); if (p) progress = JSON.parse(p); }
+function saveSession() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+}
+
+function loadSession() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return;
+
+  const loaded = safeParse(raw, null);
+  if (!loaded || typeof loaded !== "object") return;
+
+  session = { ...session, ...loaded, v: 6 };
+  if (!["home","map","lesson"].includes(session.screen)) session.screen = "home";
+}
+
+function saveProgress() {
+  localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+  if (currentUser) saveProgressCloud().catch(console.warn);
+}
+
+function loadProgress() {
+  const raw = localStorage.getItem(PROGRESS_KEY);
+  if (!raw) return;
+
+  const loaded = safeParse(raw, null);
+  if (!loaded || typeof loaded !== "object") return;
+
+  if (!loaded.v) {
+    progress = {
+      v: 2,
+      completedLessons: Array.isArray(loaded.completedLessons) ? loaded.completedLessons : [],
+    };
+    saveProgress();
+    return;
+  }
+
+  progress = {
+    v: 2,
+    completedLessons: Array.isArray(loaded.completedLessons) ? loaded.completedLessons : [],
+  };
+}
 
 // ---------- Data ----------
 async function loadManifestSafe() {
   try {
-    const r = await fetch(MANIFEST_URL);
+    const r = await fetch(MANIFEST_URL, { cache: "no-store" });
     if (!r.ok) throw new Error("manifest missing");
     const data = await r.json();
     if (!data.lessons || !Array.isArray(data.lessons)) throw new Error("bad manifest format");
     manifest = data;
   } catch (e) {
-    // Fallback so the app still works
     manifest = { lessons: [{ id: "001-basics", title: "Basics 1" }] };
-    // show message on screen (non-blocking)
     if (el("prompt")) {
       el("prompt").textContent =
         "⚠️ Missing lessons/manifest.json. Run: python tools_make_manifest.py  (then refresh)";
@@ -138,11 +246,11 @@ async function loadLesson(id) {
 }
 
 // ---------- Pre-generated Lithuanian audio ----------
-let LT_AUDIO = new Map();      // text -> file
-let LT_AUDIO_READY = false;    // loaded successfully (or attempted)
+let LT_AUDIO = new Map();
+let LT_AUDIO_READY = false;
 
 async function loadLtAudioManifestSafe() {
-  if (LT_AUDIO_READY) return; // load once
+  if (LT_AUDIO_READY) return;
   LT_AUDIO_READY = true;
 
   try {
@@ -157,28 +265,29 @@ async function loadLtAudioManifestSafe() {
       }
     }
   } catch (e) {
-    // Don't crash the app if audio isn't there yet
     console.warn("LT audio not available yet:", e.message || e);
   }
 }
 
-function playLtMp3ByText(text) {
-  const file = LT_AUDIO.get(text);
-  if (!file) return false;
-
-  const audio = new Audio(file);
-  audio.play().catch((err) => {
-    console.warn("Audio play failed:", err);
-  });
-  return true;
+function setSpeakLoading(isLoading) {
+  const b = el("speakBtn");
+  if (!b) return;
+  b.disabled = !!isLoading;
+  b.dataset.loading = isLoading ? "1" : "";
+  b.textContent = isLoading ? "🔊 Loading…" : "🔊 Hear it";
 }
 
-// ---------- Helpers ----------
+function playLtMp3ByText(text) {
+  const file = LT_AUDIO.get(text);
+  if (!file) return { ok: false };
+  const audio = new Audio(file);
+  return { ok: true, audio };
+}
+
 function speak(lang, text) {
   if (!("speechSynthesis" in window)) return;
 
   const voices = speechSynthesis.getVoices();
-
   let voice =
     voices.find(v => v.lang === "lt-LT") ||
     voices.find(v => v.lang.startsWith("lt")) ||
@@ -195,18 +304,33 @@ function speak(lang, text) {
   speechSynthesis.speak(u);
 }
 
-// MP3 first for Lithuanian, then fallback TTS
 function speakSmart(lang, text) {
   const l = (lang || "").toLowerCase();
 
   if (l.startsWith("lt")) {
-    const ok = playLtMp3ByText(text);
-    if (ok) return;
+    const res = playLtMp3ByText(text);
+    if (res.ok && res.audio) {
+      setSpeakLoading(true);
+      const done = () => setSpeakLoading(false);
+
+      res.audio.addEventListener("canplaythrough", async () => {
+        try { await res.audio.play(); } catch (err) { console.warn("Audio play failed:", err); done(); }
+      }, { once: true });
+
+      res.audio.addEventListener("ended", done, { once: true });
+      res.audio.addEventListener("error", done, { once: true });
+
+      try { fetch(res.audio.src, { cache: "force-cache" }); } catch {}
+      return;
+    }
   }
 
-  speak(lang, text);
+  setSpeakLoading(true);
+  try { speak(lang, text); }
+  finally { setTimeout(() => setSpeakLoading(false), 600); }
 }
 
+// ---------- Helpers ----------
 function normalize(s) {
   return (s || "").toLowerCase().trim().replace(/[.!?,"']/g, "");
 }
@@ -235,10 +359,12 @@ function headerText(title, currentNumber, totalQuestions) {
 
 function setControlsForQuestion(hasTTS) {
   el("speakBtn").style.display = hasTTS ? "inline-block" : "none";
+  if (hasTTS) setSpeakLoading(false);
 }
 
 function disableQuestionInputs() {
   const content = el("content");
+  if (!content) return;
   content.querySelectorAll("button").forEach((b) => (b.disabled = true));
   content.querySelectorAll("input").forEach((i) => (i.disabled = true));
 }
@@ -246,11 +372,10 @@ function disableQuestionInputs() {
 function setScreen(which) {
   session.screen = which;
   saveSession();
+
+  el("homeScreen").style.display = which === "home" ? "block" : "none";
   el("mapScreen").style.display = which === "map" ? "block" : "none";
   el("lessonScreen").style.display = which === "lesson" ? "block" : "none";
-
-  // Mikas stays visible; reset mood cleanly on screen changes
-  mikasShow("neutral", "", 0);
 }
 
 // ---------- Unlocking ----------
@@ -345,7 +470,6 @@ function showSummary(lesson) {
 
   el("prompt").textContent = "";
 
-  // Celebrate on summary
   mikasShow(perfect ? "celebrate" : "proud", "", 0);
 
   el("content").innerHTML = `
@@ -358,6 +482,7 @@ function showSummary(lesson) {
       <div style="margin-top:10px;">${perfect ? "⭐ Perfect lesson!" : ""}</div>
     </div>
     <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+      <button id="goHome">🏠 Home</button>
       <button id="goMap">🗺️ Back to Map</button>
       <button id="restartLesson">Restart lesson</button>
       <button id="reviewWrong">Retry wrong 🔁</button>
@@ -366,6 +491,7 @@ function showSummary(lesson) {
 
   setControlsForQuestion(false);
 
+  el("goHome").onclick = () => { setScreen("home"); render(); };
   el("goMap").onclick = () => { setScreen("map"); render(); };
   el("restartLesson").onclick = () => { resetSession(lesson.id, total); render(); };
   el("reviewWrong").onclick = () => {
@@ -375,19 +501,121 @@ function showSummary(lesson) {
   };
 }
 
-// ---------- Map ----------
-function starsForLessonId(lessonId) {
-  return progress.completedLessons.includes(lessonId) ? "⭐⭐" : "";
+// ---------- Home ----------
+function renderHome() {
+  setScreen("home");
+  setControlsForQuestion(false);
+
+  el("title").textContent = "Lithuanian Trainer";
+  el("prompt").textContent = "Learn Lithuanian with quick, game-style lessons.";
+
+  mikasShow("neutral", "", 0);
+
+  const fbOk = firebaseReady();
+  const who = currentUser ? (currentUser.email || "Google user") : "Guest";
+
+  el("homeBody").innerHTML = `
+    <div class="homeCard">
+      <div class="homeHero">
+        <div class="homeBrand">Lithuanian Quest</div>
+        <div class="homeHeadline">Learn a new language — fast.</div>
+        <div class="homeSub">Start instantly. Sign in if you want progress synced across devices.</div>
+      </div>
+
+      <div class="langGrid">
+        <button class="langBtn" id="langLT">
+          <div class="flag">🇱🇹</div>
+          <div class="langName">Lithuanian</div>
+          <div class="langMeta">Available now</div>
+        </button>
+      </div>
+
+      <div class="homeActions">
+        <button id="startBtn" class="primaryBtn">Start Learning</button>
+        <button id="goMapBtn">Course Map</button>
+      </div>
+
+      <div class="homeNote">
+        <div><strong>Mode:</strong> ${who}</div>
+        <div>Progress is always saved on this device.</div>
+        <div>${currentUser ? "Cloud sync is ON." : "Cloud sync is OFF (guest)."} </div>
+      </div>
+
+      <div class="homeAuth">
+        <div class="authTitle">Account (optional)</div>
+
+        ${fbOk ? `
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+            <button id="googleBtn">Continue with Google</button>
+            ${currentUser ? `<button id="logoutBtn">Sign out</button>` : ``}
+          </div>
+
+          ${currentUser ? `` : `
+            <div style="margin-top:12px;">
+              <div class="authSub">Or use email:</div>
+              <input id="email" placeholder="Email" style="max-width:320px; display:block; margin-top:8px;" />
+              <input id="pass" type="password" placeholder="Password" style="max-width:320px; display:block; margin-top:8px;" />
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+                <button id="emailSignUpBtn">Sign up</button>
+                <button id="emailSignInBtn">Sign in</button>
+              </div>
+            </div>
+          `}
+        ` : `
+          <div class="authSub" style="margin-top:10px;">
+            Login isn’t active yet (Firebase scripts not loaded on this page).
+          </div>
+        `}
+      </div>
+    </div>
+  `;
+
+  if (!session.lessonId && manifest.lessons.length) {
+    session.lessonId = manifest.lessons[0].id;
+    saveSession();
+  }
+
+  el("langLT").onclick = () => mikasShow("happy", "", 0);
+
+  el("startBtn").onclick = async () => {
+    const first = manifest.lessons[0]?.id || "001-basics";
+    await startLesson(first);
+  };
+
+  el("goMapBtn").onclick = () => {
+    setScreen("map");
+    render();
+  };
+
+  if (fbOk) {
+    el("googleBtn").onclick = signInWithGoogle;
+
+    if (currentUser) {
+      el("logoutBtn").onclick = signOut;
+    } else {
+      el("emailSignUpBtn").onclick = () => {
+        const email = el("email").value.trim();
+        const pass = el("pass").value;
+        if (!email || !pass) return alert("Enter email + password");
+        signUpWithEmail(email, pass);
+      };
+      el("emailSignInBtn").onclick = () => {
+        const email = el("email").value.trim();
+        const pass = el("pass").value;
+        if (!email || !pass) return alert("Enter email + password");
+        signInWithEmail(email, pass);
+      };
+    }
+  }
 }
 
+// ---------- Map ----------
 function renderMap() {
   setControlsForQuestion(false);
   el("title").textContent = "Course Map";
   el("prompt").textContent = "Tap a node to play. 🔒 lessons unlock in order.";
 
   setScreen("map");
-
-  // Mikas always visible on map
   mikasShow("neutral", "", 0);
 
   const wrap = el("mapWrap");
@@ -493,18 +721,26 @@ async function startLesson(lessonId) {
   render();
 }
 
+// ---------- Shuffle helper (fixes A always correct) ----------
+function shuffleInPlace(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 // ---------- Render ----------
 async function render() {
   loadSession();
   loadProgress();
 
-  // Always visible at start of render
   mikasShow("neutral", "", 0);
 
   el("mapBtn").onclick = () => { setScreen("map"); render(); };
   el("resetBtn").onclick = async () => {
     try {
-      const lesson = await loadLesson(session.lessonId || "001-basics");
+      const lesson = await loadLesson(session.lessonId || manifest.lessons[0]?.id || "001-basics");
       resetSession(lesson.id, lesson.items.length);
       render();
     } catch (e) {
@@ -515,12 +751,16 @@ async function render() {
   if (!manifest.lessons || manifest.lessons.length === 0) {
     await loadManifestSafe();
   }
-
   await loadLtAudioManifestSafe();
 
   if (!session.lessonId) {
     session.lessonId = manifest.lessons[0]?.id || "001-basics";
     saveSession();
+  }
+
+  if (session.screen === "home") {
+    renderHome();
+    return;
   }
 
   if (session.screen === "map") {
@@ -542,7 +782,7 @@ async function render() {
     return;
   }
 
-  const itemIndex = getCurrentItemIndex();
+  const itemIndex = session.order[session.pos];
   const item = lesson.items[itemIndex];
 
   el("title").textContent = headerText(lesson.title, session.pos + 1, totalQuestions);
@@ -553,7 +793,6 @@ async function render() {
       ? `Review mode 🔁 (Accuracy from original run: ${acc}%)`
       : `Accuracy: ${acc}% • Wrong: ${session.wrong}`;
 
-  // Default mood while question is waiting
   mikasShow("neutral", "", 0);
 
   el("content").innerHTML = "";
@@ -572,9 +811,6 @@ async function render() {
       <div id="feedback"></div>
     `;
 
-    // thinking as soon as input focuses (feels better than waiting for typing)
-    el("answer").addEventListener("focus", () => setMikasMood("thinking"));
-
     const check = () => {
       if (session.locked) return;
 
@@ -585,11 +821,8 @@ async function render() {
 
       if (ok) {
         el("feedback").textContent = "✅ Correct";
-
-        // happy on correct
         mikasShow("happy", "", 0);
 
-        // proud on streak milestones (5,10,15...)
         if (session.streak > 0 && session.streak % 5 === 0) {
           mikasShow("proud", "", 0);
         }
@@ -600,8 +833,6 @@ async function render() {
         setTimeout(() => next(totalQuestions), 300);
       } else {
         el("feedback").textContent = `❌ Try: ${item.answers[0]}`;
-
-        // sad on wrong
         mikasShow("sad", "", 0);
       }
     };
@@ -618,23 +849,27 @@ async function render() {
     `;
 
     const c = el("choices");
-    item.choices.forEach((choice, idx) => {
+
+    const choiceObjs = item.choices.map((text, idx) => ({
+      text,
+      isCorrect: idx === item.answerIndex,
+    }));
+    shuffleInPlace(choiceObjs);
+
+    choiceObjs.forEach((ch) => {
       const b = document.createElement("button");
-      b.textContent = choice;
+      b.textContent = ch.text;
 
       b.onclick = () => {
         if (session.locked) return;
 
-        const ok = idx === item.answerIndex;
+        const ok = ch.isCorrect;
         recordFirstTry(ok, itemIndex);
 
         if (ok) {
           el("feedback").textContent = "✅ Correct";
-
-          // happy on correct
           mikasShow("happy", "", 0);
 
-          // proud on streak milestones (5,10,15...)
           if (session.streak > 0 && session.streak % 5 === 0) {
             mikasShow("proud", "", 0);
           }
@@ -645,8 +880,6 @@ async function render() {
           setTimeout(() => next(totalQuestions), 300);
         } else {
           el("feedback").textContent = "❌ Nope";
-
-          // sad on wrong
           mikasShow("sad", "", 0);
         }
       };
@@ -658,5 +891,18 @@ async function render() {
   el("prevBtn").disabled = true;
 }
 
+// ---------- Service Worker register (offline caching) ----------
+async function registerSW() {
+  if (!("serviceWorker" in navigator)) return;
+  try {
+    await navigator.serviceWorker.register("./sw.js");
+    console.log("SW registered");
+  } catch (e) {
+    console.warn("SW register failed:", e);
+  }
+}
+
 // boot
-render();
+registerSW();
+wireAuthListenerOnce();
+if (!firebaseReady()) render();
