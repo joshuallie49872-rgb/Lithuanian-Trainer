@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="styles.css" />
   <title>Lithuanian Trainer</title>
 </head>
+
 <body>
   <div class="wrap">
     <h1 id="title"></h1>
@@ -18,34 +19,63 @@
       <button id="mapBtn" class="btn btn-secondary">🗺️ Course Map</button>
       <button id="resetBtn" class="btn btn-warn">Restart lesson</button>
 
-      <!-- NEW: Account button (always available) -->
+      <!-- Account button (always available) -->
       <button id="accountBtn" class="btn btn-ghost btn-account">
         <span class="dot" id="accountDot" aria-hidden="true"></span>
         Account
       </button>
     </div>
 
-    <!-- HOME -->
-    <div id="homeScreen" style="display:none;">
-      <div id="homeBody"></div>
+    <!-- HOME (app.js expects: screenHome + startBtn + continueBtn) -->
+    <div id="screenHome" style="display:block;">
+      <div id="homeBody" class="card">
+        <h2 style="margin:0 0 8px 0;">Welcome</h2>
+        <p class="muted" style="margin:0 0 14px 0;">Pick up where you left off or start fresh.</p>
+        <div class="row">
+          <button id="startBtn" class="btn btn-primary">Start</button>
+          <button id="continueBtn" class="btn btn-secondary">Continue</button>
+        </div>
+      </div>
     </div>
 
-    <!-- MAP -->
-    <div id="mapScreen" class="map-screen" style="display:none;">
+    <!-- MAP (app.js expects: screenMap + mapWrap + mapSvg + mapNodes) -->
+    <div id="screenMap" class="map-screen" style="display:none;">
       <div class="map-header">
         <div class="map-title">Lithuanian Quest</div>
         <div class="map-subtitle">Tap a node to play</div>
       </div>
 
       <div id="mapWrap" class="map-wrap">
-        <svg id="mapSvg" class="map-svg"></svg>
+        <svg id="mapSvg" class="map-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
         <div id="mapNodes" class="map-nodes"></div>
       </div>
     </div>
 
-    <!-- LESSON -->
-    <div id="lessonScreen">
-      <div id="content" class="card"></div>
+    <!-- LESSON (app.js expects: screenLesson + answers + inputWrap + answerInput + checkBtn + feedback + nextBtn) -->
+    <div id="screenLesson" style="display:none;">
+      <div class="card">
+        <div id="answers" class="answers"></div>
+
+        <div id="inputWrap" class="inputWrap" style="display:none;">
+          <input id="answerInput" type="text" autocomplete="off" spellcheck="false" />
+          <button id="checkBtn" class="btn btn-primary">Check</button>
+        </div>
+
+        <div id="feedback" class="feedback" style="margin-top:10px;"></div>
+
+        <div class="row" style="margin-top:12px;">
+          <button id="nextBtn" class="btn btn-primary" style="display:none;">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DONE (app.js expects: screenDone + doneTitle + doneBody + doneBtn) -->
+    <div id="screenDone" style="display:none;">
+      <div class="card">
+        <h2 id="doneTitle" style="margin:0 0 8px 0;">✅ Complete!</h2>
+        <div id="doneBody" class="muted" style="margin-bottom:12px;"></div>
+        <button id="doneBtn" class="btn btn-primary">Back to Map</button>
+      </div>
     </div>
   </div>
 
@@ -55,7 +85,7 @@
     <div id="mikasBubble" class="mikasBubble"></div>
   </div>
 
-  <!-- AUTH MODAL (NEW) -->
+  <!-- AUTH MODAL -->
   <div id="authModal" class="modal" aria-hidden="true" style="display:none;">
     <div class="modal-backdrop" data-close="1"></div>
 
@@ -65,7 +95,7 @@
           <div class="modal-title" id="authTitle">Account</div>
           <div class="modal-sub" id="authSub">Sign in to sync progress across devices.</div>
         </div>
-        <button class="icon-btn" id="authCloseBtn" aria-label="Close">✕</button>
+        <button class="icon-btn modal-close" id="authCloseBtn" data-close="1" aria-label="Close">✕</button>
       </div>
 
       <!-- Status pills -->
@@ -87,7 +117,7 @@
 
         <div class="row">
           <button id="signOutBtn" class="btn btn-ghost danger">Sign out</button>
-          <button id="closeAfterSignOutBtn" class="btn btn-secondary">Close</button>
+          <button id="closeAfterSignOutBtn" class="btn btn-secondary" data-close="1">Close</button>
         </div>
       </div>
 
@@ -140,10 +170,10 @@
     window.fbDB = firebase.firestore();
   </script>
 
-  <!-- NEW: auth modal + styling logic -->
+  <!-- Auth UI -->
   <script src="auth_ui.js"></script>
 
-  <!-- Your app -->
+  <!-- App (must be last) -->
   <script src="app.js"></script>
 </body>
 </html>
