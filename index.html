@@ -12,10 +12,17 @@
     <div id="prompt" class="prompt"></div>
 
     <div class="controls">
-      <button id="prevBtn">Back</button>
-      <button id="speakBtn" style="display:none;">🔊 Hear it</button>
-      <button id="mapBtn">🗺️ Course Map</button>
-      <button id="resetBtn">Restart lesson</button>
+      <button id="prevBtn" class="btn btn-ghost">Back</button>
+      <button id="speakBtn" class="btn btn-ghost" style="display:none;">🔊 Hear it</button>
+
+      <button id="mapBtn" class="btn btn-secondary">🗺️ Course Map</button>
+      <button id="resetBtn" class="btn btn-warn">Restart lesson</button>
+
+      <!-- NEW: Account button (always available) -->
+      <button id="accountBtn" class="btn btn-ghost btn-account">
+        <span class="dot" id="accountDot" aria-hidden="true"></span>
+        Account
+      </button>
     </div>
 
     <!-- HOME -->
@@ -48,6 +55,71 @@
     <div id="mikasBubble" class="mikasBubble"></div>
   </div>
 
+  <!-- AUTH MODAL (NEW) -->
+  <div id="authModal" class="modal" aria-hidden="true" style="display:none;">
+    <div class="modal-backdrop" data-close="1"></div>
+
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title" id="authTitle">Account</div>
+          <div class="modal-sub" id="authSub">Sign in to sync progress across devices.</div>
+        </div>
+        <button class="icon-btn" id="authCloseBtn" aria-label="Close">✕</button>
+      </div>
+
+      <!-- Status pills -->
+      <div class="pill-row">
+        <span class="pill" id="pillMode">Mode: Guest</span>
+        <span class="pill" id="pillSync">Cloud Sync: OFF</span>
+        <span class="pill" id="pillLocal">Local Save: ON</span>
+      </div>
+
+      <!-- Signed-in panel -->
+      <div id="signedInPanel" class="signed-panel" style="display:none;">
+        <div class="user-row">
+          <img id="userPhoto" class="avatar" alt="" />
+          <div class="user-meta">
+            <div id="userName" class="user-name">Signed in</div>
+            <div id="userEmail" class="user-email"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <button id="signOutBtn" class="btn btn-ghost danger">Sign out</button>
+          <button id="closeAfterSignOutBtn" class="btn btn-secondary">Close</button>
+        </div>
+      </div>
+
+      <!-- Guest panel -->
+      <div id="guestPanel">
+        <button id="googleBtn" class="btn btn-google">
+          <span class="g-badge" aria-hidden="true">G</span>
+          Continue with Google
+        </button>
+
+        <div class="divider"><span>or use email</span></div>
+
+        <label class="field">
+          <span>Email</span>
+          <input id="emailInput" type="email" autocomplete="email" placeholder="you@example.com" />
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input id="passInput" type="password" autocomplete="current-password" placeholder="••••••••" />
+        </label>
+
+        <div class="row">
+          <button id="signupBtn" class="btn btn-secondary">Sign up</button>
+          <button id="signinBtn" class="btn btn-primary">Sign in</button>
+        </div>
+
+        <div id="authMsg" class="msg" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Firebase (compat CDN for plain JS apps) -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
@@ -68,6 +140,10 @@
     window.fbDB = firebase.firestore();
   </script>
 
+  <!-- NEW: auth modal + styling logic -->
+  <script src="auth_ui.js"></script>
+
+  <!-- Your app -->
   <script src="app.js"></script>
 </body>
 </html>
