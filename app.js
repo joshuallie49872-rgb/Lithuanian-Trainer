@@ -1,611 +1,500 @@
-// Lithuanian Trainer — App v5.3.2 (Firebase Login + Firestore Progress Sync + Home + Map + Lesson)
-// - Google + Email/Password login
-// - progress ALWAYS saved locally
-// - if logged in, progress also saved to Firestore: collection "progress" doc = uid
-// - shows login UI on Home screen
-// - shuffle fix (correct not always A)
-// - SW register call kept
+/* =========================================================
+   Lithuanian Trainer — app.js (v5.3.1 “Auth + Map labels”)
+   - Course Map with locked progression + topic/icon labels
+   - Lesson engine (MCQ + type-in)
+   - Speak button (Web Speech, fallback-safe)
+   - Mikas emotion switching
+   - Account button + Auth modal wiring (works with or without auth_ui.js)
+   ========================================================= */
 
-const STORAGE_KEY = "lt_session_v6";
-const PROGRESS_KEY = "lt_progress_v2";
-const MANIFEST_URL = "lessons/manifest.json";
-const LT_AUDIO_MANIFEST_URL = "audio/lt/manifest.json";
+"use strict";
 
-let manifest = { lessons: [] };
-
-let progress = {
-  v: 2,
-  completedLessons: [],
-};
-
-let session = {
-  v: 6,
-  lessonId: null,
-  screen: "home", // "home" | "map" | "lesson"
-  pos: 0,
-  order: [],
-  firstTry: {},
-  correct: 0,
-  wrong: 0,
-  streak: 0,
-  bestStreak: 0,
-  locked: false,
-  mode: "lesson" // "lesson" | "review"
-};
-
+/* -----------------------------
+   Helpers
+----------------------------- */
 const el = (id) => document.getElementById(id);
+const show = (node, yes = true) => {
+  if (!node) return;
+  node.style.display = yes ? "" : "none";
+};
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// ---------- Firebase / Auth ----------
-let currentUser = null;
-
-function firebaseReady() {
-  return (
-    typeof window !== "undefined" &&
-    window.firebase &&
-    window.fbAuth &&
-    window.fbDB &&
-    typeof window.fbAuth.onAuthStateChanged === "function"
-  );
-}
-
-function isAuthed() { return !!currentUser; }
-
-function signInWithGoogle() {
-  if (!firebaseReady()) return alert("Firebase not loaded on this page.");
-  const provider = new firebase.auth.GoogleAuthProvider();
-  fbAuth.signInWithPopup(provider).catch(err => alert(err.message));
-}
-
-function signUpWithEmail(email, password) {
-  if (!firebaseReady()) return alert("Firebase not loaded on this page.");
-  return fbAuth.createUserWithEmailAndPassword(email, password)
-    .catch(err => alert(err.message));
-}
-
-function signInWithEmail(email, password) {
-  if (!firebaseReady()) return alert("Firebase not loaded on this page.");
-  return fbAuth.signInWithEmailAndPassword(email, password)
-    .catch(err => alert(err.message));
-}
-
-function signOut() {
-  if (!firebaseReady()) return;
-  fbAuth.signOut().catch(err => alert(err.message));
-}
-
-// Firestore progress per user
-async function loadProgressFromCloud() {
-  if (!firebaseReady() || !currentUser) return;
-
-  const ref = fbDB.collection("progress").doc(currentUser.uid);
-  const snap = await ref.get();
-
-  if (snap.exists) {
-    const data = snap.data();
-    if (data && typeof data === "object") {
-      progress = {
-        v: 2,
-        completedLessons: Array.isArray(data.completedLessons) ? data.completedLessons : [],
-      };
-      saveProgress(); // also writes local
-    }
-  } else {
-    // create doc if missing
-    await ref.set(progress);
-  }
-}
-
-async function saveProgressCloud() {
-  if (!firebaseReady() || !currentUser) return;
-  await fbDB.collection("progress").doc(currentUser.uid).set(progress);
-}
-
-function wireAuthListenerOnce() {
-  if (!firebaseReady()) return;
-
-  if (wireAuthListenerOnce._wired) return;
-  wireAuthListenerOnce._wired = true;
-
-  fbAuth.onAuthStateChanged(async (user) => {
-    currentUser = user || null;
-
-    // local first
-    loadProgress();
-
-    // then cloud overlays local
-    if (currentUser) {
-      try { await loadProgressFromCloud(); } catch (e) { console.warn(e); }
-    }
-
-    render();
-  });
-}
-
-// ---------- Mikas Coach (PNG moods) ----------
-const MIKAS = {
-  neutral: "mikas/neutral.png",
-  thinking: "mikas/thinking.png",
-  happy: "mikas/happy.png",
-  sad: "mikas/sad.png",
-  proud: "mikas/proud.png",
-  celebrate: "mikas/celebrate.png",
+/* -----------------------------
+   Storage keys
+----------------------------- */
+const LS = {
+  progress: "lt_progress_v1",
+  streak: "lt_streak_v1",
+  lastLesson: "lt_last_lesson_v1",
+  user: "lt_user_v1",
 };
 
-function preloadMikasImages() {
-  Object.values(MIKAS).forEach((src) => {
-    const i = new Image();
-    i.src = src;
-  });
-}
+/* -----------------------------
+   App state
+----------------------------- */
+let manifest = null;            // { lessons: [...] }
+let lessonData = null;          // current lesson JSON
+let lessonIndex = 0;            // index in manifest.lessons
+let qIndex = 0;                 // question index
+let streak = 0;
+let progress = loadProgress();  // { completedLessonIds: [], best: {...} }
 
-function setMikasMood(mood) {
-  if (!MIKAS[mood]) mood = "neutral";
-  const img = el("mikasImg");
-  if (img && img.getAttribute("src") !== MIKAS[mood]) {
-    img.setAttribute("src", MIKAS[mood]);
+let currentScreen = "home";     // home|lesson|map|done
+let currentQuestion = null;     // active question object
+let isAnswered = false;
+
+/* -----------------------------
+   DOM refs (expected ids)
+----------------------------- */
+const DOM = {
+  title: el("title"),
+  prompt: el("prompt"),
+  controls: {
+    prevBtn: el("prevBtn"),
+    speakBtn: el("speakBtn"),
+    mapBtn: el("mapBtn"),
+    resetBtn: el("resetBtn"),
+    accountBtn: el("accountBtn"),
+    accountDot: el("accountDot"),
+  },
+  screens: {
+    home: el("screenHome"),
+    lesson: el("screenLesson"),
+    map: el("screenMap"),
+    done: el("screenDone"),
+  },
+
+  // Home
+  startBtn: el("startBtn"),
+  continueBtn: el("continueBtn"),
+
+  // Lesson UI
+  answers: el("answers"),
+  inputWrap: el("inputWrap"),
+  input: el("answerInput"),
+  checkBtn: el("checkBtn"),
+  nextBtn: el("nextBtn"),
+  feedback: el("feedback"),
+
+  // Map
+  mapWrap: el("mapWrap"),
+  mapNodes: el("mapNodes"),
+  mapSvg: el("mapSvg"),
+
+  // Done
+  doneTitle: el("doneTitle"),
+  doneBody: el("doneBody"),
+  doneBtn: el("doneBtn"),
+
+  // Mikas
+  mikasImg: el("mikasImg"),
+  mikasBubble: el("mikasBubble"),
+
+  // Auth modal (from index.html diff)
+  authModal: el("authModal"),
+};
+
+/* -----------------------------
+   Mikas emotion images
+   (match your filenames if different)
+----------------------------- */
+const MIKAS = {
+  neutral: "assets/mikas-neutral.png",
+  thinking: "assets/mikas-thinking.png",
+  happy: "assets/mikas-happy.png",
+  sad: "assets/mikas-sad.png",
+  proud: "assets/mikas-proud.png",
+  celebrate: "assets/mikas-celebrate.png",
+};
+
+function setMikas(emotion, bubbleText = "") {
+  const src = MIKAS[emotion] || MIKAS.neutral;
+  if (DOM.mikasImg) DOM.mikasImg.src = src;
+  if (DOM.mikasBubble) {
+    DOM.mikasBubble.textContent = bubbleText || "";
+    DOM.mikasBubble.style.opacity = bubbleText ? "1" : "0";
   }
 }
 
-function mikasShow(state = "neutral", bubbleText = "", autoHideMs = 0) {
-  setMikasMood(state);
-  const dock = el("mikasDock");
-  if (dock) dock.classList.remove("mikasHidden");
-}
-
-preloadMikasImages();
-setMikasMood("neutral");
-
-// Thinking mood when typing in lesson inputs
-document.addEventListener("input", (e) => {
-  const t = e.target;
-  if (!t) return;
-  const isLessonInput =
-    t.id === "answer" ||
-    t.id === "answerInput" ||
-    t.id === "translateInput" ||
-    t.classList?.contains("answerInput") ||
-    t.classList?.contains("translateInput");
-  if (isLessonInput) setMikasMood("thinking");
-});
-
-// ---------- Storage ----------
-function safeParse(json, fallback) {
-  try { return JSON.parse(json); } catch { return fallback; }
-}
-
-function saveSession() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
-}
-
-function loadSession() {
-  const raw = localStorage.getItem(STORAGE_KEY);
-  if (!raw) return;
-
-  const loaded = safeParse(raw, null);
-  if (!loaded || typeof loaded !== "object") return;
-
-  session = {
-    ...session,
-    ...loaded,
-    v: 6,
-  };
-
-  if (!["home","map","lesson"].includes(session.screen)) session.screen = "home";
-}
-
-function saveProgress() {
-  localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
-  if (currentUser) saveProgressCloud().catch(console.warn);
-}
-
+/* -----------------------------
+   Progress
+----------------------------- */
 function loadProgress() {
-  const raw = localStorage.getItem(PROGRESS_KEY);
-  if (!raw) return;
-
-  const loaded = safeParse(raw, null);
-  if (!loaded || typeof loaded !== "object") return;
-
-  progress = {
-    v: 2,
-    completedLessons: Array.isArray(loaded.completedLessons) ? loaded.completedLessons : [],
-  };
-}
-
-// ---------- Data ----------
-async function loadManifestSafe() {
   try {
-    const r = await fetch(MANIFEST_URL, { cache: "no-store" });
-    if (!r.ok) throw new Error("manifest missing");
-    const data = await r.json();
-    if (!data.lessons || !Array.isArray(data.lessons)) throw new Error("bad manifest format");
-    manifest = data;
-  } catch (e) {
-    manifest = { lessons: [{ id: "001-basics", title: "Basics 1" }] };
-    if (el("prompt")) {
-      el("prompt").textContent =
-        "⚠️ Missing lessons/manifest.json. Run: python tools_make_manifest.py  (then refresh)";
-    }
+    const raw = localStorage.getItem(LS.progress);
+    if (!raw) return { completedLessonIds: [], best: {} };
+    const p = JSON.parse(raw);
+    if (!p || !Array.isArray(p.completedLessonIds)) return { completedLessonIds: [], best: {} };
+    if (!p.best) p.best = {};
+    return p;
+  } catch {
+    return { completedLessonIds: [], best: {} };
   }
 }
-
-async function loadLesson(id) {
-  const r = await fetch(`lessons/${id}.json`);
-  if (!r.ok) throw new Error("Lesson not found: " + id);
-  return await r.json();
+function saveProgress() {
+  localStorage.setItem(LS.progress, JSON.stringify(progress));
+}
+function isLessonCompleted(lessonId) {
+  return progress.completedLessonIds.includes(lessonId);
+}
+function unlockIndex() {
+  // unlocked = completed count (sequential)
+  // lesson i is unlocked if i === 0 or previous lesson completed
+  let maxUnlocked = 0;
+  for (let i = 0; i < manifest.lessons.length; i++) {
+    if (i === 0) {
+      maxUnlocked = 0;
+      continue;
+    }
+    const prevId = manifest.lessons[i - 1].id;
+    if (isLessonCompleted(prevId)) maxUnlocked = i;
+    else break;
+  }
+  return maxUnlocked;
 }
 
-// ---------- Pre-generated Lithuanian audio ----------
-let LT_AUDIO = new Map();      // text -> file
-let LT_AUDIO_READY = false;
-
-async function loadLtAudioManifestSafe() {
-  if (LT_AUDIO_READY) return;
-  LT_AUDIO_READY = true;
-
+/* -----------------------------
+   User/account (lightweight)
+----------------------------- */
+function getUser() {
   try {
-    const r = await fetch(LT_AUDIO_MANIFEST_URL);
-    if (!r.ok) throw new Error("lt audio manifest missing");
-    const data = await r.json();
-    if (!data.items || !Array.isArray(data.items)) throw new Error("bad lt audio manifest format");
-
-    for (const item of data.items) {
-      if (item && typeof item.text === "string" && typeof item.file === "string") {
-        LT_AUDIO.set(item.text, item.file);
-      }
-    }
-  } catch (e) {
-    console.warn("LT audio not available yet:", e.message || e);
+    const raw = localStorage.getItem(LS.user);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+function setUser(u) {
+  localStorage.setItem(LS.user, JSON.stringify(u));
+  refreshAccountDot();
+}
+function refreshAccountDot() {
+  // dot ON if user exists
+  const u = getUser();
+  if (DOM.controls.accountDot) {
+    DOM.controls.accountDot.style.opacity = u ? "1" : "0";
   }
 }
 
-function setSpeakLoading(isLoading) {
-  const b = el("speakBtn");
-  if (!b) return;
-  b.disabled = !!isLoading;
-  b.dataset.loading = isLoading ? "1" : "";
-  b.textContent = isLoading ? "🔊 Loading…" : "🔊 Hear it";
+/* -----------------------------
+   Screens
+----------------------------- */
+function setScreen(name) {
+  currentScreen = name;
+  if (DOM.screens.home) show(DOM.screens.home, name === "home");
+  if (DOM.screens.lesson) show(DOM.screens.lesson, name === "lesson");
+  if (DOM.screens.map) show(DOM.screens.map, name === "map");
+  if (DOM.screens.done) show(DOM.screens.done, name === "done");
 }
 
-function playLtMp3ByText(text) {
-  const file = LT_AUDIO.get(text);
-  if (!file) return { ok: false };
-  const audio = new Audio(file);
-  return { ok: true, audio };
-}
-
-function speak(lang, text) {
-  if (!("speechSynthesis" in window)) return;
-
-  const voices = speechSynthesis.getVoices();
-  let voice =
-    voices.find(v => v.lang === "lt-LT") ||
-    voices.find(v => v.lang.startsWith("lt")) ||
-    voices.find(v => v.lang.startsWith("pl")) ||
-    voices.find(v => v.lang.startsWith("ru")) ||
-    voices.find(v => v.lang.startsWith("en")) ||
-    voices[0];
-
-  const u = new SpeechSynthesisUtterance(text);
-  u.voice = voice;
-  u.lang = (lang || voice?.lang || "en-US");
-
-  speechSynthesis.cancel();
-  speechSynthesis.speak(u);
-}
-
-function speakSmart(lang, text) {
-  const l = (lang || "").toLowerCase();
-
-  if (l.startsWith("lt")) {
-    const res = playLtMp3ByText(text);
-    if (res.ok && res.audio) {
-      setSpeakLoading(true);
-
-      const done = () => setSpeakLoading(false);
-
-      res.audio.addEventListener("canplaythrough", async () => {
-        try { await res.audio.play(); } catch (err) { console.warn("Audio play failed:", err); done(); }
-      }, { once: true });
-
-      res.audio.addEventListener("ended", done, { once: true });
-      res.audio.addEventListener("error", done, { once: true });
-
-      try { fetch(res.audio.src, { cache: "force-cache" }); } catch {}
-      return;
-    }
+/* -----------------------------
+   Manifest + lesson loading
+----------------------------- */
+async function loadManifest() {
+  const res = await fetch("./manifest.json", { cache: "no-store" });
+  if (!res.ok) throw new Error("Failed to load manifest.json");
+  const m = await res.json();
+  if (!m || !Array.isArray(m.lessons) || m.lessons.length === 0) {
+    throw new Error("manifest.json missing lessons[]");
   }
+  // Normalize lesson entries: { id, title?, topic?, icon?, file? }
+  m.lessons = m.lessons.map((x) => ({
+    id: x.id,
+    title: x.title || x.id,
+    topic: x.topic || "",
+    icon: x.icon || "",
+    file: x.file || `lessons/${x.id}.json`,
+  }));
+  return m;
+}
 
-  setSpeakLoading(true);
-  try {
-    speak(lang, text);
-  } finally {
-    setTimeout(() => setSpeakLoading(false), 600);
+async function loadLessonByIndex(i) {
+  lessonIndex = clamp(i, 0, manifest.lessons.length - 1);
+  const meta = manifest.lessons[lessonIndex];
+
+  const res = await fetch(`./${meta.file}`, { cache: "no-store" });
+  if (!res.ok) throw new Error(`Failed to load ${meta.file}`);
+  const data = await res.json();
+
+  // Normalize questions
+  if (!data || !Array.isArray(data.questions) || data.questions.length === 0) {
+    throw new Error(`Lesson ${meta.id} has no questions[]`);
   }
+  lessonData = data;
+  qIndex = 0;
+  streak = loadStreak();
+
+  localStorage.setItem(LS.lastLesson, meta.id);
+
+  return data;
 }
 
-// ---------- Helpers ----------
-function normalize(s) {
-  return (s || "").toLowerCase().trim().replace(/[.!?,"']/g, "");
+/* -----------------------------
+   Streak
+----------------------------- */
+function loadStreak() {
+  const raw = localStorage.getItem(LS.streak);
+  const n = raw ? parseInt(raw, 10) : 0;
+  return Number.isFinite(n) ? n : 0;
+}
+function saveStreak() {
+  localStorage.setItem(LS.streak, String(streak));
 }
 
-function calcAccuracy() {
-  const attempted = session.correct + session.wrong;
-  if (attempted === 0) return 0;
-  return Math.round((session.correct / attempted) * 100);
+/* -----------------------------
+   Lesson rendering
+----------------------------- */
+function setControlsForQuestion(hasPrev) {
+  show(DOM.controls.prevBtn, hasPrev);
+  show(DOM.controls.resetBtn, true);
+  show(DOM.controls.mapBtn, true);
+  // speakBtn visible only if question has lt text to speak
+  if (DOM.controls.speakBtn) DOM.controls.speakBtn.style.display = "none";
 }
 
-function calcStars(accuracy) {
-  if (accuracy >= 95) return 3;
-  if (accuracy >= 85) return 2;
-  if (accuracy >= 70) return 1;
-  return 0;
-}
+function renderQuestion() {
+  isAnswered = false;
+  currentQuestion = lessonData.questions[qIndex];
+  if (!currentQuestion) return;
 
-function starsText(n) { return "⭐".repeat(n); }
+  // Title/prompt
+  const meta = manifest.lessons[lessonIndex];
+  if (DOM.title) DOM.title.textContent = `${meta.icon ? meta.icon + " " : ""}${meta.title}`;
+  if (DOM.prompt) DOM.prompt.textContent = currentQuestion.prompt || "";
 
-function headerText(title, currentNumber, totalQuestions) {
-  const acc = calcAccuracy();
-  const stars = starsText(calcStars(acc));
-  const fire = session.streak > 0 ? ` 🔥${session.streak}` : "";
-  return `${title} (${currentNumber}/${totalQuestions}) ${stars}${fire}`;
-}
+  // Reset feedback/buttons
+  if (DOM.feedback) DOM.feedback.textContent = "";
+  show(DOM.nextBtn, false);
 
-function setControlsForQuestion(hasTTS) {
-  const b = el("speakBtn");
-  if (!b) return;
-  b.style.display = hasTTS ? "inline-block" : "none";
-  if (hasTTS) setSpeakLoading(false);
-}
+  // Choose UI mode: multiple choice vs input
+  const hasChoices = Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0;
+  const expectsText = !!currentQuestion.answer && !hasChoices;
 
-function disableQuestionInputs() {
-  const content = el("content");
-  if (!content) return;
-  content.querySelectorAll("button").forEach((b) => (b.disabled = true));
-  content.querySelectorAll("input").forEach((i) => (i.disabled = true));
-}
-
-function setScreen(which) {
-  session.screen = which;
-  saveSession();
-
-  el("homeScreen").style.display = which === "home" ? "block" : "none";
-  el("mapScreen").style.display = which === "map" ? "block" : "none";
-  el("lessonScreen").style.display = which === "lesson" ? "block" : "none";
-}
-
-// ---------- Unlocking ----------
-function lessonIndexById(id) {
-  return manifest.lessons.findIndex((x) => x.id === id);
-}
-
-function isLessonUnlocked(lessonId) {
-  const idx = lessonIndexById(lessonId);
-  if (idx <= 0) return true;
-  const prevId = manifest.lessons[idx - 1]?.id;
-  return progress.completedLessons.includes(prevId);
-}
-
-function markLessonCompleted(lessonId) {
-  if (!progress.completedLessons.includes(lessonId)) {
-    progress.completedLessons.push(lessonId);
-    saveProgress();
-  }
-}
-
-// ---------- Lesson control ----------
-function resetSession(lessonId, lessonLength) {
-  session.lessonId = lessonId;
-  session.pos = 0;
-  session.order = Array.from({ length: lessonLength }, (_, i) => i);
-  session.firstTry = {};
-  session.correct = 0;
-  session.wrong = 0;
-  session.streak = 0;
-  session.bestStreak = 0;
-  session.locked = false;
-  session.mode = "lesson";
-  session.screen = "lesson";
-  saveSession();
-}
-
-function startReviewWrong(lessonLength) {
-  const wrongIndices = [];
-  for (let i = 0; i < lessonLength; i++) {
-    if (session.firstTry[i] === false) wrongIndices.push(i);
-  }
-  if (wrongIndices.length === 0) return false;
-
-  session.mode = "review";
-  session.order = wrongIndices;
-  session.pos = 0;
-  session.locked = false;
-  saveSession();
-  return true;
-}
-
-function recordFirstTry(isCorrect, itemIndex) {
-  if (session.firstTry[itemIndex] !== undefined) return;
-  session.firstTry[itemIndex] = isCorrect;
-
-  if (isCorrect) {
-    session.correct += 1;
-    session.streak += 1;
-    session.bestStreak = Math.max(session.bestStreak, session.streak);
-  } else {
-    session.wrong += 1;
-    session.streak = 0;
-  }
-  saveSession();
-}
-
-function getCurrentItemIndex() {
-  return session.order[session.pos];
-}
-
-function next(totalQuestions) {
-  session.locked = false;
-  if (session.pos < session.order.length) session.pos += 1;
-  saveSession();
-  render();
-}
-
-// ---------- Summary ----------
-function showSummary(lesson) {
-  const total = lesson.items.length;
-  const attempted = session.correct + session.wrong;
-  const acc = calcAccuracy();
-  const stars = starsText(calcStars(acc));
-  const perfect = session.wrong === 0 && attempted > 0;
-
-  if (session.mode === "lesson") markLessonCompleted(lesson.id);
-
-  el("title").textContent =
-    `${lesson.title} — Summary ${stars}` +
-    (session.bestStreak ? ` 🔥Best ${session.bestStreak}` : "");
-
-  el("prompt").textContent = "";
-  mikasShow(perfect ? "celebrate" : "proud", "", 0);
-
-  el("content").innerHTML = `
-    <div class="q">Lesson complete ✅</div>
-    <div style="margin-top:10px; line-height:1.8;">
-      <div><strong>Correct:</strong> ${session.correct}</div>
-      <div><strong>Wrong:</strong> ${session.wrong}</div>
-      <div><strong>Accuracy:</strong> ${acc}%</div>
-      <div><strong>Best streak:</strong> ${session.bestStreak}</div>
-      <div style="margin-top:10px;">${perfect ? "⭐ Perfect lesson!" : ""}</div>
-    </div>
-    <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-      <button id="goHome">🏠 Home</button>
-      <button id="goMap">🗺️ Back to Map</button>
-      <button id="restartLesson">Restart lesson</button>
-      <button id="reviewWrong">Retry wrong 🔁</button>
-    </div>
-  `;
-
-  setControlsForQuestion(false);
-
-  el("goHome").onclick = () => { setScreen("home"); render(); };
-  el("goMap").onclick = () => { setScreen("map"); render(); };
-  el("restartLesson").onclick = () => { resetSession(lesson.id, total); render(); };
-  el("reviewWrong").onclick = () => {
-    const ok = startReviewWrong(total);
-    if (!ok) return alert("No wrong answers to review 🎉");
-    render();
-  };
-}
-
-// ---------- Home ----------
-function renderHome() {
-  setScreen("home");
-  setControlsForQuestion(false);
-
-  el("title").textContent = "Lithuanian Trainer";
-  el("prompt").textContent = "Learn Lithuanian with quick, game-style lessons.";
-
-  mikasShow("neutral", "", 0);
-
-  const fbOk = firebaseReady();
-  const who = currentUser ? (currentUser.email || "Google user") : "Guest";
-
-  el("homeBody").innerHTML = `
-    <div class="homeCard">
-      <div class="homeHero">
-        <div class="homeBrand">Lithuanian Quest</div>
-        <div class="homeHeadline">Learn a new language — fast.</div>
-        <div class="homeSub">Start instantly. Sign in to sync progress across devices.</div>
-      </div>
-
-      <div class="homeActions">
-        <button id="startBtn" class="primaryBtn">Start Learning</button>
-        <button id="goMapBtn">Course Map</button>
-      </div>
-
-      <div class="homeNote">
-        <div><strong>Mode:</strong> ${who}</div>
-        <div>Progress is always saved on this device.</div>
-        <div>${currentUser ? "Cloud sync is ON." : "Cloud sync is OFF (guest)."} </div>
-      </div>
-
-      <div class="homeAuth">
-        <div class="authTitle">Account (optional)</div>
-
-        ${fbOk ? `
-          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-            <button id="googleBtn">Continue with Google</button>
-            ${currentUser ? `<button id="logoutBtn">Sign out</button>` : ``}
-          </div>
-
-          ${currentUser ? `` : `
-            <div style="margin-top:12px;">
-              <div class="authSub">Or use email:</div>
-              <input id="email" placeholder="Email" style="max-width:320px; display:block; margin-top:8px;" />
-              <input id="pass" type="password" placeholder="Password" style="max-width:320px; display:block; margin-top:8px;" />
-              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-                <button id="emailSignUpBtn">Sign up</button>
-                <button id="emailSignInBtn">Sign in</button>
-              </div>
-            </div>
-          `}
-        ` : `
-          <div class="authSub" style="margin-top:10px;">
-            Firebase not loaded. (Check the firebase script tags.)
-          </div>
-        `}
-      </div>
-    </div>
-  `;
-
-  // default lesson selection
-  if (!session.lessonId && manifest.lessons.length) {
-    session.lessonId = manifest.lessons[0].id;
-    saveSession();
-  }
-
-  el("startBtn").onclick = async () => {
-    const first = manifest.lessons[0]?.id || "001-basics";
-    await startLesson(first);
-  };
-
-  el("goMapBtn").onclick = () => {
-    setScreen("map");
-    render();
-  };
-
-  if (fbOk) {
-    el("googleBtn").onclick = signInWithGoogle;
-
-    if (currentUser) {
-      el("logoutBtn").onclick = signOut;
+  // speak button if lt present
+  const speakText = currentQuestion.lt || currentQuestion.tts || currentQuestion.speak || "";
+  if (DOM.controls.speakBtn) {
+    if (speakText) {
+      DOM.controls.speakBtn.style.display = "";
+      DOM.controls.speakBtn.onclick = () => speakLithuanian(speakText);
     } else {
-      el("emailSignUpBtn").onclick = () => {
-        const email = el("email").value.trim();
-        const pass = el("pass").value;
-        if (!email || !pass) return alert("Enter email + password");
-        signUpWithEmail(email, pass);
-      };
-      el("emailSignInBtn").onclick = () => {
-        const email = el("email").value.trim();
-        const pass = el("pass").value;
-        if (!email || !pass) return alert("Enter email + password");
-        signInWithEmail(email, pass);
-      };
+      DOM.controls.speakBtn.style.display = "none";
     }
+  }
+
+  // Mikas state
+  setMikas("neutral");
+
+  // Render answers
+  if (DOM.answers) DOM.answers.innerHTML = "";
+  show(DOM.inputWrap, false);
+
+  if (hasChoices) {
+    renderChoices(currentQuestion);
+  } else if (expectsText) {
+    renderTextInput(currentQuestion);
+  } else {
+    // fallback: treat as text input with empty
+    renderTextInput(currentQuestion);
+  }
+
+  setControlsForQuestion(qIndex > 0);
+}
+
+function renderChoices(q) {
+  show(DOM.inputWrap, false);
+
+  const choices = q.choices.slice();
+  // optional shuffle: q.shuffle === true
+  if (q.shuffle) choices.sort(() => Math.random() - 0.5);
+
+  for (const choice of choices) {
+    const b = document.createElement("button");
+    b.className = "choice";
+    b.textContent = choice;
+    b.onclick = () => {
+      if (isAnswered) return;
+      checkAnswer(choice);
+    };
+    DOM.answers.appendChild(b);
   }
 }
 
-// ---------- Map ----------
+function renderTextInput(q) {
+  show(DOM.inputWrap, true);
+  if (DOM.input) {
+    DOM.input.value = "";
+    DOM.input.placeholder = q.placeholder || "Type your answer…";
+    DOM.input.oninput = () => {
+      if (!isAnswered) setMikas("thinking");
+    };
+    DOM.input.onkeydown = (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (!isAnswered) {
+          const val = (DOM.input.value || "").trim();
+          checkAnswer(val);
+        }
+      }
+    };
+  }
+  if (DOM.checkBtn) {
+    DOM.checkBtn.onclick = () => {
+      if (isAnswered) return;
+      const val = (DOM.input?.value || "").trim();
+      checkAnswer(val);
+    };
+  }
+}
+
+function normalizeAnswer(s) {
+  return (s || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .replace(/[“”"]/g, '"')
+    .replace(/[’]/g, "'");
+}
+
+function checkAnswer(userValue) {
+  isAnswered = true;
+
+  const q = currentQuestion;
+  const correct =
+    Array.isArray(q.correct)
+      ? q.correct
+      : (q.answer != null ? [q.answer] : (q.correctAnswer != null ? [q.correctAnswer] : []));
+
+  const userN = normalizeAnswer(userValue);
+  const correctList = correct.map(normalizeAnswer);
+
+  const ok = correctList.includes(userN);
+
+  if (ok) {
+    streak += 1;
+    saveStreak();
+
+    // Proud milestones
+    if (streak === 5 || streak === 10 || streak === 15) {
+      setMikas("proud", `🔥 Streak ${streak}!`);
+    } else {
+      setMikas("happy", streak >= 2 ? `Nice! 🔥${streak}` : "Nice!");
+    }
+
+    setFeedback("✅ Correct!", "ok");
+    markChoiceButtons(userValue, true);
+  } else {
+    streak = 0;
+    saveStreak();
+    setMikas("sad", "Oops…");
+
+    const showCorrect = correct[0] != null ? String(correct[0]) : "";
+    setFeedback(`❌ Not quite.${showCorrect ? " Answer: " + showCorrect : ""}`, "bad");
+    markChoiceButtons(userValue, false);
+  }
+
+  show(DOM.nextBtn, true);
+  if (DOM.nextBtn) DOM.nextBtn.onclick = () => nextQuestion();
+}
+
+function markChoiceButtons(userValue, wasCorrect) {
+  // Only applies to MCQ buttons
+  if (!DOM.answers) return;
+  const btns = Array.from(DOM.answers.querySelectorAll("button.choice"));
+  if (btns.length === 0) return;
+
+  const q = currentQuestion;
+  const correct =
+    Array.isArray(q.correct)
+      ? q.correct
+      : (q.answer != null ? [q.answer] : (q.correctAnswer != null ? [q.correctAnswer] : []));
+
+  const correctN = correct.map(normalizeAnswer);
+
+  for (const b of btns) {
+    b.disabled = true;
+    const t = normalizeAnswer(b.textContent);
+    if (correctN.includes(t)) b.classList.add("choice-correct");
+    if (!wasCorrect && normalizeAnswer(userValue) === t) b.classList.add("choice-wrong");
+  }
+}
+
+function setFeedback(text, kind) {
+  if (!DOM.feedback) return;
+  DOM.feedback.textContent = text;
+  DOM.feedback.className = "feedback " + (kind === "ok" ? "feedback-ok" : kind === "bad" ? "feedback-bad" : "");
+}
+
+/* -----------------------------
+   Next / prev / reset
+----------------------------- */
+function prevQuestion() {
+  if (qIndex <= 0) return;
+  qIndex -= 1;
+  renderQuestion();
+}
+function nextQuestion() {
+  if (qIndex < lessonData.questions.length - 1) {
+    qIndex += 1;
+    renderQuestion();
+    return;
+  }
+  // Lesson complete
+  onLessonComplete();
+}
+function resetLesson() {
+  qIndex = 0;
+  streak = 0;
+  saveStreak();
+  renderQuestion();
+}
+
+/* -----------------------------
+   Lesson complete
+----------------------------- */
+function onLessonComplete() {
+  const meta = manifest.lessons[lessonIndex];
+
+  if (!isLessonCompleted(meta.id)) {
+    progress.completedLessonIds.push(meta.id);
+  }
+  saveProgress();
+
+  setMikas("celebrate", "Lesson complete!");
+  setScreen("done");
+
+  if (DOM.doneTitle) DOM.doneTitle.textContent = "✅ Complete!";
+  if (DOM.doneBody) {
+    const unlocked = unlockIndex();
+    const nextMeta = manifest.lessons[clamp(lessonIndex + 1, 0, manifest.lessons.length - 1)];
+    DOM.doneBody.textContent =
+      lessonIndex < manifest.lessons.length - 1
+        ? `Next unlocked: ${nextMeta.icon ? nextMeta.icon + " " : ""}${nextMeta.title}`
+        : "You finished all lessons 🎉";
+  }
+
+  if (DOM.doneBtn) {
+    DOM.doneBtn.onclick = () => {
+      setScreen("map");
+      renderMap();
+    };
+  }
+}
+
+/* -----------------------------
+   Map rendering (with labels + icons)
+----------------------------- */
 function renderMap() {
   setControlsForQuestion(false);
-  el("title").textContent = "Course Map";
-  el("prompt").textContent = "Tap a node to play. 🔒 lessons unlock in order.";
+  if (DOM.title) DOM.title.textContent = "Course Map";
+  if (DOM.prompt) DOM.prompt.textContent = "Tap a node to play. 🔒 lessons unlock in order.";
 
   setScreen("map");
-  mikasShow("neutral", "", 0);
 
-  const wrap = el("mapWrap");
-  const nodesEl = el("mapNodes");
-  const svg = el("mapSvg");
+  const wrap = DOM.mapWrap;
+  const nodesEl = DOM.mapNodes;
+  const svg = DOM.mapSvg;
+  if (!wrap || !nodesEl || !svg) return;
 
   nodesEl.innerHTML = "";
   svg.innerHTML = "";
@@ -622,274 +511,235 @@ function renderMap() {
   nodesEl.style.height = `${H}px`;
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
 
-  const lanes = [
-    Math.round(W * 0.25),
-    Math.round(W * 0.55),
-    Math.round(W * 0.35),
+  // Zig-zag X positions
+  const xs = [
+    Math.round(W * 0.30),
     Math.round(W * 0.70),
-    Math.round(W * 0.45),
-  ].map(x => Math.min(Math.max(x, 70), W - 70));
+    Math.round(W * 0.35),
+    Math.round(W * 0.65),
+  ];
 
-  const points = manifest.lessons.map((l, i) => {
-    const x = lanes[i % lanes.length];
+  const maxUnlocked = unlockIndex();
+
+  // Draw connectors
+  for (let i = 0; i < lessonCount - 1; i++) {
+    const x1 = xs[i % xs.length];
+    const y1 = topPad + i * stepY;
+    const x2 = xs[(i + 1) % xs.length];
+    const y2 = topPad + (i + 1) * stepY;
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    const midY = (y1 + y2) / 2;
+    path.setAttribute("d", `M ${x1} ${y1} C ${x1} ${midY} ${x2} ${midY} ${x2} ${y2}`);
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke-width", "6");
+
+    // style by unlock state
+    const unlockedEdge = i < maxUnlocked;
+    path.setAttribute("stroke", unlockedEdge ? "currentColor" : "rgba(0,0,0,0.12)");
+    path.setAttribute("opacity", unlockedEdge ? "0.35" : "0.18");
+    svg.appendChild(path);
+  }
+
+  // Nodes
+  for (let i = 0; i < lessonCount; i++) {
+    const meta = manifest.lessons[i];
+    const x = xs[i % xs.length];
     const y = topPad + i * stepY;
-    return { x, y, lesson: l };
-  });
 
-  const d = points
-    .map((p, i) =>
-      i === 0
-        ? `M ${p.x} ${p.y}`
-        : `Q ${(points[i - 1].x + p.x) / 2} ${(points[i - 1].y + p.y) / 2} ${p.x} ${p.y}`
-    )
-    .join(" ");
+    const unlocked = i === 0 || (i <= maxUnlocked);
+    const completed = isLessonCompleted(meta.id);
 
-  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  path.setAttribute("d", d);
-  path.setAttribute("class", "path-stroke");
-  svg.appendChild(path);
+    // Node button
+    const btn = document.createElement("button");
+    btn.className = "mapNode";
+    btn.style.left = `${x - nodeR}px`;
+    btn.style.top = `${y - nodeR}px`;
+    btn.style.width = `${nodeR * 2}px`;
+    btn.style.height = `${nodeR * 2}px`;
 
-  const currentIdx = manifest.lessons.findIndex(
-    (l) => isLessonUnlocked(l.id) && !progress.completedLessons.includes(l.id)
-  );
+    // Contents (icon/number)
+    const icon = meta.icon || (completed ? "✅" : unlocked ? "▶️" : "🔒");
+    btn.innerHTML = `<div class="mapNodeInner">
+        <div class="mapNodeIcon">${icon}</div>
+        <div class="mapNodeNum">${i + 1}</div>
+      </div>`;
 
-  manifest.lessons.forEach((l, i) => {
-    const p = points[i];
-    const node = document.createElement("div");
-    node.className = "map-node";
-
-    const complete = progress.completedLessons.includes(l.id);
-    const unlocked = isLessonUnlocked(l.id);
-    const isCurrent = i === currentIdx;
-
-    node.classList.add(
-      complete ? "node-complete" : unlocked ? "node-unlocked" : "node-locked"
-    );
-    if (isCurrent) node.classList.add("node-current");
-
-    node.style.left = `${p.x - nodeR}px`;
-    node.style.top = `${p.y - nodeR}px`;
-
-    const num = String(i + 1);
-    const icon = complete ? "✅" : unlocked ? "⭐" : "🔒";
-    node.innerHTML = `
-      <div>${icon}
-        <div style="font-size:12px; opacity:.9; margin-top:2px;">${num}</div>
-      </div>
-    `;
-
-    const mini = document.createElement("div");
-    mini.className = "mini";
-    mini.textContent = complete ? "⭐⭐" : "";
-    node.appendChild(mini);
-
-    node.onclick = () => {
-      if (!unlocked) return;
-      startLesson(l.id);
-    };
-
-    nodesEl.appendChild(node);
-  });
-
-  if (currentIdx >= 0) {
-    const targetY = topPad + currentIdx * stepY;
-    wrap.scrollTo({ top: Math.max(0, targetY - 180), behavior: "smooth" });
-  } else {
-    wrap.scrollTo({ top: 0, behavior: "auto" });
-  }
-}
-
-async function startLesson(lessonId) {
-  const lesson = await loadLesson(lessonId);
-  resetSession(lesson.id, lesson.items.length);
-  setScreen("lesson");
-  render();
-}
-
-// ---------- Shuffle helper ----------
-function shuffleInPlace(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
-// ---------- Render ----------
-async function render() {
-  loadSession();
-  loadProgress();
-
-  // Hook top buttons
-  el("mapBtn").onclick = () => { setScreen("map"); render(); };
-  el("resetBtn").onclick = async () => {
-    try {
-      const lesson = await loadLesson(session.lessonId || manifest.lessons[0]?.id || "001-basics");
-      resetSession(lesson.id, lesson.items.length);
-      render();
-    } catch (e) {
-      el("content").innerHTML = `<div class="q">⚠️ ${String(e.message || e)}</div>`;
+    if (!unlocked) {
+      btn.disabled = true;
+      btn.classList.add("mapNode-locked");
+    } else {
+      btn.onclick = async () => {
+        await startLesson(i);
+      };
     }
-  };
+    if (completed) btn.classList.add("mapNode-done");
 
-  // Load manifest + audio once
-  if (!manifest.lessons || manifest.lessons.length === 0) {
-    await loadManifestSafe();
+    // Label under node (ALWAYS visible, locked is faded)
+    const label = document.createElement("div");
+    label.className = "mapLabel";
+    const topicText = meta.topic ? ` — ${meta.topic}` : "";
+    label.textContent = `${meta.title}${topicText}`;
+    label.style.left = `${x}px`;
+    label.style.top = `${y + nodeR + 10}px`;
+    label.style.transform = "translateX(-50%)";
+    label.style.opacity = unlocked ? "0.92" : "0.35";
+
+    nodesEl.appendChild(btn);
+    nodesEl.appendChild(label);
   }
-  await loadLtAudioManifestSafe();
+}
 
-  // default lesson
-  if (!session.lessonId) {
-    session.lessonId = manifest.lessons[0]?.id || "001-basics";
-    saveSession();
+/* -----------------------------
+   Start/continue logic
+----------------------------- */
+async function startLesson(i) {
+  await loadLessonByIndex(i);
+  setScreen("lesson");
+  renderQuestion();
+}
+
+async function startFromContinue() {
+  const lastId = localStorage.getItem(LS.lastLesson);
+  if (!lastId) return startLesson(0);
+
+  const idx = manifest.lessons.findIndex((l) => l.id === lastId);
+  return startLesson(idx >= 0 ? idx : 0);
+}
+
+/* -----------------------------
+   Speak (Web Speech API)
+----------------------------- */
+function speakLithuanian(text) {
+  try {
+    if (!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "lt-LT";
+    u.rate = 0.95;
+
+    // Try pick a Lithuanian voice if available
+    const voices = window.speechSynthesis.getVoices?.() || [];
+    const lt = voices.find((v) => (v.lang || "").toLowerCase().startsWith("lt"));
+    if (lt) u.voice = lt;
+
+    window.speechSynthesis.speak(u);
+  } catch {
+    // silent fail
   }
+}
 
-  // screens
-  if (session.screen === "home") { renderHome(); return; }
-  if (session.screen === "map") { renderMap(); return; }
-
-  // lesson render
-  const lesson = await loadLesson(session.lessonId);
-  const totalQuestions = lesson.items.length;
-
-  if (!Array.isArray(session.order) || session.order.length !== totalQuestions || session.pos < 0) {
-    resetSession(lesson.id, totalQuestions);
-  }
-
-  if (session.pos > session.order.length) session.pos = session.order.length;
-
-  if (session.pos >= session.order.length) {
-    showSummary(lesson);
+/* -----------------------------
+   Auth modal wiring
+   - If auth_ui.js exists and exposes window.AuthUI.open(), we call it.
+   - Otherwise we show a simple “stub modal” so button still works.
+----------------------------- */
+function openAuth() {
+  // If your separate module exists:
+  if (window.AuthUI && typeof window.AuthUI.open === "function") {
+    window.AuthUI.open();
     return;
   }
 
-  const itemIndex = getCurrentItemIndex();
-  const item = lesson.items[itemIndex];
+  // Fallback: open the modal markup we added to index.html
+  if (!DOM.authModal) return;
 
-  el("title").textContent = headerText(lesson.title, session.pos + 1, totalQuestions);
+  DOM.authModal.style.display = "";
+  DOM.authModal.setAttribute("aria-hidden", "false");
 
-  const acc = calcAccuracy();
-  el("prompt").textContent =
-    session.mode === "review"
-      ? `Review mode 🔁 (Accuracy from original run: ${acc}%)`
-      : `Accuracy: ${acc}% • Wrong: ${session.wrong}`;
+  // close handlers
+  const backdrop = DOM.authModal.querySelector(".modal-backdrop");
+  const closeBtns = DOM.authModal.querySelectorAll("[data-close='1'], .modal-close");
 
-  mikasShow("neutral", "", 0);
+  const close = () => {
+    DOM.authModal.style.display = "none";
+    DOM.authModal.setAttribute("aria-hidden", "true");
+  };
 
-  el("content").innerHTML = "";
-  setControlsForQuestion(!!item.tts);
+  if (backdrop) backdrop.onclick = close;
+  closeBtns.forEach((b) => (b.onclick = close));
 
-  el("speakBtn").onclick = () => speakSmart(item.tts.lang, item.tts.text);
-
-  session.locked = false;
-  saveSession();
-
-  if (item.type === "translate") {
-    el("content").innerHTML = `
-      <div class="q">${item.en}</div>
-      <input id="answer" placeholder="Type answer..." />
-      <button id="check">Check</button>
-      <div id="feedback"></div>
-    `;
-
-    const check = () => {
-      if (session.locked) return;
-
-      const user = normalize(el("answer").value);
-      const ok = item.answers.map(normalize).includes(user);
-
-      recordFirstTry(ok, itemIndex);
-
-      if (ok) {
-        el("feedback").textContent = "✅ Correct";
-        mikasShow("happy", "", 0);
-
-        if (session.streak > 0 && session.streak % 5 === 0) {
-          mikasShow("proud", "", 0);
-        }
-
-        session.locked = true;
-        saveSession();
-        disableQuestionInputs();
-        setTimeout(() => next(totalQuestions), 300);
-      } else {
-        el("feedback").textContent = `❌ Try: ${item.answers[0]}`;
-        mikasShow("sad", "", 0);
-      }
+  // If modal contains quick demo buttons
+  // (optional, safe if they don't exist)
+  const demoLogin = DOM.authModal.querySelector("[data-demo-login]");
+  if (demoLogin) {
+    demoLogin.onclick = () => {
+      setUser({ name: "Demo", ts: Date.now() });
+      close();
     };
-
-    el("check").onclick = check;
-    el("answer").addEventListener("keydown", (e) => { if (e.key === "Enter") check(); });
   }
-
-  if (item.type === "choose") {
-    el("content").innerHTML = `
-      <div class="q">${item.lt}</div>
-      <div id="choices"></div>
-      <div id="feedback"></div>
-    `;
-
-    const c = el("choices");
-
-    const choiceObjs = item.choices.map((text, idx) => ({
-      text,
-      isCorrect: idx === item.answerIndex,
-    }));
-    shuffleInPlace(choiceObjs);
-
-    choiceObjs.forEach((ch) => {
-      const b = document.createElement("button");
-      b.textContent = ch.text;
-
-      b.onclick = () => {
-        if (session.locked) return;
-
-        const ok = ch.isCorrect;
-        recordFirstTry(ok, itemIndex);
-
-        if (ok) {
-          el("feedback").textContent = "✅ Correct";
-          mikasShow("happy", "", 0);
-
-          if (session.streak > 0 && session.streak % 5 === 0) {
-            mikasShow("proud", "", 0);
-          }
-
-          session.locked = true;
-          saveSession();
-          disableQuestionInputs();
-          setTimeout(() => next(totalQuestions), 300);
-        } else {
-          el("feedback").textContent = "❌ Nope";
-          mikasShow("sad", "", 0);
-        }
-      };
-
-      c.appendChild(b);
-    });
+  const demoLogout = DOM.authModal.querySelector("[data-demo-logout]");
+  if (demoLogout) {
+    demoLogout.onclick = () => {
+      localStorage.removeItem(LS.user);
+      refreshAccountDot();
+      close();
+    };
   }
-
-  el("prevBtn").disabled = true;
 }
 
-// ---------- Service Worker register ----------
-async function registerSW() {
-  if (!("serviceWorker" in navigator)) return;
+/* -----------------------------
+   Events / init
+----------------------------- */
+function wireEvents() {
+  // Controls
+  if (DOM.controls.prevBtn) DOM.controls.prevBtn.onclick = () => prevQuestion();
+  if (DOM.controls.mapBtn) DOM.controls.mapBtn.onclick = () => {
+    setScreen("map");
+    renderMap();
+  };
+  if (DOM.controls.resetBtn) DOM.controls.resetBtn.onclick = () => resetLesson();
+
+  // Account
+  if (DOM.controls.accountBtn) DOM.controls.accountBtn.onclick = () => openAuth();
+
+  // Home buttons
+  if (DOM.startBtn) DOM.startBtn.onclick = () => startLesson(0);
+  if (DOM.continueBtn) DOM.continueBtn.onclick = () => startFromContinue();
+
+  // Done
+  if (DOM.doneBtn) DOM.doneBtn.onclick = () => {
+    setScreen("map");
+    renderMap();
+  };
+
+  // Resize map nicely
+  window.addEventListener("resize", () => {
+    if (currentScreen === "map") renderMap();
+  });
+}
+
+async function init() {
   try {
-    await navigator.serviceWorker.register("./sw.js");
-    console.log("SW registered");
-  } catch (e) {
-    console.warn("SW register failed:", e);
+    manifest = await loadManifest();
+    refreshAccountDot();
+    wireEvents();
+
+    // Default screen: home
+    setScreen("home");
+
+    // If you prefer start on map:
+    // setScreen("map"); renderMap();
+
+    // Make sure voices are loaded
+    if ("speechSynthesis" in window) {
+      // Some browsers need a tick
+      await sleep(50);
+      window.speechSynthesis.getVoices?.();
+    }
+
+    // If home has no dedicated UI, fall back to map
+    if (!DOM.screens.home && DOM.screens.map) {
+      setScreen("map");
+      renderMap();
+    }
+
+  } catch (err) {
+    console.error(err);
+    if (DOM.title) DOM.title.textContent = "Error";
+    if (DOM.prompt) DOM.prompt.textContent = String(err?.message || err);
   }
 }
 
-// boot
-registerSW();
-
-// If Firebase is ready: auth listener will call render().
-// If not ready: render guest-only.
-if (firebaseReady()) {
-  wireAuthListenerOnce();
-} else {
-  render();
-}
+init();
