@@ -627,3 +627,30 @@ body.modal-open{ overflow: hidden; }
 .map-svg {
   pointer-events: none;
 }
+/* === FORCE INTERACTION FIX === */
+
+/* Kill click interception from layout layers */
+.map-wrap,
+.map-screen,
+.map-header,
+.map-subtitle,
+.map-title,
+#mapSvg,
+.map-svg,
+.modal,
+.modal-backdrop {
+  pointer-events: none;
+}
+
+/* Re-enable clicks ONLY where we need them */
+button,
+.btn,
+.mapNode,
+.map-nodes,
+#mapNodes,
+#startBtn,
+#continueBtn {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+}
