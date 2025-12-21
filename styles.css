@@ -214,6 +214,81 @@ input:focus{
   stroke-dasharray: 2 14;
 }
 
+/* ===== Map labels (NEW for v5.3.1) =====
+   app.js creates <div class="mapLabel"> under each node.
+   This makes locked lessons show "Food / Numbers" etc. */
+.mapLabel{
+  position: absolute;
+  width: 190px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--textSoft);
+  user-select: none;
+  pointer-events: none;
+
+  padding: 6px 10px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.62);
+  border: 1px solid rgba(47,47,47,0.08);
+  box-shadow: 0 10px 22px rgba(47,47,47,0.08);
+
+  /* app.js positions left/top; we only style */
+  transform: translateX(-50%);
+  backdrop-filter: blur(6px);
+}
+
+/* ===== app.js node classes (NEW) =====
+   app.js uses .mapNode / .mapNode-locked / .mapNode-done
+   Your old CSS uses .map-node / .node-locked etc.
+   Keep both so either code path still looks correct. */
+.mapNode{
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
+  border: 2px solid rgba(47,47,47,0.12);
+  box-shadow: 0 12px 22px rgba(47,47,47,0.14);
+  background: linear-gradient(180deg, rgba(244,196,48,1), rgba(244,196,48,0.86));
+}
+
+.mapNode:hover{
+  transform: translateY(-2px) scale(1.03);
+}
+
+.mapNode-locked{
+  background: linear-gradient(180deg, rgba(107,114,128,0.22), rgba(107,114,128,0.12));
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.mapNode-done{
+  background: linear-gradient(180deg, rgba(111,175,142,0.98), rgba(111,175,142,0.84));
+  filter: drop-shadow(0 0 10px rgba(111,175,142,0.25));
+  color: #fff;
+}
+
+/* Inner markup that app.js injects into mapNode */
+.mapNodeInner{
+  display: grid;
+  place-items: center;
+  line-height: 1;
+}
+.mapNodeIcon{
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+.mapNodeNum{
+  font-size: 12px;
+  opacity: 0.92;
+}
+
 /* ========================= */
 /* Mikas coach (right side) */
 /* ========================= */
