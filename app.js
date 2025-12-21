@@ -594,9 +594,14 @@ function renderMap() {
    Start/continue logic
 ----------------------------- */
 async function startLesson(i) {
-  await loadLessonByIndex(i);
-  setScreen("lesson");
-  renderQuestion();
+  try {
+    await loadLessonByIndex(i);
+    setScreen("lesson");
+    renderQuestion();
+  } catch (err) {
+    console.error(err);
+    alert("Lesson data is missing or failed to load.");
+  }
 }
 
 async function startFromContinue() {
@@ -606,6 +611,7 @@ async function startFromContinue() {
   const idx = manifest.lessons.findIndex((l) => l.id === lastId);
   return startLesson(idx >= 0 ? idx : 0);
 }
+
 
 /* -----------------------------
    Speak (Web Speech API)
