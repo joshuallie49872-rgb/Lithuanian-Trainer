@@ -623,3 +623,7 @@ body.modal-open{ overflow: hidden; }
   color: var(--textSoft);
   margin-top: 2px;
 }
+/* FIX: allow clicks on map nodes and buttons */
+.map-svg {
+  pointer-events: none;
+}
