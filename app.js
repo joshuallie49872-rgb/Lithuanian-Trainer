@@ -511,6 +511,9 @@ function renderMap() {
   nodesEl.style.height = `${H}px`;
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
 
+  // FIX: SVG layer must NOT capture clicks
+  svg.style.pointerEvents = "none";
+
   // Zig-zag X positions
   const xs = [
     Math.round(W * 0.30),
@@ -553,6 +556,7 @@ function renderMap() {
     // Node button
     const btn = document.createElement("button");
     btn.className = "mapNode";
+    btn.dataset.lessonIndex = String(i); // FIX: allow delegated click fallback
     btn.style.left = `${x - nodeR}px`;
     btn.style.top = `${y - nodeR}px`;
     btn.style.width = `${nodeR * 2}px`;
@@ -709,6 +713,15 @@ function wireEvents() {
     setScreen("map");
     renderMap();
   };
+
+  // Delegated fallback for dynamically created map nodes
+  document.body.addEventListener("click", (e) => {
+    const node = e.target && e.target.closest ? e.target.closest("button.mapNode") : null;
+    if (!node) return;
+    if (node.disabled) return;
+    const idx = node.dataset.lessonIndex ? parseInt(node.dataset.lessonIndex, 10) : NaN;
+    if (Number.isFinite(idx)) startLesson(idx);
+  }, true);
 
   // Resize map nicely
   window.addEventListener("resize", () => {
