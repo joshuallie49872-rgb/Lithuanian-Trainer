@@ -5,6 +5,13 @@
    - Speak button (Web Speech, fallback-safe)
    - Mikas emotion switching
    - Account button + Auth modal wiring (works with or without auth_ui.js)
+
+   FIX (2025-12-22):
+   - Supports BOTH lesson formats:
+     A) { questions: [...] }  (new)
+     B) { items: [...] }      (your current lessons/*.json)
+     - "choose" uses answerIndex
+     - "translate" uses answers[]
    ========================================================= */
 
 "use strict";
@@ -209,18 +216,78 @@ async function loadManifest() {
   return m;
 }
 
+// NEW: convert your {items:[...]} lessons into {questions:[...]} the app uses.
+function normalizeLessonToQuestions(data) {
+  if (!data || typeof data !== "object") return data;
+
+  // Already in new format
+  if (Array.isArray(data.questions) && data.questions.length > 0) return data;
+
+  // Your current format
+  if (Array.isArray(data.items) && data.items.length > 0) {
+    const questions = data.items.map((it) => {
+      const type = it.type || "";
+
+      // choose => MCQ
+      if (type === "choose") {
+        const choices = Array.isArray(it.choices) ? it.choices.slice() : [];
+        const idx = Number.isFinite(it.answerIndex) ? it.answerIndex : -1;
+        const answer = (idx >= 0 && idx < choices.length) ? choices[idx] : (it.answer || it.correctAnswer || "");
+        return {
+          prompt: it.lt ? `${it.prompt || "Pick the correct meaning"}: ${it.lt}` : (it.prompt || "Pick the correct meaning"),
+          lt: it.lt || "",
+          choices,
+          correct: [answer].filter(Boolean),
+          // carry tts forward (can be object)
+          tts: it.tts || "",
+        };
+      }
+
+      // translate => text input
+      if (type === "translate") {
+        const correctList = Array.isArray(it.answers) ? it.answers.slice() : (it.answer ? [it.answer] : []);
+        const en = it.en || "";
+        return {
+          prompt: `${it.prompt || "Translate to Lithuanian"}: ${en}`,
+          en,
+          correct: correctList,
+          answer: correctList[0] || "",
+          placeholder: "Type Lithuanian…",
+          // If there is a tts object, keep it; otherwise we can speak the first correct answer.
+          tts: it.tts || (correctList[0] || ""),
+        };
+      }
+
+      // fallback
+      return {
+        prompt: it.prompt || "Question",
+        correct: it.answers || (it.answer ? [it.answer] : []),
+        tts: it.tts || "",
+      };
+    });
+
+    return { ...data, questions };
+  }
+
+  return data;
+}
+
 async function loadLessonByIndex(i) {
   lessonIndex = clamp(i, 0, manifest.lessons.length - 1);
   const meta = manifest.lessons[lessonIndex];
 
   const res = await fetch(`./${meta.file}`, { cache: "no-store" });
   if (!res.ok) throw new Error(`Failed to load ${meta.file}`);
-  const data = await res.json();
+  let data = await res.json();
 
-  // Normalize questions
+  // NEW: support items[] lessons
+  data = normalizeLessonToQuestions(data);
+
+  // Validate questions
   if (!data || !Array.isArray(data.questions) || data.questions.length === 0) {
-    throw new Error(`Lesson ${meta.id} has no questions[]`);
+    throw new Error(`Lesson ${meta.id} has no questions[] (or items[])`);
   }
+
   lessonData = data;
   qIndex = 0;
   streak = loadStreak();
@@ -253,6 +320,19 @@ function setControlsForQuestion(hasPrev) {
   if (DOM.controls.speakBtn) DOM.controls.speakBtn.style.display = "none";
 }
 
+function getSpeakText(q) {
+  if (!q) return "";
+  // accept object tts {lang,text}
+  if (q.tts && typeof q.tts === "object" && q.tts.text) return String(q.tts.text);
+  if (typeof q.tts === "string") return q.tts;
+  if (typeof q.speak === "string") return q.speak;
+  if (typeof q.lt === "string" && q.lt) return q.lt;
+  // for translate questions, speak the first correct answer if present
+  if (Array.isArray(q.correct) && q.correct[0]) return String(q.correct[0]);
+  if (typeof q.answer === "string") return q.answer;
+  return "";
+}
+
 function renderQuestion() {
   isAnswered = false;
   currentQuestion = lessonData.questions[qIndex];
@@ -269,10 +349,13 @@ function renderQuestion() {
 
   // Choose UI mode: multiple choice vs input
   const hasChoices = Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0;
-  const expectsText = !!currentQuestion.answer && !hasChoices;
+
+  // expectsText:
+  // - if there are no choices, always treat as text input
+  const expectsText = !hasChoices;
 
   // speak button if lt present
-  const speakText = currentQuestion.lt || currentQuestion.tts || currentQuestion.speak || "";
+  const speakText = getSpeakText(currentQuestion);
   if (DOM.controls.speakBtn) {
     if (speakText) {
       DOM.controls.speakBtn.style.display = "";
@@ -294,7 +377,6 @@ function renderQuestion() {
   } else if (expectsText) {
     renderTextInput(currentQuestion);
   } else {
-    // fallback: treat as text input with empty
     renderTextInput(currentQuestion);
   }
 
@@ -465,7 +547,6 @@ function onLessonComplete() {
 
   if (DOM.doneTitle) DOM.doneTitle.textContent = "✅ Complete!";
   if (DOM.doneBody) {
-    const unlocked = unlockIndex();
     const nextMeta = manifest.lessons[clamp(lessonIndex + 1, 0, manifest.lessons.length - 1)];
     DOM.doneBody.textContent =
       lessonIndex < manifest.lessons.length - 1
@@ -499,6 +580,9 @@ function renderMap() {
   nodesEl.innerHTML = "";
   svg.innerHTML = "";
 
+  // IMPORTANT: svg MUST NOT eat clicks
+  svg.style.pointerEvents = "none";
+
   const W = Math.max(320, wrap.clientWidth);
   const topPad = 40;
   const stepY = 86;
@@ -510,9 +594,6 @@ function renderMap() {
   svg.style.height = `${H}px`;
   nodesEl.style.height = `${H}px`;
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
-
-  // FIX: SVG layer must NOT capture clicks
-  svg.style.pointerEvents = "none";
 
   // Zig-zag X positions
   const xs = [
@@ -556,7 +637,7 @@ function renderMap() {
     // Node button
     const btn = document.createElement("button");
     btn.className = "mapNode";
-    btn.dataset.lessonIndex = String(i); // FIX: allow delegated click fallback
+    btn.dataset.idx = String(i);
     btn.style.left = `${x - nodeR}px`;
     btn.style.top = `${y - nodeR}px`;
     btn.style.width = `${nodeR * 2}px`;
@@ -572,10 +653,6 @@ function renderMap() {
     if (!unlocked) {
       btn.disabled = true;
       btn.classList.add("mapNode-locked");
-    } else {
-      btn.onclick = async () => {
-        await startLesson(i);
-      };
     }
     if (completed) btn.classList.add("mapNode-done");
 
@@ -592,6 +669,16 @@ function renderMap() {
     nodesEl.appendChild(btn);
     nodesEl.appendChild(label);
   }
+
+  // Delegated click (more reliable)
+  nodesEl.onclick = async (e) => {
+    const btn = e.target.closest?.("button.mapNode");
+    if (!btn) return;
+    if (btn.disabled) return;
+    const idx = parseInt(btn.dataset.idx || "-1", 10);
+    if (!Number.isFinite(idx) || idx < 0) return;
+    await startLesson(idx);
+  };
 }
 
 /* -----------------------------
@@ -604,7 +691,7 @@ async function startLesson(i) {
     renderQuestion();
   } catch (err) {
     console.error(err);
-    alert("Lesson data is missing or failed to load.");
+    alert(String(err?.message || "Lesson data is missing or failed to load."));
   }
 }
 
@@ -615,7 +702,6 @@ async function startFromContinue() {
   const idx = manifest.lessons.findIndex((l) => l.id === lastId);
   return startLesson(idx >= 0 ? idx : 0);
 }
-
 
 /* -----------------------------
    Speak (Web Speech API)
@@ -714,15 +800,6 @@ function wireEvents() {
     renderMap();
   };
 
-  // Delegated fallback for dynamically created map nodes
-  document.body.addEventListener("click", (e) => {
-    const node = e.target && e.target.closest ? e.target.closest("button.mapNode") : null;
-    if (!node) return;
-    if (node.disabled) return;
-    const idx = node.dataset.lessonIndex ? parseInt(node.dataset.lessonIndex, 10) : NaN;
-    if (Number.isFinite(idx)) startLesson(idx);
-  }, true);
-
   // Resize map nicely
   window.addEventListener("resize", () => {
     if (currentScreen === "map") renderMap();
@@ -738,12 +815,8 @@ async function init() {
     // Default screen: home
     setScreen("home");
 
-    // If you prefer start on map:
-    // setScreen("map"); renderMap();
-
     // Make sure voices are loaded
     if ("speechSynthesis" in window) {
-      // Some browsers need a tick
       await sleep(50);
       window.speechSynthesis.getVoices?.();
     }
