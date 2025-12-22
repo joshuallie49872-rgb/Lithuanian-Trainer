@@ -12,6 +12,8 @@
      B) { items: [...] }      (your current lessons/*.json)
      - "choose" uses answerIndex
      - "translate" uses answers[]
+   - FIXED: Mikas paths (use /mikas/*.png)
+   - FIXED: Show Lithuanian word (q.lt) in prompt so you can see the actual question word
    ========================================================= */
 
 "use strict";
@@ -107,12 +109,12 @@ const DOM = {
    (match your filenames if different)
 ----------------------------- */
 const MIKAS = {
-  neutral: "assets/mikas-neutral.png",
-  thinking: "assets/mikas-thinking.png",
-  happy: "assets/mikas-happy.png",
-  sad: "assets/mikas-sad.png",
-  proud: "assets/mikas-proud.png",
-  celebrate: "assets/mikas-celebrate.png",
+  neutral: "mikas/neutral.png",
+  thinking: "mikas/thinking.png",
+  happy: "mikas/happy.png",
+  sad: "mikas/sad.png",
+  proud: "mikas/proud.png",
+  celebrate: "mikas/celebrate.png",
 };
 
 function setMikas(emotion, bubbleText = "") {
@@ -234,7 +236,7 @@ function normalizeLessonToQuestions(data) {
         const idx = Number.isFinite(it.answerIndex) ? it.answerIndex : -1;
         const answer = (idx >= 0 && idx < choices.length) ? choices[idx] : (it.answer || it.correctAnswer || "");
         return {
-          prompt: it.lt ? `${it.prompt || "Pick the correct meaning"}: ${it.lt}` : (it.prompt || "Pick the correct meaning"),
+          prompt: it.prompt || "Pick the correct meaning",
           lt: it.lt || "",
           choices,
           correct: [answer].filter(Boolean),
@@ -248,12 +250,12 @@ function normalizeLessonToQuestions(data) {
         const correctList = Array.isArray(it.answers) ? it.answers.slice() : (it.answer ? [it.answer] : []);
         const en = it.en || "";
         return {
-          prompt: `${it.prompt || "Translate to Lithuanian"}: ${en}`,
+          prompt: it.prompt || "Translate to Lithuanian",
           en,
           correct: correctList,
           answer: correctList[0] || "",
           placeholder: "Type Lithuanian…",
-          // If there is a tts object, keep it; otherwise we can speak the first correct answer.
+          // If there is a tts object, keep it; otherwise speak the first correct answer.
           tts: it.tts || (correctList[0] || ""),
         };
       }
@@ -341,7 +343,13 @@ function renderQuestion() {
   // Title/prompt
   const meta = manifest.lessons[lessonIndex];
   if (DOM.title) DOM.title.textContent = `${meta.icon ? meta.icon + " " : ""}${meta.title}`;
-  if (DOM.prompt) DOM.prompt.textContent = currentQuestion.prompt || "";
+
+  // FIX: show the Lithuanian word (lt) + the prompt text
+  if (DOM.prompt) {
+    const lt = (currentQuestion.lt || "").trim();
+    const p = (currentQuestion.prompt || "").trim();
+    DOM.prompt.textContent = lt ? `${lt} — ${p || ""}` : (p || "");
+  }
 
   // Reset feedback/buttons
   if (DOM.feedback) DOM.feedback.textContent = "";
@@ -354,7 +362,7 @@ function renderQuestion() {
   // - if there are no choices, always treat as text input
   const expectsText = !hasChoices;
 
-  // speak button if lt present
+  // speak button if present
   const speakText = getSpeakText(currentQuestion);
   if (DOM.controls.speakBtn) {
     if (speakText) {
