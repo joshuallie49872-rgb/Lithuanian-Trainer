@@ -1,9 +1,9 @@
 {
   "id": "017-daily",
   "title": "Daily Routine",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "dirbu",
       "choices": [
         "I work",
@@ -11,14 +11,11 @@
         "I go",
         "I sleep"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "dirbu"
-      }
+      "answer": "I work",
+      "tts": "dirbu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "miegu",
       "choices": [
         "I sleep",
@@ -26,14 +23,11 @@
         "I eat",
         "I go"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "miegu"
-      }
+      "answer": "I sleep",
+      "tts": "miegu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "valgau",
       "choices": [
         "I eat",
@@ -41,14 +35,11 @@
         "I go",
         "I sleep"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "valgau"
-      }
+      "answer": "I eat",
+      "tts": "valgau"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "einu",
       "choices": [
         "I go",
@@ -56,14 +47,11 @@
         "I work",
         "I eat"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "einu"
-      }
+      "answer": "I go",
+      "tts": "einu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "keliuosi",
       "choices": [
         "I wake up",
@@ -71,69 +59,41 @@
         "I eat",
         "I go"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "keliuosi"
-      }
+      "answer": "I wake up",
+      "tts": "keliuosi"
     },
     {
-      "type": "translate",
-      "en": "I work",
-      "answers": [
-        "dirbu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "dirbu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "dirbu"
     },
     {
-      "type": "translate",
-      "en": "I sleep",
-      "answers": [
-        "miegu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "miegu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "miegu"
     },
     {
-      "type": "translate",
-      "en": "I eat",
-      "answers": [
-        "valgau"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "valgau"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "valgau"
     },
     {
-      "type": "translate",
-      "en": "I go",
-      "answers": [
-        "einu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "einu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "einu"
     },
     {
-      "type": "translate",
-      "en": "I wake up",
-      "answers": [
-        "keliuosi"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "keliuosi"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "keliuosi"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "dirbu",
       "choices": [
         "I work",
@@ -141,14 +101,11 @@
         "I go",
         "I sleep"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "dirbu"
-      }
+      "answer": "I work",
+      "tts": "dirbu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "miegu",
       "choices": [
         "I sleep",
@@ -156,14 +113,11 @@
         "I eat",
         "I go"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "miegu"
-      }
+      "answer": "I sleep",
+      "tts": "miegu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "valgau",
       "choices": [
         "I eat",
@@ -171,14 +125,11 @@
         "I go",
         "I sleep"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "valgau"
-      }
+      "answer": "I eat",
+      "tts": "valgau"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "einu",
       "choices": [
         "I go",
@@ -186,14 +137,11 @@
         "I work",
         "I eat"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "einu"
-      }
+      "answer": "I go",
+      "tts": "einu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "keliuosi",
       "choices": [
         "I wake up",
@@ -201,66 +149,38 @@
         "I eat",
         "I go"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "keliuosi"
-      }
+      "answer": "I wake up",
+      "tts": "keliuosi"
     },
     {
-      "type": "translate",
-      "en": "I work",
-      "answers": [
-        "dirbu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "dirbu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "dirbu"
     },
     {
-      "type": "translate",
-      "en": "I sleep",
-      "answers": [
-        "miegu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "miegu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "miegu"
     },
     {
-      "type": "translate",
-      "en": "I eat",
-      "answers": [
-        "valgau"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "valgau"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "valgau"
     },
     {
-      "type": "translate",
-      "en": "I go",
-      "answers": [
-        "einu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "einu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "einu"
     },
     {
-      "type": "translate",
-      "en": "I wake up",
-      "answers": [
-        "keliuosi"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "keliuosi"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "keliuosi"
     }
   ]
 }

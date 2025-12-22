@@ -1,9 +1,9 @@
 {
   "id": "080-opinions",
   "title": "Opinions & Preferences",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "man patinka",
       "choices": [
         "I like",
@@ -11,14 +11,11 @@
         "I need",
         "I go"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "man patinka"
-      }
+      "answer": "I like",
+      "tts": "man patinka"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nepatinka",
       "choices": [
         "I don't like",
@@ -26,14 +23,11 @@
         "I want",
         "I need"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nepatinka"
-      }
+      "answer": "I don't like",
+      "tts": "nepatinka"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "mėgstu",
       "choices": [
         "I enjoy",
@@ -41,14 +35,11 @@
         "I go",
         "I eat"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "mėgstu"
-      }
+      "answer": "I enjoy",
+      "tts": "mėgstu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nenoriu",
       "choices": [
         "I don't want",
@@ -56,14 +47,11 @@
         "I like",
         "I need"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nenoriu"
-      }
+      "answer": "I don't want",
+      "tts": "nenoriu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "svarbu",
       "choices": [
         "important",
@@ -71,70 +59,41 @@
         "easy",
         "fast"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "svarbu"
-      }
+      "answer": "important",
+      "tts": "svarbu"
     },
     {
-      "type": "translate",
-      "en": "I like",
-      "answers": [
-        "man patinka"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "man patinka"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "man patinka"
     },
     {
-      "type": "translate",
-      "en": "I don't like",
-      "answers": [
-        "nepatinka"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nepatinka"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nepatinka"
     },
     {
-      "type": "translate",
-      "en": "I enjoy",
-      "answers": [
-        "mėgstu",
-        "megstu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "mėgstu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "mėgstu"
     },
     {
-      "type": "translate",
-      "en": "I don't want",
-      "answers": [
-        "nenoriu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nenoriu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nenoriu"
     },
     {
-      "type": "translate",
-      "en": "Important",
-      "answers": [
-        "svarbu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "svarbu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "svarbu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "man patinka",
       "choices": [
         "I like",
@@ -142,14 +101,11 @@
         "I need",
         "I go"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "man patinka"
-      }
+      "answer": "I like",
+      "tts": "man patinka"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nepatinka",
       "choices": [
         "I don't like",
@@ -157,14 +113,11 @@
         "I want",
         "I need"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nepatinka"
-      }
+      "answer": "I don't like",
+      "tts": "nepatinka"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "mėgstu",
       "choices": [
         "I enjoy",
@@ -172,14 +125,11 @@
         "I go",
         "I eat"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "mėgstu"
-      }
+      "answer": "I enjoy",
+      "tts": "mėgstu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nenoriu",
       "choices": [
         "I don't want",
@@ -187,14 +137,11 @@
         "I like",
         "I need"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nenoriu"
-      }
+      "answer": "I don't want",
+      "tts": "nenoriu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "svarbu",
       "choices": [
         "important",
@@ -202,67 +149,38 @@
         "easy",
         "fast"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "svarbu"
-      }
+      "answer": "important",
+      "tts": "svarbu"
     },
     {
-      "type": "translate",
-      "en": "I like",
-      "answers": [
-        "man patinka"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "man patinka"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "man patinka"
     },
     {
-      "type": "translate",
-      "en": "I don't like",
-      "answers": [
-        "nepatinka"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nepatinka"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nepatinka"
     },
     {
-      "type": "translate",
-      "en": "I enjoy",
-      "answers": [
-        "mėgstu",
-        "megstu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "mėgstu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "mėgstu"
     },
     {
-      "type": "translate",
-      "en": "I don't want",
-      "answers": [
-        "nenoriu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nenoriu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nenoriu"
     },
     {
-      "type": "translate",
-      "en": "Important",
-      "answers": [
-        "svarbu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "svarbu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "svarbu"
     }
   ]
 }

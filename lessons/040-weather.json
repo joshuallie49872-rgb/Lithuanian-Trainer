@@ -1,9 +1,9 @@
 {
   "id": "040-weather",
   "title": "Weather & Plans",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "oras",
       "choices": [
         "weather",
@@ -11,14 +11,11 @@
         "rain",
         "sun"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "oras"
-      }
+      "answer": "weather",
+      "tts": "oras"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "lietus",
       "choices": [
         "rain",
@@ -26,14 +23,11 @@
         "sun",
         "wind"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "lietus"
-      }
+      "answer": "rain",
+      "tts": "lietus"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "saulė",
       "choices": [
         "sun",
@@ -41,14 +35,11 @@
         "cloud",
         "wind"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "saulė"
-      }
+      "answer": "sun",
+      "tts": "saulė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "šalta",
       "choices": [
         "cold",
@@ -56,14 +47,11 @@
         "warm",
         "cool"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "šalta"
-      }
+      "answer": "cold",
+      "tts": "šalta"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "karšta",
       "choices": [
         "hot",
@@ -71,72 +59,41 @@
         "warm",
         "cool"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "karšta"
-      }
+      "answer": "hot",
+      "tts": "karšta"
     },
     {
-      "type": "translate",
-      "en": "Weather",
-      "answers": [
-        "oras"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "oras"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "oras"
     },
     {
-      "type": "translate",
-      "en": "Rain",
-      "answers": [
-        "lietus"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "lietus"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "lietus"
     },
     {
-      "type": "translate",
-      "en": "Sun",
-      "answers": [
-        "saulė",
-        "saule"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "saulė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "saulė"
     },
     {
-      "type": "translate",
-      "en": "Cold",
-      "answers": [
-        "šalta",
-        "salta"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "šalta"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šalta"
     },
     {
-      "type": "translate",
-      "en": "Hot",
-      "answers": [
-        "karšta",
-        "karsta"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "karšta"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "karšta"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "oras",
       "choices": [
         "weather",
@@ -144,14 +101,11 @@
         "rain",
         "sun"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "oras"
-      }
+      "answer": "weather",
+      "tts": "oras"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "lietus",
       "choices": [
         "rain",
@@ -159,14 +113,11 @@
         "sun",
         "wind"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "lietus"
-      }
+      "answer": "rain",
+      "tts": "lietus"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "saulė",
       "choices": [
         "sun",
@@ -174,14 +125,11 @@
         "cloud",
         "wind"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "saulė"
-      }
+      "answer": "sun",
+      "tts": "saulė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "šalta",
       "choices": [
         "cold",
@@ -189,14 +137,11 @@
         "warm",
         "cool"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "šalta"
-      }
+      "answer": "cold",
+      "tts": "šalta"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "karšta",
       "choices": [
         "hot",
@@ -204,69 +149,38 @@
         "warm",
         "cool"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "karšta"
-      }
+      "answer": "hot",
+      "tts": "karšta"
     },
     {
-      "type": "translate",
-      "en": "Weather",
-      "answers": [
-        "oras"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "oras"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "oras"
     },
     {
-      "type": "translate",
-      "en": "Rain",
-      "answers": [
-        "lietus"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "lietus"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "lietus"
     },
     {
-      "type": "translate",
-      "en": "Sun",
-      "answers": [
-        "saulė",
-        "saule"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "saulė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "saulė"
     },
     {
-      "type": "translate",
-      "en": "Cold",
-      "answers": [
-        "šalta",
-        "salta"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "šalta"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šalta"
     },
     {
-      "type": "translate",
-      "en": "Hot",
-      "answers": [
-        "karšta",
-        "karsta"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "karšta"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "karšta"
     }
   ]
 }

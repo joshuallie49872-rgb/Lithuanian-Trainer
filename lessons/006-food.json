@@ -1,9 +1,9 @@
 {
   "id": "006-food",
   "title": "Food & Drinks",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "vanduo",
       "choices": [
         "water",
@@ -11,14 +11,11 @@
         "coffee",
         "beer"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "vanduo"
-      }
+      "answer": "water",
+      "tts": "vanduo"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kava",
       "choices": [
         "coffee",
@@ -26,14 +23,11 @@
         "beer",
         "milk"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kava"
-      }
+      "answer": "coffee",
+      "tts": "kava"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "arbata",
       "choices": [
         "tea",
@@ -41,14 +35,11 @@
         "juice",
         "water"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "arbata"
-      }
+      "answer": "tea",
+      "tts": "arbata"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "alus",
       "choices": [
         "beer",
@@ -56,14 +47,11 @@
         "juice",
         "milk"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "alus"
-      }
+      "answer": "beer",
+      "tts": "alus"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "vynas",
       "choices": [
         "wine",
@@ -71,69 +59,41 @@
         "water",
         "tea"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "vynas"
-      }
+      "answer": "wine",
+      "tts": "vynas"
     },
     {
-      "type": "translate",
-      "en": "Water",
-      "answers": [
-        "vanduo"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "vanduo"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vanduo"
     },
     {
-      "type": "translate",
-      "en": "Coffee",
-      "answers": [
-        "kava"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kava"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kava"
     },
     {
-      "type": "translate",
-      "en": "Tea",
-      "answers": [
-        "arbata"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "arbata"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "arbata"
     },
     {
-      "type": "translate",
-      "en": "Beer",
-      "answers": [
-        "alus"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "alus"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "alus"
     },
     {
-      "type": "translate",
-      "en": "Wine",
-      "answers": [
-        "vynas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "vynas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vynas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "duona",
       "choices": [
         "bread",
@@ -141,14 +101,11 @@
         "cheese",
         "fish"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "duona"
-      }
+      "answer": "bread",
+      "tts": "duona"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "sūris",
       "choices": [
         "cheese",
@@ -156,14 +113,11 @@
         "fish",
         "bread"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "sūris"
-      }
+      "answer": "cheese",
+      "tts": "sūris"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "mėsa",
       "choices": [
         "meat",
@@ -171,14 +125,11 @@
         "cheese",
         "bread"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "mėsa"
-      }
+      "answer": "meat",
+      "tts": "mėsa"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "žuvis",
       "choices": [
         "fish",
@@ -186,61 +137,35 @@
         "cheese",
         "bread"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "žuvis"
-      }
+      "answer": "fish",
+      "tts": "žuvis"
     },
     {
-      "type": "translate",
-      "en": "Bread",
-      "answers": [
-        "duona"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "duona"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "duona"
     },
     {
-      "type": "translate",
-      "en": "Cheese",
-      "answers": [
-        "sūris",
-        "suris"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "sūris"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sūris"
     },
     {
-      "type": "translate",
-      "en": "Meat",
-      "answers": [
-        "mėsa",
-        "mesa"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "mėsa"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "mėsa"
     },
     {
-      "type": "translate",
-      "en": "Fish",
-      "answers": [
-        "žuvis",
-        "zuvis"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "žuvis"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žuvis"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "skanu",
       "choices": [
         "tasty",
@@ -248,22 +173,14 @@
         "hot",
         "cold"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "skanu"
-      }
+      "answer": "tasty",
+      "tts": "skanu"
     },
     {
-      "type": "translate",
-      "en": "Tasty",
-      "answers": [
-        "skanu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "skanu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "skanu"
     }
   ]
 }

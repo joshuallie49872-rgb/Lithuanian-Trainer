@@ -1,9 +1,9 @@
 {
   "id": "102-home",
   "title": "Home & Household",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "namai",
       "choices": [
         "home",
@@ -11,14 +11,11 @@
         "room",
         "apartment"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "namai"
-      }
+      "answer": "home",
+      "tts": "namai"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "butas",
       "choices": [
         "apartment",
@@ -26,14 +23,11 @@
         "room",
         "hotel"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "butas"
-      }
+      "answer": "apartment",
+      "tts": "butas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "virtuvė",
       "choices": [
         "kitchen",
@@ -41,14 +35,11 @@
         "bedroom",
         "hall"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "virtuvė"
-      }
+      "answer": "kitchen",
+      "tts": "virtuvė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "vonios kambarys",
       "choices": [
         "bathroom",
@@ -56,14 +47,11 @@
         "bedroom",
         "hall"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "vonios kambarys"
-      }
+      "answer": "bathroom",
+      "tts": "vonios kambarys"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "švara",
       "choices": [
         "cleanliness",
@@ -71,71 +59,41 @@
         "mess",
         "noise"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "švara"
-      }
+      "answer": "cleanliness",
+      "tts": "švara"
     },
     {
-      "type": "translate",
-      "en": "Home",
-      "answers": [
-        "namai"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "namai"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "namai"
     },
     {
-      "type": "translate",
-      "en": "Apartment",
-      "answers": [
-        "butas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "butas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "butas"
     },
     {
-      "type": "translate",
-      "en": "Kitchen",
-      "answers": [
-        "virtuvė",
-        "virtuve"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "virtuvė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "virtuvė"
     },
     {
-      "type": "translate",
-      "en": "Bathroom",
-      "answers": [
-        "vonios kambarys"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "vonios kambarys"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vonios kambarys"
     },
     {
-      "type": "translate",
-      "en": "Cleanliness",
-      "answers": [
-        "švara",
-        "svara"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "švara"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "švara"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "namai",
       "choices": [
         "home",
@@ -143,14 +101,11 @@
         "room",
         "apartment"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "namai"
-      }
+      "answer": "home",
+      "tts": "namai"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "butas",
       "choices": [
         "apartment",
@@ -158,14 +113,11 @@
         "room",
         "hotel"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "butas"
-      }
+      "answer": "apartment",
+      "tts": "butas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "virtuvė",
       "choices": [
         "kitchen",
@@ -173,14 +125,11 @@
         "bedroom",
         "hall"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "virtuvė"
-      }
+      "answer": "kitchen",
+      "tts": "virtuvė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "vonios kambarys",
       "choices": [
         "bathroom",
@@ -188,14 +137,11 @@
         "bedroom",
         "hall"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "vonios kambarys"
-      }
+      "answer": "bathroom",
+      "tts": "vonios kambarys"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "švara",
       "choices": [
         "cleanliness",
@@ -203,68 +149,38 @@
         "mess",
         "noise"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "švara"
-      }
+      "answer": "cleanliness",
+      "tts": "švara"
     },
     {
-      "type": "translate",
-      "en": "Home",
-      "answers": [
-        "namai"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "namai"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "namai"
     },
     {
-      "type": "translate",
-      "en": "Apartment",
-      "answers": [
-        "butas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "butas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "butas"
     },
     {
-      "type": "translate",
-      "en": "Kitchen",
-      "answers": [
-        "virtuvė",
-        "virtuve"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "virtuvė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "virtuvė"
     },
     {
-      "type": "translate",
-      "en": "Bathroom",
-      "answers": [
-        "vonios kambarys"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "vonios kambarys"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vonios kambarys"
     },
     {
-      "type": "translate",
-      "en": "Cleanliness",
-      "answers": [
-        "švara",
-        "svara"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "švara"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "švara"
     }
   ]
 }

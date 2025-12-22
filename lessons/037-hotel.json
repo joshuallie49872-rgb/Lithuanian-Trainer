@@ -1,9 +1,9 @@
 {
   "id": "037-hotel",
   "title": "Hotel & Stay",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kambarys",
       "choices": [
         "room",
@@ -11,14 +11,11 @@
         "hotel",
         "bed"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kambarys"
-      }
+      "answer": "room",
+      "tts": "kambarys"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "raktas",
       "choices": [
         "key",
@@ -26,14 +23,11 @@
         "room",
         "window"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "raktas"
-      }
+      "answer": "key",
+      "tts": "raktas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "lova",
       "choices": [
         "bed",
@@ -41,14 +35,11 @@
         "chair",
         "door"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "lova"
-      }
+      "answer": "bed",
+      "tts": "lova"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "registracija",
       "choices": [
         "check-in",
@@ -56,14 +47,11 @@
         "exit",
         "key"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "registracija"
-      }
+      "answer": "check-in",
+      "tts": "registracija"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nakvynė",
       "choices": [
         "overnight",
@@ -71,69 +59,41 @@
         "lunch",
         "dinner"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nakvynė"
-      }
+      "answer": "overnight",
+      "tts": "nakvynė"
     },
     {
-      "type": "translate",
-      "en": "Room",
-      "answers": [
-        "kambarys"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kambarys"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kambarys"
     },
     {
-      "type": "translate",
-      "en": "Key",
-      "answers": [
-        "raktas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "raktas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "raktas"
     },
     {
-      "type": "translate",
-      "en": "Bed",
-      "answers": [
-        "lova"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "lova"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "lova"
     },
     {
-      "type": "translate",
-      "en": "Check-in",
-      "answers": [
-        "registracija"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "registracija"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "registracija"
     },
     {
-      "type": "translate",
-      "en": "Overnight",
-      "answers": [
-        "nakvynė"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nakvynė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nakvynė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kambarys",
       "choices": [
         "room",
@@ -141,14 +101,11 @@
         "hotel",
         "bed"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kambarys"
-      }
+      "answer": "room",
+      "tts": "kambarys"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "raktas",
       "choices": [
         "key",
@@ -156,14 +113,11 @@
         "room",
         "window"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "raktas"
-      }
+      "answer": "key",
+      "tts": "raktas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "lova",
       "choices": [
         "bed",
@@ -171,14 +125,11 @@
         "chair",
         "door"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "lova"
-      }
+      "answer": "bed",
+      "tts": "lova"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "registracija",
       "choices": [
         "check-in",
@@ -186,14 +137,11 @@
         "exit",
         "key"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "registracija"
-      }
+      "answer": "check-in",
+      "tts": "registracija"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nakvynė",
       "choices": [
         "overnight",
@@ -201,66 +149,38 @@
         "lunch",
         "dinner"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nakvynė"
-      }
+      "answer": "overnight",
+      "tts": "nakvynė"
     },
     {
-      "type": "translate",
-      "en": "Room",
-      "answers": [
-        "kambarys"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kambarys"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kambarys"
     },
     {
-      "type": "translate",
-      "en": "Key",
-      "answers": [
-        "raktas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "raktas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "raktas"
     },
     {
-      "type": "translate",
-      "en": "Bed",
-      "answers": [
-        "lova"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "lova"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "lova"
     },
     {
-      "type": "translate",
-      "en": "Check-in",
-      "answers": [
-        "registracija"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "registracija"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "registracija"
     },
     {
-      "type": "translate",
-      "en": "Overnight",
-      "answers": [
-        "nakvynė"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nakvynė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nakvynė"
     }
   ]
 }

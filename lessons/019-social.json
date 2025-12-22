@@ -1,9 +1,9 @@
 {
   "id": "019-social",
   "title": "Social & Polite Talk",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "atsiprašau",
       "choices": [
         "sorry",
@@ -11,14 +11,11 @@
         "hello",
         "bye"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "atsiprašau"
-      }
+      "answer": "sorry",
+      "tts": "atsiprašau"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "prašau",
       "choices": [
         "please",
@@ -26,14 +23,11 @@
         "yes",
         "no"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "prašau"
-      }
+      "answer": "please",
+      "tts": "prašau"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "ačiū",
       "choices": [
         "thank you",
@@ -41,14 +35,11 @@
         "hello",
         "bye"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ačiū"
-      }
+      "answer": "thank you",
+      "tts": "ačiū"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "malonu",
       "choices": [
         "nice",
@@ -56,14 +47,11 @@
         "late",
         "slow"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "malonu"
-      }
+      "answer": "nice",
+      "tts": "malonu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "geras",
       "choices": [
         "good",
@@ -71,72 +59,41 @@
         "slow",
         "fast"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "geras"
-      }
+      "answer": "good",
+      "tts": "geras"
     },
     {
-      "type": "translate",
-      "en": "Sorry",
-      "answers": [
-        "atsiprašau",
-        "atsiprasau"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "atsiprašau"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "atsiprašau"
     },
     {
-      "type": "translate",
-      "en": "Please",
-      "answers": [
-        "prašau",
-        "prasau"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "prašau"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "prašau"
     },
     {
-      "type": "translate",
-      "en": "Thank you",
-      "answers": [
-        "ačiū",
-        "aciu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ačiū"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ačiū"
     },
     {
-      "type": "translate",
-      "en": "Nice",
-      "answers": [
-        "malonu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "malonu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "malonu"
     },
     {
-      "type": "translate",
-      "en": "Good",
-      "answers": [
-        "geras"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "geras"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "geras"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "atsiprašau",
       "choices": [
         "sorry",
@@ -144,14 +101,11 @@
         "hello",
         "bye"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "atsiprašau"
-      }
+      "answer": "sorry",
+      "tts": "atsiprašau"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "prašau",
       "choices": [
         "please",
@@ -159,14 +113,11 @@
         "yes",
         "no"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "prašau"
-      }
+      "answer": "please",
+      "tts": "prašau"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "ačiū",
       "choices": [
         "thank you",
@@ -174,14 +125,11 @@
         "hello",
         "bye"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ačiū"
-      }
+      "answer": "thank you",
+      "tts": "ačiū"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "malonu",
       "choices": [
         "nice",
@@ -189,14 +137,11 @@
         "late",
         "slow"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "malonu"
-      }
+      "answer": "nice",
+      "tts": "malonu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "geras",
       "choices": [
         "good",
@@ -204,69 +149,38 @@
         "slow",
         "fast"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "geras"
-      }
+      "answer": "good",
+      "tts": "geras"
     },
     {
-      "type": "translate",
-      "en": "Sorry",
-      "answers": [
-        "atsiprašau",
-        "atsiprasau"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "atsiprašau"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "atsiprašau"
     },
     {
-      "type": "translate",
-      "en": "Please",
-      "answers": [
-        "prašau",
-        "prasau"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "prašau"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "prašau"
     },
     {
-      "type": "translate",
-      "en": "Thank you",
-      "answers": [
-        "ačiū",
-        "aciu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ačiū"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ačiū"
     },
     {
-      "type": "translate",
-      "en": "Nice",
-      "answers": [
-        "malonu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "malonu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "malonu"
     },
     {
-      "type": "translate",
-      "en": "Good",
-      "answers": [
-        "geras"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "geras"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "geras"
     }
   ]
 }

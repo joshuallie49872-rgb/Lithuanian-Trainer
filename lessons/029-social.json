@@ -1,9 +1,9 @@
 {
   "id": "029-social",
   "title": "Social & Small Talk",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "draugas",
       "choices": [
         "friend",
@@ -11,14 +11,11 @@
         "colleague",
         "stranger"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "draugas"
-      }
+      "answer": "friend",
+      "tts": "draugas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "šeima",
       "choices": [
         "family",
@@ -26,14 +23,11 @@
         "child",
         "parent"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "šeima"
-      }
+      "answer": "family",
+      "tts": "šeima"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "vardas",
       "choices": [
         "name",
@@ -41,14 +35,11 @@
         "number",
         "city"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "vardas"
-      }
+      "answer": "name",
+      "tts": "vardas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "malonu",
       "choices": [
         "nice",
@@ -56,14 +47,11 @@
         "thanks",
         "okay"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "malonu"
-      }
+      "answer": "nice",
+      "tts": "malonu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "susitikti",
       "choices": [
         "to meet",
@@ -71,70 +59,41 @@
         "to go",
         "to eat"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "susitikti"
-      }
+      "answer": "to meet",
+      "tts": "susitikti"
     },
     {
-      "type": "translate",
-      "en": "Friend",
-      "answers": [
-        "draugas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "draugas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "draugas"
     },
     {
-      "type": "translate",
-      "en": "Family",
-      "answers": [
-        "šeima",
-        "seima"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "šeima"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šeima"
     },
     {
-      "type": "translate",
-      "en": "Name",
-      "answers": [
-        "vardas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "vardas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vardas"
     },
     {
-      "type": "translate",
-      "en": "Nice",
-      "answers": [
-        "malonu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "malonu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "malonu"
     },
     {
-      "type": "translate",
-      "en": "To meet",
-      "answers": [
-        "susitikti"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "susitikti"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susitikti"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "draugas",
       "choices": [
         "friend",
@@ -142,14 +101,11 @@
         "colleague",
         "stranger"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "draugas"
-      }
+      "answer": "friend",
+      "tts": "draugas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "šeima",
       "choices": [
         "family",
@@ -157,14 +113,11 @@
         "child",
         "parent"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "šeima"
-      }
+      "answer": "family",
+      "tts": "šeima"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "vardas",
       "choices": [
         "name",
@@ -172,14 +125,11 @@
         "number",
         "city"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "vardas"
-      }
+      "answer": "name",
+      "tts": "vardas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "malonu",
       "choices": [
         "nice",
@@ -187,14 +137,11 @@
         "thanks",
         "okay"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "malonu"
-      }
+      "answer": "nice",
+      "tts": "malonu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "susitikti",
       "choices": [
         "to meet",
@@ -202,67 +149,38 @@
         "to go",
         "to eat"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "susitikti"
-      }
+      "answer": "to meet",
+      "tts": "susitikti"
     },
     {
-      "type": "translate",
-      "en": "Friend",
-      "answers": [
-        "draugas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "draugas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "draugas"
     },
     {
-      "type": "translate",
-      "en": "Family",
-      "answers": [
-        "šeima",
-        "seima"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "šeima"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šeima"
     },
     {
-      "type": "translate",
-      "en": "Name",
-      "answers": [
-        "vardas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "vardas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vardas"
     },
     {
-      "type": "translate",
-      "en": "Nice",
-      "answers": [
-        "malonu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "malonu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "malonu"
     },
     {
-      "type": "translate",
-      "en": "To meet",
-      "answers": [
-        "susitikti"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "susitikti"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susitikti"
     }
   ]
 }

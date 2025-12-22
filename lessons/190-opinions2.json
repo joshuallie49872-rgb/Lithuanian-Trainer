@@ -1,9 +1,9 @@
 {
   "id": "190-opinions2",
   "title": "Opinions & Discussion",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "manau",
       "choices": [
         "I think",
@@ -11,14 +11,11 @@
         "I see",
         "I feel"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "manau"
-      }
+      "answer": "I think",
+      "tts": "manau"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "sutinku",
       "choices": [
         "I agree",
@@ -26,14 +23,11 @@
         "I leave",
         "I wait"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "sutinku"
-      }
+      "answer": "I agree",
+      "tts": "sutinku"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nesutinku",
       "choices": [
         "I disagree",
@@ -41,14 +35,11 @@
         "I think",
         "I know"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nesutinku"
-      }
+      "answer": "I disagree",
+      "tts": "nesutinku"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nuomonė",
       "choices": [
         "opinion",
@@ -56,14 +47,11 @@
         "plan",
         "problem"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nuomonė"
-      }
+      "answer": "opinion",
+      "tts": "nuomonė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "argumentas",
       "choices": [
         "argument",
@@ -71,70 +59,41 @@
         "example",
         "reason"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "argumentas"
-      }
+      "answer": "argument",
+      "tts": "argumentas"
     },
     {
-      "type": "translate",
-      "en": "I think",
-      "answers": [
-        "manau"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "manau"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "manau"
     },
     {
-      "type": "translate",
-      "en": "I agree",
-      "answers": [
-        "sutinku"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "sutinku"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sutinku"
     },
     {
-      "type": "translate",
-      "en": "I disagree",
-      "answers": [
-        "nesutinku"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nesutinku"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nesutinku"
     },
     {
-      "type": "translate",
-      "en": "Opinion",
-      "answers": [
-        "nuomonė",
-        "nuomone"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nuomonė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuomonė"
     },
     {
-      "type": "translate",
-      "en": "Argument",
-      "answers": [
-        "argumentas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "argumentas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "argumentas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "manau",
       "choices": [
         "I think",
@@ -142,14 +101,11 @@
         "I see",
         "I feel"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "manau"
-      }
+      "answer": "I think",
+      "tts": "manau"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "sutinku",
       "choices": [
         "I agree",
@@ -157,14 +113,11 @@
         "I leave",
         "I wait"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "sutinku"
-      }
+      "answer": "I agree",
+      "tts": "sutinku"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nesutinku",
       "choices": [
         "I disagree",
@@ -172,14 +125,11 @@
         "I think",
         "I know"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nesutinku"
-      }
+      "answer": "I disagree",
+      "tts": "nesutinku"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nuomonė",
       "choices": [
         "opinion",
@@ -187,14 +137,11 @@
         "plan",
         "problem"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nuomonė"
-      }
+      "answer": "opinion",
+      "tts": "nuomonė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "argumentas",
       "choices": [
         "argument",
@@ -202,67 +149,38 @@
         "example",
         "reason"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "argumentas"
-      }
+      "answer": "argument",
+      "tts": "argumentas"
     },
     {
-      "type": "translate",
-      "en": "I think",
-      "answers": [
-        "manau"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "manau"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "manau"
     },
     {
-      "type": "translate",
-      "en": "I agree",
-      "answers": [
-        "sutinku"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "sutinku"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sutinku"
     },
     {
-      "type": "translate",
-      "en": "I disagree",
-      "answers": [
-        "nesutinku"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nesutinku"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nesutinku"
     },
     {
-      "type": "translate",
-      "en": "Opinion",
-      "answers": [
-        "nuomonė",
-        "nuomone"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nuomonė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuomonė"
     },
     {
-      "type": "translate",
-      "en": "Argument",
-      "answers": [
-        "argumentas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "argumentas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "argumentas"
     }
   ]
 }

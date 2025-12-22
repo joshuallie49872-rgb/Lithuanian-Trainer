@@ -1,9 +1,9 @@
 {
   "id": "007-cafe",
   "title": "Ordering at a Café",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "prašau",
       "choices": [
         "please",
@@ -11,14 +11,11 @@
         "hello",
         "no"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "prašau"
-      }
+      "answer": "please",
+      "tts": "prašau"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "meniu",
       "choices": [
         "menu",
@@ -26,14 +23,11 @@
         "table",
         "drink"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "meniu"
-      }
+      "answer": "menu",
+      "tts": "meniu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "sąskaita",
       "choices": [
         "bill",
@@ -41,14 +35,11 @@
         "coffee",
         "water"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "sąskaita"
-      }
+      "answer": "bill",
+      "tts": "sąskaita"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "stalas",
       "choices": [
         "table",
@@ -56,14 +47,11 @@
         "menu",
         "food"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "stalas"
-      }
+      "answer": "table",
+      "tts": "stalas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kava",
       "choices": [
         "coffee",
@@ -71,71 +59,41 @@
         "beer",
         "wine"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kava"
-      }
+      "answer": "coffee",
+      "tts": "kava"
     },
     {
-      "type": "translate",
-      "en": "Menu",
-      "answers": [
-        "meniu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "meniu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "meniu"
     },
     {
-      "type": "translate",
-      "en": "Bill",
-      "answers": [
-        "sąskaita",
-        "saskaita"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "sąskaita"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sąskaita"
     },
     {
-      "type": "translate",
-      "en": "Table",
-      "answers": [
-        "stalas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "stalas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "stalas"
     },
     {
-      "type": "translate",
-      "en": "Coffee",
-      "answers": [
-        "kava"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kava"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kava"
     },
     {
-      "type": "translate",
-      "en": "Please",
-      "answers": [
-        "prašau",
-        "prasau"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "prašau"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "prašau"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "prašau",
       "choices": [
         "please",
@@ -143,14 +101,11 @@
         "hello",
         "no"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "prašau"
-      }
+      "answer": "please",
+      "tts": "prašau"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "meniu",
       "choices": [
         "menu",
@@ -158,14 +113,11 @@
         "table",
         "drink"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "meniu"
-      }
+      "answer": "menu",
+      "tts": "meniu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "sąskaita",
       "choices": [
         "bill",
@@ -173,14 +125,11 @@
         "coffee",
         "water"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "sąskaita"
-      }
+      "answer": "bill",
+      "tts": "sąskaita"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "stalas",
       "choices": [
         "table",
@@ -188,14 +137,11 @@
         "menu",
         "food"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "stalas"
-      }
+      "answer": "table",
+      "tts": "stalas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kava",
       "choices": [
         "coffee",
@@ -203,68 +149,38 @@
         "beer",
         "wine"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kava"
-      }
+      "answer": "coffee",
+      "tts": "kava"
     },
     {
-      "type": "translate",
-      "en": "Menu",
-      "answers": [
-        "meniu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "meniu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "meniu"
     },
     {
-      "type": "translate",
-      "en": "Bill",
-      "answers": [
-        "sąskaita",
-        "saskaita"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "sąskaita"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sąskaita"
     },
     {
-      "type": "translate",
-      "en": "Table",
-      "answers": [
-        "stalas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "stalas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "stalas"
     },
     {
-      "type": "translate",
-      "en": "Coffee",
-      "answers": [
-        "kava"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kava"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kava"
     },
     {
-      "type": "translate",
-      "en": "Please",
-      "answers": [
-        "prašau",
-        "prasau"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "prašau"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "prašau"
     }
   ]
 }

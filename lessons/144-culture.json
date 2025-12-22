@@ -1,9 +1,9 @@
 {
   "id": "144-culture",
   "title": "Culture & Everyday Life",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "šventė",
       "choices": [
         "holiday",
@@ -11,14 +11,11 @@
         "meeting",
         "party"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "šventė"
-      }
+      "answer": "holiday",
+      "tts": "šventė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "tradicija",
       "choices": [
         "tradition",
@@ -26,14 +23,11 @@
         "law",
         "habit"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "tradicija"
-      }
+      "answer": "tradition",
+      "tts": "tradicija"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "paprotys",
       "choices": [
         "custom",
@@ -41,14 +35,11 @@
         "work",
         "plan"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "paprotys"
-      }
+      "answer": "custom",
+      "tts": "paprotys"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "laisvalaikis",
       "choices": [
         "free time",
@@ -56,14 +47,11 @@
         "sleep",
         "travel"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "laisvalaikis"
-      }
+      "answer": "free time",
+      "tts": "laisvalaikis"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "renginys",
       "choices": [
         "event",
@@ -71,70 +59,41 @@
         "place",
         "job"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "renginys"
-      }
+      "answer": "event",
+      "tts": "renginys"
     },
     {
-      "type": "translate",
-      "en": "Holiday",
-      "answers": [
-        "šventė",
-        "svente"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "šventė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šventė"
     },
     {
-      "type": "translate",
-      "en": "Tradition",
-      "answers": [
-        "tradicija"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "tradicija"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "tradicija"
     },
     {
-      "type": "translate",
-      "en": "Custom",
-      "answers": [
-        "paprotys"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "paprotys"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "paprotys"
     },
     {
-      "type": "translate",
-      "en": "Free time",
-      "answers": [
-        "laisvalaikis"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "laisvalaikis"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "laisvalaikis"
     },
     {
-      "type": "translate",
-      "en": "Event",
-      "answers": [
-        "renginys"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "renginys"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "renginys"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "šventė",
       "choices": [
         "holiday",
@@ -142,14 +101,11 @@
         "meeting",
         "party"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "šventė"
-      }
+      "answer": "holiday",
+      "tts": "šventė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "tradicija",
       "choices": [
         "tradition",
@@ -157,14 +113,11 @@
         "law",
         "habit"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "tradicija"
-      }
+      "answer": "tradition",
+      "tts": "tradicija"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "paprotys",
       "choices": [
         "custom",
@@ -172,14 +125,11 @@
         "work",
         "plan"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "paprotys"
-      }
+      "answer": "custom",
+      "tts": "paprotys"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "laisvalaikis",
       "choices": [
         "free time",
@@ -187,14 +137,11 @@
         "sleep",
         "travel"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "laisvalaikis"
-      }
+      "answer": "free time",
+      "tts": "laisvalaikis"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "renginys",
       "choices": [
         "event",
@@ -202,67 +149,38 @@
         "place",
         "job"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "renginys"
-      }
+      "answer": "event",
+      "tts": "renginys"
     },
     {
-      "type": "translate",
-      "en": "Holiday",
-      "answers": [
-        "šventė",
-        "svente"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "šventė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šventė"
     },
     {
-      "type": "translate",
-      "en": "Tradition",
-      "answers": [
-        "tradicija"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "tradicija"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "tradicija"
     },
     {
-      "type": "translate",
-      "en": "Custom",
-      "answers": [
-        "paprotys"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "paprotys"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "paprotys"
     },
     {
-      "type": "translate",
-      "en": "Free time",
-      "answers": [
-        "laisvalaikis"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "laisvalaikis"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "laisvalaikis"
     },
     {
-      "type": "translate",
-      "en": "Event",
-      "answers": [
-        "renginys"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "renginys"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "renginys"
     }
   ]
 }

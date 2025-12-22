@@ -1,9 +1,9 @@
 {
   "id": "123-feelings2",
   "title": "Feelings & Reactions",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nustebęs",
       "choices": [
         "surprised",
@@ -11,14 +11,11 @@
         "happy",
         "sad"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nustebęs"
-      }
+      "answer": "surprised",
+      "tts": "nustebęs"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "piktas",
       "choices": [
         "angry",
@@ -26,14 +23,11 @@
         "sad",
         "tired"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "piktas"
-      }
+      "answer": "angry",
+      "tts": "piktas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "ramus",
       "choices": [
         "calm",
@@ -41,14 +35,11 @@
         "sad",
         "busy"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ramus"
-      }
+      "answer": "calm",
+      "tts": "ramus"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "susirūpinęs",
       "choices": [
         "worried",
@@ -56,14 +47,11 @@
         "calm",
         "excited"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "susirūpinęs"
-      }
+      "answer": "worried",
+      "tts": "susirūpinęs"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "patenkintas",
       "choices": [
         "satisfied",
@@ -71,71 +59,41 @@
         "sad",
         "tired"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "patenkintas"
-      }
+      "answer": "satisfied",
+      "tts": "patenkintas"
     },
     {
-      "type": "translate",
-      "en": "Surprised",
-      "answers": [
-        "nustebęs",
-        "nustebes"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nustebęs"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nustebęs"
     },
     {
-      "type": "translate",
-      "en": "Angry",
-      "answers": [
-        "piktas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "piktas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "piktas"
     },
     {
-      "type": "translate",
-      "en": "Calm",
-      "answers": [
-        "ramus"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ramus"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ramus"
     },
     {
-      "type": "translate",
-      "en": "Worried",
-      "answers": [
-        "susirūpinęs",
-        "susirupines"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "susirūpinęs"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susirūpinęs"
     },
     {
-      "type": "translate",
-      "en": "Satisfied",
-      "answers": [
-        "patenkintas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "patenkintas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "patenkintas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nustebęs",
       "choices": [
         "surprised",
@@ -143,14 +101,11 @@
         "happy",
         "sad"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nustebęs"
-      }
+      "answer": "surprised",
+      "tts": "nustebęs"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "piktas",
       "choices": [
         "angry",
@@ -158,14 +113,11 @@
         "sad",
         "tired"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "piktas"
-      }
+      "answer": "angry",
+      "tts": "piktas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "ramus",
       "choices": [
         "calm",
@@ -173,14 +125,11 @@
         "sad",
         "busy"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ramus"
-      }
+      "answer": "calm",
+      "tts": "ramus"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "susirūpinęs",
       "choices": [
         "worried",
@@ -188,14 +137,11 @@
         "calm",
         "excited"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "susirūpinęs"
-      }
+      "answer": "worried",
+      "tts": "susirūpinęs"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "patenkintas",
       "choices": [
         "satisfied",
@@ -203,68 +149,38 @@
         "sad",
         "tired"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "patenkintas"
-      }
+      "answer": "satisfied",
+      "tts": "patenkintas"
     },
     {
-      "type": "translate",
-      "en": "Surprised",
-      "answers": [
-        "nustebęs",
-        "nustebes"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nustebęs"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nustebęs"
     },
     {
-      "type": "translate",
-      "en": "Angry",
-      "answers": [
-        "piktas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "piktas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "piktas"
     },
     {
-      "type": "translate",
-      "en": "Calm",
-      "answers": [
-        "ramus"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ramus"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ramus"
     },
     {
-      "type": "translate",
-      "en": "Worried",
-      "answers": [
-        "susirūpinęs",
-        "susirupines"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "susirūpinęs"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susirūpinęs"
     },
     {
-      "type": "translate",
-      "en": "Satisfied",
-      "answers": [
-        "patenkintas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "patenkintas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "patenkintas"
     }
   ]
 }

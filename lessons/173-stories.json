@@ -1,9 +1,9 @@
 {
   "id": "173-stories",
   "title": "Stories & Narratives",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "istorija",
       "choices": [
         "story",
@@ -11,14 +11,11 @@
         "news",
         "book"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "istorija"
-      }
+      "answer": "story",
+      "tts": "istorija"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "pasakojimas",
       "choices": [
         "narrative",
@@ -26,14 +23,11 @@
         "problem",
         "event"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pasakojimas"
-      }
+      "answer": "narrative",
+      "tts": "pasakojimas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "pradžia",
       "choices": [
         "beginning",
@@ -41,14 +35,11 @@
         "middle",
         "result"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pradžia"
-      }
+      "answer": "beginning",
+      "tts": "pradžia"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "pabaiga",
       "choices": [
         "ending",
@@ -56,14 +47,11 @@
         "problem",
         "plan"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pabaiga"
-      }
+      "answer": "ending",
+      "tts": "pabaiga"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nutiko",
       "choices": [
         "happened",
@@ -71,70 +59,41 @@
         "said",
         "left"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nutiko"
-      }
+      "answer": "happened",
+      "tts": "nutiko"
     },
     {
-      "type": "translate",
-      "en": "Story",
-      "answers": [
-        "istorija"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "istorija"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "istorija"
     },
     {
-      "type": "translate",
-      "en": "Narrative",
-      "answers": [
-        "pasakojimas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pasakojimas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pasakojimas"
     },
     {
-      "type": "translate",
-      "en": "Beginning",
-      "answers": [
-        "pradžia",
-        "pradzia"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pradžia"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pradžia"
     },
     {
-      "type": "translate",
-      "en": "End",
-      "answers": [
-        "pabaiga"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pabaiga"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pabaiga"
     },
     {
-      "type": "translate",
-      "en": "Happened",
-      "answers": [
-        "nutiko"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nutiko"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nutiko"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "istorija",
       "choices": [
         "story",
@@ -142,14 +101,11 @@
         "news",
         "book"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "istorija"
-      }
+      "answer": "story",
+      "tts": "istorija"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "pasakojimas",
       "choices": [
         "narrative",
@@ -157,14 +113,11 @@
         "problem",
         "event"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pasakojimas"
-      }
+      "answer": "narrative",
+      "tts": "pasakojimas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "pradžia",
       "choices": [
         "beginning",
@@ -172,14 +125,11 @@
         "middle",
         "result"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pradžia"
-      }
+      "answer": "beginning",
+      "tts": "pradžia"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "pabaiga",
       "choices": [
         "ending",
@@ -187,14 +137,11 @@
         "problem",
         "plan"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pabaiga"
-      }
+      "answer": "ending",
+      "tts": "pabaiga"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nutiko",
       "choices": [
         "happened",
@@ -202,67 +149,38 @@
         "said",
         "left"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nutiko"
-      }
+      "answer": "happened",
+      "tts": "nutiko"
     },
     {
-      "type": "translate",
-      "en": "Story",
-      "answers": [
-        "istorija"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "istorija"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "istorija"
     },
     {
-      "type": "translate",
-      "en": "Narrative",
-      "answers": [
-        "pasakojimas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pasakojimas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pasakojimas"
     },
     {
-      "type": "translate",
-      "en": "Beginning",
-      "answers": [
-        "pradžia",
-        "pradzia"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pradžia"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pradžia"
     },
     {
-      "type": "translate",
-      "en": "End",
-      "answers": [
-        "pabaiga"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pabaiga"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pabaiga"
     },
     {
-      "type": "translate",
-      "en": "Happened",
-      "answers": [
-        "nutiko"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nutiko"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nutiko"
     }
   ]
 }

@@ -1,9 +1,9 @@
 {
   "id": "021-travel",
   "title": "Travel & Transport",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "autobusas",
       "choices": [
         "bus",
@@ -11,14 +11,11 @@
         "car",
         "plane"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "autobusas"
-      }
+      "answer": "bus",
+      "tts": "autobusas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "traukinys",
       "choices": [
         "train",
@@ -26,14 +23,11 @@
         "plane",
         "taxi"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "traukinys"
-      }
+      "answer": "train",
+      "tts": "traukinys"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "bilietas",
       "choices": [
         "ticket",
@@ -41,14 +35,11 @@
         "hotel",
         "map"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "bilietas"
-      }
+      "answer": "ticket",
+      "tts": "bilietas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "taksi",
       "choices": [
         "taxi",
@@ -56,14 +47,11 @@
         "train",
         "bike"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "taksi"
-      }
+      "answer": "taxi",
+      "tts": "taksi"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kelionė",
       "choices": [
         "trip",
@@ -71,69 +59,41 @@
         "food",
         "street"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kelionė"
-      }
+      "answer": "trip",
+      "tts": "kelionė"
     },
     {
-      "type": "translate",
-      "en": "Bus",
-      "answers": [
-        "autobusas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "autobusas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "autobusas"
     },
     {
-      "type": "translate",
-      "en": "Train",
-      "answers": [
-        "traukinys"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "traukinys"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "traukinys"
     },
     {
-      "type": "translate",
-      "en": "Ticket",
-      "answers": [
-        "bilietas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "bilietas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "bilietas"
     },
     {
-      "type": "translate",
-      "en": "Taxi",
-      "answers": [
-        "taksi"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "taksi"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "taksi"
     },
     {
-      "type": "translate",
-      "en": "Trip",
-      "answers": [
-        "kelionė"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kelionė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kelionė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "autobusas",
       "choices": [
         "bus",
@@ -141,14 +101,11 @@
         "car",
         "plane"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "autobusas"
-      }
+      "answer": "bus",
+      "tts": "autobusas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "traukinys",
       "choices": [
         "train",
@@ -156,14 +113,11 @@
         "plane",
         "taxi"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "traukinys"
-      }
+      "answer": "train",
+      "tts": "traukinys"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "bilietas",
       "choices": [
         "ticket",
@@ -171,14 +125,11 @@
         "hotel",
         "map"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "bilietas"
-      }
+      "answer": "ticket",
+      "tts": "bilietas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "taksi",
       "choices": [
         "taxi",
@@ -186,14 +137,11 @@
         "train",
         "bike"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "taksi"
-      }
+      "answer": "taxi",
+      "tts": "taksi"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kelionė",
       "choices": [
         "trip",
@@ -201,66 +149,38 @@
         "food",
         "street"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kelionė"
-      }
+      "answer": "trip",
+      "tts": "kelionė"
     },
     {
-      "type": "translate",
-      "en": "Bus",
-      "answers": [
-        "autobusas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "autobusas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "autobusas"
     },
     {
-      "type": "translate",
-      "en": "Train",
-      "answers": [
-        "traukinys"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "traukinys"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "traukinys"
     },
     {
-      "type": "translate",
-      "en": "Ticket",
-      "answers": [
-        "bilietas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "bilietas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "bilietas"
     },
     {
-      "type": "translate",
-      "en": "Taxi",
-      "answers": [
-        "taksi"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "taksi"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "taksi"
     },
     {
-      "type": "translate",
-      "en": "Trip",
-      "answers": [
-        "kelionė"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kelionė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kelionė"
     }
   ]
 }

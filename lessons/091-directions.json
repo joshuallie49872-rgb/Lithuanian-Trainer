@@ -1,9 +1,9 @@
 {
   "id": "091-directions",
   "title": "Directions & Movement",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kairė",
       "choices": [
         "left",
@@ -11,14 +11,11 @@
         "straight",
         "back"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kairė"
-      }
+      "answer": "left",
+      "tts": "kairė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "dešinė",
       "choices": [
         "right",
@@ -26,14 +23,11 @@
         "straight",
         "back"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "dešinė"
-      }
+      "answer": "right",
+      "tts": "dešinė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "tiesiai",
       "choices": [
         "straight",
@@ -41,14 +35,11 @@
         "right",
         "back"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "tiesiai"
-      }
+      "answer": "straight",
+      "tts": "tiesiai"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "atgal",
       "choices": [
         "back",
@@ -56,14 +47,11 @@
         "left",
         "right"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "atgal"
-      }
+      "answer": "back",
+      "tts": "atgal"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "arti",
       "choices": [
         "near",
@@ -71,71 +59,41 @@
         "inside",
         "outside"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "arti"
-      }
+      "answer": "near",
+      "tts": "arti"
     },
     {
-      "type": "translate",
-      "en": "Left",
-      "answers": [
-        "kairė",
-        "kaire"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kairė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kairė"
     },
     {
-      "type": "translate",
-      "en": "Right",
-      "answers": [
-        "dešinė",
-        "desine"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "dešinė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "dešinė"
     },
     {
-      "type": "translate",
-      "en": "Straight",
-      "answers": [
-        "tiesiai"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "tiesiai"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "tiesiai"
     },
     {
-      "type": "translate",
-      "en": "Back",
-      "answers": [
-        "atgal"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "atgal"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "atgal"
     },
     {
-      "type": "translate",
-      "en": "Near",
-      "answers": [
-        "arti"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "arti"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "arti"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kairė",
       "choices": [
         "left",
@@ -143,14 +101,11 @@
         "straight",
         "back"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kairė"
-      }
+      "answer": "left",
+      "tts": "kairė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "dešinė",
       "choices": [
         "right",
@@ -158,14 +113,11 @@
         "straight",
         "back"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "dešinė"
-      }
+      "answer": "right",
+      "tts": "dešinė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "tiesiai",
       "choices": [
         "straight",
@@ -173,14 +125,11 @@
         "right",
         "back"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "tiesiai"
-      }
+      "answer": "straight",
+      "tts": "tiesiai"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "atgal",
       "choices": [
         "back",
@@ -188,14 +137,11 @@
         "left",
         "right"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "atgal"
-      }
+      "answer": "back",
+      "tts": "atgal"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "arti",
       "choices": [
         "near",
@@ -203,68 +149,38 @@
         "inside",
         "outside"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "arti"
-      }
+      "answer": "near",
+      "tts": "arti"
     },
     {
-      "type": "translate",
-      "en": "Left",
-      "answers": [
-        "kairė",
-        "kaire"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kairė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kairė"
     },
     {
-      "type": "translate",
-      "en": "Right",
-      "answers": [
-        "dešinė",
-        "desine"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "dešinė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "dešinė"
     },
     {
-      "type": "translate",
-      "en": "Straight",
-      "answers": [
-        "tiesiai"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "tiesiai"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "tiesiai"
     },
     {
-      "type": "translate",
-      "en": "Back",
-      "answers": [
-        "atgal"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "atgal"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "atgal"
     },
     {
-      "type": "translate",
-      "en": "Near",
-      "answers": [
-        "arti"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "arti"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "arti"
     }
   ]
 }

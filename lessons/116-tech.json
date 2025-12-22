@@ -1,9 +1,9 @@
 {
   "id": "116-tech",
   "title": "Technology & Media",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "telefonas",
       "choices": [
         "phone",
@@ -11,14 +11,11 @@
         "tablet",
         "tv"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "telefonas"
-      }
+      "answer": "phone",
+      "tts": "telefonas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kompiuteris",
       "choices": [
         "computer",
@@ -26,14 +23,11 @@
         "tablet",
         "tv"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kompiuteris"
-      }
+      "answer": "computer",
+      "tts": "kompiuteris"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "internetas",
       "choices": [
         "internet",
@@ -41,14 +35,11 @@
         "wifi",
         "signal"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "internetas"
-      }
+      "answer": "internet",
+      "tts": "internetas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "programa",
       "choices": [
         "app",
@@ -56,14 +47,11 @@
         "device",
         "file"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "programa"
-      }
+      "answer": "app",
+      "tts": "programa"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "žinutė",
       "choices": [
         "message",
@@ -71,70 +59,41 @@
         "email",
         "letter"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "žinutė"
-      }
+      "answer": "message",
+      "tts": "žinutė"
     },
     {
-      "type": "translate",
-      "en": "Phone",
-      "answers": [
-        "telefonas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "telefonas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "telefonas"
     },
     {
-      "type": "translate",
-      "en": "Computer",
-      "answers": [
-        "kompiuteris"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kompiuteris"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kompiuteris"
     },
     {
-      "type": "translate",
-      "en": "Internet",
-      "answers": [
-        "internetas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "internetas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "internetas"
     },
     {
-      "type": "translate",
-      "en": "App",
-      "answers": [
-        "programa"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "programa"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "programa"
     },
     {
-      "type": "translate",
-      "en": "Message",
-      "answers": [
-        "žinutė",
-        "zinute"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "žinutė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žinutė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "telefonas",
       "choices": [
         "phone",
@@ -142,14 +101,11 @@
         "tablet",
         "tv"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "telefonas"
-      }
+      "answer": "phone",
+      "tts": "telefonas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kompiuteris",
       "choices": [
         "computer",
@@ -157,14 +113,11 @@
         "tablet",
         "tv"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kompiuteris"
-      }
+      "answer": "computer",
+      "tts": "kompiuteris"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "internetas",
       "choices": [
         "internet",
@@ -172,14 +125,11 @@
         "wifi",
         "signal"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "internetas"
-      }
+      "answer": "internet",
+      "tts": "internetas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "programa",
       "choices": [
         "app",
@@ -187,14 +137,11 @@
         "device",
         "file"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "programa"
-      }
+      "answer": "app",
+      "tts": "programa"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "žinutė",
       "choices": [
         "message",
@@ -202,67 +149,38 @@
         "email",
         "letter"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "žinutė"
-      }
+      "answer": "message",
+      "tts": "žinutė"
     },
     {
-      "type": "translate",
-      "en": "Phone",
-      "answers": [
-        "telefonas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "telefonas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "telefonas"
     },
     {
-      "type": "translate",
-      "en": "Computer",
-      "answers": [
-        "kompiuteris"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kompiuteris"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kompiuteris"
     },
     {
-      "type": "translate",
-      "en": "Internet",
-      "answers": [
-        "internetas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "internetas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "internetas"
     },
     {
-      "type": "translate",
-      "en": "App",
-      "answers": [
-        "programa"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "programa"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "programa"
     },
     {
-      "type": "translate",
-      "en": "Message",
-      "answers": [
-        "žinutė",
-        "zinute"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "žinutė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žinutė"
     }
   ]
 }

@@ -1,9 +1,9 @@
 {
   "id": "077-travel2",
   "title": "Advanced Travel",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "pasas",
       "choices": [
         "passport",
@@ -11,14 +11,11 @@
         "hotel",
         "map"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pasas"
-      }
+      "answer": "passport",
+      "tts": "pasas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "sienos",
       "choices": [
         "borders",
@@ -26,14 +23,11 @@
         "doors",
         "cities"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "sienos"
-      }
+      "answer": "borders",
+      "tts": "sienos"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "keliauti",
       "choices": [
         "to travel",
@@ -41,14 +35,11 @@
         "to eat",
         "to sleep"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "keliauti"
-      }
+      "answer": "to travel",
+      "tts": "keliauti"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "lagaminas",
       "choices": [
         "suitcase",
@@ -56,14 +47,11 @@
         "ticket",
         "passport"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "lagaminas"
-      }
+      "answer": "suitcase",
+      "tts": "lagaminas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "muitinė",
       "choices": [
         "customs",
@@ -71,71 +59,41 @@
         "airport",
         "police"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "muitinė"
-      }
+      "answer": "customs",
+      "tts": "muitinė"
     },
     {
-      "type": "translate",
-      "en": "Passport",
-      "answers": [
-        "pasas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pasas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pasas"
     },
     {
-      "type": "translate",
-      "en": "Border",
-      "answers": [
-        "siena",
-        "sienos"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "siena"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "siena"
     },
     {
-      "type": "translate",
-      "en": "To travel",
-      "answers": [
-        "keliauti"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "keliauti"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "keliauti"
     },
     {
-      "type": "translate",
-      "en": "Suitcase",
-      "answers": [
-        "lagaminas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "lagaminas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "lagaminas"
     },
     {
-      "type": "translate",
-      "en": "Customs",
-      "answers": [
-        "muitinė",
-        "muitine"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "muitinė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "muitinė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "pasas",
       "choices": [
         "passport",
@@ -143,14 +101,11 @@
         "hotel",
         "map"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pasas"
-      }
+      "answer": "passport",
+      "tts": "pasas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "sienos",
       "choices": [
         "borders",
@@ -158,14 +113,11 @@
         "doors",
         "cities"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "sienos"
-      }
+      "answer": "borders",
+      "tts": "sienos"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "keliauti",
       "choices": [
         "to travel",
@@ -173,14 +125,11 @@
         "to eat",
         "to sleep"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "keliauti"
-      }
+      "answer": "to travel",
+      "tts": "keliauti"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "lagaminas",
       "choices": [
         "suitcase",
@@ -188,14 +137,11 @@
         "ticket",
         "passport"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "lagaminas"
-      }
+      "answer": "suitcase",
+      "tts": "lagaminas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "muitinė",
       "choices": [
         "customs",
@@ -203,68 +149,38 @@
         "airport",
         "police"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "muitinė"
-      }
+      "answer": "customs",
+      "tts": "muitinė"
     },
     {
-      "type": "translate",
-      "en": "Passport",
-      "answers": [
-        "pasas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pasas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pasas"
     },
     {
-      "type": "translate",
-      "en": "Border",
-      "answers": [
-        "siena",
-        "sienos"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "siena"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "siena"
     },
     {
-      "type": "translate",
-      "en": "To travel",
-      "answers": [
-        "keliauti"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "keliauti"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "keliauti"
     },
     {
-      "type": "translate",
-      "en": "Suitcase",
-      "answers": [
-        "lagaminas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "lagaminas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "lagaminas"
     },
     {
-      "type": "translate",
-      "en": "Customs",
-      "answers": [
-        "muitinė",
-        "muitine"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "muitinė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "muitinė"
     }
   ]
 }

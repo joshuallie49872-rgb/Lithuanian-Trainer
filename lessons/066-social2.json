@@ -1,9 +1,9 @@
 {
   "id": "066-social2",
   "title": "Conversation & Feelings",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "laimingas",
       "choices": [
         "happy",
@@ -11,14 +11,11 @@
         "angry",
         "tired"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "laimingas"
-      }
+      "answer": "happy",
+      "tts": "laimingas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "liūdnas",
       "choices": [
         "sad",
@@ -26,14 +23,11 @@
         "angry",
         "excited"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "liūdnas"
-      }
+      "answer": "sad",
+      "tts": "liūdnas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "pavargęs",
       "choices": [
         "tired",
@@ -41,14 +35,11 @@
         "sad",
         "angry"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pavargęs"
-      }
+      "answer": "tired",
+      "tts": "pavargęs"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "džiaugiuosi",
       "choices": [
         "I am happy",
@@ -56,14 +47,11 @@
         "I am angry",
         "I am tired"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "džiaugiuosi"
-      }
+      "answer": "I am happy",
+      "tts": "džiaugiuosi"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "bijau",
       "choices": [
         "I am afraid",
@@ -71,71 +59,41 @@
         "I am tired",
         "I am happy"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "bijau"
-      }
+      "answer": "I am afraid",
+      "tts": "bijau"
     },
     {
-      "type": "translate",
-      "en": "Happy",
-      "answers": [
-        "laimingas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "laimingas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "laimingas"
     },
     {
-      "type": "translate",
-      "en": "Sad",
-      "answers": [
-        "liūdnas",
-        "liudnas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "liūdnas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "liūdnas"
     },
     {
-      "type": "translate",
-      "en": "Tired",
-      "answers": [
-        "pavargęs",
-        "pavarges"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pavargęs"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pavargęs"
     },
     {
-      "type": "translate",
-      "en": "I am happy",
-      "answers": [
-        "džiaugiuosi"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "džiaugiuosi"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "džiaugiuosi"
     },
     {
-      "type": "translate",
-      "en": "I am afraid",
-      "answers": [
-        "bijau"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "bijau"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "bijau"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "laimingas",
       "choices": [
         "happy",
@@ -143,14 +101,11 @@
         "angry",
         "tired"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "laimingas"
-      }
+      "answer": "happy",
+      "tts": "laimingas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "liūdnas",
       "choices": [
         "sad",
@@ -158,14 +113,11 @@
         "angry",
         "excited"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "liūdnas"
-      }
+      "answer": "sad",
+      "tts": "liūdnas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "pavargęs",
       "choices": [
         "tired",
@@ -173,14 +125,11 @@
         "sad",
         "angry"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pavargęs"
-      }
+      "answer": "tired",
+      "tts": "pavargęs"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "džiaugiuosi",
       "choices": [
         "I am happy",
@@ -188,14 +137,11 @@
         "I am angry",
         "I am tired"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "džiaugiuosi"
-      }
+      "answer": "I am happy",
+      "tts": "džiaugiuosi"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "bijau",
       "choices": [
         "I am afraid",
@@ -203,68 +149,38 @@
         "I am tired",
         "I am happy"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "bijau"
-      }
+      "answer": "I am afraid",
+      "tts": "bijau"
     },
     {
-      "type": "translate",
-      "en": "Happy",
-      "answers": [
-        "laimingas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "laimingas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "laimingas"
     },
     {
-      "type": "translate",
-      "en": "Sad",
-      "answers": [
-        "liūdnas",
-        "liudnas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "liūdnas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "liūdnas"
     },
     {
-      "type": "translate",
-      "en": "Tired",
-      "answers": [
-        "pavargęs",
-        "pavarges"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pavargęs"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pavargęs"
     },
     {
-      "type": "translate",
-      "en": "I am happy",
-      "answers": [
-        "džiaugiuosi"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "džiaugiuosi"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "džiaugiuosi"
     },
     {
-      "type": "translate",
-      "en": "I am afraid",
-      "answers": [
-        "bijau"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "bijau"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "bijau"
     }
   ]
 }

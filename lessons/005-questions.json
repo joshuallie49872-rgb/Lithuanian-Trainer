@@ -1,9 +1,9 @@
 {
   "id": "005-questions",
   "title": "Questions & Answers",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kas",
       "choices": [
         "who",
@@ -11,14 +11,11 @@
         "where",
         "when"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kas"
-      }
+      "answer": "who",
+      "tts": "kas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "ką",
       "choices": [
         "what",
@@ -26,14 +23,11 @@
         "where",
         "why"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ką"
-      }
+      "answer": "what",
+      "tts": "ką"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kur",
       "choices": [
         "where",
@@ -41,14 +35,11 @@
         "how",
         "who"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kur"
-      }
+      "answer": "where",
+      "tts": "kur"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kada",
       "choices": [
         "when",
@@ -56,14 +47,11 @@
         "why",
         "how"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kada"
-      }
+      "answer": "when",
+      "tts": "kada"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kodėl",
       "choices": [
         "why",
@@ -71,69 +59,41 @@
         "where",
         "who"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kodėl"
-      }
+      "answer": "why",
+      "tts": "kodėl"
     },
     {
-      "type": "translate",
-      "en": "Who?",
-      "answers": [
-        "kas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kas"
     },
     {
-      "type": "translate",
-      "en": "What?",
-      "answers": [
-        "ką"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ką"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ką"
     },
     {
-      "type": "translate",
-      "en": "Where?",
-      "answers": [
-        "kur"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kur"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kur"
     },
     {
-      "type": "translate",
-      "en": "When?",
-      "answers": [
-        "kada"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kada"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kada"
     },
     {
-      "type": "translate",
-      "en": "Why?",
-      "answers": [
-        "kodėl"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kodėl"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kodėl"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "taip",
       "choices": [
         "yes",
@@ -141,14 +101,11 @@
         "maybe",
         "later"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "taip"
-      }
+      "answer": "yes",
+      "tts": "taip"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "ne",
       "choices": [
         "no",
@@ -156,36 +113,23 @@
         "later",
         "always"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ne"
-      }
+      "answer": "no",
+      "tts": "ne"
     },
     {
-      "type": "translate",
-      "en": "Yes",
-      "answers": [
-        "taip"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "taip"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "taip"
     },
     {
-      "type": "translate",
-      "en": "No",
-      "answers": [
-        "ne"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ne"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ne"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "gerai",
       "choices": [
         "okay",
@@ -193,25 +137,17 @@
         "no",
         "later"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "gerai"
-      }
+      "answer": "okay",
+      "tts": "gerai"
     },
     {
-      "type": "translate",
-      "en": "Okay",
-      "answers": [
-        "gerai"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "gerai"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "gerai"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "blogai",
       "choices": [
         "badly",
@@ -219,25 +155,17 @@
         "good",
         "okay"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "blogai"
-      }
+      "answer": "badly",
+      "tts": "blogai"
     },
     {
-      "type": "translate",
-      "en": "Badly",
-      "answers": [
-        "blogai"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "blogai"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "blogai"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kaip",
       "choices": [
         "how",
@@ -245,22 +173,14 @@
         "when",
         "where"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kaip"
-      }
+      "answer": "how",
+      "tts": "kaip"
     },
     {
-      "type": "translate",
-      "en": "How?",
-      "answers": [
-        "kaip"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kaip"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kaip"
     }
   ]
 }

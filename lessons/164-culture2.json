@@ -1,9 +1,9 @@
 {
   "id": "164-culture2",
   "title": "Culture, Media & Society",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "žiniasklaida",
       "choices": [
         "media",
@@ -11,14 +11,11 @@
         "culture",
         "society"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "žiniasklaida"
-      }
+      "answer": "media",
+      "tts": "žiniasklaida"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "visuomenė",
       "choices": [
         "society",
@@ -26,14 +23,11 @@
         "media",
         "group"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "visuomenė"
-      }
+      "answer": "society",
+      "tts": "visuomenė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nuomonės",
       "choices": [
         "opinions",
@@ -41,14 +35,11 @@
         "stories",
         "rules"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nuomonės"
-      }
+      "answer": "opinions",
+      "tts": "nuomonės"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "diskusija",
       "choices": [
         "discussion",
@@ -56,14 +47,11 @@
         "meeting",
         "speech"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "diskusija"
-      }
+      "answer": "discussion",
+      "tts": "diskusija"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kultūra",
       "choices": [
         "culture",
@@ -71,73 +59,41 @@
         "habit",
         "event"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kultūra"
-      }
+      "answer": "culture",
+      "tts": "kultūra"
     },
     {
-      "type": "translate",
-      "en": "Media",
-      "answers": [
-        "žiniasklaida",
-        "ziniasklaida"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "žiniasklaida"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žiniasklaida"
     },
     {
-      "type": "translate",
-      "en": "Society",
-      "answers": [
-        "visuomenė",
-        "visuomene"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "visuomenė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "visuomenė"
     },
     {
-      "type": "translate",
-      "en": "Opinions",
-      "answers": [
-        "nuomonės",
-        "nuomones"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nuomonės"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuomonės"
     },
     {
-      "type": "translate",
-      "en": "Discussion",
-      "answers": [
-        "diskusija"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "diskusija"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "diskusija"
     },
     {
-      "type": "translate",
-      "en": "Culture",
-      "answers": [
-        "kultūra",
-        "kultura"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kultūra"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kultūra"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "žiniasklaida",
       "choices": [
         "media",
@@ -145,14 +101,11 @@
         "culture",
         "society"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "žiniasklaida"
-      }
+      "answer": "media",
+      "tts": "žiniasklaida"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "visuomenė",
       "choices": [
         "society",
@@ -160,14 +113,11 @@
         "media",
         "group"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "visuomenė"
-      }
+      "answer": "society",
+      "tts": "visuomenė"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nuomonės",
       "choices": [
         "opinions",
@@ -175,14 +125,11 @@
         "stories",
         "rules"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nuomonės"
-      }
+      "answer": "opinions",
+      "tts": "nuomonės"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "diskusija",
       "choices": [
         "discussion",
@@ -190,14 +137,11 @@
         "meeting",
         "speech"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "diskusija"
-      }
+      "answer": "discussion",
+      "tts": "diskusija"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kultūra",
       "choices": [
         "culture",
@@ -205,70 +149,38 @@
         "habit",
         "event"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kultūra"
-      }
+      "answer": "culture",
+      "tts": "kultūra"
     },
     {
-      "type": "translate",
-      "en": "Media",
-      "answers": [
-        "žiniasklaida",
-        "ziniasklaida"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "žiniasklaida"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žiniasklaida"
     },
     {
-      "type": "translate",
-      "en": "Society",
-      "answers": [
-        "visuomenė",
-        "visuomene"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "visuomenė"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "visuomenė"
     },
     {
-      "type": "translate",
-      "en": "Opinions",
-      "answers": [
-        "nuomonės",
-        "nuomones"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nuomonės"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuomonės"
     },
     {
-      "type": "translate",
-      "en": "Discussion",
-      "answers": [
-        "diskusija"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "diskusija"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "diskusija"
     },
     {
-      "type": "translate",
-      "en": "Culture",
-      "answers": [
-        "kultūra",
-        "kultura"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kultūra"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kultūra"
     }
   ]
 }

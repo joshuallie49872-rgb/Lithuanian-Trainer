@@ -1,9 +1,9 @@
 {
   "id": "063-health",
   "title": "Health & Body",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "skausmas",
       "choices": [
         "pain",
@@ -11,14 +11,11 @@
         "body",
         "head"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "skausmas"
-      }
+      "answer": "pain",
+      "tts": "skausmas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "galva",
       "choices": [
         "head",
@@ -26,14 +23,11 @@
         "leg",
         "hand"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "galva"
-      }
+      "answer": "head",
+      "tts": "galva"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "ranką",
       "choices": [
         "hand",
@@ -41,14 +35,11 @@
         "foot",
         "head"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ranką"
-      }
+      "answer": "hand",
+      "tts": "ranką"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "koja",
       "choices": [
         "leg",
@@ -56,14 +47,11 @@
         "hand",
         "head"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "koja"
-      }
+      "answer": "leg",
+      "tts": "koja"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "gydytojas",
       "choices": [
         "doctor",
@@ -71,70 +59,41 @@
         "police",
         "teacher"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "gydytojas"
-      }
+      "answer": "doctor",
+      "tts": "gydytojas"
     },
     {
-      "type": "translate",
-      "en": "Pain",
-      "answers": [
-        "skausmas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "skausmas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "skausmas"
     },
     {
-      "type": "translate",
-      "en": "Head",
-      "answers": [
-        "galva"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "galva"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "galva"
     },
     {
-      "type": "translate",
-      "en": "Hand",
-      "answers": [
-        "ranka",
-        "ranką"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ranka"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ranka"
     },
     {
-      "type": "translate",
-      "en": "Leg",
-      "answers": [
-        "koja"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "koja"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "koja"
     },
     {
-      "type": "translate",
-      "en": "Doctor",
-      "answers": [
-        "gydytojas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "gydytojas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "gydytojas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "skausmas",
       "choices": [
         "pain",
@@ -142,14 +101,11 @@
         "body",
         "head"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "skausmas"
-      }
+      "answer": "pain",
+      "tts": "skausmas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "galva",
       "choices": [
         "head",
@@ -157,14 +113,11 @@
         "leg",
         "hand"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "galva"
-      }
+      "answer": "head",
+      "tts": "galva"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "ranką",
       "choices": [
         "hand",
@@ -172,14 +125,11 @@
         "foot",
         "head"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ranką"
-      }
+      "answer": "hand",
+      "tts": "ranką"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "koja",
       "choices": [
         "leg",
@@ -187,14 +137,11 @@
         "hand",
         "head"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "koja"
-      }
+      "answer": "leg",
+      "tts": "koja"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "gydytojas",
       "choices": [
         "doctor",
@@ -202,67 +149,38 @@
         "police",
         "teacher"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "gydytojas"
-      }
+      "answer": "doctor",
+      "tts": "gydytojas"
     },
     {
-      "type": "translate",
-      "en": "Pain",
-      "answers": [
-        "skausmas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "skausmas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "skausmas"
     },
     {
-      "type": "translate",
-      "en": "Head",
-      "answers": [
-        "galva"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "galva"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "galva"
     },
     {
-      "type": "translate",
-      "en": "Hand",
-      "answers": [
-        "ranka",
-        "ranką"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "ranka"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ranka"
     },
     {
-      "type": "translate",
-      "en": "Leg",
-      "answers": [
-        "koja"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "koja"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "koja"
     },
     {
-      "type": "translate",
-      "en": "Doctor",
-      "answers": [
-        "gydytojas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "gydytojas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "gydytojas"
     }
   ]
 }

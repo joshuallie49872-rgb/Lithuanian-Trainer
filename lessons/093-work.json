@@ -1,9 +1,9 @@
 {
   "id": "093-work",
   "title": "Work & Office",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "darbas",
       "choices": [
         "work",
@@ -11,14 +11,11 @@
         "job",
         "money"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "darbas"
-      }
+      "answer": "work",
+      "tts": "darbas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "biuras",
       "choices": [
         "office",
@@ -26,14 +23,11 @@
         "shop",
         "hotel"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "biuras"
-      }
+      "answer": "office",
+      "tts": "biuras"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "susitikimas",
       "choices": [
         "meeting",
@@ -41,14 +35,11 @@
         "call",
         "break"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "susitikimas"
-      }
+      "answer": "meeting",
+      "tts": "susitikimas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "el. paštas",
       "choices": [
         "email",
@@ -56,14 +47,11 @@
         "letter",
         "message"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "el. paštas"
-      }
+      "answer": "email",
+      "tts": "el. paštas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "projektas",
       "choices": [
         "project",
@@ -71,70 +59,41 @@
         "plan",
         "report"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "projektas"
-      }
+      "answer": "project",
+      "tts": "projektas"
     },
     {
-      "type": "translate",
-      "en": "Work",
-      "answers": [
-        "darbas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "darbas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "darbas"
     },
     {
-      "type": "translate",
-      "en": "Office",
-      "answers": [
-        "biuras"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "biuras"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "biuras"
     },
     {
-      "type": "translate",
-      "en": "Meeting",
-      "answers": [
-        "susitikimas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "susitikimas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susitikimas"
     },
     {
-      "type": "translate",
-      "en": "Email",
-      "answers": [
-        "el. paštas",
-        "pastas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "el. paštas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "el. paštas"
     },
     {
-      "type": "translate",
-      "en": "Project",
-      "answers": [
-        "projektas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "projektas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "projektas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "darbas",
       "choices": [
         "work",
@@ -142,14 +101,11 @@
         "job",
         "money"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "darbas"
-      }
+      "answer": "work",
+      "tts": "darbas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "biuras",
       "choices": [
         "office",
@@ -157,14 +113,11 @@
         "shop",
         "hotel"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "biuras"
-      }
+      "answer": "office",
+      "tts": "biuras"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "susitikimas",
       "choices": [
         "meeting",
@@ -172,14 +125,11 @@
         "call",
         "break"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "susitikimas"
-      }
+      "answer": "meeting",
+      "tts": "susitikimas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "el. paštas",
       "choices": [
         "email",
@@ -187,14 +137,11 @@
         "letter",
         "message"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "el. paštas"
-      }
+      "answer": "email",
+      "tts": "el. paštas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "projektas",
       "choices": [
         "project",
@@ -202,67 +149,38 @@
         "plan",
         "report"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "projektas"
-      }
+      "answer": "project",
+      "tts": "projektas"
     },
     {
-      "type": "translate",
-      "en": "Work",
-      "answers": [
-        "darbas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "darbas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "darbas"
     },
     {
-      "type": "translate",
-      "en": "Office",
-      "answers": [
-        "biuras"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "biuras"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "biuras"
     },
     {
-      "type": "translate",
-      "en": "Meeting",
-      "answers": [
-        "susitikimas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "susitikimas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susitikimas"
     },
     {
-      "type": "translate",
-      "en": "Email",
-      "answers": [
-        "el. paštas",
-        "pastas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "el. paštas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "el. paštas"
     },
     {
-      "type": "translate",
-      "en": "Project",
-      "answers": [
-        "projektas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "projektas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "projektas"
     }
   ]
 }

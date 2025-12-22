@@ -1,9 +1,9 @@
 {
   "id": "138-shopping2",
   "title": "Shopping & Services",
-  "items": [
+  "questions": [
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "brangu",
       "choices": [
         "expensive",
@@ -11,14 +11,11 @@
         "free",
         "fast"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "brangu"
-      }
+      "answer": "expensive",
+      "tts": "brangu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "pigu",
       "choices": [
         "cheap",
@@ -26,14 +23,11 @@
         "slow",
         "bad"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pigu"
-      }
+      "answer": "cheap",
+      "tts": "pigu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nuolaida",
       "choices": [
         "discount",
@@ -41,14 +35,11 @@
         "money",
         "tax"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nuolaida"
-      }
+      "answer": "discount",
+      "tts": "nuolaida"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kasininkas",
       "choices": [
         "cashier",
@@ -56,14 +47,11 @@
         "seller",
         "manager"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kasininkas"
-      }
+      "answer": "cashier",
+      "tts": "kasininkas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "čekis",
       "choices": [
         "receipt",
@@ -71,70 +59,41 @@
         "menu",
         "card"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "čekis"
-      }
+      "answer": "receipt",
+      "tts": "čekis"
     },
     {
-      "type": "translate",
-      "en": "Expensive",
-      "answers": [
-        "brangu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "brangu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "brangu"
     },
     {
-      "type": "translate",
-      "en": "Cheap",
-      "answers": [
-        "pigu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pigu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pigu"
     },
     {
-      "type": "translate",
-      "en": "Discount",
-      "answers": [
-        "nuolaida"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nuolaida"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuolaida"
     },
     {
-      "type": "translate",
-      "en": "Cashier",
-      "answers": [
-        "kasininkas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kasininkas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kasininkas"
     },
     {
-      "type": "translate",
-      "en": "Receipt",
-      "answers": [
-        "čekis",
-        "cekis"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "čekis"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "čekis"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "brangu",
       "choices": [
         "expensive",
@@ -142,14 +101,11 @@
         "free",
         "fast"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "brangu"
-      }
+      "answer": "expensive",
+      "tts": "brangu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "pigu",
       "choices": [
         "cheap",
@@ -157,14 +113,11 @@
         "slow",
         "bad"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pigu"
-      }
+      "answer": "cheap",
+      "tts": "pigu"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "nuolaida",
       "choices": [
         "discount",
@@ -172,14 +125,11 @@
         "money",
         "tax"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nuolaida"
-      }
+      "answer": "discount",
+      "tts": "nuolaida"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "kasininkas",
       "choices": [
         "cashier",
@@ -187,14 +137,11 @@
         "seller",
         "manager"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kasininkas"
-      }
+      "answer": "cashier",
+      "tts": "kasininkas"
     },
     {
-      "type": "choose",
+      "prompt": "",
       "lt": "čekis",
       "choices": [
         "receipt",
@@ -202,67 +149,38 @@
         "menu",
         "card"
       ],
-      "answerIndex": 0,
-      "tts": {
-        "lang": "lt-LT",
-        "text": "čekis"
-      }
+      "answer": "receipt",
+      "tts": "čekis"
     },
     {
-      "type": "translate",
-      "en": "Expensive",
-      "answers": [
-        "brangu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "brangu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "brangu"
     },
     {
-      "type": "translate",
-      "en": "Cheap",
-      "answers": [
-        "pigu"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "pigu"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pigu"
     },
     {
-      "type": "translate",
-      "en": "Discount",
-      "answers": [
-        "nuolaida"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "nuolaida"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuolaida"
     },
     {
-      "type": "translate",
-      "en": "Cashier",
-      "answers": [
-        "kasininkas"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "kasininkas"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kasininkas"
     },
     {
-      "type": "translate",
-      "en": "Receipt",
-      "answers": [
-        "čekis",
-        "cekis"
-      ],
-      "tts": {
-        "lang": "lt-LT",
-        "text": "čekis"
-      }
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "čekis"
     }
   ]
 }
