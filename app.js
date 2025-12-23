@@ -1,8 +1,8 @@
 /* =========================================================
-   Lithuanian Trainer — app.js (v5.3.2 FIXED “items[] + voice + progress + mikas”)
+   Lithuanian Trainer — app.js (v5.3.3 UI MODE + PRETTY PROMPT)
    - Course Map with locked progression + topic/icon labels
    - Lesson engine (MCQ + type-in)
-   - Speak button (Web Speech, fallback-safe)
+   - Speak button (Native MP3 first, fallback Web Speech)
    - Mikas emotion switching
    - Account button + Auth modal wiring (works with or without auth_ui.js)
 
@@ -20,6 +20,11 @@
    - Loads audio/lt/manifest.json into ltAudioMap
    - speakLithuanian() prefers native MP3 audio first (fallback to Web Speech)
    - slugifyLt() for mapping plain LT text -> your hashed filename manifest keys
+
+   ADD (2025-12-23 UI):
+   - Home: sets title/prompt to clearly communicate “Lithuanian learning”
+   - Learning Mode select: saves/restores to localStorage
+   - Lesson prompt moved into #lessonPromptPretty inside the card
    ========================================================= */
 
 "use strict";
@@ -43,7 +48,19 @@ const LS = {
   streak: "lt_streak_v1",
   lastLesson: "lt_last_lesson_v1",
   user: "lt_user_v1",
+
+  // NEW: learning mode selection (placeholder)
+  learningMode: "lt_learning_mode_v1",
 };
+
+/* -----------------------------
+   Learning mode (placeholder)
+----------------------------- */
+let learningMode = localStorage.getItem(LS.learningMode) || "en_to_lt";
+function saveLearningMode(mode) {
+  learningMode = mode || "en_to_lt";
+  localStorage.setItem(LS.learningMode, learningMode);
+}
 
 /* -----------------------------
    Native audio manifest (MP3)
@@ -56,9 +73,7 @@ function slugifyLt(s) {
   return String(s || "")
     .trim()
     .toLowerCase()
-    // remove accents (ačiū -> aciu)
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    // spaces/punct -> underscore
     .replace(/[^a-z0-9]+/g, "_")
     .replace(/^_+|_+$/g, "");
 }
@@ -112,8 +127,10 @@ const DOM = {
   // Home
   startBtn: el("startBtn"),
   continueBtn: el("continueBtn"),
+  learningModeSelect: el("learningModeSelect"), // NEW
 
   // Lesson UI
+  lessonPromptPretty: el("lessonPromptPretty"), // NEW
   answers: el("answers"),
   inputWrap: el("inputWrap"),
   input: el("answerInput"),
@@ -141,7 +158,6 @@ const DOM = {
 
 /* -----------------------------
    Mikas emotion images
-   (YOUR real folder is /mikas/)
 ----------------------------- */
 const MIKAS = {
   neutral: "mikas/neutral.png",
@@ -157,7 +173,9 @@ function setMikas(emotion, bubbleText = "") {
   if (DOM.mikasImg) DOM.mikasImg.src = src;
   if (DOM.mikasBubble) {
     DOM.mikasBubble.textContent = bubbleText || "";
+    // keep your old behavior (no class reliance)
     DOM.mikasBubble.style.opacity = bubbleText ? "1" : "0";
+    DOM.mikasBubble.style.display = bubbleText ? "block" : "none";
   }
 }
 
@@ -172,11 +190,6 @@ function loadProgress() {
     const p = JSON.parse(raw);
     if (!p || typeof p !== "object") return { completedLessonIds: [], best: {} };
 
-    // Support older shapes:
-    // - completedLessons
-    // - completedLessonIds
-    // - completedLessonsIds (typo)
-    // - completedLessons: [{id:...}] (rare)
     let ids =
       p.completedLessonIds ||
       p.completedLessonsIds ||
@@ -186,7 +199,6 @@ function loadProgress() {
 
     if (!Array.isArray(ids)) ids = [];
 
-    // If array contains objects, try to map to id
     ids = ids.map((x) => (typeof x === "string" ? x : (x && x.id ? x.id : ""))).filter(Boolean);
 
     const best = p.best && typeof p.best === "object" ? p.best : {};
@@ -261,7 +273,6 @@ async function loadManifest() {
     throw new Error("manifest.json missing lessons[]");
   }
 
-  // Normalize lesson entries
   m.lessons = m.lessons.map((x) => ({
     id: x.id,
     title: x.title || x.id,
@@ -277,15 +288,12 @@ async function loadManifest() {
 function normalizeLessonToQuestions(data) {
   if (!data || typeof data !== "object") return data;
 
-  // Already new format
   if (Array.isArray(data.questions) && data.questions.length > 0) return data;
 
-  // Your current format
   if (Array.isArray(data.items) && data.items.length > 0) {
     const questions = data.items.map((it) => {
       const type = it.type || "";
 
-      // choose => MCQ
       if (type === "choose") {
         const choices = Array.isArray(it.choices) ? it.choices.slice() : [];
         const idx = Number.isFinite(it.answerIndex) ? it.answerIndex : -1;
@@ -300,12 +308,10 @@ function normalizeLessonToQuestions(data) {
           lt: it.lt || "",
           choices,
           correct: [answer].filter(Boolean),
-          // Preserve your item.tts object FIRST; fallback to lt text
           tts: it.tts || (it.lt ? { lang: "lt-LT", text: it.lt } : ""),
         };
       }
 
-      // translate => text input
       if (type === "translate") {
         const correctList = Array.isArray(it.answers)
           ? it.answers.slice()
@@ -317,12 +323,10 @@ function normalizeLessonToQuestions(data) {
           en: it.en || "",
           correct: correctList.filter(Boolean),
           placeholder: "Type Lithuanian…",
-          // Preserve item.tts; fallback to first correct answer
           tts: it.tts || (correctList[0] ? { lang: "lt-LT", text: correctList[0] } : ""),
         };
       }
 
-      // fallback
       return {
         prompt: it.prompt || "Question",
         lt: it.lt || "",
@@ -381,26 +385,38 @@ function setControlsForQuestion(hasPrev) {
   show(DOM.controls.resetBtn, true);
   show(DOM.controls.mapBtn, true);
 
-  // Default hide; renderQuestion will enable if available
   if (DOM.controls.speakBtn) DOM.controls.speakBtn.style.display = "none";
 }
 
 function getSpeakText(q) {
   if (!q) return "";
-
-  // accept object tts {lang,text}
   if (q.tts && typeof q.tts === "object" && q.tts.text) return String(q.tts.text);
-
-  // string tts
   if (typeof q.tts === "string" && q.tts.trim()) return q.tts;
-
-  // prefer lt
   if (typeof q.lt === "string" && q.lt.trim()) return q.lt;
-
-  // translate: speak first correct
   if (Array.isArray(q.correct) && q.correct[0]) return String(q.correct[0]);
-
   return "";
+}
+
+function ensureLessonHeaderVisible() {
+  const header = document.querySelector(".lessonHeader");
+  if (header) header.style.display = "block";
+}
+
+function formatPrettyPrompt(q) {
+  const p = (q && q.prompt) ? String(q.prompt) : "";
+  const lt = (q && q.lt) ? String(q.lt) : "";
+  const en = (q && q.en) ? String(q.en) : "";
+
+  // Placeholder behavior (does not rewrite lesson files yet)
+  if (learningMode === "lt_to_en") {
+    // Show Lithuanian first if present, else fallback
+    const main = lt || en || p || "";
+    return p ? `${main} — ${p}` : main;
+  }
+
+  // Default: English → Lithuanian learning
+  const main = lt || en || p || "";
+  return p ? `${main} — ${p}` : main;
 }
 
 function renderQuestion() {
@@ -408,16 +424,21 @@ function renderQuestion() {
   currentQuestion = lessonData.questions[qIndex];
   if (!currentQuestion) return;
 
-  setControlsForQuestion(qIndex > 0); // <-- stays here
+  setControlsForQuestion(qIndex > 0);
 
   const meta = manifest.lessons[lessonIndex];
 
+  // Title on top stays nice (lesson name)
   if (DOM.title) DOM.title.textContent = `${meta.icon ? meta.icon + " " : ""}${meta.title}`;
 
-  // PROMPT: show LT word + question
-  const p = currentQuestion.prompt || "";
-  const lt = currentQuestion.lt || "";
-  if (DOM.prompt) DOM.prompt.textContent = lt ? `${lt} — ${p}` : p;
+  // Move the “question” into the card box
+  ensureLessonHeaderVisible();
+  if (DOM.lessonPromptPretty) {
+    DOM.lessonPromptPretty.textContent = formatPrettyPrompt(currentQuestion);
+  }
+
+  // Remove ugly plain text from the top during lessons
+  if (DOM.prompt) DOM.prompt.textContent = "";
 
   if (DOM.feedback) DOM.feedback.textContent = "";
   show(DOM.nextBtn, false);
@@ -819,6 +840,13 @@ function openAuth() {
 /* -----------------------------
    Events / init
 ----------------------------- */
+function setHomeCopy() {
+  if (DOM.title) DOM.title.textContent = "Lithuanian Trainer";
+  if (DOM.prompt) {
+    DOM.prompt.textContent = "Play short lessons to learn Lithuanian — start fresh or continue your progress.";
+  }
+}
+
 function wireEvents() {
   if (DOM.controls.prevBtn) DOM.controls.prevBtn.onclick = () => prevQuestion();
   if (DOM.controls.mapBtn) DOM.controls.mapBtn.onclick = () => {
@@ -831,6 +859,16 @@ function wireEvents() {
 
   if (DOM.startBtn) DOM.startBtn.onclick = () => startLesson(0);
   if (DOM.continueBtn) DOM.continueBtn.onclick = () => startFromContinue();
+
+  // NEW: learning mode placeholder wiring
+  if (DOM.learningModeSelect) {
+    // restore UI state
+    DOM.learningModeSelect.value = learningMode;
+
+    DOM.learningModeSelect.onchange = () => {
+      saveLearningMode(DOM.learningModeSelect.value || "en_to_lt");
+    };
+  }
 
   if (DOM.doneBtn) DOM.doneBtn.onclick = () => {
     setScreen("map");
@@ -853,6 +891,7 @@ async function init() {
     wireEvents();
 
     setScreen("home");
+    setHomeCopy();
 
     if ("speechSynthesis" in window) {
       await sleep(50);
