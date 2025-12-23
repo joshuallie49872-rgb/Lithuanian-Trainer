@@ -9,6 +9,7 @@
 
 <body>
   <div class="wrap">
+    <!-- NOTE: app.js expects these IDs to exist -->
     <h1 id="title"></h1>
     <div id="prompt" class="prompt"></div>
 
@@ -19,16 +20,52 @@
       <button id="mapBtn" class="btn btn-secondary">🗺️ Course Map</button>
       <button id="resetBtn" class="btn btn-warn">Restart lesson</button>
 
+      <!-- UPDATED: Account button supports avatar + name + guest label -->
       <button id="accountBtn" class="btn btn-ghost btn-account">
         <span class="dot" id="accountDot" aria-hidden="true"></span>
-        Account
+
+        <!-- Small avatar (default hidden until signed in) -->
+        <img
+          id="accountAvatarSmall"
+          class="accountAvatarSmall"
+          src=""
+          alt=""
+          referrerpolicy="no-referrer"
+          style="display:none;"
+        />
+
+        <!-- Signed-in name (hidden until signed in) -->
+        <span id="accountNameSmall" class="accountNameSmall" style="display:none;"></span>
+
+        <!-- Guest label -->
+        <span id="accountBtnLabel">Account</span>
       </button>
     </div>
 
     <div id="screenHome" style="display:block;">
-      <div id="homeBody" class="card">
-        <h2 style="margin:0 0 8px 0;">Welcome</h2>
-        <p class="muted" style="margin:0 0 14px 0;">Pick up where you left off or start fresh.</p>
+      <div id="homeBody" class="card homeCard">
+        <div class="homeHero">
+          <div class="homeKicker">Lithuanian Trainer</div>
+          <h2 class="homeTitle" style="margin:0 0 8px 0;">Learn Lithuanian through quick, game-like lessons</h2>
+          <p class="homeSub muted" style="margin:0 0 14px 0;">
+            Tap <strong>Start</strong> to begin, or <strong>Continue</strong> to pick up where you left off.
+          </p>
+        </div>
+
+        <!-- NEW: learning mode placeholder -->
+        <div class="homeModeRow">
+          <div class="modeLabel">Learning Mode</div>
+          <div class="modeSelectWrap">
+            <select id="learningModeSelect" class="modeSelect" aria-label="Learning Mode">
+              <option value="en_to_lt" selected>English → Lithuanian (default)</option>
+              <option value="lt_to_en">Lithuanian → English</option>
+              <option value="es_to_lt" disabled>Spanish → Lithuanian (coming soon)</option>
+              <option value="en_to_es" disabled>English → Spanish (coming soon)</option>
+            </select>
+            <div class="modeHint muted">More languages later — for now this just sets the UI placeholder.</div>
+          </div>
+        </div>
+
         <div class="row">
           <button id="startBtn" class="btn btn-primary">Start</button>
           <button id="continueBtn" class="btn btn-secondary">Continue</button>
@@ -50,6 +87,11 @@
 
     <div id="screenLesson" style="display:none;">
       <div class="card">
+        <!-- OPTIONAL placeholder for later (we will wire it in app.js) -->
+        <div class="lessonHeader" style="display:none;">
+          <div id="lessonPromptPretty" class="lessonPromptPretty"></div>
+        </div>
+
         <div id="answers" class="answers"></div>
 
         <div id="inputWrap" class="inputWrap" style="display:none;">
@@ -99,7 +141,7 @@
 
       <div id="signedInPanel" class="signed-panel" style="display:none;">
         <div class="user-row">
-          <img id="userPhoto" class="avatar" alt="" />
+          <img id="userPhoto" class="avatar" alt="" referrerpolicy="no-referrer" />
           <div class="user-meta">
             <div id="userName" class="user-name">Signed in</div>
             <div id="userEmail" class="user-email"></div>
