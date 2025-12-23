@@ -15,6 +15,11 @@
    - Restores voice button logic from your item.tts object
    - Restores Mikas paths to /mikas/*.png
    - Loads older progress shapes so locks don’t reset
+
+   ADD (Native MP3 voice):
+   - Loads audio/lt/manifest.json into ltAudioMap
+   - speakLithuanian() prefers native MP3 audio first (fallback to Web Speech)
+   - slugifyLt() for mapping plain LT text -> your hashed filename manifest keys
    ========================================================= */
 
 "use strict";
@@ -39,6 +44,35 @@ const LS = {
   lastLesson: "lt_last_lesson_v1",
   user: "lt_user_v1",
 };
+
+/* -----------------------------
+   Native audio manifest (MP3)
+----------------------------- */
+const LT_AUDIO_MANIFEST_URL = "audio/lt/manifest.json";
+let ltAudioMap = null;   // { slug: "audio/lt/<file>" }
+let audioPlayer = null;  // HTMLAudioElement
+
+function slugifyLt(s) {
+  return String(s || "")
+    .trim()
+    .toLowerCase()
+    // remove accents (ačiū -> aciu)
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    // spaces/punct -> underscore
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
+
+async function loadLtAudioManifest() {
+  try {
+    const res = await fetch(LT_AUDIO_MANIFEST_URL, { cache: "no-store" });
+    if (!res.ok) return null;
+    const m = await res.json();
+    return (m && typeof m === "object") ? m : null;
+  } catch {
+    return null;
+  }
+}
 
 /* -----------------------------
    App state
@@ -266,6 +300,7 @@ function normalizeLessonToQuestions(data) {
           lt: it.lt || "",
           choices,
           correct: [answer].filter(Boolean),
+          // Preserve your item.tts object FIRST; fallback to lt text
           tts: it.tts || (it.lt ? { lang: "lt-LT", text: it.lt } : ""),
         };
       }
@@ -282,6 +317,7 @@ function normalizeLessonToQuestions(data) {
           en: it.en || "",
           correct: correctList.filter(Boolean),
           placeholder: "Type Lithuanian…",
+          // Preserve item.tts; fallback to first correct answer
           tts: it.tts || (correctList[0] ? { lang: "lt-LT", text: correctList[0] } : ""),
         };
       }
@@ -346,6 +382,7 @@ function setControlsForQuestion(hasPrev) {
   show(DOM.controls.mapBtn, true);
 
   // Default hide; renderQuestion will enable if available
+  if (DOM.controls.speakBtn) DOM.controls.speakBtn.style.display = "none";
 }
 
 function getSpeakText(q) {
@@ -371,7 +408,7 @@ function renderQuestion() {
   currentQuestion = lessonData.questions[qIndex];
   if (!currentQuestion) return;
 
-  setControlsForQuestion(qIndex > 0); // <-- MOVE IT HERE
+  setControlsForQuestion(qIndex > 0); // <-- stays here
 
   const meta = manifest.lessons[lessonIndex];
 
@@ -388,15 +425,16 @@ function renderQuestion() {
   const hasChoices = Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0;
 
   // Voice button
-const speakText = getSpeakText(currentQuestion);
-if (DOM.controls.speakBtn) {
-  if (speakText) {
-    DOM.controls.speakBtn.style.display = "";
-    DOM.controls.speakBtn.onclick = () => speakLithuanian(speakText);
-  } else {
-    DOM.controls.speakBtn.style.display = "none";
+  const speakText = getSpeakText(currentQuestion);
+  if (DOM.controls.speakBtn) {
+    if (speakText) {
+      DOM.controls.speakBtn.style.display = "";
+      DOM.controls.speakBtn.onclick = () => speakLithuanian(speakText);
+    } else {
+      DOM.controls.speakBtn.style.display = "none";
+      DOM.controls.speakBtn.onclick = null;
+    }
   }
-}
 
   setMikas("neutral");
 
@@ -405,7 +443,6 @@ if (DOM.controls.speakBtn) {
 
   if (hasChoices) renderChoices(currentQuestion);
   else renderTextInput(currentQuestion);
-
 }
 
 function renderChoices(q) {
@@ -716,14 +753,30 @@ async function startFromContinue() {
 }
 
 /* -----------------------------
-   Speak (Web Speech API)
+   Speak (Native MP3 first, fallback Web Speech)
 ----------------------------- */
 function speakLithuanian(text) {
   try {
+    const raw = String(text || "").trim();
+    if (!raw) return;
+
+    // 1) Native MP3 (preferred)
+    const key = slugifyLt(raw);
+    const src = ltAudioMap && (ltAudioMap[key] || ltAudioMap[raw]);
+    if (src) {
+      if (!audioPlayer) audioPlayer = new Audio();
+      audioPlayer.pause();
+      audioPlayer.currentTime = 0;
+      audioPlayer.src = src;
+      audioPlayer.play().catch(() => {});
+      return;
+    }
+
+    // 2) Fallback: Web Speech API (may not have LT voice)
     if (!("speechSynthesis" in window)) return;
     window.speechSynthesis.cancel();
 
-    const u = new SpeechSynthesisUtterance(text);
+    const u = new SpeechSynthesisUtterance(raw);
     u.lang = "lt-LT";
     u.rate = 0.95;
 
@@ -792,6 +845,10 @@ function wireEvents() {
 async function init() {
   try {
     manifest = await loadManifest();
+
+    // Load native audio map (if present)
+    ltAudioMap = await loadLtAudioManifest();
+
     refreshAccountDot();
     wireEvents();
 
