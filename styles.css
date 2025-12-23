@@ -623,34 +623,135 @@ body.modal-open{ overflow: hidden; }
   color: var(--textSoft);
   margin-top: 2px;
 }
-/* FIX: allow clicks on map nodes and buttons */
-.map-svg {
-  pointer-events: none;
-}
-/* === FORCE INTERACTION FIX === */
 
-/* Kill click interception from layout layers */
-.map-wrap,
-.map-screen,
-.map-header,
-.map-subtitle,
-.map-title,
-#mapSvg,
-.map-svg,
-.modal,
-.modal-backdrop {
-  pointer-events: none;
-}
-
-/* Re-enable clicks ONLY where we need them */
+/* Re-enable clicks where needed (SAFE) */
 button,
 .btn,
 .mapNode,
 .map-nodes,
 #mapNodes,
 #startBtn,
-#continueBtn {
+#continueBtn,
+.modal,
+.modal-card,
+.modal-backdrop {
   pointer-events: auto !important;
-  position: relative;
-  z-index: 10;
+}
+
+/* Keep map SVG from stealing clicks */
+.map-svg,
+#mapSvg {
+  pointer-events: none !important;
+}
+
+/* =========================================================
+   HOME UPGRADE (NEW) — hero + mode selector + account chip
+   (Safe: only targets the new IDs/classes we added in index.html)
+   ========================================================= */
+
+/* Home card layout */
+.homeCard{
+  padding: 18px 18px 16px;
+}
+
+.homeHero{
+  margin-bottom: 14px;
+}
+
+.homeKicker{
+  display: inline-block;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(47,47,47,0.70);
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(47,47,47,0.08);
+  border-radius: 999px;
+  padding: 6px 10px;
+  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
+  margin-bottom: 10px;
+}
+
+.homeTitle{
+  font-size: 26px;
+  line-height: 1.15;
+  margin: 0 0 8px 0;
+}
+
+.homeSub{
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Learning Mode row */
+.homeModeRow{
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(47,47,47,0.08);
+  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
+  margin: 10px 0 14px;
+}
+
+.modeLabel{
+  font-weight: 800;
+  font-size: 12px;
+  color: rgba(47,47,47,0.72);
+  padding-top: 8px;
+  min-width: 96px;
+}
+
+.modeSelectWrap{
+  flex: 1;
+}
+
+.modeSelect{
+  width: 100%;
+  height: 46px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.90);
+  color: var(--text);
+  font-weight: 700;
+  padding: 0 12px;
+  outline: none;
+  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
+}
+
+.modeSelect:focus{
+  border-color: rgba(244,196,48,0.75);
+  box-shadow: 0 0 0 4px rgba(244,196,48,0.20);
+}
+
+.modeHint{
+  font-size: 12px;
+  margin-top: 8px;
+  color: var(--textSoft);
+}
+
+/* Account button “chip” look (avatar + name) */
+.accountAvatarSmall{
+  width: 26px;
+  height: 26px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: 0 8px 18px rgba(47,47,47,0.10);
+}
+
+.accountNameSmall{
+  font-weight: 800;
+  font-size: 13px;
+  color: rgba(47,47,47,0.85);
+}
+
+/* On small screens: tighten up */
+@media (max-width: 520px){
+  .homeTitle{ font-size: 22px; }
+  .modeLabel{ min-width: 82px; }
+  .accountNameSmall{ display: none; } /* keeps top bar compact */
 }
