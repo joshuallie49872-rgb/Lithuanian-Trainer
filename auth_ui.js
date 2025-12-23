@@ -34,7 +34,7 @@
     return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
   }
 
-  // ---------- Top-right account chip rendering ----------
+  // ---------- Top-right account chip rendering (FIXED) ----------
   function setAccountChip(user) {
     const accountBtn = $("accountBtn");
     if (!accountBtn) return;
@@ -44,11 +44,11 @@
 
     const signedIn = !!user;
 
-    // Not signed in: show "Account" and hide chip bits
+    // Guest: show "Account", hide avatar
     if (!signedIn) {
       if (chipImg) {
-        chipImg.src = getFallbackAvatarDataUri();
         chipImg.style.display = "none";
+        chipImg.src = "";
       }
       if (chipName) {
         chipName.style.display = "inline-block";
@@ -59,8 +59,8 @@
       return;
     }
 
-    // Signed in: show avatar + name
-    const name = (user.displayName || "Account").trim();
+    // Signed in: show avatar + ONLY name (no extra “Account” text)
+    const name = (user.displayName || "").trim() || "Account";
     const photo = (user.photoURL || "").trim();
 
     if (chipImg) {
@@ -124,7 +124,7 @@
     if (signedIn) {
       safeText($("userName"), user.displayName || "Signed in");
 
-      // Hide email by default (you requested this)
+      // Hide email by default
       const emailEl = $("userEmail");
       if (emailEl) {
         emailEl.style.display = "none";

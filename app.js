@@ -130,6 +130,7 @@ const DOM = {
   learningModeSelect: el("learningModeSelect"), // NEW
 
   // Lesson UI
+  lessonHeader: document.querySelector(".lessonHeader"),
   lessonPromptPretty: el("lessonPromptPretty"), // NEW
   answers: el("answers"),
   inputWrap: el("inputWrap"),
@@ -429,7 +430,10 @@ function renderQuestion() {
   const meta = manifest.lessons[lessonIndex];
 
   // Title on top stays nice (lesson name)
-  if (DOM.title) DOM.title.textContent = `${meta.icon ? meta.icon + " " : ""}${meta.title}`;
+  if (DOM.title) {
+    // Pretty title: icon + lesson title
+    DOM.title.textContent = `${meta.icon ? meta.icon + " " : ""}${meta.title || ""}`.trim();
+  }
 
   // Move the “question” into the card box
   ensureLessonHeaderVisible();
@@ -439,6 +443,26 @@ function renderQuestion() {
 
   // Remove ugly plain text from the top during lessons
   if (DOM.prompt) DOM.prompt.textContent = "";
+
+  // Pretty in-card prompt (fixes the scrunched look)
+  if (DOM.lessonHeader && DOM.lessonPromptPretty) {
+    show(DOM.lessonHeader, true);
+
+    const p = currentQuestion.prompt || "";
+    const lt = currentQuestion.lt || "";
+    const en = currentQuestion.en || "";
+
+    // Choose a nicer display:
+    // - if LT exists, show it big + prompt small
+    // - else show EN big + prompt small
+    const main = lt || en || "";
+    const sub = p || "";
+
+    DOM.lessonPromptPretty.innerHTML = `
+    <div class="lpMain">${escapeHtml(main)}</div>
+    <div class="lpSub">${escapeHtml(sub)}</div>
+  `.trim();
+  }
 
   if (DOM.feedback) DOM.feedback.textContent = "";
   show(DOM.nextBtn, false);
@@ -459,6 +483,10 @@ function renderQuestion() {
 
   setMikas("neutral");
 
+  if (DOM.answers) {
+    DOM.answers.className = "choices"; // give container a class
+  }
+
   if (DOM.answers) DOM.answers.innerHTML = "";
   show(DOM.inputWrap, false);
 
@@ -474,7 +502,7 @@ function renderChoices(q) {
 
   for (const choice of choices) {
     const b = document.createElement("button");
-    b.className = "choice";
+    b.className = "choice btn btn-ghost";
     b.textContent = choice;
     b.onclick = () => {
       if (isAnswered) return;
@@ -516,6 +544,15 @@ function normalizeAnswer(s) {
     .replace(/\s+/g, " ")
     .replace(/[“”"]/g, '"')
     .replace(/[’]/g, "'");
+}
+
+function escapeHtml(s) {
+  return String(s || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 function checkAnswer(userValue) {
@@ -784,6 +821,9 @@ function speakLithuanian(text) {
     // 1) Native MP3 (preferred)
     const key = slugifyLt(raw);
     const src = ltAudioMap && (ltAudioMap[key] || ltAudioMap[raw]);
+
+    console.log("[TTS]", { raw, key, hasSrc: !!src, src });
+
     if (src) {
       if (!audioPlayer) audioPlayer = new Audio();
       audioPlayer.pause();
@@ -855,7 +895,13 @@ function wireEvents() {
   };
   if (DOM.controls.resetBtn) DOM.controls.resetBtn.onclick = () => resetLesson();
 
-  if (DOM.controls.accountBtn) DOM.controls.accountBtn.onclick = () => openAuth();
+  if (DOM.controls.accountBtn) {
+    // If auth_ui.js is present, it already wires #accountBtn.
+    // Only use our fallback if AuthUI is missing.
+    if (!(window.AuthUI && typeof window.AuthUI.open === "function")) {
+      DOM.controls.accountBtn.onclick = () => openAuth();
+    }
+  }
 
   if (DOM.startBtn) DOM.startBtn.onclick = () => startLesson(0);
   if (DOM.continueBtn) DOM.continueBtn.onclick = () => startFromContinue();

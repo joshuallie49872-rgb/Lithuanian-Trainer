@@ -31,9 +31,15 @@ body{
 }
 
 #title{
-  margin: 6px 0 10px;
-  font-size: 40px;
+  margin: 8px 0 12px;
+  font-size: 44px;
+  font-weight: 900;
   letter-spacing: 0.2px;
+  line-height: 1.05;
+
+  /* nicer look */
+  color: var(--text);
+  text-shadow: 0 10px 30px rgba(47,47,47,0.10);
 }
 
 .prompt{
@@ -46,6 +52,7 @@ body{
   gap: 10px;
   margin-bottom: 12px;
   flex-wrap: wrap;
+  align-items: center; /* vertically align buttons */
 }
 
 /* Base button look (existing) */
@@ -97,6 +104,82 @@ button:disabled{
   border: 1px solid var(--border);
 }
 
+/* =========================
+   LESSON CARD (fix alignment)
+   ========================= */
+
+.card{
+  padding: 18px;                /* a touch more breathing room */
+}
+
+/* The in-card prompt header we render in app.js */
+.lessonHeader{
+  display: block;
+  margin-bottom: 12px;
+}
+
+.lessonPromptPretty{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(47,47,47,0.08);
+  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
+}
+
+/* Big Lithuanian word (āčiu) */
+.lpMain{
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+/* Smaller instruction (Pick the correct meaning) */
+.lpSub{
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--textSoft);
+}
+
+/* Choices container */
+.choices{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: flex-start;
+}
+
+/* Answer buttons */
+.choice{
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 10px 22px rgba(47,47,47,0.07);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+
+.choice:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(47,47,47,0.10);
+}
+
+/* Correct / wrong states (app.js adds these classes) */
+.choice-correct{
+  background: rgba(111,175,142,0.22);
+  border-color: rgba(111,175,142,0.40);
+}
+
+.choice-wrong{
+  background: rgba(224,122,95,0.18);
+  border-color: rgba(224,122,95,0.40);
+}
+
 .q{
   font-size: 20px;
   margin-bottom: 10px;
@@ -118,12 +201,7 @@ input:focus{
   box-shadow: 0 0 0 4px rgba(244,196,48,0.18);
 }
 
-#choices button{
-  display: block;
-  margin: 8px 0;
-  width: 320px;
-  max-width: 100%;
-}
+/* Old #choices no longer used — keep spacing via .choices/.choice instead */
 
 #feedback{
   margin-top: 10px;
@@ -420,6 +498,8 @@ input:focus{
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  height: 46px;        /* match other buttons */
+  padding: 10px 14px;
 }
 
 .dot{
