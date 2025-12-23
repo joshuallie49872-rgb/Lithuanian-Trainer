@@ -1,5 +1,5 @@
 /* =========================================================
-   Lithuanian Trainer — app.js (v5.3.1 “Auth + Map labels”)
+   Lithuanian Trainer — app.js (v5.3.2 FIXED “items[] + voice + progress + mikas”)
    - Course Map with locked progression + topic/icon labels
    - Lesson engine (MCQ + type-in)
    - Speak button (Web Speech, fallback-safe)
@@ -10,10 +10,11 @@
    - Supports BOTH lesson formats:
      A) { questions: [...] }  (new)
      B) { items: [...] }      (your current lessons/*.json)
-     - "choose" uses answerIndex
-     - "translate" uses answers[]
-   - FIXED: Mikas paths (use /mikas/*.png)
-   - FIXED: Show Lithuanian word (q.lt) in prompt so you can see the actual question word
+   - "choose" uses answerIndex
+   - "translate" uses answers[]
+   - Restores voice button logic from your item.tts object
+   - Restores Mikas paths to /mikas/*.png
+   - Loads older progress shapes so locks don’t reset
    ========================================================= */
 
 "use strict";
@@ -100,13 +101,13 @@ const DOM = {
   mikasImg: el("mikasImg"),
   mikasBubble: el("mikasBubble"),
 
-  // Auth modal (from index.html diff)
+  // Auth modal
   authModal: el("authModal"),
 };
 
 /* -----------------------------
    Mikas emotion images
-   (match your filenames if different)
+   (YOUR real folder is /mikas/)
 ----------------------------- */
 const MIKAS = {
   neutral: "mikas/neutral.png",
@@ -127,29 +128,50 @@ function setMikas(emotion, bubbleText = "") {
 }
 
 /* -----------------------------
-   Progress
+   Progress (MIGRATION SAFE)
 ----------------------------- */
 function loadProgress() {
   try {
     const raw = localStorage.getItem(LS.progress);
     if (!raw) return { completedLessonIds: [], best: {} };
+
     const p = JSON.parse(raw);
-    if (!p || !Array.isArray(p.completedLessonIds)) return { completedLessonIds: [], best: {} };
-    if (!p.best) p.best = {};
-    return p;
+    if (!p || typeof p !== "object") return { completedLessonIds: [], best: {} };
+
+    // Support older shapes:
+    // - completedLessons
+    // - completedLessonIds
+    // - completedLessonsIds (typo)
+    // - completedLessons: [{id:...}] (rare)
+    let ids =
+      p.completedLessonIds ||
+      p.completedLessonsIds ||
+      p.completedLessons ||
+      p.completedLessonsIds ||
+      [];
+
+    if (!Array.isArray(ids)) ids = [];
+
+    // If array contains objects, try to map to id
+    ids = ids.map((x) => (typeof x === "string" ? x : (x && x.id ? x.id : ""))).filter(Boolean);
+
+    const best = p.best && typeof p.best === "object" ? p.best : {};
+
+    return { completedLessonIds: ids, best };
   } catch {
     return { completedLessonIds: [], best: {} };
   }
 }
+
 function saveProgress() {
   localStorage.setItem(LS.progress, JSON.stringify(progress));
 }
+
 function isLessonCompleted(lessonId) {
   return progress.completedLessonIds.includes(lessonId);
 }
+
 function unlockIndex() {
-  // unlocked = completed count (sequential)
-  // lesson i is unlocked if i === 0 or previous lesson completed
   let maxUnlocked = 0;
   for (let i = 0; i < manifest.lessons.length; i++) {
     if (i === 0) {
@@ -179,11 +201,8 @@ function setUser(u) {
   refreshAccountDot();
 }
 function refreshAccountDot() {
-  // dot ON if user exists
   const u = getUser();
-  if (DOM.controls.accountDot) {
-    DOM.controls.accountDot.style.opacity = u ? "1" : "0";
-  }
+  if (DOM.controls.accountDot) DOM.controls.accountDot.style.opacity = u ? "1" : "0";
 }
 
 /* -----------------------------
@@ -207,7 +226,8 @@ async function loadManifest() {
   if (!m || !Array.isArray(m.lessons) || m.lessons.length === 0) {
     throw new Error("manifest.json missing lessons[]");
   }
-  // Normalize lesson entries: { id, title?, topic?, icon?, file? }
+
+  // Normalize lesson entries
   m.lessons = m.lessons.map((x) => ({
     id: x.id,
     title: x.title || x.id,
@@ -215,14 +235,15 @@ async function loadManifest() {
     icon: x.icon || "",
     file: x.file || `lessons/${x.id}.json`,
   }));
+
   return m;
 }
 
-// NEW: convert your {items:[...]} lessons into {questions:[...]} the app uses.
+// Convert {items:[...]} -> {questions:[...]}
 function normalizeLessonToQuestions(data) {
   if (!data || typeof data !== "object") return data;
 
-  // Already in new format
+  // Already new format
   if (Array.isArray(data.questions) && data.questions.length > 0) return data;
 
   // Your current format
@@ -234,36 +255,44 @@ function normalizeLessonToQuestions(data) {
       if (type === "choose") {
         const choices = Array.isArray(it.choices) ? it.choices.slice() : [];
         const idx = Number.isFinite(it.answerIndex) ? it.answerIndex : -1;
-        const answer = (idx >= 0 && idx < choices.length) ? choices[idx] : (it.answer || it.correctAnswer || "");
+        const answer =
+          idx >= 0 && idx < choices.length
+            ? choices[idx]
+            : (it.answer || it.correctAnswer || "");
+
         return {
+          type: "choose",
           prompt: it.prompt || "Pick the correct meaning",
           lt: it.lt || "",
           choices,
           correct: [answer].filter(Boolean),
-          // carry tts forward (can be object)
-          tts: it.tts || "",
+          tts: it.tts || (it.lt ? { lang: "lt-LT", text: it.lt } : ""),
         };
       }
 
       // translate => text input
       if (type === "translate") {
-        const correctList = Array.isArray(it.answers) ? it.answers.slice() : (it.answer ? [it.answer] : []);
-        const en = it.en || "";
+        const correctList = Array.isArray(it.answers)
+          ? it.answers.slice()
+          : (it.answer ? [it.answer] : []);
+
         return {
+          type: "translate",
           prompt: it.prompt || "Translate to Lithuanian",
-          en,
-          correct: correctList,
-          answer: correctList[0] || "",
+          en: it.en || "",
+          correct: correctList.filter(Boolean),
           placeholder: "Type Lithuanian…",
-          // If there is a tts object, keep it; otherwise speak the first correct answer.
-          tts: it.tts || (correctList[0] || ""),
+          tts: it.tts || (correctList[0] ? { lang: "lt-LT", text: correctList[0] } : ""),
         };
       }
 
       // fallback
       return {
         prompt: it.prompt || "Question",
-        correct: it.answers || (it.answer ? [it.answer] : []),
+        lt: it.lt || "",
+        en: it.en || "",
+        choices: Array.isArray(it.choices) ? it.choices.slice() : [],
+        correct: Array.isArray(it.answers) ? it.answers.slice() : (it.answer ? [it.answer] : []),
         tts: it.tts || "",
       };
     });
@@ -280,12 +309,10 @@ async function loadLessonByIndex(i) {
 
   const res = await fetch(`./${meta.file}`, { cache: "no-store" });
   if (!res.ok) throw new Error(`Failed to load ${meta.file}`);
-  let data = await res.json();
 
-  // NEW: support items[] lessons
+  let data = await res.json();
   data = normalizeLessonToQuestions(data);
 
-  // Validate questions
   if (!data || !Array.isArray(data.questions) || data.questions.length === 0) {
     throw new Error(`Lesson ${meta.id} has no questions[] (or items[])`);
   }
@@ -295,7 +322,6 @@ async function loadLessonByIndex(i) {
   streak = loadStreak();
 
   localStorage.setItem(LS.lastLesson, meta.id);
-
   return data;
 }
 
@@ -318,20 +344,26 @@ function setControlsForQuestion(hasPrev) {
   show(DOM.controls.prevBtn, hasPrev);
   show(DOM.controls.resetBtn, true);
   show(DOM.controls.mapBtn, true);
-  // speakBtn visible only if question has lt text to speak
+
+  // Default hide; renderQuestion will enable if available
   if (DOM.controls.speakBtn) DOM.controls.speakBtn.style.display = "none";
 }
 
 function getSpeakText(q) {
   if (!q) return "";
+
   // accept object tts {lang,text}
   if (q.tts && typeof q.tts === "object" && q.tts.text) return String(q.tts.text);
-  if (typeof q.tts === "string") return q.tts;
-  if (typeof q.speak === "string") return q.speak;
-  if (typeof q.lt === "string" && q.lt) return q.lt;
-  // for translate questions, speak the first correct answer if present
+
+  // string tts
+  if (typeof q.tts === "string" && q.tts.trim()) return q.tts;
+
+  // prefer lt
+  if (typeof q.lt === "string" && q.lt.trim()) return q.lt;
+
+  // translate: speak first correct
   if (Array.isArray(q.correct) && q.correct[0]) return String(q.correct[0]);
-  if (typeof q.answer === "string") return q.answer;
+
   return "";
 }
 
@@ -340,29 +372,21 @@ function renderQuestion() {
   currentQuestion = lessonData.questions[qIndex];
   if (!currentQuestion) return;
 
-  // Title/prompt
   const meta = manifest.lessons[lessonIndex];
+
   if (DOM.title) DOM.title.textContent = `${meta.icon ? meta.icon + " " : ""}${meta.title}`;
 
-  // FIX: show the Lithuanian word (lt) + the prompt text
-  if (DOM.prompt) {
-    const lt = (currentQuestion.lt || "").trim();
-    const p = (currentQuestion.prompt || "").trim();
-    DOM.prompt.textContent = lt ? `${lt} — ${p || ""}` : (p || "");
-  }
+  // PROMPT: show LT word + question
+  const p = currentQuestion.prompt || "";
+  const lt = currentQuestion.lt || "";
+  if (DOM.prompt) DOM.prompt.textContent = lt ? `${lt} — ${p}` : p;
 
-  // Reset feedback/buttons
   if (DOM.feedback) DOM.feedback.textContent = "";
   show(DOM.nextBtn, false);
 
-  // Choose UI mode: multiple choice vs input
   const hasChoices = Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0;
 
-  // expectsText:
-  // - if there are no choices, always treat as text input
-  const expectsText = !hasChoices;
-
-  // speak button if present
+  // Voice button
   const speakText = getSpeakText(currentQuestion);
   if (DOM.controls.speakBtn) {
     if (speakText) {
@@ -373,20 +397,13 @@ function renderQuestion() {
     }
   }
 
-  // Mikas state
   setMikas("neutral");
 
-  // Render answers
   if (DOM.answers) DOM.answers.innerHTML = "";
   show(DOM.inputWrap, false);
 
-  if (hasChoices) {
-    renderChoices(currentQuestion);
-  } else if (expectsText) {
-    renderTextInput(currentQuestion);
-  } else {
-    renderTextInput(currentQuestion);
-  }
+  if (hasChoices) renderChoices(currentQuestion);
+  else renderTextInput(currentQuestion);
 
   setControlsForQuestion(qIndex > 0);
 }
@@ -395,7 +412,6 @@ function renderChoices(q) {
   show(DOM.inputWrap, false);
 
   const choices = q.choices.slice();
-  // optional shuffle: q.shuffle === true
   if (q.shuffle) choices.sort(() => Math.random() - 0.5);
 
   for (const choice of choices) {
@@ -412,6 +428,7 @@ function renderChoices(q) {
 
 function renderTextInput(q) {
   show(DOM.inputWrap, true);
+
   if (DOM.input) {
     DOM.input.value = "";
     DOM.input.placeholder = q.placeholder || "Type your answer…";
@@ -421,18 +438,15 @@ function renderTextInput(q) {
     DOM.input.onkeydown = (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        if (!isAnswered) {
-          const val = (DOM.input.value || "").trim();
-          checkAnswer(val);
-        }
+        if (!isAnswered) checkAnswer((DOM.input.value || "").trim());
       }
     };
   }
+
   if (DOM.checkBtn) {
     DOM.checkBtn.onclick = () => {
       if (isAnswered) return;
-      const val = (DOM.input?.value || "").trim();
-      checkAnswer(val);
+      checkAnswer((DOM.input?.value || "").trim());
     };
   }
 }
@@ -450,6 +464,7 @@ function checkAnswer(userValue) {
   isAnswered = true;
 
   const q = currentQuestion;
+
   const correct =
     Array.isArray(q.correct)
       ? q.correct
@@ -464,7 +479,6 @@ function checkAnswer(userValue) {
     streak += 1;
     saveStreak();
 
-    // Proud milestones
     if (streak === 5 || streak === 10 || streak === 15) {
       setMikas("proud", `🔥 Streak ${streak}!`);
     } else {
@@ -476,6 +490,7 @@ function checkAnswer(userValue) {
   } else {
     streak = 0;
     saveStreak();
+
     setMikas("sad", "Oops…");
 
     const showCorrect = correct[0] != null ? String(correct[0]) : "";
@@ -488,7 +503,6 @@ function checkAnswer(userValue) {
 }
 
 function markChoiceButtons(userValue, wasCorrect) {
-  // Only applies to MCQ buttons
   if (!DOM.answers) return;
   const btns = Array.from(DOM.answers.querySelectorAll("button.choice"));
   if (btns.length === 0) return;
@@ -512,7 +526,8 @@ function markChoiceButtons(userValue, wasCorrect) {
 function setFeedback(text, kind) {
   if (!DOM.feedback) return;
   DOM.feedback.textContent = text;
-  DOM.feedback.className = "feedback " + (kind === "ok" ? "feedback-ok" : kind === "bad" ? "feedback-bad" : "");
+  DOM.feedback.className =
+    "feedback " + (kind === "ok" ? "feedback-ok" : kind === "bad" ? "feedback-bad" : "");
 }
 
 /* -----------------------------
@@ -529,7 +544,6 @@ function nextQuestion() {
     renderQuestion();
     return;
   }
-  // Lesson complete
   onLessonComplete();
 }
 function resetLesson() {
@@ -571,7 +585,7 @@ function onLessonComplete() {
 }
 
 /* -----------------------------
-   Map rendering (with labels + icons)
+   Map rendering
 ----------------------------- */
 function renderMap() {
   setControlsForQuestion(false);
@@ -588,7 +602,6 @@ function renderMap() {
   nodesEl.innerHTML = "";
   svg.innerHTML = "";
 
-  // IMPORTANT: svg MUST NOT eat clicks
   svg.style.pointerEvents = "none";
 
   const W = Math.max(320, wrap.clientWidth);
@@ -603,7 +616,6 @@ function renderMap() {
   nodesEl.style.height = `${H}px`;
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
 
-  // Zig-zag X positions
   const xs = [
     Math.round(W * 0.30),
     Math.round(W * 0.70),
@@ -613,7 +625,6 @@ function renderMap() {
 
   const maxUnlocked = unlockIndex();
 
-  // Draw connectors
   for (let i = 0; i < lessonCount - 1; i++) {
     const x1 = xs[i % xs.length];
     const y1 = topPad + i * stepY;
@@ -626,14 +637,12 @@ function renderMap() {
     path.setAttribute("fill", "none");
     path.setAttribute("stroke-width", "6");
 
-    // style by unlock state
     const unlockedEdge = i < maxUnlocked;
     path.setAttribute("stroke", unlockedEdge ? "currentColor" : "rgba(0,0,0,0.12)");
     path.setAttribute("opacity", unlockedEdge ? "0.35" : "0.18");
     svg.appendChild(path);
   }
 
-  // Nodes
   for (let i = 0; i < lessonCount; i++) {
     const meta = manifest.lessons[i];
     const x = xs[i % xs.length];
@@ -642,7 +651,6 @@ function renderMap() {
     const unlocked = i === 0 || (i <= maxUnlocked);
     const completed = isLessonCompleted(meta.id);
 
-    // Node button
     const btn = document.createElement("button");
     btn.className = "mapNode";
     btn.dataset.idx = String(i);
@@ -651,7 +659,6 @@ function renderMap() {
     btn.style.width = `${nodeR * 2}px`;
     btn.style.height = `${nodeR * 2}px`;
 
-    // Contents (icon/number)
     const icon = meta.icon || (completed ? "✅" : unlocked ? "▶️" : "🔒");
     btn.innerHTML = `<div class="mapNodeInner">
         <div class="mapNodeIcon">${icon}</div>
@@ -664,7 +671,6 @@ function renderMap() {
     }
     if (completed) btn.classList.add("mapNode-done");
 
-    // Label under node (ALWAYS visible, locked is faded)
     const label = document.createElement("div");
     label.className = "mapLabel";
     const topicText = meta.topic ? ` — ${meta.topic}` : "";
@@ -678,11 +684,9 @@ function renderMap() {
     nodesEl.appendChild(label);
   }
 
-  // Delegated click (more reliable)
   nodesEl.onclick = async (e) => {
     const btn = e.target.closest?.("button.mapNode");
-    if (!btn) return;
-    if (btn.disabled) return;
+    if (!btn || btn.disabled) return;
     const idx = parseInt(btn.dataset.idx || "-1", 10);
     if (!Number.isFinite(idx) || idx < 0) return;
     await startLesson(idx);
@@ -723,36 +727,30 @@ function speakLithuanian(text) {
     u.lang = "lt-LT";
     u.rate = 0.95;
 
-    // Try pick a Lithuanian voice if available
     const voices = window.speechSynthesis.getVoices?.() || [];
     const lt = voices.find((v) => (v.lang || "").toLowerCase().startsWith("lt"));
     if (lt) u.voice = lt;
 
     window.speechSynthesis.speak(u);
   } catch {
-    // silent fail
+    // silent
   }
 }
 
 /* -----------------------------
    Auth modal wiring
-   - If auth_ui.js exists and exposes window.AuthUI.open(), we call it.
-   - Otherwise we show a simple “stub modal” so button still works.
 ----------------------------- */
 function openAuth() {
-  // If your separate module exists:
   if (window.AuthUI && typeof window.AuthUI.open === "function") {
     window.AuthUI.open();
     return;
   }
 
-  // Fallback: open the modal markup we added to index.html
   if (!DOM.authModal) return;
 
   DOM.authModal.style.display = "";
   DOM.authModal.setAttribute("aria-hidden", "false");
 
-  // close handlers
   const backdrop = DOM.authModal.querySelector(".modal-backdrop");
   const closeBtns = DOM.authModal.querySelectorAll("[data-close='1'], .modal-close");
 
@@ -763,31 +761,12 @@ function openAuth() {
 
   if (backdrop) backdrop.onclick = close;
   closeBtns.forEach((b) => (b.onclick = close));
-
-  // If modal contains quick demo buttons
-  // (optional, safe if they don't exist)
-  const demoLogin = DOM.authModal.querySelector("[data-demo-login]");
-  if (demoLogin) {
-    demoLogin.onclick = () => {
-      setUser({ name: "Demo", ts: Date.now() });
-      close();
-    };
-  }
-  const demoLogout = DOM.authModal.querySelector("[data-demo-logout]");
-  if (demoLogout) {
-    demoLogout.onclick = () => {
-      localStorage.removeItem(LS.user);
-      refreshAccountDot();
-      close();
-    };
-  }
 }
 
 /* -----------------------------
    Events / init
 ----------------------------- */
 function wireEvents() {
-  // Controls
   if (DOM.controls.prevBtn) DOM.controls.prevBtn.onclick = () => prevQuestion();
   if (DOM.controls.mapBtn) DOM.controls.mapBtn.onclick = () => {
     setScreen("map");
@@ -795,20 +774,16 @@ function wireEvents() {
   };
   if (DOM.controls.resetBtn) DOM.controls.resetBtn.onclick = () => resetLesson();
 
-  // Account
   if (DOM.controls.accountBtn) DOM.controls.accountBtn.onclick = () => openAuth();
 
-  // Home buttons
   if (DOM.startBtn) DOM.startBtn.onclick = () => startLesson(0);
   if (DOM.continueBtn) DOM.continueBtn.onclick = () => startFromContinue();
 
-  // Done
   if (DOM.doneBtn) DOM.doneBtn.onclick = () => {
     setScreen("map");
     renderMap();
   };
 
-  // Resize map nicely
   window.addEventListener("resize", () => {
     if (currentScreen === "map") renderMap();
   });
@@ -820,21 +795,17 @@ async function init() {
     refreshAccountDot();
     wireEvents();
 
-    // Default screen: home
     setScreen("home");
 
-    // Make sure voices are loaded
     if ("speechSynthesis" in window) {
       await sleep(50);
       window.speechSynthesis.getVoices?.();
     }
 
-    // If home has no dedicated UI, fall back to map
     if (!DOM.screens.home && DOM.screens.map) {
       setScreen("map");
       renderMap();
     }
-
   } catch (err) {
     console.error(err);
     if (DOM.title) DOM.title.textContent = "Error";
