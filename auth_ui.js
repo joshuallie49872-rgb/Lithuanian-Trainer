@@ -17,6 +17,81 @@
     safeText(el, text || "");
   }
 
+  // ---------- NEW: small avatar fallback (inline SVG data URI) ----------
+  function getFallbackAvatarDataUri() {
+    const svg =
+      `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#F4C430"/>
+            <stop offset="1" stop-color="#6FAF8E"/>
+          </linearGradient>
+        </defs>
+        <rect width="64" height="64" rx="16" fill="url(#g)"/>
+        <circle cx="32" cy="26" r="12" fill="rgba(255,255,255,0.92)"/>
+        <path d="M14 56c2.8-12 14-18 18-18s15.2 6 18 18" fill="rgba(255,255,255,0.92)"/>
+      </svg>`;
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  }
+
+  // ---------- NEW: top-right account chip rendering ----------
+  function setAccountChip(user) {
+    const accountBtn = $("accountBtn");
+    if (!accountBtn) return;
+
+    // If the chip elements exist (we’ll add them in index.html), use them.
+    const chipImg = $("accountAvatarSmall");
+    const chipName = $("accountNameSmall");
+
+    const signedIn = !!user;
+
+    // If user isn’t signed in: keep it simple
+    if (!signedIn) {
+      // If chip elements exist, reset them
+      if (chipImg) {
+        chipImg.src = getFallbackAvatarDataUri();
+        chipImg.style.display = "none";
+      }
+      if (chipName) {
+        safeText(chipName, "");
+        chipName.style.display = "none";
+      }
+
+      // Ensure button still says Account if we don’t have chip elements
+      // (or if your index still has "Account" text)
+      return;
+    }
+
+    // Signed in: show avatar + name (like Gmail)
+    const name = user.displayName || "Account";
+    const photo = user.photoURL || "";
+
+    if (chipImg) {
+      chipImg.style.display = "inline-block";
+      chipImg.src = photo || getFallbackAvatarDataUri();
+      // If photo URL is broken, fallback
+      chipImg.onerror = () => {
+        chipImg.onerror = null;
+        chipImg.src = getFallbackAvatarDataUri();
+      };
+    }
+
+    if (chipName) {
+      chipName.style.display = "inline-block";
+      safeText(chipName, name);
+    }
+
+    // If chip elements are NOT present, as a fallback:
+    // just change button text to the name (still better than “Account”)
+    if (!chipImg && !chipName) {
+      // Keep dot + text but swap text to name
+      // Try to find a text node "Account" and replace it
+      // Safe approach: set aria-label and title
+      accountBtn.title = name;
+      accountBtn.setAttribute("aria-label", name);
+    }
+  }
+
   function openModal() {
     const modal = $("authModal");
     if (!modal) return;
@@ -56,16 +131,37 @@
     if (guestPanel) guestPanel.style.display = signedIn ? "none" : "block";
     if (signedPanel) signedPanel.style.display = signedIn ? "block" : "none";
 
-    // Profile
+    // Profile (modal)
     if (signedIn) {
       safeText($("userName"), user.displayName || "Signed in");
-      safeText($("userEmail"), user.email || "");
+
+      // You said you probably DON’T want email shown.
+      // Keep it hidden by default:
+      const emailEl = $("userEmail");
+      if (emailEl) {
+        // OPTION A (default): hide
+        emailEl.style.display = "none";
+        safeText(emailEl, user.email || "");
+
+        // OPTION B (if you WANT email shown): uncomment these 2 lines and remove the 2 above
+        // emailEl.style.display = "block";
+        // safeText(emailEl, user.email || "");
+      }
+
       const img = $("userPhoto");
       if (img) {
-        img.style.display = user.photoURL ? "block" : "none";
-        if (user.photoURL) img.src = user.photoURL;
+        const photo = user.photoURL || "";
+        img.style.display = "block";
+        img.src = photo || getFallbackAvatarDataUri();
+        img.onerror = () => {
+          img.onerror = null;
+          img.src = getFallbackAvatarDataUri();
+        };
       }
     }
+
+    // ---------- NEW: update top-right chip too ----------
+    setAccountChip(user || null);
   }
 
   async function signInGoogle() {
@@ -176,6 +272,12 @@
     // Initial UI
     setSignedInUI(window.fbAuth.currentUser || null);
   }
+
+  // Expose open() so app.js can call window.AuthUI.open()
+  // (keeps your fallback logic happy)
+  window.AuthUI = window.AuthUI || {};
+  window.AuthUI.open = openModal;
+  window.AuthUI.close = closeModal;
 
   // Run after DOM ready
   if (document.readyState === "loading") {
