@@ -346,7 +346,6 @@ function setControlsForQuestion(hasPrev) {
   show(DOM.controls.mapBtn, true);
 
   // Default hide; renderQuestion will enable if available
-  if (DOM.controls.speakBtn) DOM.controls.speakBtn.style.display = "none";
 }
 
 function getSpeakText(q) {
@@ -372,6 +371,8 @@ function renderQuestion() {
   currentQuestion = lessonData.questions[qIndex];
   if (!currentQuestion) return;
 
+  setControlsForQuestion(qIndex > 0); // <-- MOVE IT HERE
+
   const meta = manifest.lessons[lessonIndex];
 
   if (DOM.title) DOM.title.textContent = `${meta.icon ? meta.icon + " " : ""}${meta.title}`;
@@ -387,15 +388,15 @@ function renderQuestion() {
   const hasChoices = Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0;
 
   // Voice button
-  const speakText = getSpeakText(currentQuestion);
-  if (DOM.controls.speakBtn) {
-    if (speakText) {
-      DOM.controls.speakBtn.style.display = "";
-      DOM.controls.speakBtn.onclick = () => speakLithuanian(speakText);
-    } else {
-      DOM.controls.speakBtn.style.display = "none";
-    }
+const speakText = getSpeakText(currentQuestion);
+if (DOM.controls.speakBtn) {
+  if (speakText) {
+    DOM.controls.speakBtn.style.display = "";
+    DOM.controls.speakBtn.onclick = () => speakLithuanian(speakText);
+  } else {
+    DOM.controls.speakBtn.style.display = "none";
   }
+}
 
   setMikas("neutral");
 
@@ -405,7 +406,6 @@ function renderQuestion() {
   if (hasChoices) renderChoices(currentQuestion);
   else renderTextInput(currentQuestion);
 
-  setControlsForQuestion(qIndex > 0);
 }
 
 function renderChoices(q) {
