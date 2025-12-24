@@ -441,8 +441,25 @@ function renderQuestion() {
     DOM.lessonPromptPretty.textContent = formatPrettyPrompt(currentQuestion);
   }
 
-  // Remove ugly plain text from the top during lessons
-  if (DOM.prompt) DOM.prompt.textContent = "";
+  // PROMPT: show the *thing you’re translating* + instruction
+  const p = currentQuestion.prompt || "";
+  const type = currentQuestion.type || "";
+  const lt = (currentQuestion.lt || "").trim();
+  const en = (currentQuestion.en || "").trim();
+
+  let line = p;
+
+  // choose: show Lithuanian term being quizzed
+  if (type === "choose") {
+    line = lt ? `${lt} — ${p}` : p;
+  }
+
+  // translate: show English text you must translate
+  else if (type === "translate") {
+    line = en ? `${en} — ${p}` : p;
+  }
+
+  if (DOM.prompt) DOM.prompt.textContent = line;
 
   // Pretty in-card prompt (fixes the scrunched look)
   if (DOM.lessonHeader && DOM.lessonPromptPretty) {
