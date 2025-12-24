@@ -41,27 +41,32 @@
 
     const chipImg = $("accountAvatarSmall");
     const chipName = $("accountNameSmall");
+    const guestLabel = $("accountBtnLabel");
 
     const signedIn = !!user;
 
-    // Guest: show "Account", hide avatar
+    // ----- Guest -----
     if (!signedIn) {
       if (chipImg) {
+        chipImg.src = getFallbackAvatarDataUri();
         chipImg.style.display = "none";
-        chipImg.src = "";
       }
       if (chipName) {
-        chipName.style.display = "inline-block";
-        safeText(chipName, "Account");
+        chipName.style.display = "none";
+        safeText(chipName, "");
       }
+      if (guestLabel) guestLabel.style.display = "inline-block";
+
       accountBtn.title = "Account";
       accountBtn.setAttribute("aria-label", "Account");
       return;
     }
 
-    // Signed in: show avatar + ONLY name (no extra “Account” text)
+    // ----- Signed in -----
     const name = (user.displayName || "").trim() || "Account";
     const photo = (user.photoURL || "").trim();
+
+    if (guestLabel) guestLabel.style.display = "none";
 
     if (chipImg) {
       chipImg.style.display = "inline-block";
