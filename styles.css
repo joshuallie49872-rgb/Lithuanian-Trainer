@@ -835,3 +835,25 @@ button,
   .modeLabel{ min-width: 82px; }
   .accountNameSmall{ display: none; } /* keeps top bar compact */
 }
+
+/* ===== MAP COMPAT PATCH (keep your existing CSS) ===== */
+#mapWrap { 
+  position: relative;
+  height: 70vh;
+  overflow: auto;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.65);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+#mapSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  pointer-events: none !important;
+}
+
+#mapNodes {
+  position: relative;
+}

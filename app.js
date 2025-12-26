@@ -41,6 +41,28 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /* -----------------------------
+   SFX
+----------------------------- */
+const SFX = {
+  correct: new Audio("audio/sfx/correct.wav"),
+  wrong: new Audio("audio/sfx/wrong.mp3"),
+  complete: new Audio("audio/sfx/level-complete.mp3")
+};
+
+// Avoid delay on first play
+Object.values(SFX).forEach(a => {
+  a.preload = "auto";
+  a.volume = 0.6;
+});
+
+function playSfx(name) {
+  const a = SFX[name];
+  if (!a) return;
+  a.currentTime = 0;
+  a.play().catch(() => {}); // ignore autoplay warnings
+}
+
+/* -----------------------------
    Storage keys
 ----------------------------- */
 const LS = {
@@ -588,6 +610,8 @@ function checkAnswer(userValue) {
   const ok = correctList.includes(userN);
 
   if (ok) {
+    playSfx("correct");
+
     streak += 1;
     saveStreak();
 
@@ -600,6 +624,8 @@ function checkAnswer(userValue) {
     setFeedback("✅ Correct!", "ok");
     markChoiceButtons(userValue, true);
   } else {
+    playSfx("wrong");
+
     streak = 0;
     saveStreak();
 
@@ -675,6 +701,8 @@ function onLessonComplete() {
     progress.completedLessonIds.push(meta.id);
   }
   saveProgress();
+
+  playSfx("complete");
 
   setMikas("celebrate", "Lesson complete!");
   setScreen("done");
