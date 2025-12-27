@@ -1,5 +1,5 @@
 /* =========================================================
-   Lithuanian Trainer — app.js (v5.3.3 UI MODE + PRETTY PROMPT)
+   Lithuanian Trainer — app.js (v5.3.4 PROMPT + DICTATION + FUZZY MATCH)
    - Course Map with locked progression + topic/icon labels
    - Lesson engine (MCQ + type-in)
    - Speak button (Native MP3 first, fallback Web Speech)
@@ -26,14 +26,10 @@
    - Learning Mode select: saves/restores to localStorage
    - Lesson prompt moved into #lessonPromptPretty inside the card
 
-   CHANGE (Audio key mapping):
-   - slugifyLt() updated to MATCH how audio/lt/manifest.json keys were generated:
-     any non [a-z0-9] becomes "_", NO accent normalization step
-
-   NEW (Dictation + looser matching):
-   - Dictation (“Hear it → type it”) gets an obvious header in-card
-   - Stronger normalizeAnswer(): accent-insensitive + punctuation stripping
-   - Fuzzy matching (Levenshtein) so tiny typos don’t mark wrong
+   ADD (2025-12-27):
+   - Prompt logic fixed so #prompt never goes blank
+   - Dictation UX uses header but does NOT blank #prompt anymore
+   - Stronger answer normalization + fuzzy matching (typos/diacritics/punct)
    ========================================================= */
 
 "use strict";
@@ -100,13 +96,12 @@ const LT_AUDIO_MANIFEST_URL = "audio/lt/manifest.json";
 let ltAudioMap = null;   // { slug: "audio/lt/<file>" }
 let audioPlayer = null;  // HTMLAudioElement
 
-// MUST match how audio/lt/manifest.json keys were generated
+// IMPORTANT: must match how audio/lt/manifest.json keys were generated:
+// any non [a-z0-9] becomes "_"
 function slugifyLt(s) {
   return String(s || "")
     .trim()
     .toLowerCase()
-    // IMPORTANT: must match how audio/lt/manifest.json keys were generated:
-    // any non [a-z0-9] becomes "_"
     .replace(/[^a-z0-9]+/g, "_")
     .replace(/^_+|_+$/g, "");
 }
@@ -443,12 +438,10 @@ function formatPrettyPrompt(q) {
 
   // Placeholder behavior (does not rewrite lesson files yet)
   if (learningMode === "lt_to_en") {
-    // Show Lithuanian first if present, else fallback
     const main = lt || en || p || "";
     return p ? `${main} — ${p}` : main;
   }
 
-  // Default: English → Lithuanian learning
   const main = lt || en || p || "";
   return p ? `${main} — ${p}` : main;
 }
@@ -460,67 +453,36 @@ function renderQuestion() {
 
   setControlsForQuestion(qIndex > 0);
 
+  // ===== PROMPT LOGIC (fixed) =====
   const meta = manifest.lessons[lessonIndex];
+  if (DOM.title) DOM.title.textContent = `${meta.icon ? meta.icon + " " : ""}${meta.title}`;
 
-  // Title on top stays nice (lesson name)
-  if (DOM.title) {
-    // Pretty title: icon + lesson title
-    DOM.title.textContent = `${meta.icon ? meta.icon + " " : ""}${meta.title || ""}`.trim();
-  }
-
-  // Move the “question” into the card box
-  ensureLessonHeaderVisible();
-  if (DOM.lessonPromptPretty) {
-    DOM.lessonPromptPretty.textContent = formatPrettyPrompt(currentQuestion);
-  }
-
-  // PROMPT: show the *thing you’re translating* + instruction
-  const p = currentQuestion.prompt || "";
   const type = currentQuestion.type || "";
+  const p = (currentQuestion.prompt || "").trim();
   const lt = (currentQuestion.lt || "").trim();
   const en = (currentQuestion.en || "").trim();
-
-  let line = p;
-
-  // choose: show Lithuanian term being quizzed
-  if (type === "choose") {
-    line = lt ? `${lt} — ${p}` : p;
-  }
-
-  // translate: show English text you must translate
-  else if (type === "translate") {
-    line = en ? `${en} — ${p}` : p;
-  }
-
-  if (DOM.prompt) DOM.prompt.textContent = line;
-
-  // Pretty in-card prompt (fixes the scrunched look)
-  if (DOM.lessonHeader && DOM.lessonPromptPretty) {
-    show(DOM.lessonHeader, true);
-
-    const p = currentQuestion.prompt || "";
-    const lt = currentQuestion.lt || "";
-    const en = currentQuestion.en || "";
-
-    // Choose a nicer display:
-    // - if LT exists, show it big + prompt small
-    // - else show EN big + prompt small
-    const main = lt || en || "";
-    const sub = p || "";
-
-    DOM.lessonPromptPretty.innerHTML = `
-    <div class="lpMain">${escapeHtml(main)}</div>
-    <div class="lpSub">${escapeHtml(sub)}</div>
-  `.trim();
-  }
-
-  if (DOM.feedback) DOM.feedback.textContent = "";
-  show(DOM.nextBtn, false);
-
-  const hasChoices = Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0;
-
-  // Voice button
   const speakText = getSpeakText(currentQuestion);
+
+  // Default: ALWAYS show something meaningful in #prompt
+  let promptText = "";
+
+  if (type === "choose") {
+    // Example: "labas — Pick the meaning"
+    promptText = lt ? `${lt} — ${p || "Pick the meaning"}` : (p || "Pick the meaning");
+  } else if (type === "translate") {
+    // If we have EN cue, show it. If not, it's dictation: show instruction.
+    if (en) {
+      promptText = `${en} — ${p || "Translate to Lithuanian"}`;
+    } else {
+      promptText = `🎧 Hear it → type what you hear`;
+    }
+  } else {
+    promptText = lt ? `${lt} — ${p}` : (p || "");
+  }
+
+  if (DOM.prompt) DOM.prompt.textContent = promptText;
+
+  // ===== Voice button (MUST be below prompt block) =====
   if (DOM.controls.speakBtn) {
     if (speakText) {
       DOM.controls.speakBtn.style.display = "";
@@ -531,10 +493,28 @@ function renderQuestion() {
     }
   }
 
-  // --- Dictation UX: make "Hear it → Type it" obvious ---
-  const isTranslate = (currentQuestion.type === "translate");
-  const hasEnCue = typeof currentQuestion.en === "string" && currentQuestion.en.trim();
-  const isDictation = isTranslate && !hasEnCue && !!speakText;
+  // Move the “question” into the card box (baseline)
+  ensureLessonHeaderVisible();
+  if (DOM.lessonPromptPretty) {
+    DOM.lessonPromptPretty.textContent = formatPrettyPrompt(currentQuestion);
+  }
+
+  // Pretty in-card prompt (existing behavior)
+  if (DOM.lessonHeader && DOM.lessonPromptPretty) {
+    show(DOM.lessonHeader, true);
+
+    const main = (currentQuestion.lt || currentQuestion.en || "").trim();
+    const sub = (currentQuestion.prompt || "").trim();
+
+    DOM.lessonPromptPretty.innerHTML = `
+      <div class="lpMain">${escapeHtml(main)}</div>
+      <div class="lpSub">${escapeHtml(sub)}</div>
+    `.trim();
+  }
+
+  // --- Dictation UX: only hide prompt IF header visible; keep #prompt as backup ---
+  const isTranslate = (type === "translate");
+  const isDictation = isTranslate && !en && !!speakText;
 
   if (DOM.lessonHeader && DOM.lessonPromptPretty) {
     if (isDictation) {
@@ -542,12 +522,17 @@ function renderQuestion() {
       DOM.lessonPromptPretty.innerHTML =
         `<div class="listenTag">🎧 Hear it → type what you hear</div>` +
         `<div class="listenWord">${escapeHtml(speakText)}</div>`;
-      if (DOM.prompt) DOM.prompt.textContent = ""; // don't duplicate text up top
+      // DO NOT blank DOM.prompt anymore. It stays as a backup instruction.
     } else {
       DOM.lessonHeader.style.display = "none";
       DOM.lessonPromptPretty.textContent = "";
     }
   }
+
+  if (DOM.feedback) DOM.feedback.textContent = "";
+  show(DOM.nextBtn, false);
+
+  const hasChoices = Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0;
 
   setMikas("neutral");
 
@@ -605,7 +590,7 @@ function renderTextInput(q) {
   }
 }
 
-// Stronger normalization (accent-insensitive + consistent punctuation stripping)
+// Stronger normalization: accent-insensitive + consistent punctuation stripping
 function normalizeAnswer(s) {
   return String(s || "")
     .trim()
@@ -618,7 +603,7 @@ function normalizeAnswer(s) {
     .trim();
 }
 
-// Tiny fuzzy matcher (Levenshtein)
+// Tiny fuzzy matcher
 function levenshtein(a, b) {
   a = a || ""; b = b || "";
   const m = a.length, n = b.length;
@@ -645,7 +630,7 @@ function isCloseEnough(userN, correctN) {
   const d = levenshtein(userN, correctN);
   const L = Math.max(userN.length, correctN.length);
 
-  // short words: allow 1 typo (labas -> labsa)
+  // short words: allow 1 typo
   if (L <= 5) return d <= 1;
 
   // longer: allow small typos
