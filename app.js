@@ -26,9 +26,14 @@
    - Learning Mode select: saves/restores to localStorage
    - Lesson prompt moved into #lessonPromptPretty inside the card
 
-   CHANGE (THIS EDIT):
+   CHANGE (Audio key mapping):
    - slugifyLt() updated to MATCH how audio/lt/manifest.json keys were generated:
      any non [a-z0-9] becomes "_", NO accent normalization step
+
+   NEW (Dictation + looser matching):
+   - Dictation (“Hear it → type it”) gets an obvious header in-card
+   - Stronger normalizeAnswer(): accent-insensitive + punctuation stripping
+   - Fuzzy matching (Levenshtein) so tiny typos don’t mark wrong
    ========================================================= */
 
 "use strict";
@@ -95,7 +100,7 @@ const LT_AUDIO_MANIFEST_URL = "audio/lt/manifest.json";
 let ltAudioMap = null;   // { slug: "audio/lt/<file>" }
 let audioPlayer = null;  // HTMLAudioElement
 
-// FIX (1 edit): MUST match how audio/lt/manifest.json keys were generated
+// MUST match how audio/lt/manifest.json keys were generated
 function slugifyLt(s) {
   return String(s || "")
     .trim()
@@ -159,7 +164,7 @@ const DOM = {
 
   // Lesson UI
   lessonHeader: document.querySelector(".lessonHeader"),
-  lessonPromptPretty: el("lessonPromptPretty"), // NEW
+  lessonPromptPretty: el("lessonPromptPretty"),
   answers: el("answers"),
   inputWrap: el("inputWrap"),
   input: el("answerInput"),
@@ -526,6 +531,24 @@ function renderQuestion() {
     }
   }
 
+  // --- Dictation UX: make "Hear it → Type it" obvious ---
+  const isTranslate = (currentQuestion.type === "translate");
+  const hasEnCue = typeof currentQuestion.en === "string" && currentQuestion.en.trim();
+  const isDictation = isTranslate && !hasEnCue && !!speakText;
+
+  if (DOM.lessonHeader && DOM.lessonPromptPretty) {
+    if (isDictation) {
+      DOM.lessonHeader.style.display = "";
+      DOM.lessonPromptPretty.innerHTML =
+        `<div class="listenTag">🎧 Hear it → type what you hear</div>` +
+        `<div class="listenWord">${escapeHtml(speakText)}</div>`;
+      if (DOM.prompt) DOM.prompt.textContent = ""; // don't duplicate text up top
+    } else {
+      DOM.lessonHeader.style.display = "none";
+      DOM.lessonPromptPretty.textContent = "";
+    }
+  }
+
   setMikas("neutral");
 
   if (DOM.answers) {
@@ -582,13 +605,51 @@ function renderTextInput(q) {
   }
 }
 
+// Stronger normalization (accent-insensitive + consistent punctuation stripping)
 function normalizeAnswer(s) {
-  return (s || "")
+  return String(s || "")
     .trim()
     .toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // remove accents/diacritics
+    .replace(/[“”]/g, '"')
+    .replace(/[’]/g, "'")
+    .replace(/[^a-z0-9\s'"-]+/g, " ")                // drop weird punctuation
     .replace(/\s+/g, " ")
-    .replace(/[“”"]/g, '"')
-    .replace(/[’]/g, "'");
+    .trim();
+}
+
+// Tiny fuzzy matcher (Levenshtein)
+function levenshtein(a, b) {
+  a = a || ""; b = b || "";
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1,
+        dp[i][j - 1] + 1,
+        dp[i - 1][j - 1] + cost
+      );
+    }
+  }
+  return dp[m][n];
+}
+
+function isCloseEnough(userN, correctN) {
+  if (!userN || !correctN) return false;
+  if (userN === correctN) return true;
+
+  const d = levenshtein(userN, correctN);
+  const L = Math.max(userN.length, correctN.length);
+
+  // short words: allow 1 typo (labas -> labsa)
+  if (L <= 5) return d <= 1;
+
+  // longer: allow small typos
+  return d <= 2;
 }
 
 function escapeHtml(s) {
@@ -613,7 +674,9 @@ function checkAnswer(userValue) {
   const userN = normalizeAnswer(userValue);
   const correctList = correct.map(normalizeAnswer);
 
-  const ok = correctList.includes(userN);
+  const ok =
+    correctList.includes(userN) ||
+    correctList.some((c) => isCloseEnough(userN, c));
 
   if (ok) {
     playSfx("correct");
