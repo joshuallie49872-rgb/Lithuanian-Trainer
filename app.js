@@ -25,6 +25,10 @@
    - Home: sets title/prompt to clearly communicate “Lithuanian learning”
    - Learning Mode select: saves/restores to localStorage
    - Lesson prompt moved into #lessonPromptPretty inside the card
+
+   CHANGE (THIS EDIT):
+   - slugifyLt() updated to MATCH how audio/lt/manifest.json keys were generated:
+     any non [a-z0-9] becomes "_", NO accent normalization step
    ========================================================= */
 
 "use strict";
@@ -91,11 +95,13 @@ const LT_AUDIO_MANIFEST_URL = "audio/lt/manifest.json";
 let ltAudioMap = null;   // { slug: "audio/lt/<file>" }
 let audioPlayer = null;  // HTMLAudioElement
 
+// FIX (1 edit): MUST match how audio/lt/manifest.json keys were generated
 function slugifyLt(s) {
   return String(s || "")
     .trim()
     .toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    // IMPORTANT: must match how audio/lt/manifest.json keys were generated:
+    // any non [a-z0-9] becomes "_"
     .replace(/[^a-z0-9]+/g, "_")
     .replace(/^_+|_+$/g, "");
 }
