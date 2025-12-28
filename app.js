@@ -1,5 +1,5 @@
 /* =========================================================
-   Lithuanian Trainer — app.js (v5.3.5 BRAND HEADER MODE)
+   Lithuanian Trainer — app.js (v5.3.6 BRAND HEADER + DICTATION FIX + CLOSE MATCH)
    - Course Map with locked progression + topic/icon labels
    - Lesson engine (MCQ + type-in)
    - Speak button (Native MP3 first, fallback Web Speech)
@@ -35,6 +35,11 @@
    - Adds setHeaderMode() helper
    - Stops setting big title text (#title is hidden; logo is the header)
    - Updates #prompt line based on screen (home/map/lesson/done)
+
+   ADD (2025-12-28):
+   - Dictation questions: if no correct answer exists but TTS exists -> TTS becomes correct answer
+   - "Close" feedback using similarity score (edit distance)
+   - MCQ choices shuffle by default (unless shuffle:false)
    ========================================================= */
 
 "use strict";
@@ -143,7 +148,7 @@ const DOM = {
   title: el("title"),
   prompt: el("prompt"),
 
-  // NEW: brand header refs
+  // brand header refs
   brandLogo: el("brandLogo"),
   brandText: el("brandText"),
 
@@ -165,7 +170,7 @@ const DOM = {
   // Home
   startBtn: el("startBtn"),
   continueBtn: el("continueBtn"),
-  learningModeSelect: el("learningModeSelect"), // NEW
+  learningModeSelect: el("learningModeSelect"),
 
   // Lesson UI
   lessonHeader: document.querySelector(".lessonHeader"),
@@ -196,7 +201,7 @@ const DOM = {
 };
 
 /* -----------------------------
-   Brand header helper (NEW)
+   Brand header helper
 ----------------------------- */
 function setHeaderMode(mode, meta = null) {
   // mode: "home" | "lesson" | "map" | "done"
@@ -259,7 +264,6 @@ function setMikas(emotion, bubbleText = "") {
   if (DOM.mikasImg) DOM.mikasImg.src = src;
   if (DOM.mikasBubble) {
     DOM.mikasBubble.textContent = bubbleText || "";
-    // keep your old behavior (no class reliance)
     DOM.mikasBubble.style.opacity = bubbleText ? "1" : "0";
     DOM.mikasBubble.style.display = bubbleText ? "block" : "none";
   }
@@ -493,7 +497,6 @@ function formatPrettyPrompt(q) {
   const lt = (q && q.lt) ? String(q.lt) : "";
   const en = (q && q.en) ? String(q.en) : "";
 
-  // Placeholder behavior (does not rewrite lesson files yet)
   if (learningMode === "lt_to_en") {
     const main = lt || en || p || "";
     return p ? `${main} — ${p}` : main;
@@ -503,6 +506,91 @@ function formatPrettyPrompt(q) {
   return p ? `${main} — ${p}` : main;
 }
 
+// Stronger normalization: accent-insensitive + consistent punctuation stripping
+function normalizeAnswer(s) {
+  return String(s || "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[“”]/g, '"')
+    .replace(/[’]/g, "'")
+    .replace(/[^a-z0-9\s'"-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/* -----------------------------
+   NEW: Dictation + close-match helpers
+----------------------------- */
+function getCorrectList(q) {
+  // Normal sources
+  let correct =
+    Array.isArray(q.correct) ? q.correct :
+    (q.answer != null ? [q.answer] :
+    (q.correctAnswer != null ? [q.correctAnswer] : []));
+
+  // IMPORTANT FIX:
+  // If there is NO correct answer but there IS TTS text, treat that as the correct answer.
+  if ((!correct || correct.length === 0)) {
+    if (q.tts && typeof q.tts === "object" && q.tts.text) correct = [q.tts.text];
+    else if (typeof q.tts === "string" && q.tts.trim()) correct = [q.tts.trim()];
+  }
+
+  // Clean
+  correct = (correct || []).map((x) => String(x || "").trim()).filter(Boolean);
+  return correct;
+}
+
+// Levenshtein distance (used for similarity)
+function levenshtein(a, b) {
+  a = a || ""; b = b || "";
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1,
+        dp[i][j - 1] + 1,
+        dp[i - 1][j - 1] + cost
+      );
+    }
+  }
+  return dp[m][n];
+}
+
+function similarityScore(a, b) {
+  a = normalizeAnswer(a);
+  b = normalizeAnswer(b);
+  if (!a || !b) return 0;
+  const dist = levenshtein(a, b);
+  const maxLen = Math.max(a.length, b.length) || 1;
+  return 1 - dist / maxLen; // 0..1
+}
+
+// Keep this (your old fuzzy tolerance)
+function isCloseEnough(userN, correctN) {
+  if (!userN || !correctN) return false;
+  if (userN === correctN) return true;
+
+  const d = levenshtein(userN, correctN);
+  const L = Math.max(userN.length, correctN.length);
+
+  if (L <= 5) return d <= 1;
+  return d <= 2;
+}
+
+function escapeHtml(s) {
+  return String(s || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function renderQuestion() {
   isAnswered = false;
   currentQuestion = lessonData.questions[qIndex];
@@ -510,39 +598,38 @@ function renderQuestion() {
 
   setControlsForQuestion(qIndex > 0);
 
-  // ===== PROMPT LOGIC (fixed) =====
-  const meta = manifest.lessons[lessonIndex];
   // STOP touching big title; brand header handles it
+  const meta = manifest.lessons[lessonIndex];
   setHeaderMode("lesson", meta);
 
   const type = currentQuestion.type || "";
   const p = (currentQuestion.prompt || "").trim();
   const lt = (currentQuestion.lt || "").trim();
   const en = (currentQuestion.en || "").trim();
+
+  const correctListRaw = getCorrectList(currentQuestion);
   const speakText = getSpeakText(currentQuestion);
 
-  // Default: ALWAYS show something meaningful in #prompt
-  let promptText = "";
+  // Detect dictation-style: no lt/en displayed, has speakText, expects typing, has correct answer
+  const hasChoices = Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0;
+  const isDictation =
+    !lt && !en && !!speakText && correctListRaw.length > 0 && !hasChoices;
 
-  if (type === "choose") {
-    // Example: "labas — Pick the meaning"
-    promptText = lt ? `${lt} — ${p || "Pick the meaning"}` : (p || "Pick the meaning");
-  } else if (type === "translate") {
-    // If we have EN cue, show it. If not, it's dictation: show instruction.
-    if (en) {
-      promptText = `${en} — ${p || "Translate to Lithuanian"}`;
+  // Always show something meaningful in #prompt
+  if (DOM.prompt) {
+    if (isDictation) {
+      DOM.prompt.textContent = `🎧 Hear it — then type what you hear`;
+    } else if (type === "choose") {
+      DOM.prompt.textContent = lt ? `${lt} — ${p || "Pick the meaning"}` : (p || "Pick the meaning");
+    } else if (type === "translate") {
+      if (en) DOM.prompt.textContent = `${en} — ${p || "Translate to Lithuanian"}`;
+      else DOM.prompt.textContent = `🎧 Hear it — then type what you hear`;
     } else {
-      promptText = `🎧 Hear it → type what you hear`;
+      DOM.prompt.textContent = lt ? `${lt} — ${p}` : (en ? `${en} — ${p}` : (p || ""));
     }
-  } else {
-    promptText = lt ? `${lt} — ${p}` : (p || "");
   }
 
-  // IMPORTANT: This overrides setHeaderMode("lesson") line with per-question text,
-  // but keeps header behavior consistent and never blanks.
-  if (DOM.prompt) DOM.prompt.textContent = promptText;
-
-  // ===== Voice button (MUST be below prompt block) =====
+  // Voice button
   if (DOM.controls.speakBtn) {
     if (speakText) {
       DOM.controls.speakBtn.style.display = "";
@@ -553,7 +640,7 @@ function renderQuestion() {
     }
   }
 
-  // Move the “question” into the card box (baseline)
+  // In-card prompt (baseline)
   ensureLessonHeaderVisible();
   if (DOM.lessonPromptPretty) {
     DOM.lessonPromptPretty.textContent = formatPrettyPrompt(currentQuestion);
@@ -572,17 +659,13 @@ function renderQuestion() {
     `.trim();
   }
 
-  // --- Dictation UX: keep #prompt as backup ---
-  const isTranslate = (type === "translate");
-  const isDictation = isTranslate && !en && !!speakText;
-
+  // Dictation UX: keep #prompt as backup, show listen panel in card
   if (DOM.lessonHeader && DOM.lessonPromptPretty) {
-    if (isDictation) {
+    if (isDictation || (type === "translate" && !en && !!speakText)) {
       DOM.lessonHeader.style.display = "";
       DOM.lessonPromptPretty.innerHTML =
-        `<div class="listenTag">🎧 Hear it → type what you hear</div>` +
+        `<div class="listenTag">🎧 Hear it — then type what you hear</div>` +
         `<div class="listenWord">${escapeHtml(speakText)}</div>`;
-      // DO NOT blank DOM.prompt. It stays as a backup instruction.
     } else {
       DOM.lessonHeader.style.display = "none";
       DOM.lessonPromptPretty.textContent = "";
@@ -592,14 +675,9 @@ function renderQuestion() {
   if (DOM.feedback) DOM.feedback.textContent = "";
   show(DOM.nextBtn, false);
 
-  const hasChoices = Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0;
-
   setMikas("neutral");
 
-  if (DOM.answers) {
-    DOM.answers.className = "choices"; // give container a class
-  }
-
+  if (DOM.answers) DOM.answers.className = "choices";
   if (DOM.answers) DOM.answers.innerHTML = "";
   show(DOM.inputWrap, false);
 
@@ -611,7 +689,10 @@ function renderChoices(q) {
   show(DOM.inputWrap, false);
 
   const choices = q.choices.slice();
-  if (q.shuffle) choices.sort(() => Math.random() - 0.5);
+
+  // Shuffle by default unless explicitly disabled
+  const doShuffle = (q.shuffle !== false);
+  if (doShuffle) choices.sort(() => Math.random() - 0.5);
 
   for (const choice of choices) {
     const b = document.createElement("button");
@@ -650,78 +731,27 @@ function renderTextInput(q) {
   }
 }
 
-// Stronger normalization: accent-insensitive + consistent punctuation stripping
-function normalizeAnswer(s) {
-  return String(s || "")
-    .trim()
-    .toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // remove accents/diacritics
-    .replace(/[“”]/g, '"')
-    .replace(/[’]/g, "'")
-    .replace(/[^a-z0-9\s'"-]+/g, " ")                // drop weird punctuation
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-// Tiny fuzzy matcher
-function levenshtein(a, b) {
-  a = a || ""; b = b || "";
-  const m = a.length, n = b.length;
-  const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
-  for (let i = 0; i <= m; i++) dp[i][0] = i;
-  for (let j = 0; j <= n; j++) dp[0][j] = j;
-  for (let i = 1; i <= m; i++) {
-    for (let j = 1; j <= n; j++) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-      dp[i][j] = Math.min(
-        dp[i - 1][j] + 1,
-        dp[i][j - 1] + 1,
-        dp[i - 1][j - 1] + cost
-      );
-    }
-  }
-  return dp[m][n];
-}
-
-function isCloseEnough(userN, correctN) {
-  if (!userN || !correctN) return false;
-  if (userN === correctN) return true;
-
-  const d = levenshtein(userN, correctN);
-  const L = Math.max(userN.length, correctN.length);
-
-  // short words: allow 1 typo
-  if (L <= 5) return d <= 1;
-
-  // longer: allow small typos
-  return d <= 2;
-}
-
-function escapeHtml(s) {
-  return String(s || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
 function checkAnswer(userValue) {
   isAnswered = true;
 
   const q = currentQuestion;
 
-  const correct =
-    Array.isArray(q.correct)
-      ? q.correct
-      : (q.answer != null ? [q.answer] : (q.correctAnswer != null ? [q.correctAnswer] : []));
+  // IMPORTANT: use corrected list (tts fallback for dictation)
+  const correct = getCorrectList(q);
 
   const userN = normalizeAnswer(userValue);
-  const correctList = correct.map(normalizeAnswer);
+  const correctNList = correct.map(normalizeAnswer);
 
   const ok =
-    correctList.includes(userN) ||
-    correctList.some((c) => isCloseEnough(userN, c));
+    correctNList.includes(userN) ||
+    correctNList.some((c) => isCloseEnough(userN, c));
+
+  // If not exact, allow "close" feedback
+  let closeScore = 0;
+  if (!ok && userN && correct && correct.length > 0) {
+    closeScore = Math.max(...correct.map((c) => similarityScore(userValue, c)));
+  }
+  const isClose = !ok && closeScore >= 0.88;
 
   if (ok) {
     playSfx("correct");
@@ -738,15 +768,22 @@ function checkAnswer(userValue) {
     setFeedback("✅ Correct!", "ok");
     markChoiceButtons(userValue, true);
   } else {
-    playSfx("wrong");
+    // "Close" should feel helpful (and NOT punish streak)
+    if (isClose) {
+      setMikas("thinking", "So close…");
+      setFeedback(`🟡 Almost. Check spelling. (${Math.round(closeScore * 100)}%)`, "bad");
+      // do NOT reset streak for close
+    } else {
+      playSfx("wrong");
+      streak = 0;
+      saveStreak();
 
-    streak = 0;
-    saveStreak();
+      setMikas("sad", "Oops…");
 
-    setMikas("sad", "Oops…");
+      const showCorrect = correct[0] != null ? String(correct[0]) : "";
+      setFeedback(`❌ Not quite.${showCorrect ? " Answer: " + showCorrect : ""}`, "bad");
+    }
 
-    const showCorrect = correct[0] != null ? String(correct[0]) : "";
-    setFeedback(`❌ Not quite.${showCorrect ? " Answer: " + showCorrect : ""}`, "bad");
     markChoiceButtons(userValue, false);
   }
 
@@ -760,11 +797,7 @@ function markChoiceButtons(userValue, wasCorrect) {
   if (btns.length === 0) return;
 
   const q = currentQuestion;
-  const correct =
-    Array.isArray(q.correct)
-      ? q.correct
-      : (q.answer != null ? [q.answer] : (q.correctAnswer != null ? [q.correctAnswer] : []));
-
+  const correct = getCorrectList(q);
   const correctN = correct.map(normalizeAnswer);
 
   for (const b of btns) {
@@ -1061,11 +1094,9 @@ function wireEvents() {
   if (DOM.startBtn) DOM.startBtn.onclick = () => startLesson(0);
   if (DOM.continueBtn) DOM.continueBtn.onclick = () => startFromContinue();
 
-  // NEW: learning mode placeholder wiring
+  // learning mode placeholder wiring
   if (DOM.learningModeSelect) {
-    // restore UI state
     DOM.learningModeSelect.value = learningMode;
-
     DOM.learningModeSelect.onchange = () => {
       saveLearningMode(DOM.learningModeSelect.value || "en_to_lt");
     };

@@ -42,10 +42,10 @@ body{
 }
 
 .brandLogo{
-  height: 108px;          /* bigger logo */
+  height: 132px;          /* EVEN BIGGER logo (was 108px) */
   width: auto;
   display:block;
-  filter: drop-shadow(0 10px 24px rgba(47,47,47,0.10));
+  filter: drop-shadow(0 12px 28px rgba(47,47,47,0.14));
 }
 
 .brandText{
@@ -495,6 +495,9 @@ input:focus{
   }
   .mikasImg{ width: 190px; }
   .mikasBubble{ max-width: 190px; }
+
+  /* ✅ scale logo down for smaller screens */
+  .brandLogo{ height: 96px; }
 }
 
 /* very small phones */
@@ -506,6 +509,9 @@ input:focus{
   }
   .mikasImg{ width: 165px; }
   .mikasBubble{ max-width: 165px; font-size: 13px; }
+
+  /* ✅ scale logo down more */
+  .brandLogo{ height: 84px; }
 }
 
 /* ========================================================= */
