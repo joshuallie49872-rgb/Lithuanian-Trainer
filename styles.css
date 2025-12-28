@@ -25,7 +25,8 @@ body{
 }
 
 .wrap{
-  max-width: 760px;
+  /* WAS 760px — that made the whole app (and logo) feel tiny on desktop */
+  max-width: 1040px;
   margin: 14px auto;     /* tighter top/bottom */
   padding: 12px 16px;    /* slightly tighter */
 }
@@ -37,17 +38,19 @@ body{
   display:flex;
   align-items:center;
   justify-content:flex-start;
-  gap:12px;
-  margin: 2px 0 6px 0;   /* tighter */
+  gap:18px;
+  margin: 2px 0 10px 0;   /* a bit more space under the logo */
 }
 
+/* Default logo sizing */
 .brandLogo{
-  height: 132px;          /* EVEN BIGGER logo (was 108px) */
+  height: 180px;          /* BIG on desktop */
   width: auto;
   display:block;
   filter: drop-shadow(0 12px 28px rgba(47,47,47,0.14));
 }
 
+/* Fallback text if image fails */
 .brandText{
   font-weight: 900;
   font-size: 46px;
@@ -60,17 +63,15 @@ body{
   margin: 0 0 10px 0;
 }
 
-/* Make the top title ("Basics 1") look like part of the app */
+/* Keep the title in DOM for app.js safety — but app.js hides it */
 #title{
   font-size: 34px;
   font-weight: 900;
   letter-spacing: 0.2px;
   margin: 8px 0 10px;
   line-height: 1.05;
-}
 
-/* Optional: subtle highlight behind title (not neon) */
-#title{
+  /* Optional: subtle highlight behind title (not neon) */
   display: inline-block;
   padding: 6px 10px;
   border-radius: 14px;
@@ -167,6 +168,7 @@ button:disabled{
   margin-bottom: 6px;
 }
 
+/* kept, but app.js no longer injects the big word here for dictation (good) */
 .listenWord{
   font-size: 28px;
   font-weight: 900;
@@ -190,14 +192,14 @@ button:disabled{
   box-shadow: 0 10px 22px rgba(47,47,47,0.06);
 }
 
-/* Big Lithuanian word (āčiu) */
+/* Big Lithuanian word */
 .lpMain{
   font-size: 22px;
   font-weight: 900;
   letter-spacing: 0.2px;
 }
 
-/* Smaller instruction (Pick the correct meaning) */
+/* Smaller instruction */
 .lpSub{
   font-size: 13px;
   font-weight: 700;
@@ -353,9 +355,7 @@ input:focus{
   stroke-dasharray: 2 14;
 }
 
-/* ===== Map labels (NEW for v5.3.1) =====
-   app.js creates <div class="mapLabel"> under each node.
-   This makes locked lessons show "Food / Numbers" etc. */
+/* ===== Map labels ===== */
 .mapLabel{
   position: absolute;
   width: 190px;
@@ -372,15 +372,11 @@ input:focus{
   border: 1px solid rgba(47,47,47,0.08);
   box-shadow: 0 10px 22px rgba(47,47,47,0.08);
 
-  /* app.js positions left/top; we only style */
   transform: translateX(-50%);
   backdrop-filter: blur(6px);
 }
 
-/* ===== app.js node classes (NEW) =====
-   app.js uses .mapNode / .mapNode-locked / .mapNode-done
-   Your old CSS uses .map-node / .node-locked etc.
-   Keep both so either code path still looks correct. */
+/* ===== app.js node classes ===== */
 .mapNode{
   position: absolute;
   width: 70px;
@@ -496,8 +492,8 @@ input:focus{
   .mikasImg{ width: 190px; }
   .mikasBubble{ max-width: 190px; }
 
-  /* ✅ scale logo down for smaller screens */
-  .brandLogo{ height: 96px; }
+  /* scale logo down for smaller screens */
+  .brandLogo{ height: 120px; }
 }
 
 /* very small phones */
@@ -510,15 +506,14 @@ input:focus{
   .mikasImg{ width: 165px; }
   .mikasBubble{ max-width: 165px; font-size: 13px; }
 
-  /* ✅ scale logo down more */
-  .brandLogo{ height: 84px; }
+  /* scale logo down more */
+  .brandLogo{ height: 102px; }
 }
 
 /* ========================================================= */
-/* ACCOUNT / AUTH UI (NEW) — fixes "plain text / generic UI"  */
+/* ACCOUNT / AUTH UI */
 /* ========================================================= */
 
-/* New button classes (optional, but index.html uses these) */
 .btn{
   border: 1px solid rgba(0,0,0,0.10);
   background: #fff;
@@ -787,8 +782,7 @@ button,
 }
 
 /* =========================================================
-   HOME UPGRADE (NEW) — hero + mode selector + account chip
-   (Safe: only targets the new IDs/classes we added in index.html)
+   HOME UPGRADE
    ========================================================= */
 
 .homeCard{
@@ -921,7 +915,7 @@ button,
 
 #brandLogo.brandLogo,
 img#brandLogo {
-  height: 180px !important;   /* BIGGER */
+  height: 200px !important;   /* BIGGER */
   width: auto !important;
   max-height: none !important;
   max-width: none !important;
