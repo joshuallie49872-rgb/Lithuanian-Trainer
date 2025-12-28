@@ -915,3 +915,15 @@ button,
 #mapNodes {
   position: relative;
 }
+
+/* ===== FORCE BIG LOGO (LAST RULE WINS) ===== */
+#brandHeader { gap: 18px !important; }
+
+#brandLogo.brandLogo,
+img#brandLogo {
+  height: 180px !important;   /* BIGGER */
+  width: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  display: block !important;
+}
