@@ -536,6 +536,12 @@ function getCorrectList(q) {
     else if (typeof q.tts === "string" && q.tts.trim()) correct = [q.tts.trim()];
   }
 
+  // Extra fallback: if still empty but we have speakable text, use it
+  if ((!correct || correct.length === 0)) {
+    const speak = getSpeakText(q);
+    if (speak && String(speak).trim()) correct = [String(speak).trim()];
+  }
+
   // Clean
   correct = (correct || []).map((x) => String(x || "").trim()).filter(Boolean);
   return correct;
@@ -659,16 +665,24 @@ function renderQuestion() {
     `.trim();
   }
 
-  // Dictation UX: keep #prompt as backup, show listen panel in card
+  // Dictation UX: keep #prompt as backup, show listen panel in card (without revealing the answer)
   if (DOM.lessonHeader && DOM.lessonPromptPretty) {
+    show(DOM.lessonHeader, true);
+
     if (isDictation || (type === "translate" && !en && !!speakText)) {
-      DOM.lessonHeader.style.display = "";
+      // IMPORTANT: do NOT show the answer text here. The learner should type it from audio.
       DOM.lessonPromptPretty.innerHTML =
         `<div class="listenTag">🎧 Hear it — then type what you hear</div>` +
-        `<div class="listenWord">${escapeHtml(speakText)}</div>`;
+        `<div class="listenWord">••••••</div>`;
     } else {
-      DOM.lessonHeader.style.display = "none";
-      DOM.lessonPromptPretty.textContent = "";
+      // Non-dictation: show the big in-card prompt (lpMain/lpSub). This fixes tiny words like "blogai".
+      const main = (currentQuestion.lt || currentQuestion.en || "").trim();
+      const sub = (currentQuestion.prompt || "").trim();
+
+      DOM.lessonPromptPretty.innerHTML = `
+        <div class="lpMain">${escapeHtml(main)}</div>
+        <div class="lpSub">${escapeHtml(sub)}</div>
+      `.trim();
     }
   }
 
