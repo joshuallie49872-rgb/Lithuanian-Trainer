@@ -30,6 +30,36 @@ body{
   padding: 16px;
 }
 
+/* =========================
+   OpenKalba Brand Header
+   ========================= */
+.brandHeader{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:12px;
+  margin: 6px 0 8px 0;
+}
+
+.brandLogo{
+  height: 84px;           /* tweak if you want bigger/smaller */
+  width: auto;
+  display:block;
+  filter: drop-shadow(0 10px 24px rgba(47,47,47,0.10));
+}
+
+.brandText{
+  font-weight: 900;
+  font-size: 46px;
+  letter-spacing: 0.3px;
+}
+
+/* Small context line under header (brand vibe) */
+.prompt{
+  color: rgba(47,47,47,0.70);
+  margin: 0 0 10px 0;
+}
+
 /* Make the top title ("Basics 1") look like part of the app */
 #title{
   font-size: 34px;
@@ -47,11 +77,6 @@ body{
   background: rgba(255,255,255,0.55);
   border: 1px solid rgba(47,47,47,0.08);
   box-shadow: 0 10px 22px rgba(47,47,47,0.06);
-}
-
-.prompt{
-  color: var(--textSoft);
-  margin-bottom: 12px;
 }
 
 .controls{

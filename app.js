@@ -1,5 +1,5 @@
 /* =========================================================
-   Lithuanian Trainer — app.js (v5.3.4 PROMPT + DICTATION + FUZZY MATCH)
+   Lithuanian Trainer — app.js (v5.3.5 BRAND HEADER MODE)
    - Course Map with locked progression + topic/icon labels
    - Lesson engine (MCQ + type-in)
    - Speak button (Native MP3 first, fallback Web Speech)
@@ -22,14 +22,19 @@
    - slugifyLt() for mapping plain LT text -> your hashed filename manifest keys
 
    ADD (2025-12-23 UI):
-   - Home: sets title/prompt to clearly communicate “Lithuanian learning”
+   - Home: sets prompt to clearly communicate “Lithuanian learning”
    - Learning Mode select: saves/restores to localStorage
-   - Lesson prompt moved into #lessonPromptPretty inside the card
 
    ADD (2025-12-27):
    - Prompt logic fixed so #prompt never goes blank
    - Dictation UX uses header but does NOT blank #prompt anymore
    - Stronger answer normalization + fuzzy matching (typos/diacritics/punct)
+
+   ADD (2025-12-27 BRAND HEADER MODE):
+   - Adds brandLogo/brandText refs
+   - Adds setHeaderMode() helper
+   - Stops setting big title text (#title is hidden; logo is the header)
+   - Updates #prompt line based on screen (home/map/lesson/done)
    ========================================================= */
 
 "use strict";
@@ -137,6 +142,11 @@ let isAnswered = false;
 const DOM = {
   title: el("title"),
   prompt: el("prompt"),
+
+  // NEW: brand header refs
+  brandLogo: el("brandLogo"),
+  brandText: el("brandText"),
+
   controls: {
     prevBtn: el("prevBtn"),
     speakBtn: el("speakBtn"),
@@ -184,6 +194,53 @@ const DOM = {
   // Auth modal
   authModal: el("authModal"),
 };
+
+/* -----------------------------
+   Brand header helper (NEW)
+----------------------------- */
+function setHeaderMode(mode, meta = null) {
+  // mode: "home" | "lesson" | "map" | "done"
+  // Keep brand logo always visible, but change the small prompt line
+
+  if (DOM.brandLogo) {
+    // fallback if image fails
+    DOM.brandLogo.onerror = () => {
+      if (DOM.brandLogo) DOM.brandLogo.style.display = "none";
+      if (DOM.brandText) DOM.brandText.style.display = "block";
+    };
+  }
+
+  // Hide ugly title always (we're using logo now)
+  if (DOM.title) DOM.title.style.display = "none";
+
+  if (!DOM.prompt) return;
+
+  if (mode === "home") {
+    DOM.prompt.textContent =
+      "Play short lessons to learn Lithuanian — start fresh or continue your progress.";
+    return;
+  }
+
+  if (mode === "map") {
+    DOM.prompt.textContent =
+      "Course Map — tap a node to play. 🔒 Lessons unlock in order.";
+    return;
+  }
+
+  if (mode === "done") {
+    DOM.prompt.textContent = "Nice work — keep going.";
+    return;
+  }
+
+  // lesson
+  if (mode === "lesson" && meta) {
+    DOM.prompt.textContent =
+      `${meta.icon ? meta.icon + " " : ""}${meta.title}${meta.topic ? " — " + meta.topic : ""}`;
+    return;
+  }
+
+  DOM.prompt.textContent = "";
+}
 
 /* -----------------------------
    Mikas emotion images
@@ -455,7 +512,8 @@ function renderQuestion() {
 
   // ===== PROMPT LOGIC (fixed) =====
   const meta = manifest.lessons[lessonIndex];
-  if (DOM.title) DOM.title.textContent = `${meta.icon ? meta.icon + " " : ""}${meta.title}`;
+  // STOP touching big title; brand header handles it
+  setHeaderMode("lesson", meta);
 
   const type = currentQuestion.type || "";
   const p = (currentQuestion.prompt || "").trim();
@@ -480,6 +538,8 @@ function renderQuestion() {
     promptText = lt ? `${lt} — ${p}` : (p || "");
   }
 
+  // IMPORTANT: This overrides setHeaderMode("lesson") line with per-question text,
+  // but keeps header behavior consistent and never blanks.
   if (DOM.prompt) DOM.prompt.textContent = promptText;
 
   // ===== Voice button (MUST be below prompt block) =====
@@ -512,7 +572,7 @@ function renderQuestion() {
     `.trim();
   }
 
-  // --- Dictation UX: only hide prompt IF header visible; keep #prompt as backup ---
+  // --- Dictation UX: keep #prompt as backup ---
   const isTranslate = (type === "translate");
   const isDictation = isTranslate && !en && !!speakText;
 
@@ -522,7 +582,7 @@ function renderQuestion() {
       DOM.lessonPromptPretty.innerHTML =
         `<div class="listenTag">🎧 Hear it → type what you hear</div>` +
         `<div class="listenWord">${escapeHtml(speakText)}</div>`;
-      // DO NOT blank DOM.prompt anymore. It stays as a backup instruction.
+      // DO NOT blank DOM.prompt. It stays as a backup instruction.
     } else {
       DOM.lessonHeader.style.display = "none";
       DOM.lessonPromptPretty.textContent = "";
@@ -760,6 +820,7 @@ function onLessonComplete() {
 
   setMikas("celebrate", "Lesson complete!");
   setScreen("done");
+  setHeaderMode("done");
 
   if (DOM.doneTitle) DOM.doneTitle.textContent = "✅ Complete!";
   if (DOM.doneBody) {
@@ -773,6 +834,7 @@ function onLessonComplete() {
   if (DOM.doneBtn) {
     DOM.doneBtn.onclick = () => {
       setScreen("map");
+      setHeaderMode("map");
       renderMap();
     };
   }
@@ -783,8 +845,7 @@ function onLessonComplete() {
 ----------------------------- */
 function renderMap() {
   setControlsForQuestion(false);
-  if (DOM.title) DOM.title.textContent = "Course Map";
-  if (DOM.prompt) DOM.prompt.textContent = "Tap a node to play. 🔒 lessons unlock in order.";
+  setHeaderMode("map");
 
   setScreen("map");
 
@@ -894,6 +955,7 @@ async function startLesson(i) {
   try {
     await loadLessonByIndex(i);
     setScreen("lesson");
+    setHeaderMode("lesson", manifest.lessons[lessonIndex]);
     renderQuestion();
   } catch (err) {
     console.error(err);
@@ -979,17 +1041,11 @@ function openAuth() {
 /* -----------------------------
    Events / init
 ----------------------------- */
-function setHomeCopy() {
-  if (DOM.title) DOM.title.textContent = "Lithuanian Trainer";
-  if (DOM.prompt) {
-    DOM.prompt.textContent = "Play short lessons to learn Lithuanian — start fresh or continue your progress.";
-  }
-}
-
 function wireEvents() {
   if (DOM.controls.prevBtn) DOM.controls.prevBtn.onclick = () => prevQuestion();
   if (DOM.controls.mapBtn) DOM.controls.mapBtn.onclick = () => {
     setScreen("map");
+    setHeaderMode("map");
     renderMap();
   };
   if (DOM.controls.resetBtn) DOM.controls.resetBtn.onclick = () => resetLesson();
@@ -1017,6 +1073,7 @@ function wireEvents() {
 
   if (DOM.doneBtn) DOM.doneBtn.onclick = () => {
     setScreen("map");
+    setHeaderMode("map");
     renderMap();
   };
 
@@ -1036,7 +1093,7 @@ async function init() {
     wireEvents();
 
     setScreen("home");
-    setHomeCopy();
+    setHeaderMode("home");
 
     if ("speechSynthesis" in window) {
       await sleep(50);
@@ -1045,6 +1102,7 @@ async function init() {
 
     if (!DOM.screens.home && DOM.screens.map) {
       setScreen("map");
+      setHeaderMode("map");
       renderMap();
     }
   } catch (err) {

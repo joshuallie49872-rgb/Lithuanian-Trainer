@@ -9,9 +9,23 @@
 
 <body>
   <div class="wrap">
-    <!-- NOTE: app.js expects these IDs to exist -->
-    <h1 id="title"></h1>
+    <!-- Brand header -->
+    <div class="brandHeader" id="brandHeader">
+      <img
+        id="brandLogo"
+        class="brandLogo"
+        src="assets/openkalba-logo.png"
+        alt="OpenKalba"
+      />
+      <!-- fallback text if image fails -->
+      <div id="brandText" class="brandText" style="display:none;">OpenKalba</div>
+    </div>
+
+    <!-- Small context line under header (app.js uses #prompt) -->
     <div id="prompt" class="prompt"></div>
+
+    <!-- Keep #title in DOM for app.js safety (hidden) -->
+    <h1 id="title" style="display:none;"></h1>
 
     <div class="controls">
       <button id="prevBtn" class="btn btn-ghost">Back</button>
