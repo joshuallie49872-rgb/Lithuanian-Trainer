@@ -536,12 +536,6 @@ function getCorrectList(q) {
     else if (typeof q.tts === "string" && q.tts.trim()) correct = [q.tts.trim()];
   }
 
-  // Extra fallback: if still empty but we have speakable text, use it
-  if ((!correct || correct.length === 0)) {
-    const speak = getSpeakText(q);
-    if (speak && String(speak).trim()) correct = [String(speak).trim()];
-  }
-
   // Clean
   correct = (correct || []).map((x) => String(x || "").trim()).filter(Boolean);
   return correct;
@@ -621,18 +615,10 @@ function renderQuestion() {
   const isDictation =
     !lt && !en && !!speakText && correctListRaw.length > 0 && !hasChoices;
 
-  // Always show something meaningful in #prompt
+  // Only use the top #prompt line for dictation.
+  // For other question types, keep it blank to avoid duplicate text.
   if (DOM.prompt) {
-    if (isDictation) {
-      DOM.prompt.textContent = `🎧 Hear it — then type what you hear`;
-    } else if (type === "choose") {
-      DOM.prompt.textContent = lt ? `${lt} — ${p || "Pick the meaning"}` : (p || "Pick the meaning");
-    } else if (type === "translate") {
-      if (en) DOM.prompt.textContent = `${en} — ${p || "Translate to Lithuanian"}`;
-      else DOM.prompt.textContent = `🎧 Hear it — then type what you hear`;
-    } else {
-      DOM.prompt.textContent = lt ? `${lt} — ${p}` : (en ? `${en} — ${p}` : (p || ""));
-    }
+    DOM.prompt.textContent = isDictation ? "🎧 Hear it — then type what you hear" : "";
   }
 
   // Voice button
@@ -665,17 +651,15 @@ function renderQuestion() {
     `.trim();
   }
 
-  // Dictation UX: keep #prompt as backup, show listen panel in card (without revealing the answer)
+  // Dictation UX: keep #prompt as backup, show listen panel in card
   if (DOM.lessonHeader && DOM.lessonPromptPretty) {
     show(DOM.lessonHeader, true);
 
     if (isDictation || (type === "translate" && !en && !!speakText)) {
-      // IMPORTANT: do NOT show the answer text here. The learner should type it from audio.
+      DOM.lessonHeader.style.display = "";
       DOM.lessonPromptPretty.innerHTML =
-        `<div class="listenTag">🎧 Hear it — then type what you hear</div>` +
-        `<div class="listenWord">••••••</div>`;
+        `<div class="listenTag">🎧 Hear it — then type what you hear</div>`;
     } else {
-      // Non-dictation: show the big in-card prompt (lpMain/lpSub). This fixes tiny words like "blogai".
       const main = (currentQuestion.lt || currentQuestion.en || "").trim();
       const sub = (currentQuestion.prompt || "").trim();
 
