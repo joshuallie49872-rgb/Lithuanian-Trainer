@@ -26,8 +26,8 @@ body{
 
 .wrap{
   max-width: 760px;
-  margin: 22px auto;
-  padding: 16px;
+  margin: 14px auto;     /* tighter top/bottom */
+  padding: 12px 16px;    /* slightly tighter */
 }
 
 /* =========================
@@ -38,11 +38,11 @@ body{
   align-items:center;
   justify-content:flex-start;
   gap:12px;
-  margin: 6px 0 8px 0;
+  margin: 2px 0 6px 0;   /* tighter */
 }
 
 .brandLogo{
-  height: 84px;           /* tweak if you want bigger/smaller */
+  height: 108px;          /* bigger logo */
   width: auto;
   display:block;
   filter: drop-shadow(0 10px 24px rgba(47,47,47,0.10));
