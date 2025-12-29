@@ -9,6 +9,155 @@
   --textSoft: #6B7280;    /* soft text */
   --border: rgba(47,47,47,0.10);
   --shadow: 0 12px 30px rgba(47,47,47,0.10);
+/* =========================
+   OpenKalba — App Theme v1
+   Card-first + Top Bar
+   Auto device theme (light/dark)
+========================= */
+
+:root{
+  /* Accent */
+  --accent: #2F6BFF;
+  --accent-2: #1E4FD6;
+
+  /* Radii + shadows */
+  --r-xl: 22px;
+  --r-lg: 16px;
+  --shadow-1: 0 10px 30px rgba(0,0,0,.08);
+  --shadow-2: 0 18px 50px rgba(0,0,0,.12);
+
+  /* Layout */
+  --maxw: 980px;
+  --topbar-h: 64px;
+
+  /* Light defaults (will override in dark mode) */
+  --bg: #F4F6FB;
+  --bg2: #EEF2FF;
+  --card: rgba(255,255,255,.88);
+  --card2: rgba(255,255,255,.70);
+  --text: #0F172A;
+  --muted: rgba(15, 23, 42, .65);
+  --border: rgba(15, 23, 42, .10);
+  --glass: blur(14px);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg: #070A12;
+    --bg2: #0B1224;
+    --card: rgba(16, 20, 34, .78);
+    --card2: rgba(16, 20, 34, .55);
+    --text: #E8ECF7;
+    --muted: rgba(232, 236, 247, .62);
+    --border: rgba(232, 236, 247, .12);
+    --shadow-1: 0 10px 30px rgba(0,0,0,.35);
+    --shadow-2: 0 18px 55px rgba(0,0,0,.45);
+  }
+}
+
+/* Make the page feel like an app */
+html, body{
+  height: 100%;
+}
+
+body{
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 700px at 20% -10%, var(--bg2), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(47,107,255,.16), transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg));
+}
+
+/* Centered app frame */
+.wrap{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 18px 14px 28px;
+}
+
+/* Sticky top bar container */
+.brandHeader{
+  position: sticky;
+  top: 10px;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  height: var(--topbar-h);
+  padding: 10px 14px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--card);
+  backdrop-filter: var(--glass);
+  -webkit-backdrop-filter: var(--glass);
+
+  box-shadow: var(--shadow-1);
+}
+
+/* Logo sizing so it feels like an app header */
+.brandLogo{
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+/* Small header prompt under top bar looks like “subtitle” */
+.prompt{
+  margin: 12px 2px 14px;
+  color: var(--muted);
+}
+
+/* Turn main screens into cards */
+.screen,
+#screenHome,
+#screenLesson,
+#screenMap,
+#screenDone{
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--card2);
+  backdrop-filter: var(--glass);
+  -webkit-backdrop-filter: var(--glass);
+  box-shadow: var(--shadow-1);
+  padding: 16px;
+}
+
+/* Buttons feel more native */
+button, .btn{
+  border-radius: 14px !important;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  transition: transform .06s ease, filter .12s ease, background .12s ease;
+}
+button:active, .btn:active{
+  transform: scale(.985);
+}
+
+/* Primary button */
+.btn-primary{
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border: 1px solid rgba(255,255,255,.08);
+  color: #fff;
+}
+
+/* Progress fill should use accent */
+#lessonProgressFill{
+  background: linear-gradient(90deg, var(--accent), rgba(47,107,255,.65));
+}
+
+/* Choice buttons pop more */
+.choice{
+  background: rgba(255,255,255,.07);
+}
+.choice:hover{
+  filter: brightness(1.06);
+}
+
 }
 
 body{
@@ -947,4 +1096,119 @@ img#brandLogo{
 
 #lessonProgressFill{
   transition: width 220ms ease;
+}
+
+/* =========================
+   Lesson screen polish v1
+========================= */
+
+/* Make lesson header look like a premium card */
+.lessonHeader{
+  padding: 14px 14px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--card);
+  backdrop-filter: var(--glass);
+  -webkit-backdrop-filter: var(--glass);
+  box-shadow: var(--shadow-1);
+  margin-bottom: 14px;
+}
+
+/* Main prompt + sub prompt typography */
+.lpMain{
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: .2px;
+  margin-bottom: 6px;
+}
+.lpSub{
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+/* Dictation banner */
+.listenTag{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(47,107,255,.12);
+  color: var(--text);
+  font-weight: 650;
+}
+
+/* Choice grid feels appy */
+.choices{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+@media (min-width: 720px){
+  .choices{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Bigger, tappier choice buttons */
+.choice{
+  padding: 14px 14px;
+  font-size: 16px;
+  font-weight: 650;
+  min-height: 52px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.06);
+}
+.choice:active{
+  transform: scale(.985);
+}
+
+/* Correct / wrong states pop */
+.choice-correct{
+  border-color: rgba(34,197,94,.55) !important;
+  background: rgba(34,197,94,.14) !important;
+}
+.choice-wrong{
+  border-color: rgba(239,68,68,.55) !important;
+  background: rgba(239,68,68,.14) !important;
+}
+
+/* Input area looks like native */
+#inputWrap{
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+#answerInput{
+  width: 100%;
+  padding: 14px 14px;
+  font-size: 16px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  outline: none;
+}
+#answerInput:focus{
+  border-color: rgba(47,107,255,.55);
+  box-shadow: 0 0 0 4px rgba(47,107,255,.18);
+}
+
+/* Feedback pill */
+.feedback{
+  margin-top: 12px;
+  padding: 12px 12px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.06);
+}
+.feedback-ok{
+  border-color: rgba(34,197,94,.45);
+  background: rgba(34,197,94,.12);
+}
+.feedback-bad{
+  border-color: rgba(239,68,68,.45);
+  background: rgba(239,68,68,.12);
 }
