@@ -511,6 +511,30 @@ function getSpeakText(q) {
   return "";
 }
 
+function shouldSpeakForMode(q) {
+  if (!q) return false;
+
+  // What language is being learned (target)
+  const target =
+    learningMode === "en_to_lt" ? "lt" :
+    learningMode === "lt_to_en" ? "en" :
+    null;
+
+  if (!target) return false;
+
+  // If TTS explicitly declares language
+  if (q.tts && typeof q.tts === "object" && q.tts.lang) {
+    return q.tts.lang.startsWith(target);
+  }
+
+  // Fallback inference
+  if (target === "lt" && q.lt) return true;
+  if (target === "en" && q.en) return true;
+
+  return false;
+}
+
+
 function ensureLessonHeaderVisible() {
   const header = document.querySelector(".lessonHeader");
   if (header) header.style.display = "block";
@@ -664,7 +688,7 @@ function renderQuestion() {
 
   // Speak button (normal)
   if (DOM.controls.speakBtn) {
-    if (speakText) {
+    if (speakText && shouldSpeakForMode(currentQuestion)) {
       DOM.controls.speakBtn.style.display = "";
       DOM.controls.speakBtn.onclick = () => speakLithuanian(speakText, 0.95);
     } else {
@@ -737,16 +761,17 @@ function renderChoices(q) {
     b.onclick = async () => {
       if (isAnswered) return;
 
-      // ✅ NEW: Speak the tapped choice BEFORE checking (helps learning)
-      // Use a short delay so audio begins; then submit.
-      try {
+        // Speak ONLY if target language matches learning mode
+    try {
+      if (shouldSpeakForMode(currentQuestion)) {
         speakLithuanian(choice, 0.95);
         await sleep(140);
-      } catch {}
+      }
+    } catch {}
 
-      if (isAnswered) return;
-      checkAnswer(choice);
-    };
+    if (isAnswered) return;
+    checkAnswer(choice);
+  };
 
     DOM.answers.appendChild(b);
   }
