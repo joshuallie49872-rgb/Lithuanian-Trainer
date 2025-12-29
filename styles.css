@@ -535,3 +535,70 @@ button, .btn, .mapNode, .map-nodes, #mapNodes, #startBtn, #continueBtn, #checkBt
   pointer-events: auto !important;
 }
 #mapSvg, .map-svg{ pointer-events: none !important; }
+
+/* =========================
+   ACCOUNT BUTTON — FIX (pill + circle avatar)
+   Paste at END of styles.css
+========================= */
+
+/* target the signed-in account "pill" */
+.user-row{
+  /* make it look/size like the other buttons */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  height: 44px !important;         /* match your buttons */
+  max-height: 44px !important;
+  padding: 0 12px !important;
+  gap: 10px !important;
+
+  width: auto !important;
+  max-width: 260px !important;
+
+  border-radius: 999px !important;  /* pill */
+  background: rgba(255,255,255,.10) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
+
+  overflow: hidden !important;
+}
+
+/* avatar: circle + correct size */
+.user-row .avatar,
+.user-row img{
+  width: 32px !important;
+  height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+
+  border-radius: 999px !important;  /* circle */
+  object-fit: cover !important;
+  flex: 0 0 32px !important;
+}
+
+/* tighten the text so the pill doesn't get tall */
+.user-row .user-name{
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* usually hide email in the pill (keeps it compact) */
+.user-row .user-email{
+  display: none !important;
+}
+
+/* keep it aligned with your button row if it sits there */
+.btn-account, #accountBtn, .accountBtn{
+  height: 44px !important;
+  padding: 0 12px !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
