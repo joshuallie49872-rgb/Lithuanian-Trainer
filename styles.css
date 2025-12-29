@@ -1,220 +1,102 @@
 /* =========================
-   OpenKalba App Theme (v1)
-   - Blue “appy” UI
-   - Auto light/dark via prefers-color-scheme
-========================= */
+   OpenKalba — BLUE APP THEME (SINGLE SOURCE OF TRUTH)
+   - matches “mobile app template” blue vibe
+   - auto light/dark via prefers-color-scheme
+   - fixes:
+     1) "Basics 1" (prompt) is styled, not plain text
+     2) Next button is BLUE (no orange/teal gradient)
+   ========================= */
 
+/* -------------------------
+   TOKENS (LIGHT DEFAULT)
+   ------------------------- */
 :root{
-  /* Blues (from your template vibe) */
-  --primary: #2F6FED;
-  --primary-2: #22B3D6;
+  /* Brand blues */
+  --primary: #2F6FED;          /* main blue */
+  --primary-2: #1E4FD6;        /* deep blue */
+  --primary-3: #22B3D6;        /* cyan accent */
   --primary-soft: rgba(47,111,237,.12);
 
-  /* Surfaces */
+  /* Page background */
   --bg: #F6FAFF;
   --bg-2: #EEF6FF;
-  --card: rgba(255,255,255,.92);
-  --border: rgba(10,20,30,.10);
+
+  /* Glass surfaces */
+  --card: rgba(255,255,255,.86);
+  --card-2: rgba(255,255,255,.70);
+  --border: rgba(15,23,42,.10);
 
   /* Text */
-  --text: #0B1220;
-  --muted: rgba(11,18,32,.65);
+  --text: #0F172A;
+  --muted: rgba(15,23,42,.62);
 
   /* Shadows */
-  --shadow: 0 12px 40px rgba(0,0,0,.08);
-  --shadow-soft: 0 8px 22px rgba(0,0,0,.07);
+  --shadow: 0 18px 50px rgba(15,23,42,.10);
+  --shadow-soft: 0 10px 28px rgba(15,23,42,.10);
 
   /* Radius */
   --r-xl: 22px;
   --r-lg: 16px;
   --r-md: 12px;
+
+  /* Glass blur */
+  --glass: blur(14px);
+
+  /* Layout */
+  --maxw: 1040px;
 }
 
+/* -------------------------
+   TOKENS (DARK)
+   ------------------------- */
 @media (prefers-color-scheme: dark){
   :root{
-    --bg: #07101B;
-    --bg-2: #0A1524;
-    --card: rgba(16,26,40,.88);
-    --border: rgba(255,255,255,.10);
-    --text: #EAF2FF;
-    --muted: rgba(234,242,255,.68);
+    --bg: #070A12;
+    --bg-2: #0B1224;
 
-    --shadow: 0 14px 46px rgba(0,0,0,.45);
-    --shadow-soft: 0 10px 26px rgba(0,0,0,.35);
+    --card: rgba(16, 20, 34, .78);
+    --card-2: rgba(16, 20, 34, .55);
+    --border: rgba(232, 236, 247, .12);
+
+    --text: #EAF2FF;
+    --muted: rgba(234,242,255,.70);
+
+    --shadow: 0 18px 55px rgba(0,0,0,.45);
+    --shadow-soft: 0 10px 30px rgba(0,0,0,.35);
 
     --primary-soft: rgba(47,111,237,.22);
   }
 }
 
-/* Whole page background */
-html, body{
-  background:
-    radial-gradient(900px 450px at 20% 10%, rgba(34,179,214,.18), transparent 60%),
-    radial-gradient(900px 450px at 80% 15%, rgba(47,111,237,.18), transparent 60%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-  color: var(--text);
-}
-
-/* Make it feel like an app frame */
-.wrap{
-  max-width: 1120px; /* app container feel */
-  margin: 0 auto;
-  padding: 18px 18px 28px;
-}
-
-/* Header feels like a sticky app top bar */
-.brandHeader{
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  backdrop-filter: blur(10px);
-  background: rgba(255,255,255,.65);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
-  border-radius: var(--r-xl);
-  padding: 14px 18px;
-  margin-bottom: 12px;
-}
-@media (prefers-color-scheme: dark){
-  .brandHeader{ background: rgba(10,18,30,.55); }
-}
-
-.prompt{
-  color: var(--muted);
-}
-
-/* Cards become “app cards” */
-.card, .panel, .lessonWrap, .mapWrap{
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  box-shadow: var(--shadow);
-}
-
-/* Buttons: make primary actions blue */
-.btn, button{
-  border-radius: 999px;
-}
-
-.btn-primary, .btn-main, #startBtn, #continueBtn, #checkBtn, #nextBtn{
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
-  color: white !important;
-  border: 0 !important;
-  box-shadow: 0 10px 26px rgba(47,111,237,.25);
-}
-
-/* Ghost buttons more “app” */
-.btn-ghost{
-  background: rgba(255,255,255,.65);
-  border: 1px solid var(--border);
-}
-@media (prefers-color-scheme: dark){
-  .btn-ghost{ background: rgba(255,255,255,.06); }
-}
-
-/* Progress bar: blue gradient */
-.progressTrack{
-  background: rgba(0,0,0,.08);
-}
-@media (prefers-color-scheme: dark){
-  .progressTrack{ background: rgba(255,255,255,.12); }
-}
-.progressFill{
-  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-2) 100%);
-}
-
-/* Input fields feel app-like */
-input[type="text"], input, .input{
-  background: rgba(255,255,255,.75);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  color: var(--text);
-}
-@media (prefers-color-scheme: dark){
-  input[type="text"], input, .input{ background: rgba(255,255,255,.06); }
-}
-
-:root{
-  /* Your palette */
-  --bg: #FFF7ED;          /* warm cream */
-  --card: #FFFFFF;        /* card background */
-  --primary: #F4C430;     /* soft golden yellow */
-  --secondary: #6FAF8E;   /* sage green */
-  --tertiary: #E07A5F;    /* soft terracotta */
-  --text: #2F2F2F;        /* main text */
-  --textSoft: #6B7280;    /* soft text */
-  --border: rgba(47,47,47,0.10);
-  --shadow: 0 12px 30px rgba(47,47,47,0.10);
-}
-
-/* =========================
-   OpenKalba — App Theme v1
-   Card-first + Top Bar
-   Auto device theme (light/dark)
-========================= */
-
-:root{
-  /* Accent */
-  --accent: #2F6BFF;
-  --accent-2: #1E4FD6;
-
-  /* Radii + shadows */
-  --r-xl: 22px;
-  --r-lg: 16px;
-  --shadow-1: 0 10px 30px rgba(0,0,0,.08);
-  --shadow-2: 0 18px 50px rgba(0,0,0,.12);
-
-  /* Layout */
-  --maxw: 980px;
-  --topbar-h: 64px;
-
-  /* Light defaults (will override in dark mode) */
-  --bg: #F4F6FB;
-  --bg2: #EEF2FF;
-  --card: rgba(255,255,255,.88);
-  --card2: rgba(255,255,255,.70);
-  --text: #0F172A;
-  --muted: rgba(15, 23, 42, .65);
-  --border: rgba(15, 23, 42, .10);
-  --glass: blur(14px);
-}
-
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg: #070A12;
-    --bg2: #0B1224;
-    --card: rgba(16, 20, 34, .78);
-    --card2: rgba(16, 20, 34, .55);
-    --text: #E8ECF7;
-    --muted: rgba(232, 236, 247, .62);
-    --border: rgba(232, 236, 247, .12);
-    --shadow-1: 0 10px 30px rgba(0,0,0,.35);
-    --shadow-2: 0 18px 55px rgba(0,0,0,.45);
-  }
-}
-
-/* Make the page feel like an app */
+/* -------------------------
+   BASE PAGE
+   ------------------------- */
 html, body{
   height: 100%;
 }
 
 body{
   margin: 0;
+  font-family: Arial, sans-serif;
   color: var(--text);
+
+  /* “blue app template” background */
   background:
-    radial-gradient(1200px 700px at 20% -10%, var(--bg2), transparent 60%),
-    radial-gradient(900px 600px at 100% 0%, rgba(47,107,255,.16), transparent 55%),
-    linear-gradient(180deg, var(--bg), var(--bg));
+    radial-gradient(1200px 700px at 20% -10%, rgba(34,179,214,.18), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(47,111,237,.18), transparent 55%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
 }
 
 /* Centered app frame */
 .wrap{
   max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 18px 14px 28px;
+  margin: 14px auto;
+  padding: 12px 16px 28px;
 }
 
-/* Sticky top bar container */
+/* -------------------------
+   TOP BAR / BRAND
+   ------------------------- */
 .brandHeader{
   position: sticky;
   top: 10px;
@@ -222,9 +104,8 @@ body{
 
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 18px;
 
-  height: var(--topbar-h);
   padding: 10px 14px;
 
   border: 1px solid var(--border);
@@ -233,107 +114,21 @@ body{
   backdrop-filter: var(--glass);
   -webkit-backdrop-filter: var(--glass);
 
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-soft);
 }
 
-/* Logo sizing so it feels like an app header */
+/* logo sizing */
 .brandLogo{
-  height: 34px;
+  height: 150px;     /* desktop */
   width: auto;
   display: block;
+  max-width: 100%;
 }
 
-/* Small header prompt under top bar looks like “subtitle” */
-.prompt{
-  margin: 12px 2px 14px;
-  color: var(--muted);
-}
-
-/* Turn main screens into cards */
-.screen,
-#screenHome,
-#screenLesson,
-#screenMap,
-#screenDone{
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  background: var(--card2);
-  backdrop-filter: var(--glass);
-  -webkit-backdrop-filter: var(--glass);
-  box-shadow: var(--shadow-1);
-  padding: 16px;
-}
-
-/* Buttons feel more native */
-button, .btn{
-  border-radius: 14px !important;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.06);
-  color: var(--text);
-  transition: transform .06s ease, filter .12s ease, background .12s ease;
-}
-button:active, .btn:active{
-  transform: scale(.985);
-}
-
-/* Primary button */
-.btn-primary{
-  background: linear-gradient(180deg, var(--accent), var(--accent-2));
-  border: 1px solid rgba(255,255,255,.08);
-  color: #fff;
-}
-
-/* Progress fill should use accent */
-#lessonProgressFill{
-  background: linear-gradient(90deg, var(--accent), rgba(47,107,255,.65));
-}
-
-/* Choice buttons pop more */
-.choice{
-  background: rgba(255,255,255,.07);
-}
-.choice:hover{
-  filter: brightness(1.06);
-}
-
-body{
-  font-family: Arial, sans-serif;
-  margin: 0;
-  color: var(--text);
-
-  /* warm, app-like background */
-  background:
-    radial-gradient(circle at 18% 12%, rgba(244,196,48,0.20) 0%, rgba(255,247,237,1) 45%),
-    radial-gradient(circle at 85% 20%, rgba(111,175,142,0.18) 0%, rgba(255,247,237,1) 55%),
-    radial-gradient(circle at 70% 92%, rgba(224,122,95,0.16) 0%, rgba(255,247,237,1) 55%),
-    var(--bg);
-}
-
-.wrap{
-  /* WAS 760px — that made the whole app (and logo) feel tiny on desktop */
-  max-width: 1040px;
-  margin: 14px auto;     /* tighter top/bottom */
-  padding: 12px 16px;    /* slightly tighter */
-}
-
-/* =========================
-   OpenKalba Brand Header
-   ========================= */
-.brandHeader{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  gap:18px;
-  margin: 2px 0 10px 0;   /* a bit more space under the logo */
-}
-
-/* Default logo sizing */
-.brandLogo{
-  height: 180px;          /* BIG on desktop */
-  width: auto;
-  display:block;
-  filter: drop-shadow(0 12px 28px rgba(47,47,47,0.14));
-}
+/* responsive logo */
+@media (max-width: 900px){ .brandLogo{ height: 120px; } }
+@media (max-width: 720px){ .brandLogo{ height: 92px; } }
+@media (max-width: 420px){ .brandLogo{ height: 78px; } }
 
 /* Fallback text if image fails */
 .brandText{
@@ -342,284 +137,336 @@ body{
   letter-spacing: 0.3px;
 }
 
-/* Small context line under header (brand vibe) */
+/* -------------------------
+   "Basics 1" — styled (NOT plain)
+   Your HTML uses .prompt for this line
+   ------------------------- */
 .prompt{
-  color: rgba(47,47,47,0.70);
-  margin: 0 0 10px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 10px 2px 14px;
+  padding: 8px 12px;
+
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+  background: linear-gradient(180deg, var(--card), var(--card-2));
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
+
+  backdrop-filter: var(--glass);
+  -webkit-backdrop-filter: var(--glass);
 }
 
-/* Keep the title in DOM for app.js safety — but app.js hides it */
-#title{
-  font-size: 34px;
-  font-weight: 900;
-  letter-spacing: 0.2px;
-  margin: 8px 0 10px;
-  line-height: 1.05;
-
-  /* Optional: subtle highlight behind title (not neon) */
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.55);
-  border: 1px solid rgba(47,47,47,0.08);
-  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
+/* -------------------------
+   MAIN SCREEN CARDS
+   ------------------------- */
+.card, .panel, .lessonWrap, .mapWrap,
+.screen, #screenHome, #screenLesson, #screenMap, #screenDone{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--glass);
+  -webkit-backdrop-filter: var(--glass);
 }
 
+/* your base .card sizing */
+.card{
+  padding: 18px;
+  min-height: 120px;
+}
+
+/* -------------------------
+   CONTROLS / BUTTONS
+   ------------------------- */
 .controls{
   display: flex;
   gap: 10px;
   margin-bottom: 12px;
   flex-wrap: wrap;
-  align-items: center; /* vertically align buttons */
+  align-items: center;
 }
 
-/* Base button look (existing) */
-button{
+/* Base button look */
+button, .btn{
   padding: 10px 12px;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
+
   border: 1px solid var(--border);
-  background: #fff;
+  background: rgba(255,255,255,.06);
   color: var(--text);
-  box-shadow: 0 8px 18px rgba(47,47,47,0.08);
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease, background .12s ease;
 }
 
-button:hover{
+button:hover, .btn:hover{
   transform: translateY(-1px);
-  box-shadow: 0 12px 24px rgba(47,47,47,0.10);
+  filter: brightness(1.03);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.10);
 }
 
-button:disabled{
+button:active, .btn:active{
+  transform: scale(.985);
+}
+
+button:disabled, .btn:disabled{
   opacity: 0.55;
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
 }
 
-#mapBtn{
-  background: linear-gradient(180deg, rgba(244,196,48,1), rgba(244,196,48,0.88));
-  border-color: rgba(244,196,48,0.35);
+/* PRIMARY actions — BLUE ONLY (kills orange/teal look) */
+.btn-primary, .btn-main, #startBtn, #continueBtn, #checkBtn, #nextBtn{
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-2) 100%) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: 0 14px 35px rgba(47,111,237,.25) !important;
 }
 
-#resetBtn{
-  background: linear-gradient(180deg, rgba(224,122,95,0.95), rgba(224,122,95,0.85));
-  border-color: rgba(224,122,95,0.35);
-  color: #fff;
+/* ensure NEXT never picks up any other gradient */
+#nextBtn{
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-2) 100%) !important;
 }
 
-#speakBtn{
-  background: linear-gradient(180deg, rgba(111,175,142,0.95), rgba(111,175,142,0.85));
-  border-color: rgba(111,175,142,0.35);
-  color: #fff;
-}
-
-.card{
-  background: var(--card);
-  padding: 16px;
-  border-radius: 18px;
-  min-height: 120px;
-  box-shadow: var(--shadow);
+/* Ghost buttons */
+.btn-ghost{
+  background: rgba(255,255,255,.50);
   border: 1px solid var(--border);
 }
 
-/* =========================
-   LESSON CARD (fix alignment)
-   ========================= */
-
-.card{
-  padding: 18px;                /* a touch more breathing room */
+/* -------------------------
+   PROGRESS BAR
+   ------------------------- */
+.progressTrack{
+  background: rgba(0,0,0,.08);
+}
+@media (prefers-color-scheme: dark){
+  .progressTrack{ background: rgba(255,255,255,.12); }
 }
 
-/* Dictation header */
-.lessonHeader{
-  display: block;
-  margin-bottom: 10px;
+.progressFill,
+#lessonProgressFill{
+  background: linear-gradient(90deg, var(--primary-2) 0%, var(--primary) 55%, var(--primary-3) 100%) !important;
+  transition: width 220ms ease;
 }
 
-.lessonPromptPretty{
-  border-radius: 16px;
-  padding: 12px 12px;
-  border: 1px solid rgba(47,47,47,0.10);
-  background: rgba(255,255,255,0.72);
-  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
-}
-
-.listenTag{
+/* lesson progress text */
+#lessonProgressText{
   font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(47,47,47,0.60);
+  color: var(--muted);
   margin-bottom: 6px;
 }
-
-/* kept, but app.js no longer injects the big word here for dictation (good) */
-.listenWord{
-  font-size: 28px;
-  font-weight: 900;
-  color: var(--text);
+#lessonProgress{
+  margin: 0 0 10px 0;
 }
 
-/* The in-card prompt header we render in app.js */
-.lessonHeader{
-  display: block;
-  margin-bottom: 12px;
-}
-
-.lessonPromptPretty{
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 12px 12px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.75);
-  border: 1px solid rgba(47,47,47,0.08);
-  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
-}
-
-/* Big Lithuanian word */
-.lpMain{
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: 0.2px;
-}
-
-/* Smaller instruction */
-.lpSub{
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--textSoft);
-}
-
-/* Choices container */
-.choices{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-  align-items: flex-start;
-}
-
-/* Answer buttons */
-.choice{
-  padding: 10px 12px;
+/* -------------------------
+   INPUTS
+   ------------------------- */
+input[type="text"], input, .input, #answerInput{
+  background: rgba(255,255,255,.08);
+  border: 1px solid var(--border);
   border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.10);
-  background: rgba(255,255,255,0.85);
-  box-shadow: 0 10px 22px rgba(47,47,47,0.07);
-  font-weight: 800;
+  color: var(--text);
+  outline: none;
+
+  padding: 14px 14px;
+  font-size: 16px;
+}
+
+input:focus, #answerInput:focus{
+  border-color: rgba(47,111,237,.55);
+  box-shadow: 0 0 0 4px rgba(47,111,237,.18);
+}
+
+/* -------------------------
+   LESSON HEADER POLISH
+   ------------------------- */
+.lessonHeader{
+  padding: 14px 14px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 14px;
+
+  backdrop-filter: var(--glass);
+  -webkit-backdrop-filter: var(--glass);
+}
+
+.lpMain{
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: .2px;
+  margin-bottom: 6px;
+}
+.lpSub{
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+/* Dictation tag */
+.listenTag{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(47,111,237,.12);
+  color: var(--text);
+  font-weight: 650;
+}
+
+/* Choices grid */
+.choices{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+@media (min-width: 720px){
+  .choices{ grid-template-columns: 1fr 1fr; }
+}
+
+.choice{
+  padding: 14px 14px;
+  font-size: 16px;
+  font-weight: 650;
+  min-height: 52px;
+
+  border-radius: 14px;
+  border: 1px solid var(--border);
+
+  background: rgba(255,255,255,.07);
+  box-shadow: 0 8px 18px rgba(0,0,0,.06);
+
   cursor: pointer;
   transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
 }
-
 .choice:hover{
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(47,47,47,0.10);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 28px rgba(0,0,0,.10);
 }
+.choice:active{ transform: scale(.985); }
 
-/* Correct / wrong states (app.js adds these classes) */
 .choice-correct{
-  background: rgba(111,175,142,0.22);
-  border-color: rgba(111,175,142,0.40);
+  border-color: rgba(34,197,94,.55) !important;
+  background: rgba(34,197,94,.14) !important;
 }
-
 .choice-wrong{
-  background: rgba(224,122,95,0.18);
-  border-color: rgba(224,122,95,0.40);
+  border-color: rgba(239,68,68,.55) !important;
+  background: rgba(239,68,68,.14) !important;
 }
 
-.q{
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-input{
-  padding: 10px;
-  width: 100%;
-  max-width: 420px;
-  border-radius: 12px;
+/* Feedback pill */
+.feedback{
+  margin-top: 12px;
+  padding: 12px 12px;
+  border-radius: var(--r-lg);
   border: 1px solid var(--border);
-  background: #fff;
-  color: var(--text);
-  outline: none;
+  background: rgba(255,255,255,.06);
+}
+.feedback-ok{
+  border-color: rgba(34,197,94,.45);
+  background: rgba(34,197,94,.12);
+}
+.feedback-bad{
+  border-color: rgba(239,68,68,.45);
+  background: rgba(239,68,68,.12);
 }
 
-input:focus{
-  border-color: rgba(244,196,48,0.7);
-  box-shadow: 0 0 0 4px rgba(244,196,48,0.18);
-}
-
-/* Old #choices no longer used — keep spacing via .choices/.choice instead */
-
-#feedback{
-  margin-top: 10px;
-  font-size: 18px;
-}
-
-/* ===== Course Map ===== */
+/* -------------------------
+   MAP (keep compatible IDs + classes)
+   ------------------------- */
+#mapWrap,
 .map-wrap{
   position: relative;
   height: 70vh;
   overflow: auto;
   border-radius: 20px;
-  background: rgba(255,255,255,0.65);
+  background: var(--card);
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
 }
 
-/* JS sets svg + nodes height dynamically */
+#mapSvg,
 .map-svg{
   position: absolute;
   inset: 0;
   width: 100%;
-  pointer-events: none;
+  pointer-events: none !important;
 }
 
+#mapNodes,
 .map-nodes{
   position: relative;
 }
 
+.path-stroke{
+  stroke: rgba(255,255,255,0.22);
+  stroke-width: 8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 2 14;
+}
+
+/* Both naming styles supported */
+.mapNode,
 .map-node{
   position: absolute;
   width: 70px;
   height: 70px;
   border-radius: 999px;
+
   display: grid;
   place-items: center;
   font-weight: 800;
+
   cursor: pointer;
   user-select: none;
+
+  border: 2px solid rgba(255,255,255,0.16);
+  box-shadow: 0 12px 22px rgba(0,0,0,0.20);
+
+  background: linear-gradient(180deg, rgba(47,111,237,1), rgba(47,111,237,0.82));
   transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
-  border: 2px solid rgba(47,47,47,0.12);
-  box-shadow: 0 12px 22px rgba(47,47,47,0.14);
 }
 
+.mapNode:hover,
 .map-node:hover{
   transform: translateY(-2px) scale(1.03);
 }
 
-.map-node .mini{
-  position: absolute;
-  bottom: -10px;
-  font-size: 12px;
-  opacity: 0.9;
-  color: var(--textSoft);
+.mapNode-locked,
+.node-locked{
+  background: linear-gradient(180deg, rgba(107,114,128,0.30), rgba(107,114,128,0.15));
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
-.node-unlocked{
-  background: linear-gradient(180deg, rgba(244,196,48,1), rgba(244,196,48,0.86));
-}
-
+.mapNode-done,
 .node-complete{
-  background: linear-gradient(180deg, rgba(111,175,142,0.98), rgba(111,175,142,0.84));
-  filter: drop-shadow(0 0 10px rgba(111,175,142,0.25));
+  background: linear-gradient(180deg, rgba(34,197,94,0.95), rgba(34,197,94,0.78));
+  filter: drop-shadow(0 0 10px rgba(34,197,94,0.25));
   color: #fff;
 }
 
-.node-locked{
-  background: linear-gradient(180deg, rgba(107,114,128,0.22), rgba(107,114,128,0.12));
-  opacity: 0.55;
-  cursor: not-allowed;
+.node-unlocked{
+  background: linear-gradient(180deg, rgba(47,111,237,1), rgba(30,79,214,0.90));
 }
 
 .node-current{
@@ -627,91 +474,41 @@ input:focus{
 }
 
 @keyframes pulse{
-  0%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(244,196,48,0)); }
-  50%{ transform: scale(1.06); filter: drop-shadow(0 0 14px rgba(244,196,48,0.35)); }
-  100%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(244,196,48,0)); }
+  0%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(47,111,237,0)); }
+  50%{ transform: scale(1.06); filter: drop-shadow(0 0 14px rgba(47,111,237,0.35)); }
+  100%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(47,111,237,0)); }
 }
 
-.path-stroke{
-  stroke: rgba(47,47,47,0.16);
-  stroke-width: 8;
-  fill: none;
-  stroke-linecap: round;
-  stroke-dasharray: 2 14;
-}
-
-/* ===== Map labels ===== */
+/* Map labels */
 .mapLabel{
   position: absolute;
   width: 190px;
   text-align: center;
   font-size: 12px;
   line-height: 1.2;
-  color: var(--textSoft);
+
+  color: var(--muted);
   user-select: none;
   pointer-events: none;
 
   padding: 6px 10px;
   border-radius: 14px;
-  background: rgba(255,255,255,0.62);
-  border: 1px solid rgba(47,47,47,0.08);
-  box-shadow: 0 10px 22px rgba(47,47,47,0.08);
+  background: linear-gradient(180deg, var(--card), var(--card-2));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
 
   transform: translateX(-50%);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(10px);
 }
 
-/* ===== app.js node classes ===== */
-.mapNode{
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
-  border: 2px solid rgba(47,47,47,0.12);
-  box-shadow: 0 12px 22px rgba(47,47,47,0.14);
-  background: linear-gradient(180deg, rgba(244,196,48,1), rgba(244,196,48,0.86));
-}
+/* Inner markup injected by app.js */
+.mapNodeInner{ display: grid; place-items: center; line-height: 1; }
+.mapNodeIcon{ font-size: 18px; margin-bottom: 4px; }
+.mapNodeNum{ font-size: 12px; opacity: 0.92; }
 
-.mapNode:hover{
-  transform: translateY(-2px) scale(1.03);
-}
-
-.mapNode-locked{
-  background: linear-gradient(180deg, rgba(107,114,128,0.22), rgba(107,114,128,0.12));
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
-.mapNode-done{
-  background: linear-gradient(180deg, rgba(111,175,142,0.98), rgba(111,175,142,0.84));
-  filter: drop-shadow(0 0 10px rgba(111,175,142,0.25));
-  color: #fff;
-}
-
-/* Inner markup that app.js injects into mapNode */
-.mapNodeInner{
-  display: grid;
-  place-items: center;
-  line-height: 1;
-}
-.mapNodeIcon{
-  font-size: 18px;
-  margin-bottom: 4px;
-}
-.mapNodeNum{
-  font-size: 12px;
-  opacity: 0.92;
-}
-
-/* ========================= */
-/* Mikas coach (right side) */
-/* ========================= */
+/* -------------------------
+   MIKAS COACH
+   ------------------------- */
 .mikasDock{
   position: fixed;
   right: 18px;
@@ -729,11 +526,9 @@ input:focus{
   transform: translateY(0);
   transition: opacity .25s ease, transform .25s ease;
 
-  /* IMPORTANT: never block taps/clicks */
-  pointer-events: none;
+  pointer-events: none; /* never block clicks */
 }
 
-/* If older code ever adds this class, don't let it hide Mikas anymore */
 .mikasHidden{
   opacity: 1 !important;
   transform: translateY(0) !important;
@@ -742,46 +537,40 @@ input:focus{
 .mikasImg{
   width: 240px;
   height: auto;
-
-  /* ensure PNG never stretches / never blurs */
   display: block;
   object-fit: contain;
   image-rendering: auto;
-
-  filter: drop-shadow(0 14px 24px rgba(47,47,47,0.18));
+  filter: drop-shadow(0 14px 24px rgba(0,0,0,0.20));
 }
 
 .mikasBubble{
   display: none;
   max-width: 240px;
-  background: rgba(255,255,255,0.98);
+  background: linear-gradient(180deg, var(--card), var(--card-2));
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 10px 12px;
   font-size: 14px;
   color: var(--text);
-  box-shadow: 0 10px 25px rgba(47,47,47,0.12);
+  box-shadow: var(--shadow-soft);
   line-height: 1.25;
-}
 
+  backdrop-filter: var(--glass);
+  -webkit-backdrop-filter: var(--glass);
+}
 .mikasBubble.show{ display:block; }
 
 /* keep him from covering controls on small screens */
 @media (max-width: 720px){
   .mikasDock{
     right: 10px;
-    bottom: 92px; /* clears the button row */
+    bottom: 92px;
     width: 190px;
     max-width: 52vw;
   }
   .mikasImg{ width: 190px; }
   .mikasBubble{ max-width: 190px; }
-
-  /* scale logo down for smaller screens */
-  .brandLogo{ height: 120px; }
 }
-
-/* very small phones */
 @media (max-width: 420px){
   .mikasDock{
     bottom: 110px;
@@ -790,75 +579,11 @@ input:focus{
   }
   .mikasImg{ width: 165px; }
   .mikasBubble{ max-width: 165px; font-size: 13px; }
-
-  /* scale logo down more */
-  .brandLogo{ height: 102px; }
 }
 
-/* ========================================================= */
-/* ACCOUNT / AUTH UI */
-/* ========================================================= */
-
-.btn{
-  border: 1px solid rgba(0,0,0,0.10);
-  background: #fff;
-  color: var(--text);
-  padding: 10px 14px;
-  border-radius: 14px;
-  font-weight: 650;
-  cursor: pointer;
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-}
-
-.btn:hover{ transform: translateY(-1px); filter: brightness(1.01); }
-.btn:active{ transform: translateY(0px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
-.btn:disabled{ opacity: .55; cursor: not-allowed; box-shadow: none; transform: none; }
-
-.btn-primary{
-  background: linear-gradient(180deg, #F4C430, #E9B400);
-  border-color: rgba(0,0,0,0.08);
-}
-
-.btn-secondary{
-  background: linear-gradient(180deg, #7BBF9A, #6FAF8E);
-  border-color: rgba(0,0,0,0.08);
-}
-
-.btn-warn{
-  background: linear-gradient(180deg, #F28B7D, #E07A5F);
-  border-color: rgba(0,0,0,0.08);
-  color: #2F2F2F;
-}
-
-.btn-ghost{
-  background: rgba(255,255,255,0.65);
-  backdrop-filter: blur(6px);
-}
-
-.btn-ghost.danger{
-  border-color: rgba(224, 122, 95, 0.45);
-}
-
-.btn-account{
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 46px;        /* match other buttons */
-  padding: 10px 14px;
-}
-
-.dot{
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.15);
-  display: inline-block;
-  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.8);
-}
-.dot.on{ background: #58CC77; }
-
+/* -------------------------
+   AUTH / MODAL (kept, but blue-compatible)
+   ------------------------- */
 body.modal-open{ overflow: hidden; }
 
 .modal{
@@ -870,19 +595,24 @@ body.modal-open{ overflow: hidden; }
 .modal-backdrop{
   position: absolute;
   inset: 0;
-  background: rgba(20, 20, 20, 0.35);
-  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(6px);
 }
 
 .modal-card{
   position: relative;
   width: min(520px, calc(100vw - 28px));
   margin: 72px auto;
-  background: rgba(255,255,255,0.92);
-  border: 1px solid rgba(0,0,0,0.10);
+
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 22px;
-  box-shadow: 0 30px 90px rgba(0,0,0,0.20);
+
+  box-shadow: 0 30px 90px rgba(0,0,0,0.25);
   padding: 18px 18px 16px;
+
+  backdrop-filter: var(--glass);
+  -webkit-backdrop-filter: var(--glass);
 }
 
 .modal-head{
@@ -901,13 +631,13 @@ body.modal-open{ overflow: hidden; }
 
 .modal-sub{
   font-size: 13px;
-  color: var(--textSoft);
+  color: var(--muted);
   margin-top: 4px;
 }
 
 .icon-btn{
-  border: 1px solid rgba(0,0,0,0.10);
-  background: rgba(255,255,255,0.75);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.08);
   border-radius: 12px;
   padding: 8px 10px;
   cursor: pointer;
@@ -924,8 +654,8 @@ body.modal-open{ overflow: hidden; }
   font-size: 12px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(255, 247, 237, 0.9);
-  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(47,111,237,.12);
+  border: 1px solid var(--border);
   color: var(--text);
 }
 
@@ -934,9 +664,11 @@ body.modal-open{ overflow: hidden; }
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.12);
-  box-shadow: 0 14px 35px rgba(0,0,0,0.10);
+
+  background: rgba(255,255,255,.10);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+
   padding: 12px 14px;
   width: 100%;
 }
@@ -948,8 +680,8 @@ body.modal-open{ overflow: hidden; }
   display: grid;
   place-items: center;
   font-weight: 900;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,.12);
+  border: 1px solid var(--border);
 }
 
 .field{ display: block; margin-top: 12px; }
@@ -957,7 +689,7 @@ body.modal-open{ overflow: hidden; }
 .field span{
   display: block;
   font-size: 12px;
-  color: var(--textSoft);
+  color: var(--muted);
   margin-bottom: 6px;
 }
 
@@ -966,16 +698,16 @@ body.modal-open{ overflow: hidden; }
   height: 48px;
   max-width: none;
   border-radius: 16px;
-  border: 1px solid rgba(0,0,0,0.10);
-  background: rgba(255,255,255,0.9);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.08);
   padding: 0 14px;
   font-size: 15px;
   outline: none;
 }
 
 .field input:focus{
-  border-color: rgba(244, 196, 48, 0.75);
-  box-shadow: 0 0 0 4px rgba(244, 196, 48, 0.20);
+  border-color: rgba(47,111,237,.55);
+  box-shadow: 0 0 0 4px rgba(47,111,237,.18);
 }
 
 .row{
@@ -990,7 +722,7 @@ body.modal-open{ overflow: hidden; }
   align-items: center;
   gap: 10px;
   margin: 14px 0 8px;
-  color: var(--textSoft);
+  color: var(--muted);
   font-size: 12px;
 }
 .divider::before,
@@ -998,24 +730,26 @@ body.modal-open{ overflow: hidden; }
   content: "";
   height: 1px;
   flex: 1;
-  background: rgba(0,0,0,0.10);
+  background: var(--border);
 }
 
 .msg{
   margin-top: 10px;
   font-size: 13px;
   color: var(--text);
-  background: rgba(111, 175, 142, 0.12);
-  border: 1px solid rgba(111, 175, 142, 0.25);
+
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.25);
   border-radius: 14px;
   padding: 10px 12px;
   display: none;
 }
 .msg.error{
-  background: rgba(224, 122, 95, 0.12);
-  border-color: rgba(224, 122, 95, 0.25);
+  background: rgba(239,68,68,0.12);
+  border-color: rgba(239,68,68,0.25);
 }
 
+/* Signed-in card */
 .signed-panel{ margin-top: 6px; }
 
 .user-row{
@@ -1023,9 +757,10 @@ body.modal-open{ overflow: hidden; }
   align-items: center;
   gap: 12px;
   padding: 10px 12px;
+
   border-radius: 16px;
-  background: rgba(255, 247, 237, 0.7);
-  border: 1px solid rgba(0,0,0,0.06);
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--border);
 }
 
 .avatar{
@@ -1033,7 +768,7 @@ body.modal-open{ overflow: hidden; }
   height: 46px;
   border-radius: 14px;
   object-fit: cover;
-  border: 1px solid rgba(0,0,0,0.10);
+  border: 1px solid var(--border);
 }
 
 .user-name{
@@ -1042,7 +777,7 @@ body.modal-open{ overflow: hidden; }
 }
 .user-email{
   font-size: 12px;
-  color: var(--textSoft);
+  color: var(--muted);
   margin-top: 2px;
 }
 
@@ -1054,297 +789,16 @@ button,
 #mapNodes,
 #startBtn,
 #continueBtn,
+#checkBtn,
+#nextBtn,
 .modal,
 .modal-card,
-.modal-backdrop {
+.modal-backdrop{
   pointer-events: auto !important;
 }
 
 /* Keep map SVG from stealing clicks */
 .map-svg,
-#mapSvg {
+#mapSvg{
   pointer-events: none !important;
-}
-
-/* =========================================================
-   HOME UPGRADE
-   ========================================================= */
-
-.homeCard{
-  padding: 18px 18px 16px;
-}
-
-.homeHero{
-  margin-bottom: 14px;
-}
-
-.homeKicker{
-  display: inline-block;
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(47,47,47,0.70);
-  background: rgba(255,255,255,0.65);
-  border: 1px solid rgba(47,47,47,0.08);
-  border-radius: 999px;
-  padding: 6px 10px;
-  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
-  margin-bottom: 10px;
-}
-
-.homeTitle{
-  font-size: 26px;
-  line-height: 1.15;
-  margin: 0 0 8px 0;
-}
-
-.homeSub{
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.homeModeRow{
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  padding: 12px 12px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.55);
-  border: 1px solid rgba(47,47,47,0.08);
-  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
-  margin: 10px 0 14px;
-}
-
-.modeLabel{
-  font-weight: 800;
-  font-size: 12px;
-  color: rgba(47,47,47,0.72);
-  padding-top: 8px;
-  min-width: 96px;
-}
-
-.modeSelectWrap{
-  flex: 1;
-}
-
-.modeSelect{
-  width: 100%;
-  height: 46px;
-  border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.10);
-  background: rgba(255,255,255,0.90);
-  color: var(--text);
-  font-weight: 700;
-  padding: 0 12px;
-  outline: none;
-  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
-}
-
-.modeSelect:focus{
-  border-color: rgba(244,196,48,0.75);
-  box-shadow: 0 0 0 4px rgba(244,196,48,0.20);
-}
-
-.modeHint{
-  font-size: 12px;
-  margin-top: 8px;
-  color: var(--textSoft);
-}
-
-.accountAvatarSmall{
-  width: 26px;
-  height: 26px;
-  border-radius: 10px;
-  object-fit: cover;
-  border: 1px solid rgba(0,0,0,0.10);
-  box-shadow: 0 8px 18px rgba(47,47,47,0.10);
-}
-
-.accountNameSmall{
-  font-weight: 800;
-  font-size: 13px;
-  color: rgba(47,47,47,0.85);
-}
-
-@media (max-width: 520px){
-  .homeTitle{ font-size: 22px; }
-  .modeLabel{ min-width: 82px; }
-  .accountNameSmall{ display: none; } /* keeps top bar compact */
-}
-
-/* ===== MAP COMPAT PATCH (keep your existing CSS) ===== */
-#mapWrap { 
-  position: relative;
-  height: 70vh;
-  overflow: auto;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.65);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
-
-#mapSvg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  pointer-events: none !important;
-}
-
-#mapNodes {
-  position: relative;
-}
-
-/* ===== BRAND LOGO (FINAL, RESPONSIVE, SINGLE SOURCE OF TRUTH) ===== */
-#brandHeader{
-  gap: 18px;
-}
-
-img#brandLogo{
-  height: 150px;       /* desktop */
-  width: auto;
-  display: block;
-  max-width: 100%;
-}
-
-@media (max-width: 900px){
-  img#brandLogo{ height: 120px; }
-}
-
-@media (max-width: 720px){
-  img#brandLogo{ height: 92px; }
-}
-
-@media (max-width: 420px){
-  img#brandLogo{ height: 78px; }
-}
-
-/* ===== LESSON PROGRESS BAR ===== */
-#lessonProgress{
-  margin: 0 0 10px 0;
-}
-
-#lessonProgressText{
-  font-size: 12px;
-  color: var(--textSoft);
-  margin-bottom: 6px;
-}
-
-#lessonProgressFill{
-  transition: width 220ms ease;
-}
-
-/* =========================
-   Lesson screen polish v1
-========================= */
-
-/* Make lesson header look like a premium card */
-.lessonHeader{
-  padding: 14px 14px 12px;
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  background: var(--card);
-  backdrop-filter: var(--glass);
-  -webkit-backdrop-filter: var(--glass);
-  box-shadow: var(--shadow-1);
-  margin-bottom: 14px;
-}
-
-/* Main prompt + sub prompt typography */
-.lpMain{
-  font-size: 20px;
-  font-weight: 750;
-  letter-spacing: .2px;
-  margin-bottom: 6px;
-}
-.lpSub{
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.35;
-}
-
-/* Dictation banner */
-.listenTag{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(47,107,255,.12);
-  color: var(--text);
-  font-weight: 650;
-}
-
-/* Choice grid feels appy */
-.choices{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin-top: 12px;
-}
-@media (min-width: 720px){
-  .choices{
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Bigger, tappier choice buttons */
-.choice{
-  padding: 14px 14px;
-  font-size: 16px;
-  font-weight: 650;
-  min-height: 52px;
-  box-shadow: 0 8px 18px rgba(0,0,0,.06);
-}
-.choice:active{
-  transform: scale(.985);
-}
-
-/* Correct / wrong states pop */
-.choice-correct{
-  border-color: rgba(34,197,94,.55) !important;
-  background: rgba(34,197,94,.14) !important;
-}
-.choice-wrong{
-  border-color: rgba(239,68,68,.55) !important;
-  background: rgba(239,68,68,.14) !important;
-}
-
-/* Input area looks like native */
-#inputWrap{
-  margin-top: 12px;
-  display: grid;
-  gap: 10px;
-}
-#answerInput{
-  width: 100%;
-  padding: 14px 14px;
-  font-size: 16px;
-  border-radius: var(--r-lg);
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.06);
-  color: var(--text);
-  outline: none;
-}
-#answerInput:focus{
-  border-color: rgba(47,107,255,.55);
-  box-shadow: 0 0 0 4px rgba(47,107,255,.18);
-}
-
-/* Feedback pill */
-.feedback{
-  margin-top: 12px;
-  padding: 12px 12px;
-  border-radius: var(--r-lg);
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.06);
-}
-.feedback-ok{
-  border-color: rgba(34,197,94,.45);
-  background: rgba(34,197,94,.12);
-}
-.feedback-bad{
-  border-color: rgba(239,68,68,.45);
-  background: rgba(239,68,68,.12);
 }
