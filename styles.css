@@ -1,42 +1,29 @@
+/* =========================================================
+   OpenKalba — COHERENT BLUE APP THEME
+   ONE THEME • NO WHITE • DESKTOP + MOBILE CONSISTENT
+   Palette:
+   - Depth / Background: #316493
+   - Surface / Cards:    #E7F1FC
+   - Accent / Action:    #32AACA
+========================================================= */
+
 /* =========================
-   OpenKalba — BLUE APP THEME (ONE THEME, NO DARK MODE)
-   - single consistent look on desktop + mobile
-   - outer background = SOLID dark blue (no gradient)
-   - app canvas = light blue (reduces white space)
-   - readable text everywhere
-   - Basics/prompt styled pill
-   - NEXT button = blue only
-   - account avatar hard-limited
+   TOKENS (SINGLE SOURCE)
 ========================= */
-
-/* -------------------------
-   TOKENS (ONE THEME)
-------------------------- */
 :root{
-  /* Blues (from your template vibe) */
-  --primary: #2F6FED;
-  --primary-2: #1E4FD6;
-  --primary-3: #22B3D6;
-  --primary-soft: rgba(47,111,237,.12);
+  /* Core palette */
+  --bg-main: #316493;     /* page depth */
+  --surface: #E7F1FC;     /* ALL cards, panels, modals */
+  --accent: #32AACA;      /* buttons, progress, focus */
 
-  /* SOLID outer background (slightly lighter dark blue) */
-  --outer: #366FA4;
+  /* Text */
+  --text-main: #0F2A3A;
+  --text-muted: rgba(15,42,58,.65);
 
-  /* App canvas (light blue) */
-  --canvas: #EAF4FF;
-
-  /* Surfaces */
-  --card: rgba(255,255,255,.92);
-  --card-2: rgba(255,255,255,.78);
-  --border: rgba(15,23,42,.10);
-
-  /* Text (always readable) */
-  --text: #0F172A;
-  --muted: rgba(15,23,42,.66);
-
-  /* Shadows */
-  --shadow: 0 18px 50px rgba(15,23,42,.12);
-  --shadow-soft: 0 10px 28px rgba(15,23,42,.12);
+  /* Borders / shadows */
+  --border: rgba(15,42,58,.18);
+  --shadow: 0 18px 50px rgba(0,0,0,.25);
+  --shadow-soft: 0 10px 28px rgba(0,0,0,.18);
 
   /* Radius */
   --r-xl: 22px;
@@ -47,34 +34,34 @@
   --maxw: 1040px;
 }
 
-/* -------------------------
+/* =========================
    BASE PAGE
-------------------------- */
+========================= */
 html, body{
   height: 100%;
   margin: 0;
-  background: var(--outer); /* SOLID, NO GRADIENT */
+  background: var(--bg-main); /* SOLID */
 }
 
 body{
   font-family: Arial, sans-serif;
-  color: var(--text);
+  color: var(--text-main);
 }
 
-/* App canvas (light blue so “white space” looks intentional) */
+/* App canvas */
 .wrap{
   max-width: var(--maxw);
   margin: 14px auto;
   padding: 12px 16px 28px;
 
-  background: var(--canvas);
+  background: var(--surface);
   border-radius: 28px;
-  box-shadow: 0 30px 90px rgba(0,0,0,.35);
+  box-shadow: var(--shadow);
 }
 
-/* -------------------------
-   TOP BAR / BRAND
-------------------------- */
+/* =========================
+   BRAND HEADER
+========================= */
 .brandHeader{
   position: sticky;
   top: 10px;
@@ -86,33 +73,23 @@ body{
 
   padding: 10px 14px;
 
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
-  background: var(--card);
-
   box-shadow: var(--shadow-soft);
 }
 
-/* logo sizing */
 .brandLogo{
-  height: 150px; /* desktop */
+  height: 150px;
   width: auto;
-  display: block;
-  max-width: 100%;
 }
 @media (max-width: 900px){ .brandLogo{ height: 120px; } }
 @media (max-width: 720px){ .brandLogo{ height: 92px; } }
 @media (max-width: 420px){ .brandLogo{ height: 78px; } }
 
-.brandText{
-  font-weight: 900;
-  font-size: 46px;
-  letter-spacing: 0.3px;
-}
-
-/* -------------------------
-   "Basics 1" pill (prompt)
-------------------------- */
+/* =========================
+   PROMPT / BASICS PILL
+========================= */
 .prompt{
   display: inline-flex;
   align-items: center;
@@ -121,644 +98,229 @@ body{
   margin: 10px 2px 14px;
   padding: 8px 12px;
 
-  font-weight: 800;
   font-size: 12px;
+  font-weight: 800;
   letter-spacing: .14em;
   text-transform: uppercase;
 
-  color: var(--muted);
-  background: var(--card);
+  color: var(--text-muted);
+  background: rgba(231,241,252,.85);
   border: 1px solid var(--border);
   border-radius: 999px;
   box-shadow: var(--shadow-soft);
 }
 
-/* -------------------------
-   MAIN SCREEN CARDS
-------------------------- */
-.card, .panel, .lessonWrap, .mapWrap,
-.screen, #screenHome, #screenLesson, #screenMap, #screenDone{
-  background: var(--card);
+/* =========================
+   CARDS / SCREENS
+========================= */
+.card,
+.panel,
+.lessonWrap,
+.mapWrap,
+.screen,
+#screenHome,
+#screenLesson,
+#screenMap,
+#screenDone{
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-soft);
 }
 
 .card{
   padding: 18px;
-  min-height: 120px;
 }
 
-/* -------------------------
-   CONTROLS / BUTTONS
-------------------------- */
+/* =========================
+   BUTTONS
+========================= */
 .controls{
   display: flex;
   gap: 10px;
-  margin-bottom: 12px;
   flex-wrap: wrap;
-  align-items: center;
 }
 
 button, .btn{
-  padding: 10px 12px;
+  height: 44px;
+  padding: 0 14px;
   border-radius: 14px;
+
+  border: 1px solid var(--border);
+  background: rgba(231,241,252,.95);
+  color: var(--text-main);
+
   cursor: pointer;
-
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.96);
-  color: var(--text);
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+  box-shadow: var(--shadow-soft);
 }
 
-button:hover, .btn:hover{
-  transform: translateY(-1px);
-  filter: brightness(1.02);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.10);
-}
+button:hover{ filter: brightness(1.03); }
+button:active{ transform: scale(.985); }
 
-button:active, .btn:active{ transform: scale(.985); }
-
-button:disabled, .btn:disabled{
-  opacity: 0.55;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-/* Primary actions = BLUE ONLY */
-.btn-primary, .btn-main, #startBtn, #continueBtn, #checkBtn, #nextBtn{
-  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-2) 100%) !important;
+/* Primary actions */
+#startBtn,
+#continueBtn,
+#checkBtn,
+#nextBtn,
+.btn-primary{
+  background: var(--accent) !important;
   color: #fff !important;
-  border: 1px solid rgba(255,255,255,.12) !important;
-  box-shadow: 0 14px 35px rgba(47,111,237,.25) !important;
+  border-color: rgba(0,0,0,.08) !important;
 }
 
-#nextBtn{
-  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-2) 100%) !important;
-}
-
-/* Ghost buttons */
-.btn-ghost{
-  background: rgba(255,255,255,.82);
-  border: 1px solid var(--border);
-}
-
-/* -------------------------
-   PROGRESS BAR
-------------------------- */
+/* =========================
+   PROGRESS
+========================= */
 .progressTrack{
-  background: rgba(15,42,79,.16);
+  background: rgba(15,42,58,.18);
 }
 
 .progressFill,
 #lessonProgressFill{
-  background: linear-gradient(90deg, var(--primary-2) 0%, var(--primary) 55%, var(--primary-3) 100%) !important;
-  transition: width 220ms ease;
+  background: var(--accent) !important;
 }
 
 #lessonProgressText{
   font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 6px;
+  color: var(--text-muted);
 }
 
-#lessonProgress{
-  margin: 0 0 10px 0;
-}
-
-/* -------------------------
+/* =========================
    INPUTS
-------------------------- */
-input[type="text"], input, .input, #answerInput, select, textarea{
-  background: rgba(255,255,255,.96);
+========================= */
+input,
+select,
+textarea{
+  background: rgba(231,241,252,.95);
   border: 1px solid var(--border);
   border-radius: 14px;
-  color: var(--text);
-  outline: none;
-
-  padding: 14px 14px;
+  padding: 14px;
   font-size: 16px;
+  color: var(--text-main);
 }
 
-input:focus, #answerInput:focus, select:focus, textarea:focus{
-  border-color: rgba(47,111,237,.55);
-  box-shadow: 0 0 0 4px rgba(47,111,237,.18);
+input:focus,
+select:focus{
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(50,170,202,.25);
 }
 
-/* -------------------------
-   LESSON HEADER
-------------------------- */
-.lessonHeader{
-  padding: 14px 14px 12px;
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  background: var(--card);
-  box-shadow: var(--shadow-soft);
-  margin-bottom: 14px;
-}
-
-.lpMain{
-  font-size: 20px;
-  font-weight: 750;
-  letter-spacing: .2px;
-  margin-bottom: 6px;
-}
-.lpSub{
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.35;
-}
-
-.listenTag{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(47,111,237,.12);
-  color: var(--text);
-  font-weight: 650;
-}
-
-/* Choices grid */
+/* =========================
+   CHOICES
+========================= */
 .choices{
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  margin-top: 12px;
 }
 @media (min-width: 720px){
   .choices{ grid-template-columns: 1fr 1fr; }
 }
 
 .choice{
-  padding: 14px 14px;
-  font-size: 16px;
-  font-weight: 650;
   min-height: 52px;
-
+  padding: 14px;
   border-radius: 14px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.96);
-  box-shadow: 0 8px 18px rgba(0,0,0,.06);
 
-  cursor: pointer;
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+  background: rgba(231,241,252,.95);
+  border: 1px solid var(--border);
+  font-weight: 650;
 }
-.choice:hover{
-  transform: translateY(-1px);
-  filter: brightness(1.02);
-  box-shadow: 0 14px 28px rgba(0,0,0,.10);
-}
-.choice:active{ transform: scale(.985); }
 
 .choice-correct{
-  border-color: rgba(34,197,94,.55) !important;
-  background: rgba(34,197,94,.14) !important;
+  background: rgba(34,197,94,.18) !important;
 }
 .choice-wrong{
-  border-color: rgba(239,68,68,.55) !important;
-  background: rgba(239,68,68,.14) !important;
+  background: rgba(239,68,68,.18) !important;
 }
 
-/* Feedback pill */
-.feedback{
-  margin-top: 12px;
-  padding: 12px 12px;
-  border-radius: var(--r-lg);
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.88);
-}
-.feedback-ok{
-  border-color: rgba(34,197,94,.45);
-  background: rgba(34,197,94,.12);
-}
-.feedback-bad{
-  border-color: rgba(239,68,68,.45);
-  background: rgba(239,68,68,.12);
-}
-
-/* -------------------------
-   MAP
-------------------------- */
-#mapWrap, .map-wrap{
-  position: relative;
-  height: 70vh;
-  overflow: auto;
-  border-radius: 20px;
-  background: var(--card);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
-
-#mapSvg, .map-svg{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  pointer-events: none !important;
-}
-
-#mapNodes, .map-nodes{ position: relative; }
-
-.path-stroke{
-  stroke: rgba(15,23,42,.16);
-  stroke-width: 8;
-  fill: none;
-  stroke-linecap: round;
-  stroke-dasharray: 2 14;
-}
-
-.mapNode, .map-node{
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  border-radius: 999px;
-
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-
-  cursor: pointer;
-  user-select: none;
-
-  border: 2px solid rgba(15,23,42,.12);
-  box-shadow: 0 12px 22px rgba(0,0,0,0.18);
-
-  background: linear-gradient(180deg, rgba(47,111,237,1), rgba(30,79,214,0.90));
-  transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
-}
-.mapNode:hover, .map-node:hover{ transform: translateY(-2px) scale(1.03); }
-
-.mapNode-locked, .node-locked{
-  background: linear-gradient(180deg, rgba(107,114,128,0.30), rgba(107,114,128,0.15));
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
-.mapNode-done, .node-complete{
-  background: linear-gradient(180deg, rgba(34,197,94,0.95), rgba(34,197,94,0.78));
-  filter: drop-shadow(0 0 10px rgba(34,197,94,0.25));
-  color: #fff;
-}
-
-.node-current{ animation: pulse 1.4s infinite ease-in-out; }
-@keyframes pulse{
-  0%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(47,111,237,0)); }
-  50%{ transform: scale(1.06); filter: drop-shadow(0 0 14px rgba(47,111,237,0.35)); }
-  100%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(47,111,237,0)); }
-}
-
-.mapLabel{
-  position: absolute;
-  width: 190px;
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.2;
-
-  color: var(--muted);
-  user-select: none;
-  pointer-events: none;
-
-  padding: 6px 10px;
-  border-radius: 14px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
-
-  transform: translateX(-50%);
-}
-
-/* Inner markup */
-.mapNodeInner{ display: grid; place-items: center; line-height: 1; }
-.mapNodeIcon{ font-size: 18px; margin-bottom: 4px; }
-.mapNodeNum{ font-size: 12px; opacity: 0.92; }
-
-/* -------------------------
-   MIKAS
-------------------------- */
-.mikasDock{
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  width: 240px;
-  max-width: 46vw;
-  z-index: 50;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
-
-  pointer-events: none; /* never block clicks */
-}
-
-.mikasImg{
-  width: 240px;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  image-rendering: auto;
-  filter: drop-shadow(0 14px 24px rgba(0,0,0,0.20));
-}
-
-.mikasBubble{
-  display: none;
-  max-width: 240px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 10px 12px;
-  font-size: 14px;
-  color: var(--text);
-  box-shadow: var(--shadow-soft);
-  line-height: 1.25;
-}
-.mikasBubble.show{ display:block; }
-
-@media (max-width: 720px){
-  .mikasDock{ right: 10px; bottom: 92px; width: 190px; max-width: 52vw; }
-  .mikasImg{ width: 190px; }
-  .mikasBubble{ max-width: 190px; }
-}
-@media (max-width: 420px){
-  .mikasDock{ bottom: 110px; width: 165px; max-width: 58vw; }
-  .mikasImg{ width: 165px; }
-  .mikasBubble{ max-width: 165px; font-size: 13px; }
-}
-
-/* -------------------------
-   ACCOUNT CARD (HARD LIMIT)
-------------------------- */
-.user-row{
-  display: flex;
+/* =========================
+   ACCOUNT BUTTON (PILL)
+========================= */
+.user-row,
+#accountBtn{
+  display: inline-flex;
   align-items: center;
   gap: 10px;
 
-  max-width: 260px;
-  padding: 10px 12px;
+  height: 44px;
+  padding: 0 12px;
 
-  border-radius: 16px;
-  background: rgba(255,255,255,.90);
+  border-radius: 999px;
+  background: rgba(231,241,252,.85);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
 }
 
-.user-row img,
-.avatar{
-  width: 44px !important;
-  height: 44px !important;
-  max-width: 44px !important;
-  max-height: 44px !important;
-  border-radius: 12px;
+.avatar,
+.user-row img{
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
   object-fit: cover;
-  flex-shrink: 0;
-  border: 1px solid var(--border);
 }
 
 .user-name{
-  font-weight: 800;
   font-size: 13px;
-  line-height: 1.1;
-}
-.user-email{
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 2px;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
-/* Click safety */
-button, .btn, .mapNode, .map-nodes, #mapNodes, #startBtn, #continueBtn, #checkBtn, #nextBtn{
-  pointer-events: auto !important;
-}
-#mapSvg, .map-svg{ pointer-events: none !important; }
+.user-email{ display: none; }
 
 /* =========================
-   ACCOUNT BUTTON — FIX (pill + circle avatar)
-   Paste at END of styles.css
+   ACCOUNT MODAL (OVERLAY)
 ========================= */
-
-/* target the signed-in account "pill" */
-.user-row{
-  /* make it look/size like the other buttons */
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-
-  height: 44px !important;         /* match your buttons */
-  max-height: 44px !important;
-  padding: 0 12px !important;
-  gap: 10px !important;
-
-  width: auto !important;
-  max-width: 260px !important;
-
-  border-radius: 999px !important;  /* pill */
-  background: rgba(255,255,255,.10) !important;
-  border: 1px solid var(--border) !important;
-  box-shadow: var(--shadow-soft) !important;
-
-  overflow: hidden !important;
-}
-
-/* avatar: circle + correct size */
-.user-row .avatar,
-.user-row img{
-  width: 32px !important;
-  height: 32px !important;
-  max-width: 32px !important;
-  max-height: 32px !important;
-
-  border-radius: 999px !important;  /* circle */
-  object-fit: cover !important;
-  flex: 0 0 32px !important;
-}
-
-/* tighten the text so the pill doesn't get tall */
-.user-row .user-name{
-  font-size: 13px !important;
-  font-weight: 800 !important;
-  line-height: 1 !important;
-  margin: 0 !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-
-/* usually hide email in the pill (keeps it compact) */
-.user-row .user-email{
-  display: none !important;
-}
-
-/* keep it aligned with your button row if it sits there */
-.btn-account, #accountBtn, .accountBtn{
-  height: 44px !important;
-  padding: 0 12px !important;
-  border-radius: 999px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-}
-
-/* =========================
-   ACCOUNT BUTTON — HARD FIX
-   (small, same height as buttons, circular avatar)
-   Paste at VERY END of styles.css
-========================= */
-
-/* the pill/button itself */
-#accountBtn,
-.btn-account,
-.user-row{
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  height: 44px !important;          /* match your other buttons */
-  padding: 8px 12px !important;
-  border-radius: 999px !important;
-  max-width: 260px !important;
-  overflow: hidden !important;
-}
-
-/* kill any “card” sizing that might be making it tall */
-#accountBtn * ,
-.btn-account * ,
-.user-row *{
-  max-height: 44px !important;
-}
-
-/* avatar: force circle + small */
-#accountBtn img,
-.btn-account img,
-.user-row img,
-#accountAvatar,
-.accountAvatarSmall,
-.avatar{
-  width: 30px !important;
-  height: 30px !important;
-  min-width: 30px !important;
-  min-height: 30px !important;
-  max-width: 30px !important;
-  max-height: 30px !important;
-
-  border-radius: 999px !important;   /* circle */
-  object-fit: cover !important;
-  flex: 0 0 auto !important;
-  display: block !important;
-}
-
-/* text next to avatar */
-#accountBtn .user-name,
-.btn-account .user-name,
-.user-row .user-name{
-  font-size: 13px !important;
-  font-weight: 800 !important;
-  line-height: 1 !important;
-  margin: 0 !important;
-  white-space: nowrap !important;
-}
-
-#accountBtn .user-email,
-.btn-account .user-email,
-.user-row .user-email{
-  display: none !important;          /* keep pill compact */
-}
-
-/* =========================================================
-   ACCOUNT POPUP — FORCE REAL MODAL OVERLAY (FIXES LAYOUT)
-   Paste at END of styles.css
-   ========================================================= */
-
-/* Try to catch whatever your account panel is named */
-#accountPanel,
-#accountModal,
-#authPanel,
 .modal,
-.accountPanel{
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 99999 !important;   /* ABOVE the sticky header/logo */
+#accountPanel{
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
 }
 
-/* If your code uses show/open classes, support both */
-#accountPanel,
-#accountModal,
-#authPanel,
-.modal,
-.accountPanel{
-  display: none;
-}
-#accountPanel.show,
-#accountModal.show,
-#authPanel.show,
-.modal.show,
-.accountPanel.show,
-#accountPanel.open,
-#accountModal.open,
-#authPanel.open,
-.modal.open,
-.accountPanel.open{
-  display: block !important;
-}
-
-/* Backdrop */
-#accountPanel::before,
-#accountModal::before,
-#authPanel::before,
 .modal::before,
-.accountPanel::before{
+#accountPanel::before{
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,.38);
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
 }
 
-/* The actual “card” inside the popup (targets your existing modal card + signed panel) */
 .modal-card,
-.signed-panel,
-#accountPanel .modal-card,
-#accountModal .modal-card,
-#authPanel .modal-card{
-  position: relative !important;
-  z-index: 1 !important;
+.signed-panel{
+  position: relative;
+  margin: clamp(80px, 10vh, 130px) auto;
+  width: min(520px, calc(100vw - 24px));
 
-  width: min(520px, calc(100vw - 24px)) !important;
-  margin: clamp(86px, 10vh, 130px) auto 18px !important; /* keeps it BELOW logo/header */
-  padding: 16px 16px 14px !important;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 16px;
 
-  border-radius: 22px !important;
-  border: 1px solid rgba(255,255,255,.18) !important;
-
-  background: rgba(255,255,255,.92) !important;
-  box-shadow: 0 30px 90px rgba(0,0,0,.28) !important;
+  box-shadow: var(--shadow);
 }
 
-/* Make the popup content look “app styled” even if it was plain */
-.modal-card * ,
-.signed-panel *{
-  font-family: Arial, sans-serif;
+/* =========================
+   MIKAS
+========================= */
+.mikasDock{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 240px;
+  pointer-events: none;
 }
 
-/* Keep buttons in the popup consistent */
-.modal-card button,
-.signed-panel button{
-  border-radius: 14px !important;
+.mikasImg{
+  width: 240px;
+  filter: drop-shadow(0 14px 24px rgba(0,0,0,.25));
 }
 
-/* On dark mode, ensure popup text is readable */
-@media (prefers-color-scheme: dark){
-  .modal-card,
-  .signed-panel{
-    background: rgba(16, 20, 34, .92) !important;
-    color: rgba(255,255,255,.92) !important;
-    border-color: rgba(255,255,255,.14) !important;
-  }
-  .modal-card * ,
-  .signed-panel *{
-    color: rgba(255,255,255,.90) !important;
-  }
+@media (max-width: 720px){
+  .mikasImg{ width: 190px; }
+}
+@media (max-width: 420px){
+  .mikasImg{ width: 165px; }
 }
