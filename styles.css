@@ -802,3 +802,40 @@ button,
 #mapSvg{
   pointer-events: none !important;
 }
+
+/* =========================
+   ACCOUNT CARD SIZE FIX
+   ========================= */
+
+/* Account container (the white rounded box) */
+.user-row{
+  max-width: 260px;
+  padding: 10px 12px;
+  gap: 10px;
+}
+
+/* Avatar image — HARD LIMIT */
+.user-row img,
+.avatar{
+  width: 44px !important;
+  height: 44px !important;
+  max-width: 44px !important;
+  max-height: 44px !important;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Text next to avatar */
+.user-name{
+  font-size: 13px;
+  line-height: 1.1;
+}
+.user-email{
+  font-size: 11px;
+}
+
+/* Prevent card from stretching */
+.user-row{
+  align-items: center;
+}
