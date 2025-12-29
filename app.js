@@ -1,45 +1,31 @@
 /* =========================================================
-   Lithuanian Trainer — app.js (v5.3.6 BRAND HEADER + DICTATION FIX + CLOSE MATCH)
+   Lithuanian Trainer — app.js (v5.3.7)
    - Course Map with locked progression + topic/icon labels
    - Lesson engine (MCQ + type-in)
    - Speak button (Native MP3 first, fallback Web Speech)
    - Mikas emotion switching
    - Account button + Auth modal wiring (works with or without auth_ui.js)
 
-   FIX (2025-12-22):
+   FIXES / UPGRADES (2025-12-28 -> v5.3.7):
+   ✅ Dictation: NEVER reveal the answer text in UI (no more "labas" or "••••••")
+      - Dictation card shows only: "🎧 Hear it — then type what you hear"
+   ✅ Remove duplicate prompts:
+      - renderQuestion() no longer writes into #prompt
+      - Only setHeaderMode() controls #prompt (brand header line)
+   ✅ MCQ: tapping a choice plays audio immediately (native MP3 if available),
+      then submits the answer.
+   ✅ Speak speed support:
+      - speakLithuanian(text, rate) supports slow playback
+      - Safe no-op if slow button doesn't exist yet
+   ✅ Progress bar hooks:
+      - Optional DOM ids: #lessonProgressText, #lessonProgressFill
+      - Safe if not present (no errors)
+   ✅ Better lesson-load errors for diagnosing missing lesson files (e.g. lesson 4)
+
+   Notes:
    - Supports BOTH lesson formats:
      A) { questions: [...] }  (new)
-     B) { items: [...] }      (your current lessons/*.json)
-   - "choose" uses answerIndex
-   - "translate" uses answers[]
-   - Restores voice button logic from your item.tts object
-   - Restores Mikas paths to /mikas/*.png
-   - Loads older progress shapes so locks don’t reset
-
-   ADD (Native MP3 voice):
-   - Loads audio/lt/manifest.json into ltAudioMap
-   - speakLithuanian() prefers native MP3 audio first (fallback to Web Speech)
-   - slugifyLt() for mapping plain LT text -> your hashed filename manifest keys
-
-   ADD (2025-12-23 UI):
-   - Home: sets prompt to clearly communicate “Lithuanian learning”
-   - Learning Mode select: saves/restores to localStorage
-
-   ADD (2025-12-27):
-   - Prompt logic fixed so #prompt never goes blank
-   - Dictation UX uses header but does NOT blank #prompt anymore
-   - Stronger answer normalization + fuzzy matching (typos/diacritics/punct)
-
-   ADD (2025-12-27 BRAND HEADER MODE):
-   - Adds brandLogo/brandText refs
-   - Adds setHeaderMode() helper
-   - Stops setting big title text (#title is hidden; logo is the header)
-   - Updates #prompt line based on screen (home/map/lesson/done)
-
-   ADD (2025-12-28):
-   - Dictation questions: if no correct answer exists but TTS exists -> TTS becomes correct answer
-   - "Close" feedback using similarity score (edit distance)
-   - MCQ choices shuffle by default (unless shuffle:false)
+     B) { items: [...] }      (older lessons/*.json)
    ========================================================= */
 
 "use strict";
@@ -61,11 +47,11 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const SFX = {
   correct: new Audio("audio/sfx/correct.wav"),
   wrong: new Audio("audio/sfx/wrong.mp3"),
-  complete: new Audio("audio/sfx/level-complete.mp3")
+  complete: new Audio("audio/sfx/level-complete.mp3"),
 };
 
 // Avoid delay on first play
-Object.values(SFX).forEach(a => {
+Object.values(SFX).forEach((a) => {
   a.preload = "auto";
   a.volume = 0.6;
 });
@@ -74,7 +60,7 @@ function playSfx(name) {
   const a = SFX[name];
   if (!a) return;
   a.currentTime = 0;
-  a.play().catch(() => {}); // ignore autoplay warnings
+  a.play().catch(() => {});
 }
 
 /* -----------------------------
@@ -86,8 +72,10 @@ const LS = {
   lastLesson: "lt_last_lesson_v1",
   user: "lt_user_v1",
 
-  // NEW: learning mode selection (placeholder)
+  // learning mode selection (placeholder)
   learningMode: "lt_learning_mode_v1",
+
+  // (future) mikas toggle etc.
 };
 
 /* -----------------------------
@@ -103,8 +91,8 @@ function saveLearningMode(mode) {
    Native audio manifest (MP3)
 ----------------------------- */
 const LT_AUDIO_MANIFEST_URL = "audio/lt/manifest.json";
-let ltAudioMap = null;   // { slug: "audio/lt/<file>" }
-let audioPlayer = null;  // HTMLAudioElement
+let ltAudioMap = null; // { slug: "audio/lt/<file>" }
+let audioPlayer = null; // HTMLAudioElement
 
 // IMPORTANT: must match how audio/lt/manifest.json keys were generated:
 // any non [a-z0-9] becomes "_"
@@ -121,7 +109,7 @@ async function loadLtAudioManifest() {
     const res = await fetch(LT_AUDIO_MANIFEST_URL, { cache: "no-store" });
     if (!res.ok) return null;
     const m = await res.json();
-    return (m && typeof m === "object") ? m : null;
+    return m && typeof m === "object" ? m : null;
   } catch {
     return null;
   }
@@ -130,15 +118,15 @@ async function loadLtAudioManifest() {
 /* -----------------------------
    App state
 ----------------------------- */
-let manifest = null;            // { lessons: [...] }
-let lessonData = null;          // current lesson JSON
-let lessonIndex = 0;            // index in manifest.lessons
-let qIndex = 0;                 // question index
+let manifest = null; // { lessons: [...] }
+let lessonData = null; // current lesson JSON
+let lessonIndex = 0; // index in manifest.lessons
+let qIndex = 0; // question index
 let streak = 0;
-let progress = loadProgress();  // { completedLessonIds: [], best: {...} }
+let progress = loadProgress(); // { completedLessonIds: [], best: {...} }
 
-let currentScreen = "home";     // home|lesson|map|done
-let currentQuestion = null;     // active question object
+let currentScreen = "home"; // home|lesson|map|done
+let currentQuestion = null; // active question object
 let isAnswered = false;
 
 /* -----------------------------
@@ -155,11 +143,15 @@ const DOM = {
   controls: {
     prevBtn: el("prevBtn"),
     speakBtn: el("speakBtn"),
+    // OPTIONAL (we will add in index.html later)
+    speakSlowBtn: el("speakSlowBtn"),
+
     mapBtn: el("mapBtn"),
     resetBtn: el("resetBtn"),
     accountBtn: el("accountBtn"),
     accountDot: el("accountDot"),
   },
+
   screens: {
     home: el("screenHome"),
     lesson: el("screenLesson"),
@@ -181,6 +173,10 @@ const DOM = {
   checkBtn: el("checkBtn"),
   nextBtn: el("nextBtn"),
   feedback: el("feedback"),
+
+  // OPTIONAL progress (we will add in index.html later)
+  lessonProgressText: el("lessonProgressText"),
+  lessonProgressFill: el("lessonProgressFill"),
 
   // Map
   mapWrap: el("mapWrap"),
@@ -208,7 +204,6 @@ function setHeaderMode(mode, meta = null) {
   // Keep brand logo always visible, but change the small prompt line
 
   if (DOM.brandLogo) {
-    // fallback if image fails
     DOM.brandLogo.onerror = () => {
       if (DOM.brandLogo) DOM.brandLogo.style.display = "none";
       if (DOM.brandText) DOM.brandText.style.display = "block";
@@ -237,7 +232,8 @@ function setHeaderMode(mode, meta = null) {
     return;
   }
 
-  // lesson
+  // ✅ IMPORTANT: in lesson mode, DO NOT show the current question word here
+  // (avoids duplicate prompt). Keep it high-level.
   if (mode === "lesson" && meta) {
     DOM.prompt.textContent =
       `${meta.icon ? meta.icon + " " : ""}${meta.title}${meta.topic ? " — " + meta.topic : ""}`;
@@ -289,7 +285,9 @@ function loadProgress() {
 
     if (!Array.isArray(ids)) ids = [];
 
-    ids = ids.map((x) => (typeof x === "string" ? x : (x && x.id ? x.id : ""))).filter(Boolean);
+    ids = ids
+      .map((x) => (typeof x === "string" ? x : x && x.id ? x.id : ""))
+      .filter(Boolean);
 
     const best = p.best && typeof p.best === "object" ? p.best : {};
 
@@ -390,7 +388,7 @@ function normalizeLessonToQuestions(data) {
         const answer =
           idx >= 0 && idx < choices.length
             ? choices[idx]
-            : (it.answer || it.correctAnswer || "");
+            : it.answer || it.correctAnswer || "";
 
         return {
           type: "choose",
@@ -405,7 +403,9 @@ function normalizeLessonToQuestions(data) {
       if (type === "translate") {
         const correctList = Array.isArray(it.answers)
           ? it.answers.slice()
-          : (it.answer ? [it.answer] : []);
+          : it.answer
+          ? [it.answer]
+          : [];
 
         return {
           type: "translate",
@@ -422,7 +422,7 @@ function normalizeLessonToQuestions(data) {
         lt: it.lt || "",
         en: it.en || "",
         choices: Array.isArray(it.choices) ? it.choices.slice() : [],
-        correct: Array.isArray(it.answers) ? it.answers.slice() : (it.answer ? [it.answer] : []),
+        correct: Array.isArray(it.answers) ? it.answers.slice() : it.answer ? [it.answer] : [],
         tts: it.tts || "",
       };
     });
@@ -437,10 +437,33 @@ async function loadLessonByIndex(i) {
   lessonIndex = clamp(i, 0, manifest.lessons.length - 1);
   const meta = manifest.lessons[lessonIndex];
 
-  const res = await fetch(`./${meta.file}`, { cache: "no-store" });
-  if (!res.ok) throw new Error(`Failed to load ${meta.file}`);
+  const url = `./${meta.file}`;
+  let res = null;
 
-  let data = await res.json();
+  try {
+    res = await fetch(url, { cache: "no-store" });
+  } catch (e) {
+    throw new Error(`Failed to fetch lesson file: ${url}`);
+  }
+
+  if (!res.ok) {
+    // ✅ Better error for debugging "Lesson 4 won't load" (usually 404 / case mismatch)
+    throw new Error(
+      `Lesson file not found or failed to load (${res.status}): ${url}\n` +
+        `Common cause on GitHub Pages: filename case mismatch (Windows vs web).`
+    );
+  }
+
+  let data = null;
+  try {
+    data = await res.json();
+  } catch {
+    throw new Error(
+      `Lesson JSON is invalid: ${url}\n` +
+        `Fix the JSON (missing comma/quote) and push again.`
+    );
+  }
+
   data = normalizeLessonToQuestions(data);
 
   if (!data || !Array.isArray(data.questions) || data.questions.length === 0) {
@@ -476,6 +499,7 @@ function setControlsForQuestion(hasPrev) {
   show(DOM.controls.mapBtn, true);
 
   if (DOM.controls.speakBtn) DOM.controls.speakBtn.style.display = "none";
+  if (DOM.controls.speakSlowBtn) DOM.controls.speakSlowBtn.style.display = "none";
 }
 
 function getSpeakText(q) {
@@ -493,9 +517,9 @@ function ensureLessonHeaderVisible() {
 }
 
 function formatPrettyPrompt(q) {
-  const p = (q && q.prompt) ? String(q.prompt) : "";
-  const lt = (q && q.lt) ? String(q.lt) : "";
-  const en = (q && q.en) ? String(q.en) : "";
+  const p = q && q.prompt ? String(q.prompt) : "";
+  const lt = q && q.lt ? String(q.lt) : "";
+  const en = q && q.en ? String(q.en) : "";
 
   if (learningMode === "lt_to_en") {
     const main = lt || en || p || "";
@@ -511,7 +535,8 @@ function normalizeAnswer(s) {
   return String(s || "")
     .trim()
     .toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/[“”]/g, '"')
     .replace(/[’]/g, "'")
     .replace(/[^a-z0-9\s'"-]+/g, " ")
@@ -520,42 +545,40 @@ function normalizeAnswer(s) {
 }
 
 /* -----------------------------
-   NEW: Dictation + close-match helpers
+   Dictation + close-match helpers
 ----------------------------- */
 function getCorrectList(q) {
-  // Normal sources
   let correct =
-    Array.isArray(q.correct) ? q.correct :
-    (q.answer != null ? [q.answer] :
-    (q.correctAnswer != null ? [q.correctAnswer] : []));
+    Array.isArray(q.correct)
+      ? q.correct
+      : q.answer != null
+      ? [q.answer]
+      : q.correctAnswer != null
+      ? [q.correctAnswer]
+      : [];
 
-  // IMPORTANT FIX:
-  // If there is NO correct answer but there IS TTS text, treat that as the correct answer.
-  if ((!correct || correct.length === 0)) {
+  // If no correct answer but there IS TTS text, treat that as the correct answer.
+  if (!correct || correct.length === 0) {
     if (q.tts && typeof q.tts === "object" && q.tts.text) correct = [q.tts.text];
     else if (typeof q.tts === "string" && q.tts.trim()) correct = [q.tts.trim()];
   }
 
-  // Clean
   correct = (correct || []).map((x) => String(x || "").trim()).filter(Boolean);
   return correct;
 }
 
-// Levenshtein distance (used for similarity)
 function levenshtein(a, b) {
-  a = a || ""; b = b || "";
-  const m = a.length, n = b.length;
+  a = a || "";
+  b = b || "";
+  const m = a.length,
+    n = b.length;
   const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
   for (let i = 0; i <= m; i++) dp[i][0] = i;
   for (let j = 0; j <= n; j++) dp[0][j] = j;
   for (let i = 1; i <= m; i++) {
     for (let j = 1; j <= n; j++) {
       const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-      dp[i][j] = Math.min(
-        dp[i - 1][j] + 1,
-        dp[i][j - 1] + 1,
-        dp[i - 1][j - 1] + cost
-      );
+      dp[i][j] = Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + cost);
     }
   }
   return dp[m][n];
@@ -570,7 +593,6 @@ function similarityScore(a, b) {
   return 1 - dist / maxLen; // 0..1
 }
 
-// Keep this (your old fuzzy tolerance)
 function isCloseEnough(userN, correctN) {
   if (!userN || !correctN) return false;
   if (userN === correctN) return true;
@@ -591,6 +613,24 @@ function escapeHtml(s) {
     .replace(/'/g, "&#39;");
 }
 
+/* -----------------------------
+   Progress UI (optional)
+----------------------------- */
+function updateLessonProgressUI() {
+  if (!lessonData || !Array.isArray(lessonData.questions)) return;
+
+  const total = lessonData.questions.length || 1;
+  const cur = clamp(qIndex + 1, 1, total);
+  const pct = Math.round((cur / total) * 100);
+
+  if (DOM.lessonProgressText) {
+    DOM.lessonProgressText.textContent = `Question ${cur} of ${total} (${pct}%)`;
+  }
+  if (DOM.lessonProgressFill) {
+    DOM.lessonProgressFill.style.width = `${pct}%`;
+  }
+}
+
 function renderQuestion() {
   isAnswered = false;
   currentQuestion = lessonData.questions[qIndex];
@@ -598,9 +638,10 @@ function renderQuestion() {
 
   setControlsForQuestion(qIndex > 0);
 
-  // STOP touching big title; brand header handles it
   const meta = manifest.lessons[lessonIndex];
   setHeaderMode("lesson", meta);
+
+  updateLessonProgressUI();
 
   const type = currentQuestion.type || "";
   const p = (currentQuestion.prompt || "").trim();
@@ -610,48 +651,39 @@ function renderQuestion() {
   const correctListRaw = getCorrectList(currentQuestion);
   const speakText = getSpeakText(currentQuestion);
 
-  // Detect dictation-style: no lt/en displayed, has speakText, expects typing, has correct answer
   const hasChoices = Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0;
-  const isDictation =
-    !lt && !en && !!speakText && correctListRaw.length > 0 && !hasChoices;
 
-  // Only use the top #prompt line for dictation.
-  // For other question types, keep it blank to avoid duplicate text.
-  if (DOM.prompt) {
-    DOM.prompt.textContent = isDictation ? "🎧 Hear it — then type what you hear" : "";
-  }
+  // Dictation-style: no visible lt/en, has speakText, expects typing, has correct answer, no choices
+  const isDictation = !lt && !en && !!speakText && correctListRaw.length > 0 && !hasChoices;
 
-  // Voice button
+  // ✅ IMPORTANT: DO NOT set #prompt here (prevents duplicate prompt lines)
+  // Header prompt is controlled only by setHeaderMode().
+
+  // Speak button (normal)
   if (DOM.controls.speakBtn) {
     if (speakText) {
       DOM.controls.speakBtn.style.display = "";
-      DOM.controls.speakBtn.onclick = () => speakLithuanian(speakText);
+      DOM.controls.speakBtn.onclick = () => speakLithuanian(speakText, 0.95);
     } else {
       DOM.controls.speakBtn.style.display = "none";
       DOM.controls.speakBtn.onclick = null;
     }
   }
 
-  // In-card prompt (baseline)
+  // Speak button (slow) — safe if missing in index
+  if (DOM.controls.speakSlowBtn) {
+    if (speakText) {
+      DOM.controls.speakSlowBtn.style.display = "";
+      DOM.controls.speakSlowBtn.onclick = () => speakLithuanian(speakText, 0.65);
+    } else {
+      DOM.controls.speakSlowBtn.style.display = "none";
+      DOM.controls.speakSlowBtn.onclick = null;
+    }
+  }
+
   ensureLessonHeaderVisible();
-  if (DOM.lessonPromptPretty) {
-    DOM.lessonPromptPretty.textContent = formatPrettyPrompt(currentQuestion);
-  }
 
-  // Pretty in-card prompt (existing behavior)
-  if (DOM.lessonHeader && DOM.lessonPromptPretty) {
-    show(DOM.lessonHeader, true);
-
-    const main = (currentQuestion.lt || currentQuestion.en || "").trim();
-    const sub = (currentQuestion.prompt || "").trim();
-
-    DOM.lessonPromptPretty.innerHTML = `
-      <div class="lpMain">${escapeHtml(main)}</div>
-      <div class="lpSub">${escapeHtml(sub)}</div>
-    `.trim();
-  }
-
-  // Dictation UX: keep #prompt as backup, show listen panel in card
+  // ✅ Dictation UI: show ONLY instruction. Never show the answer word.
   if (DOM.lessonHeader && DOM.lessonPromptPretty) {
     show(DOM.lessonHeader, true);
 
@@ -660,9 +692,11 @@ function renderQuestion() {
       DOM.lessonPromptPretty.innerHTML =
         `<div class="listenTag">🎧 Hear it — then type what you hear</div>`;
     } else {
+      // Non-dictation: show main/sub prompt in card
       const main = (currentQuestion.lt || currentQuestion.en || "").trim();
       const sub = (currentQuestion.prompt || "").trim();
 
+      DOM.lessonHeader.style.display = "";
       DOM.lessonPromptPretty.innerHTML = `
         <div class="lpMain">${escapeHtml(main)}</div>
         <div class="lpSub">${escapeHtml(sub)}</div>
@@ -689,17 +723,28 @@ function renderChoices(q) {
   const choices = q.choices.slice();
 
   // Shuffle by default unless explicitly disabled
-  const doShuffle = (q.shuffle !== false);
+  const doShuffle = q.shuffle !== false;
   if (doShuffle) choices.sort(() => Math.random() - 0.5);
 
   for (const choice of choices) {
     const b = document.createElement("button");
     b.className = "choice btn btn-ghost";
     b.textContent = choice;
-    b.onclick = () => {
+
+    b.onclick = async () => {
+      if (isAnswered) return;
+
+      // ✅ NEW: Speak the tapped choice BEFORE checking (helps learning)
+      // Use a short delay so audio begins; then submit.
+      try {
+        speakLithuanian(choice, 0.95);
+        await sleep(140);
+      } catch {}
+
       if (isAnswered) return;
       checkAnswer(choice);
     };
+
     DOM.answers.appendChild(b);
   }
 }
@@ -708,6 +753,7 @@ function renderTextInput(q) {
   show(DOM.inputWrap, true);
 
   if (DOM.input) {
+    DOM.input.type = "text"; // ✅ never password dots
     DOM.input.value = "";
     DOM.input.placeholder = q.placeholder || "Type your answer…";
     DOM.input.oninput = () => {
@@ -733,18 +779,13 @@ function checkAnswer(userValue) {
   isAnswered = true;
 
   const q = currentQuestion;
-
-  // IMPORTANT: use corrected list (tts fallback for dictation)
   const correct = getCorrectList(q);
 
   const userN = normalizeAnswer(userValue);
   const correctNList = correct.map(normalizeAnswer);
 
-  const ok =
-    correctNList.includes(userN) ||
-    correctNList.some((c) => isCloseEnough(userN, c));
+  const ok = correctNList.includes(userN) || correctNList.some((c) => isCloseEnough(userN, c));
 
-  // If not exact, allow "close" feedback
   let closeScore = 0;
   if (!ok && userN && correct && correct.length > 0) {
     closeScore = Math.max(...correct.map((c) => similarityScore(userValue, c)));
@@ -766,7 +807,6 @@ function checkAnswer(userValue) {
     setFeedback("✅ Correct!", "ok");
     markChoiceButtons(userValue, true);
   } else {
-    // "Close" should feel helpful (and NOT punish streak)
     if (isClose) {
       setMikas("thinking", "So close…");
       setFeedback(`🟡 Almost. Check spelling. (${Math.round(closeScore * 100)}%)`, "bad");
@@ -902,12 +942,7 @@ function renderMap() {
   nodesEl.style.height = `${H}px`;
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
 
-  const xs = [
-    Math.round(W * 0.30),
-    Math.round(W * 0.70),
-    Math.round(W * 0.35),
-    Math.round(W * 0.65),
-  ];
+  const xs = [Math.round(W * 0.3), Math.round(W * 0.7), Math.round(W * 0.35), Math.round(W * 0.65)];
 
   const maxUnlocked = unlockIndex();
 
@@ -934,7 +969,7 @@ function renderMap() {
     const x = xs[i % xs.length];
     const y = topPad + i * stepY;
 
-    const unlocked = i === 0 || (i <= maxUnlocked);
+    const unlocked = i === 0 || i <= maxUnlocked;
     const completed = isLessonCompleted(meta.id);
 
     const btn = document.createElement("button");
@@ -1005,7 +1040,7 @@ async function startFromContinue() {
 /* -----------------------------
    Speak (Native MP3 first, fallback Web Speech)
 ----------------------------- */
-function speakLithuanian(text) {
+function speakLithuanian(text, rate = 0.95) {
   try {
     const raw = String(text || "").trim();
     if (!raw) return;
@@ -1014,13 +1049,15 @@ function speakLithuanian(text) {
     const key = slugifyLt(raw);
     const src = ltAudioMap && (ltAudioMap[key] || ltAudioMap[raw]);
 
-    console.log("[TTS]", { raw, key, hasSrc: !!src, src });
-
     if (src) {
       if (!audioPlayer) audioPlayer = new Audio();
       audioPlayer.pause();
       audioPlayer.currentTime = 0;
       audioPlayer.src = src;
+
+      // ✅ NEW: playback rate support (slow button)
+      audioPlayer.playbackRate = clamp(Number(rate) || 1.0, 0.5, 1.25);
+
       audioPlayer.play().catch(() => {});
       return;
     }
@@ -1031,7 +1068,7 @@ function speakLithuanian(text) {
 
     const u = new SpeechSynthesisUtterance(raw);
     u.lang = "lt-LT";
-    u.rate = 0.95;
+    u.rate = clamp(Number(rate) || 0.95, 0.5, 1.25);
 
     const voices = window.speechSynthesis.getVoices?.() || [];
     const lt = voices.find((v) => (v.lang || "").toLowerCase().startsWith("lt"));
@@ -1074,16 +1111,15 @@ function openAuth() {
 ----------------------------- */
 function wireEvents() {
   if (DOM.controls.prevBtn) DOM.controls.prevBtn.onclick = () => prevQuestion();
-  if (DOM.controls.mapBtn) DOM.controls.mapBtn.onclick = () => {
-    setScreen("map");
-    setHeaderMode("map");
-    renderMap();
-  };
+  if (DOM.controls.mapBtn)
+    DOM.controls.mapBtn.onclick = () => {
+      setScreen("map");
+      setHeaderMode("map");
+      renderMap();
+    };
   if (DOM.controls.resetBtn) DOM.controls.resetBtn.onclick = () => resetLesson();
 
   if (DOM.controls.accountBtn) {
-    // If auth_ui.js is present, it already wires #accountBtn.
-    // Only use our fallback if AuthUI is missing.
     if (!(window.AuthUI && typeof window.AuthUI.open === "function")) {
       DOM.controls.accountBtn.onclick = () => openAuth();
     }
@@ -1092,7 +1128,6 @@ function wireEvents() {
   if (DOM.startBtn) DOM.startBtn.onclick = () => startLesson(0);
   if (DOM.continueBtn) DOM.continueBtn.onclick = () => startFromContinue();
 
-  // learning mode placeholder wiring
   if (DOM.learningModeSelect) {
     DOM.learningModeSelect.value = learningMode;
     DOM.learningModeSelect.onchange = () => {
@@ -1100,11 +1135,12 @@ function wireEvents() {
     };
   }
 
-  if (DOM.doneBtn) DOM.doneBtn.onclick = () => {
-    setScreen("map");
-    setHeaderMode("map");
-    renderMap();
-  };
+  if (DOM.doneBtn)
+    DOM.doneBtn.onclick = () => {
+      setScreen("map");
+      setHeaderMode("map");
+      renderMap();
+    };
 
   window.addEventListener("resize", () => {
     if (currentScreen === "map") renderMap();
