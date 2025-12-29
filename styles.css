@@ -839,3 +839,58 @@ button,
 .user-row{
   align-items: center;
 }
+
+
+/* =========================================================
+   BLUE DEPTH ADJUSTMENT
+   Dark outer bg + light blue app canvas
+   ========================================================= */
+
+/* Dark blue from mobile template */
+html, body{
+  background:
+    radial-gradient(1200px 700px at 20% -10%, rgba(34,179,214,.22), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(47,111,237,.28), transparent 55%),
+    linear-gradient(180deg, #0B2A4A 0%, #081E36 100%) !important;
+}
+
+/* App canvas becomes light blue instead of white */
+.wrap{
+  background: linear-gradient(
+    180deg,
+    #EAF4FF 0%,
+    #DDEEFF 100%
+  );
+  border-radius: 28px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.35);
+}
+
+/* Header floats on light-blue canvas */
+.brandHeader{
+  background: rgba(255,255,255,.88) !important;
+}
+
+/* Progress bar track should NOT be white */
+.progressTrack{
+  background: rgba(15,42,79,.18) !important;
+}
+
+/* Lesson container sits on light-blue canvas */
+.screen,
+#screenHome,
+#screenLesson,
+#screenMap,
+#screenDone{
+  background: rgba(255,255,255,.92) !important;
+}
+
+/* Reduce white gutters around cards */
+.card{
+  background: #FFFFFF;
+}
+
+/* Buttons stay clean, no white halos */
+button,
+.btn{
+  background: rgba(255,255,255,.96);
+}
