@@ -626,6 +626,9 @@ function updateLessonProgressUI() {
   if (DOM.lessonProgressText) {
     DOM.lessonProgressText.textContent = `Question ${cur} of ${total} (${pct}%)`;
   }
+  if (DOM.lessonProgressText) {
+    DOM.lessonProgressText.textContent = "";
+  }
   if (DOM.lessonProgressFill) {
     DOM.lessonProgressFill.style.width = `${pct}%`;
   }
@@ -674,7 +677,7 @@ function renderQuestion() {
   if (DOM.controls.speakSlowBtn) {
     if (speakText) {
       DOM.controls.speakSlowBtn.style.display = "";
-      DOM.controls.speakSlowBtn.onclick = () => speakLithuanian(speakText, 0.65);
+      DOM.controls.speakSlowBtn.onclick = () => speakLithuanian(speakText, 0.45);
     } else {
       DOM.controls.speakSlowBtn.style.display = "none";
       DOM.controls.speakSlowBtn.onclick = null;
