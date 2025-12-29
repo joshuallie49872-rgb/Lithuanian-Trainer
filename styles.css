@@ -910,40 +910,41 @@ button,
   position: relative;
 }
 
-/* ===== FORCE BIG LOGO (LAST RULE WINS) ===== */
-#brandHeader { gap: 18px !important; }
-
-#brandLogo.brandLogo,
-img#brandLogo {
-  height: 200px !important;   /* BIGGER */
-  width: auto !important;
-  max-height: none !important;
-  max-width: none !important;
-  display: block !important;
+/* ===== BRAND LOGO (FINAL, RESPONSIVE, SINGLE SOURCE OF TRUTH) ===== */
+#brandHeader{
+  gap: 18px;
 }
-
-/* ===== BRAND LOGO FINAL SCALE (RESPONSIVE) ===== */
-#brandHeader { gap: 18px !important; }
 
 img#brandLogo{
-  height: 150px !important;   /* desktop default */
-  width: auto !important;
-  max-height: none !important;
-  max-width: none !important;
-  display: block !important;
+  height: 150px;       /* desktop */
+  width: auto;
+  display: block;
+  max-width: 100%;
 }
 
-/* Tablets / smaller laptops */
 @media (max-width: 900px){
-  img#brandLogo{ height: 120px !important; }
+  img#brandLogo{ height: 120px; }
 }
 
-/* Phones */
 @media (max-width: 720px){
-  img#brandLogo{ height: 92px !important; }
+  img#brandLogo{ height: 92px; }
 }
 
-/* Very small phones */
 @media (max-width: 420px){
-  img#brandLogo{ height: 78px !important; }
+  img#brandLogo{ height: 78px; }
+}
+
+/* ===== LESSON PROGRESS BAR ===== */
+#lessonProgress{
+  margin: 0 0 10px 0;
+}
+
+#lessonProgressText{
+  font-size: 12px;
+  color: var(--textSoft);
+  margin-bottom: 6px;
+}
+
+#lessonProgressFill{
+  transition: width 220ms ease;
 }
