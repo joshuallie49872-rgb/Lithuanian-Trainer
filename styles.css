@@ -894,3 +894,59 @@ button,
 .btn{
   background: rgba(255,255,255,.96);
 }
+
+/* =========================
+   DARK MODE READABILITY FIX
+   (mobile text too dim)
+   Paste at END of CSS
+========================= */
+
+@media (prefers-color-scheme: dark){
+
+  :root{
+    /* Brighter text + higher contrast */
+    --text: rgba(255,255,255,.92) !important;
+    --muted: rgba(255,255,255,.74) !important;
+
+    /* Card surfaces slightly brighter (less muddy) */
+    --card: rgba(20, 28, 44, .92) !important;
+    --card2: rgba(20, 28, 44, .78) !important;
+
+    /* Borders a bit clearer */
+    --border: rgba(255,255,255,.14) !important;
+  }
+
+  /* Force common text containers to use the brighter vars */
+  body, p, span, div, label, li, small{
+    color: var(--text);
+  }
+
+  /* Anything that was using light-mode “soft gray” becomes readable */
+  .prompt,
+  .lpSub,
+  .homeSub,
+  .modeHint,
+  .user-email,
+  #lessonProgressText{
+    color: var(--muted) !important;
+  }
+
+  /* Inputs / selects: improve contrast */
+  input, select, textarea{
+    color: var(--text) !important;
+    background: rgba(255,255,255,.07) !important;
+    border-color: rgba(255,255,255,.16) !important;
+  }
+
+  /* Choice buttons: ensure text isn’t dim */
+  .choice{
+    color: var(--text) !important;
+    background: rgba(255,255,255,.06) !important;
+    border-color: rgba(255,255,255,.14) !important;
+  }
+
+  /* Any “badge/pill” text */
+  .homeKicker, .listenTag, .pill{
+    color: rgba(255,255,255,.86) !important;
+  }
+}
