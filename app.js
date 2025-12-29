@@ -761,17 +761,27 @@ function renderChoices(q) {
     b.onclick = async () => {
       if (isAnswered) return;
 
-        // Speak ONLY if target language matches learning mode
+    // Speak ONLY if target language matches learning mode
     try {
-      if (shouldSpeakForMode(currentQuestion)) {
-        speakLithuanian(choice, 0.95);
-        await sleep(140);
+      if (shouldSpeakForMode(q)) {
+        const speakText =
+          learningMode === "en_to_lt"
+            ? (q.lt || "")
+            : learningMode === "lt_to_en"
+            ? (q.en || "")
+            : "";
+
+        if (speakText.trim()) {
+          speakLithuanian(speakText, 0.95);
+          await sleep(140);
+        }
       }
     } catch {}
 
     if (isAnswered) return;
     checkAnswer(choice);
-  };
+    };
+
 
     DOM.answers.appendChild(b);
   }
