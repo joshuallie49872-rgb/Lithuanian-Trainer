@@ -145,6 +145,8 @@ input[type="text"], input, .input{
   --textSoft: #6B7280;    /* soft text */
   --border: rgba(47,47,47,0.10);
   --shadow: 0 12px 30px rgba(47,47,47,0.10);
+}
+
 /* =========================
    OpenKalba — App Theme v1
    Card-first + Top Bar
@@ -292,8 +294,6 @@ button:active, .btn:active{
 }
 .choice:hover{
   filter: brightness(1.06);
-}
-
 }
 
 body{
