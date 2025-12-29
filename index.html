@@ -33,7 +33,11 @@
 
     <div class="controls">
       <button id="prevBtn" class="btn btn-ghost">Back</button>
+
+      <!-- Speak controls -->
       <button id="speakBtn" class="btn btn-ghost" style="display:none;">🔊 Hear it</button>
+      <!-- NEW: slow speak (app.js wires it automatically) -->
+      <button id="speakSlowBtn" class="btn btn-ghost" style="display:none;">🐢 Hear it slow</button>
 
       <button id="mapBtn" class="btn btn-secondary">🗺️ Course Map</button>
       <button id="resetBtn" class="btn btn-warn">Restart lesson</button>
@@ -105,7 +109,16 @@
 
     <div id="screenLesson" style="display:none;">
       <div class="card">
-        <!-- OPTIONAL placeholder for later (we will wire it in app.js) -->
+
+        <!-- NEW: Progress bar (app.js updates it; safe if CSS not updated yet) -->
+        <div id="lessonProgress" style="margin: 0 0 10px 0; display:block;">
+          <div id="lessonProgressText" class="muted" style="font-size:12px; margin-bottom:6px;"></div>
+          <div style="height:10px; border-radius:999px; background: rgba(0,0,0,0.08); overflow:hidden;">
+            <div id="lessonProgressFill" style="height:100%; width:0%; border-radius:999px; background: rgba(111,175,142,0.85);"></div>
+          </div>
+        </div>
+
+        <!-- OPTIONAL placeholder for later (wired in app.js) -->
         <div class="lessonHeader" style="display:none;">
           <div id="lessonPromptPretty" class="lessonPromptPretty"></div>
         </div>
@@ -221,6 +234,6 @@
   <script src="auth_ui.js"></script>
 
   <!-- ✅ bump this when you change app.js so browser definitely loads newest JS -->
-  <script src="app.js?v=5370"></script>
+  <script src="app.js?v=5371"></script>
 </body>
 </html>
