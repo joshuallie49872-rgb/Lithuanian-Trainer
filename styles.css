@@ -921,3 +921,29 @@ img#brandLogo {
   max-width: none !important;
   display: block !important;
 }
+
+/* ===== BRAND LOGO FINAL SCALE (RESPONSIVE) ===== */
+#brandHeader { gap: 18px !important; }
+
+img#brandLogo{
+  height: 150px !important;   /* desktop default */
+  width: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  display: block !important;
+}
+
+/* Tablets / smaller laptops */
+@media (max-width: 900px){
+  img#brandLogo{ height: 120px !important; }
+}
+
+/* Phones */
+@media (max-width: 720px){
+  img#brandLogo{ height: 92px !important; }
+}
+
+/* Very small phones */
+@media (max-width: 420px){
+  img#brandLogo{ height: 78px !important; }
+}
