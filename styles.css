@@ -1,102 +1,80 @@
 /* =========================
-   OpenKalba — BLUE APP THEME (SINGLE SOURCE OF TRUTH)
-   - matches “mobile app template” blue vibe
-   - auto light/dark via prefers-color-scheme
-   - fixes:
-     1) "Basics 1" (prompt) is styled, not plain text
-     2) Next button is BLUE (no orange/teal gradient)
-   ========================= */
+   OpenKalba — BLUE APP THEME (ONE THEME, NO DARK MODE)
+   - single consistent look on desktop + mobile
+   - outer background = SOLID dark blue (no gradient)
+   - app canvas = light blue (reduces white space)
+   - readable text everywhere
+   - Basics/prompt styled pill
+   - NEXT button = blue only
+   - account avatar hard-limited
+========================= */
 
 /* -------------------------
-   TOKENS (LIGHT DEFAULT)
-   ------------------------- */
+   TOKENS (ONE THEME)
+------------------------- */
 :root{
-  /* Brand blues */
-  --primary: #2F6FED;          /* main blue */
-  --primary-2: #1E4FD6;        /* deep blue */
-  --primary-3: #22B3D6;        /* cyan accent */
+  /* Blues (from your template vibe) */
+  --primary: #2F6FED;
+  --primary-2: #1E4FD6;
+  --primary-3: #22B3D6;
   --primary-soft: rgba(47,111,237,.12);
 
-  /* Page background */
-  --bg: #F6FAFF;
-  --bg-2: #EEF6FF;
+  /* SOLID outer background (slightly lighter dark blue) */
+  --outer: #0B2A4A;
 
-  /* Glass surfaces */
-  --card: rgba(255,255,255,.86);
-  --card-2: rgba(255,255,255,.70);
+  /* App canvas (light blue) */
+  --canvas: #EAF4FF;
+
+  /* Surfaces */
+  --card: rgba(255,255,255,.92);
+  --card-2: rgba(255,255,255,.78);
   --border: rgba(15,23,42,.10);
 
-  /* Text */
+  /* Text (always readable) */
   --text: #0F172A;
-  --muted: rgba(15,23,42,.62);
+  --muted: rgba(15,23,42,.66);
 
   /* Shadows */
-  --shadow: 0 18px 50px rgba(15,23,42,.10);
-  --shadow-soft: 0 10px 28px rgba(15,23,42,.10);
+  --shadow: 0 18px 50px rgba(15,23,42,.12);
+  --shadow-soft: 0 10px 28px rgba(15,23,42,.12);
 
   /* Radius */
   --r-xl: 22px;
   --r-lg: 16px;
   --r-md: 12px;
 
-  /* Glass blur */
-  --glass: blur(14px);
-
   /* Layout */
   --maxw: 1040px;
 }
 
 /* -------------------------
-   TOKENS (DARK)
-   ------------------------- */
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg: #070A12;
-    --bg-2: #0B1224;
-
-    --card: rgba(16, 20, 34, .78);
-    --card-2: rgba(16, 20, 34, .55);
-    --border: rgba(232, 236, 247, .12);
-
-    --text: #EAF2FF;
-    --muted: rgba(234,242,255,.70);
-
-    --shadow: 0 18px 55px rgba(0,0,0,.45);
-    --shadow-soft: 0 10px 30px rgba(0,0,0,.35);
-
-    --primary-soft: rgba(47,111,237,.22);
-  }
-}
-
-/* -------------------------
    BASE PAGE
-   ------------------------- */
+------------------------- */
 html, body{
   height: 100%;
+  margin: 0;
+  background: var(--outer); /* SOLID, NO GRADIENT */
 }
 
 body{
-  margin: 0;
   font-family: Arial, sans-serif;
   color: var(--text);
-
-  /* “blue app template” background */
-  background:
-    radial-gradient(1200px 700px at 20% -10%, rgba(34,179,214,.18), transparent 60%),
-    radial-gradient(900px 600px at 100% 0%, rgba(47,111,237,.18), transparent 55%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
 }
 
-/* Centered app frame */
+/* App canvas (light blue so “white space” looks intentional) */
 .wrap{
   max-width: var(--maxw);
   margin: 14px auto;
   padding: 12px 16px 28px;
+
+  background: var(--canvas);
+  border-radius: 28px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.35);
 }
 
 /* -------------------------
    TOP BAR / BRAND
-   ------------------------- */
+------------------------- */
 .brandHeader{
   position: sticky;
   top: 10px;
@@ -111,26 +89,21 @@ body{
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
   background: var(--card);
-  backdrop-filter: var(--glass);
-  -webkit-backdrop-filter: var(--glass);
 
   box-shadow: var(--shadow-soft);
 }
 
 /* logo sizing */
 .brandLogo{
-  height: 150px;     /* desktop */
+  height: 150px; /* desktop */
   width: auto;
   display: block;
   max-width: 100%;
 }
-
-/* responsive logo */
 @media (max-width: 900px){ .brandLogo{ height: 120px; } }
 @media (max-width: 720px){ .brandLogo{ height: 92px; } }
 @media (max-width: 420px){ .brandLogo{ height: 78px; } }
 
-/* Fallback text if image fails */
 .brandText{
   font-weight: 900;
   font-size: 46px;
@@ -138,9 +111,8 @@ body{
 }
 
 /* -------------------------
-   "Basics 1" — styled (NOT plain)
-   Your HTML uses .prompt for this line
-   ------------------------- */
+   "Basics 1" pill (prompt)
+------------------------- */
 .prompt{
   display: inline-flex;
   align-items: center;
@@ -155,29 +127,23 @@ body{
   text-transform: uppercase;
 
   color: var(--muted);
-  background: linear-gradient(180deg, var(--card), var(--card-2));
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 999px;
   box-shadow: var(--shadow-soft);
-
-  backdrop-filter: var(--glass);
-  -webkit-backdrop-filter: var(--glass);
 }
 
 /* -------------------------
    MAIN SCREEN CARDS
-   ------------------------- */
+------------------------- */
 .card, .panel, .lessonWrap, .mapWrap,
 .screen, #screenHome, #screenLesson, #screenMap, #screenDone{
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
   box-shadow: var(--shadow);
-  backdrop-filter: var(--glass);
-  -webkit-backdrop-filter: var(--glass);
 }
 
-/* your base .card sizing */
 .card{
   padding: 18px;
   min-height: 120px;
@@ -185,7 +151,7 @@ body{
 
 /* -------------------------
    CONTROLS / BUTTONS
-   ------------------------- */
+------------------------- */
 .controls{
   display: flex;
   gap: 10px;
@@ -194,29 +160,26 @@ body{
   align-items: center;
 }
 
-/* Base button look */
 button, .btn{
   padding: 10px 12px;
   border-radius: 14px;
   cursor: pointer;
 
   border: 1px solid var(--border);
-  background: rgba(255,255,255,.06);
+  background: rgba(255,255,255,.96);
   color: var(--text);
 
   box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease, background .12s ease;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
 }
 
 button:hover, .btn:hover{
   transform: translateY(-1px);
-  filter: brightness(1.03);
+  filter: brightness(1.02);
   box-shadow: 0 14px 28px rgba(0,0,0,0.10);
 }
 
-button:active, .btn:active{
-  transform: scale(.985);
-}
+button:active, .btn:active{ transform: scale(.985); }
 
 button:disabled, .btn:disabled{
   opacity: 0.55;
@@ -225,33 +188,29 @@ button:disabled, .btn:disabled{
   box-shadow: none;
 }
 
-/* PRIMARY actions — BLUE ONLY (kills orange/teal look) */
+/* Primary actions = BLUE ONLY */
 .btn-primary, .btn-main, #startBtn, #continueBtn, #checkBtn, #nextBtn{
   background: linear-gradient(180deg, var(--primary) 0%, var(--primary-2) 100%) !important;
   color: #fff !important;
-  border: 1px solid rgba(255,255,255,.10) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
   box-shadow: 0 14px 35px rgba(47,111,237,.25) !important;
 }
 
-/* ensure NEXT never picks up any other gradient */
 #nextBtn{
   background: linear-gradient(180deg, var(--primary) 0%, var(--primary-2) 100%) !important;
 }
 
 /* Ghost buttons */
 .btn-ghost{
-  background: rgba(255,255,255,.50);
+  background: rgba(255,255,255,.82);
   border: 1px solid var(--border);
 }
 
 /* -------------------------
    PROGRESS BAR
-   ------------------------- */
+------------------------- */
 .progressTrack{
-  background: rgba(0,0,0,.08);
-}
-@media (prefers-color-scheme: dark){
-  .progressTrack{ background: rgba(255,255,255,.12); }
+  background: rgba(15,42,79,.16);
 }
 
 .progressFill,
@@ -260,21 +219,21 @@ button:disabled, .btn:disabled{
   transition: width 220ms ease;
 }
 
-/* lesson progress text */
 #lessonProgressText{
   font-size: 12px;
   color: var(--muted);
   margin-bottom: 6px;
 }
+
 #lessonProgress{
   margin: 0 0 10px 0;
 }
 
 /* -------------------------
    INPUTS
-   ------------------------- */
-input[type="text"], input, .input, #answerInput{
-  background: rgba(255,255,255,.08);
+------------------------- */
+input[type="text"], input, .input, #answerInput, select, textarea{
+  background: rgba(255,255,255,.96);
   border: 1px solid var(--border);
   border-radius: 14px;
   color: var(--text);
@@ -284,14 +243,14 @@ input[type="text"], input, .input, #answerInput{
   font-size: 16px;
 }
 
-input:focus, #answerInput:focus{
+input:focus, #answerInput:focus, select:focus, textarea:focus{
   border-color: rgba(47,111,237,.55);
   box-shadow: 0 0 0 4px rgba(47,111,237,.18);
 }
 
 /* -------------------------
-   LESSON HEADER POLISH
-   ------------------------- */
+   LESSON HEADER
+------------------------- */
 .lessonHeader{
   padding: 14px 14px 12px;
   border: 1px solid var(--border);
@@ -299,9 +258,6 @@ input:focus, #answerInput:focus{
   background: var(--card);
   box-shadow: var(--shadow-soft);
   margin-bottom: 14px;
-
-  backdrop-filter: var(--glass);
-  -webkit-backdrop-filter: var(--glass);
 }
 
 .lpMain{
@@ -316,7 +272,6 @@ input:focus, #answerInput:focus{
   line-height: 1.35;
 }
 
-/* Dictation tag */
 .listenTag{
   display: inline-flex;
   align-items: center;
@@ -349,8 +304,7 @@ input:focus, #answerInput:focus{
 
   border-radius: 14px;
   border: 1px solid var(--border);
-
-  background: rgba(255,255,255,.07);
+  background: rgba(255,255,255,.96);
   box-shadow: 0 8px 18px rgba(0,0,0,.06);
 
   cursor: pointer;
@@ -358,7 +312,7 @@ input:focus, #answerInput:focus{
 }
 .choice:hover{
   transform: translateY(-1px);
-  filter: brightness(1.05);
+  filter: brightness(1.02);
   box-shadow: 0 14px 28px rgba(0,0,0,.10);
 }
 .choice:active{ transform: scale(.985); }
@@ -378,7 +332,7 @@ input:focus, #answerInput:focus{
   padding: 12px 12px;
   border-radius: var(--r-lg);
   border: 1px solid var(--border);
-  background: rgba(255,255,255,.06);
+  background: rgba(255,255,255,.88);
 }
 .feedback-ok{
   border-color: rgba(34,197,94,.45);
@@ -390,10 +344,9 @@ input:focus, #answerInput:focus{
 }
 
 /* -------------------------
-   MAP (keep compatible IDs + classes)
-   ------------------------- */
-#mapWrap,
-.map-wrap{
+   MAP
+------------------------- */
+#mapWrap, .map-wrap{
   position: relative;
   height: 70vh;
   overflow: auto;
@@ -403,30 +356,24 @@ input:focus, #answerInput:focus{
   border: 1px solid var(--border);
 }
 
-#mapSvg,
-.map-svg{
+#mapSvg, .map-svg{
   position: absolute;
   inset: 0;
   width: 100%;
   pointer-events: none !important;
 }
 
-#mapNodes,
-.map-nodes{
-  position: relative;
-}
+#mapNodes, .map-nodes{ position: relative; }
 
 .path-stroke{
-  stroke: rgba(255,255,255,0.22);
+  stroke: rgba(15,23,42,.16);
   stroke-width: 8;
   fill: none;
   stroke-linecap: round;
   stroke-dasharray: 2 14;
 }
 
-/* Both naming styles supported */
-.mapNode,
-.map-node{
+.mapNode, .map-node{
   position: absolute;
   width: 70px;
   height: 70px;
@@ -439,47 +386,33 @@ input:focus, #answerInput:focus{
   cursor: pointer;
   user-select: none;
 
-  border: 2px solid rgba(255,255,255,0.16);
-  box-shadow: 0 12px 22px rgba(0,0,0,0.20);
+  border: 2px solid rgba(15,23,42,.12);
+  box-shadow: 0 12px 22px rgba(0,0,0,0.18);
 
-  background: linear-gradient(180deg, rgba(47,111,237,1), rgba(47,111,237,0.82));
+  background: linear-gradient(180deg, rgba(47,111,237,1), rgba(30,79,214,0.90));
   transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
 }
+.mapNode:hover, .map-node:hover{ transform: translateY(-2px) scale(1.03); }
 
-.mapNode:hover,
-.map-node:hover{
-  transform: translateY(-2px) scale(1.03);
-}
-
-.mapNode-locked,
-.node-locked{
+.mapNode-locked, .node-locked{
   background: linear-gradient(180deg, rgba(107,114,128,0.30), rgba(107,114,128,0.15));
   opacity: 0.55;
   cursor: not-allowed;
 }
 
-.mapNode-done,
-.node-complete{
+.mapNode-done, .node-complete{
   background: linear-gradient(180deg, rgba(34,197,94,0.95), rgba(34,197,94,0.78));
   filter: drop-shadow(0 0 10px rgba(34,197,94,0.25));
   color: #fff;
 }
 
-.node-unlocked{
-  background: linear-gradient(180deg, rgba(47,111,237,1), rgba(30,79,214,0.90));
-}
-
-.node-current{
-  animation: pulse 1.4s infinite ease-in-out;
-}
-
+.node-current{ animation: pulse 1.4s infinite ease-in-out; }
 @keyframes pulse{
   0%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(47,111,237,0)); }
   50%{ transform: scale(1.06); filter: drop-shadow(0 0 14px rgba(47,111,237,0.35)); }
   100%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(47,111,237,0)); }
 }
 
-/* Map labels */
 .mapLabel{
   position: absolute;
   width: 190px;
@@ -493,22 +426,21 @@ input:focus, #answerInput:focus{
 
   padding: 6px 10px;
   border-radius: 14px;
-  background: linear-gradient(180deg, var(--card), var(--card-2));
+  background: var(--card);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 
   transform: translateX(-50%);
-  backdrop-filter: blur(10px);
 }
 
-/* Inner markup injected by app.js */
+/* Inner markup */
 .mapNodeInner{ display: grid; place-items: center; line-height: 1; }
 .mapNodeIcon{ font-size: 18px; margin-bottom: 4px; }
 .mapNodeNum{ font-size: 12px; opacity: 0.92; }
 
 /* -------------------------
-   MIKAS COACH
-   ------------------------- */
+   MIKAS
+------------------------- */
 .mikasDock{
   position: fixed;
   right: 18px;
@@ -522,16 +454,7 @@ input:focus, #answerInput:focus{
   align-items: flex-end;
   gap: 10px;
 
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity .25s ease, transform .25s ease;
-
   pointer-events: none; /* never block clicks */
-}
-
-.mikasHidden{
-  opacity: 1 !important;
-  transform: translateY(0) !important;
 }
 
 .mikasImg{
@@ -546,7 +469,7 @@ input:focus, #answerInput:focus{
 .mikasBubble{
   display: none;
   max-width: 240px;
-  background: linear-gradient(180deg, var(--card), var(--card-2));
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 10px 12px;
@@ -554,267 +477,36 @@ input:focus, #answerInput:focus{
   color: var(--text);
   box-shadow: var(--shadow-soft);
   line-height: 1.25;
-
-  backdrop-filter: var(--glass);
-  -webkit-backdrop-filter: var(--glass);
 }
 .mikasBubble.show{ display:block; }
 
-/* keep him from covering controls on small screens */
 @media (max-width: 720px){
-  .mikasDock{
-    right: 10px;
-    bottom: 92px;
-    width: 190px;
-    max-width: 52vw;
-  }
+  .mikasDock{ right: 10px; bottom: 92px; width: 190px; max-width: 52vw; }
   .mikasImg{ width: 190px; }
   .mikasBubble{ max-width: 190px; }
 }
 @media (max-width: 420px){
-  .mikasDock{
-    bottom: 110px;
-    width: 165px;
-    max-width: 58vw;
-  }
+  .mikasDock{ bottom: 110px; width: 165px; max-width: 58vw; }
   .mikasImg{ width: 165px; }
   .mikasBubble{ max-width: 165px; font-size: 13px; }
 }
 
 /* -------------------------
-   AUTH / MODAL (kept, but blue-compatible)
-   ------------------------- */
-body.modal-open{ overflow: hidden; }
-
-.modal{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.modal-backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(6px);
-}
-
-.modal-card{
-  position: relative;
-  width: min(520px, calc(100vw - 28px));
-  margin: 72px auto;
-
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-
-  box-shadow: 0 30px 90px rgba(0,0,0,0.25);
-  padding: 18px 18px 16px;
-
-  backdrop-filter: var(--glass);
-  -webkit-backdrop-filter: var(--glass);
-}
-
-.modal-head{
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
-.modal-title{
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: 0.2px;
-}
-
-.modal-sub{
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 4px;
-}
-
-.icon-btn{
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.08);
-  border-radius: 12px;
-  padding: 8px 10px;
-  cursor: pointer;
-}
-
-.pill-row{
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin: 12px 0 14px;
-}
-
-.pill{
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(47,111,237,.12);
-  border: 1px solid var(--border);
-  color: var(--text);
-}
-
-.btn-google{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  background: rgba(255,255,255,.10);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
-
-  padding: 12px 14px;
-  width: 100%;
-}
-
-.g-badge{
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-  background: rgba(255,255,255,.12);
-  border: 1px solid var(--border);
-}
-
-.field{ display: block; margin-top: 12px; }
-
-.field span{
-  display: block;
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-
-.field input{
-  width: 100%;
-  height: 48px;
-  max-width: none;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.08);
-  padding: 0 14px;
-  font-size: 15px;
-  outline: none;
-}
-
-.field input:focus{
-  border-color: rgba(47,111,237,.55);
-  box-shadow: 0 0 0 4px rgba(47,111,237,.18);
-}
-
-.row{
-  display: flex;
-  gap: 10px;
-  margin-top: 12px;
-}
-.row .btn{ flex: 1; }
-
-.divider{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 14px 0 8px;
-  color: var(--muted);
-  font-size: 12px;
-}
-.divider::before,
-.divider::after{
-  content: "";
-  height: 1px;
-  flex: 1;
-  background: var(--border);
-}
-
-.msg{
-  margin-top: 10px;
-  font-size: 13px;
-  color: var(--text);
-
-  background: rgba(34,197,94,0.12);
-  border: 1px solid rgba(34,197,94,0.25);
-  border-radius: 14px;
-  padding: 10px 12px;
-  display: none;
-}
-.msg.error{
-  background: rgba(239,68,68,0.12);
-  border-color: rgba(239,68,68,0.25);
-}
-
-/* Signed-in card */
-.signed-panel{ margin-top: 6px; }
-
+   ACCOUNT CARD (HARD LIMIT)
+------------------------- */
 .user-row{
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
+  gap: 10px;
 
-  border-radius: 16px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid var(--border);
-}
-
-.avatar{
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  object-fit: cover;
-  border: 1px solid var(--border);
-}
-
-.user-name{
-  font-weight: 800;
-  font-size: 14px;
-}
-.user-email{
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 2px;
-}
-
-/* Re-enable clicks where needed (SAFE) */
-button,
-.btn,
-.mapNode,
-.map-nodes,
-#mapNodes,
-#startBtn,
-#continueBtn,
-#checkBtn,
-#nextBtn,
-.modal,
-.modal-card,
-.modal-backdrop{
-  pointer-events: auto !important;
-}
-
-/* Keep map SVG from stealing clicks */
-.map-svg,
-#mapSvg{
-  pointer-events: none !important;
-}
-
-/* =========================
-   ACCOUNT CARD SIZE FIX
-   ========================= */
-
-/* Account container (the white rounded box) */
-.user-row{
   max-width: 260px;
   padding: 10px 12px;
-  gap: 10px;
+
+  border-radius: 16px;
+  background: rgba(255,255,255,.90);
+  border: 1px solid var(--border);
 }
 
-/* Avatar image — HARD LIMIT */
 .user-row img,
 .avatar{
   width: 44px !important;
@@ -824,129 +516,22 @@ button,
   border-radius: 12px;
   object-fit: cover;
   flex-shrink: 0;
+  border: 1px solid var(--border);
 }
 
-/* Text next to avatar */
 .user-name{
+  font-weight: 800;
   font-size: 13px;
   line-height: 1.1;
 }
 .user-email{
   font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
 }
 
-/* Prevent card from stretching */
-.user-row{
-  align-items: center;
+/* Click safety */
+button, .btn, .mapNode, .map-nodes, #mapNodes, #startBtn, #continueBtn, #checkBtn, #nextBtn{
+  pointer-events: auto !important;
 }
-
-
-/* =========================================================
-   BLUE DEPTH ADJUSTMENT
-   Dark outer bg + light blue app canvas
-   ========================================================= */
-
-/* Dark blue from mobile template */
-html, body{
-  background:
-    radial-gradient(1200px 700px at 20% -10%, rgba(34,179,214,.22), transparent 60%),
-    radial-gradient(900px 600px at 100% 0%, rgba(47,111,237,.28), transparent 55%),
-    linear-gradient(180deg, #0B2A4A 0%, #081E36 100%) !important;
-}
-
-/* App canvas becomes light blue instead of white */
-.wrap{
-  background: linear-gradient(
-    180deg,
-    #EAF4FF 0%,
-    #DDEEFF 100%
-  );
-  border-radius: 28px;
-  box-shadow: 0 30px 90px rgba(0,0,0,.35);
-}
-
-/* Header floats on light-blue canvas */
-.brandHeader{
-  background: rgba(255,255,255,.88) !important;
-}
-
-/* Progress bar track should NOT be white */
-.progressTrack{
-  background: rgba(15,42,79,.18) !important;
-}
-
-/* Lesson container sits on light-blue canvas */
-.screen,
-#screenHome,
-#screenLesson,
-#screenMap,
-#screenDone{
-  background: rgba(255,255,255,.92) !important;
-}
-
-/* Reduce white gutters around cards */
-.card{
-  background: #FFFFFF;
-}
-
-/* Buttons stay clean, no white halos */
-button,
-.btn{
-  background: rgba(255,255,255,.96);
-}
-
-/* =========================
-   DARK MODE READABILITY FIX
-   (mobile text too dim)
-   Paste at END of CSS
-========================= */
-
-@media (prefers-color-scheme: dark){
-
-  :root{
-    /* Brighter text + higher contrast */
-    --text: rgba(255,255,255,.92) !important;
-    --muted: rgba(255,255,255,.74) !important;
-
-    /* Card surfaces slightly brighter (less muddy) */
-    --card: rgba(20, 28, 44, .92) !important;
-    --card2: rgba(20, 28, 44, .78) !important;
-
-    /* Borders a bit clearer */
-    --border: rgba(255,255,255,.14) !important;
-  }
-
-  /* Force common text containers to use the brighter vars */
-  body, p, span, div, label, li, small{
-    color: var(--text);
-  }
-
-  /* Anything that was using light-mode “soft gray” becomes readable */
-  .prompt,
-  .lpSub,
-  .homeSub,
-  .modeHint,
-  .user-email,
-  #lessonProgressText{
-    color: var(--muted) !important;
-  }
-
-  /* Inputs / selects: improve contrast */
-  input, select, textarea{
-    color: var(--text) !important;
-    background: rgba(255,255,255,.07) !important;
-    border-color: rgba(255,255,255,.16) !important;
-  }
-
-  /* Choice buttons: ensure text isn’t dim */
-  .choice{
-    color: var(--text) !important;
-    background: rgba(255,255,255,.06) !important;
-    border-color: rgba(255,255,255,.14) !important;
-  }
-
-  /* Any “badge/pill” text */
-  .homeKicker, .listenTag, .pill{
-    color: rgba(255,255,255,.86) !important;
-  }
-}
+#mapSvg, .map-svg{ pointer-events: none !important; }
