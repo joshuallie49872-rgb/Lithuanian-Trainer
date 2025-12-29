@@ -511,10 +511,9 @@ function getSpeakText(q) {
   return "";
 }
 
-function shouldSpeakForMode(q) {
+function shouldSpeakForMode(q, speakText = "") {
   if (!q) return false;
 
-  // What language is being learned (target)
   const target =
     learningMode === "en_to_lt" ? "lt" :
     learningMode === "lt_to_en" ? "en" :
@@ -522,17 +521,25 @@ function shouldSpeakForMode(q) {
 
   if (!target) return false;
 
-  // If TTS explicitly declares language
+  const s = String(speakText || "").trim();
+  if (!s) return false;
+
+  // If TTS explicitly declares language, trust it
   if (q.tts && typeof q.tts === "object" && q.tts.lang) {
-    return q.tts.lang.startsWith(target);
+    return String(q.tts.lang).toLowerCase().startsWith(target);
   }
 
-  // Fallback inference
+  // If the question explicitly has the target field, allow speak
   if (target === "lt" && q.lt) return true;
   if (target === "en" && q.en) return true;
 
+  // Dictation-style: no lt/en shown, but we DO have speakText.
+  // In en_to_lt mode, that speakText is Lithuanian by design.
+  if (target === "lt") return true;
+
   return false;
 }
+
 
 
 function ensureLessonHeaderVisible() {
@@ -688,7 +695,7 @@ function renderQuestion() {
 
   // Speak button (normal)
   if (DOM.controls.speakBtn) {
-    if (speakText && shouldSpeakForMode(currentQuestion)) {
+    if (speakText && shouldSpeakForMode(currentQuestion, speakText)) {
       DOM.controls.speakBtn.style.display = "";
       DOM.controls.speakBtn.onclick = () => speakLithuanian(speakText, 0.95);
     } else {
@@ -697,16 +704,17 @@ function renderQuestion() {
     }
   }
 
-  // Speak button (slow) — safe if missing in index
+  // Speak button (slow)
   if (DOM.controls.speakSlowBtn) {
-    if (speakText) {
+    if (speakText && shouldSpeakForMode(currentQuestion, speakText)) {
       DOM.controls.speakSlowBtn.style.display = "";
-      DOM.controls.speakSlowBtn.onclick = () => speakLithuanian(speakText, 0.45);
+      DOM.controls.speakSlowBtn.onclick = () => speakLithuanian(speakText, 0.50);
     } else {
       DOM.controls.speakSlowBtn.style.display = "none";
       DOM.controls.speakSlowBtn.onclick = null;
-    }
   }
+}
+
 
   ensureLessonHeaderVisible();
 
