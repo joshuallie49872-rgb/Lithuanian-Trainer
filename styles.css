@@ -1,3 +1,139 @@
+/* =========================
+   OpenKalba App Theme (v1)
+   - Blue “appy” UI
+   - Auto light/dark via prefers-color-scheme
+========================= */
+
+:root{
+  /* Blues (from your template vibe) */
+  --primary: #2F6FED;
+  --primary-2: #22B3D6;
+  --primary-soft: rgba(47,111,237,.12);
+
+  /* Surfaces */
+  --bg: #F6FAFF;
+  --bg-2: #EEF6FF;
+  --card: rgba(255,255,255,.92);
+  --border: rgba(10,20,30,.10);
+
+  /* Text */
+  --text: #0B1220;
+  --muted: rgba(11,18,32,.65);
+
+  /* Shadows */
+  --shadow: 0 12px 40px rgba(0,0,0,.08);
+  --shadow-soft: 0 8px 22px rgba(0,0,0,.07);
+
+  /* Radius */
+  --r-xl: 22px;
+  --r-lg: 16px;
+  --r-md: 12px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg: #07101B;
+    --bg-2: #0A1524;
+    --card: rgba(16,26,40,.88);
+    --border: rgba(255,255,255,.10);
+    --text: #EAF2FF;
+    --muted: rgba(234,242,255,.68);
+
+    --shadow: 0 14px 46px rgba(0,0,0,.45);
+    --shadow-soft: 0 10px 26px rgba(0,0,0,.35);
+
+    --primary-soft: rgba(47,111,237,.22);
+  }
+}
+
+/* Whole page background */
+html, body{
+  background:
+    radial-gradient(900px 450px at 20% 10%, rgba(34,179,214,.18), transparent 60%),
+    radial-gradient(900px 450px at 80% 15%, rgba(47,111,237,.18), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  color: var(--text);
+}
+
+/* Make it feel like an app frame */
+.wrap{
+  max-width: 1120px; /* app container feel */
+  margin: 0 auto;
+  padding: 18px 18px 28px;
+}
+
+/* Header feels like a sticky app top bar */
+.brandHeader{
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,.65);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--r-xl);
+  padding: 14px 18px;
+  margin-bottom: 12px;
+}
+@media (prefers-color-scheme: dark){
+  .brandHeader{ background: rgba(10,18,30,.55); }
+}
+
+.prompt{
+  color: var(--muted);
+}
+
+/* Cards become “app cards” */
+.card, .panel, .lessonWrap, .mapWrap{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow);
+}
+
+/* Buttons: make primary actions blue */
+.btn, button{
+  border-radius: 999px;
+}
+
+.btn-primary, .btn-main, #startBtn, #continueBtn, #checkBtn, #nextBtn{
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  color: white !important;
+  border: 0 !important;
+  box-shadow: 0 10px 26px rgba(47,111,237,.25);
+}
+
+/* Ghost buttons more “app” */
+.btn-ghost{
+  background: rgba(255,255,255,.65);
+  border: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark){
+  .btn-ghost{ background: rgba(255,255,255,.06); }
+}
+
+/* Progress bar: blue gradient */
+.progressTrack{
+  background: rgba(0,0,0,.08);
+}
+@media (prefers-color-scheme: dark){
+  .progressTrack{ background: rgba(255,255,255,.12); }
+}
+.progressFill{
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-2) 100%);
+}
+
+/* Input fields feel app-like */
+input[type="text"], input, .input{
+  background: rgba(255,255,255,.75);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text);
+}
+@media (prefers-color-scheme: dark){
+  input[type="text"], input, .input{ background: rgba(255,255,255,.06); }
+}
+
 :root{
   /* Your palette */
   --bg: #FFF7ED;          /* warm cream */
