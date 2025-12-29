@@ -665,3 +665,100 @@ button, .btn, .mapNode, .map-nodes, #mapNodes, #startBtn, #continueBtn, #checkBt
 .user-row .user-email{
   display: none !important;          /* keep pill compact */
 }
+
+/* =========================================================
+   ACCOUNT POPUP — FORCE REAL MODAL OVERLAY (FIXES LAYOUT)
+   Paste at END of styles.css
+   ========================================================= */
+
+/* Try to catch whatever your account panel is named */
+#accountPanel,
+#accountModal,
+#authPanel,
+.modal,
+.accountPanel{
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;   /* ABOVE the sticky header/logo */
+}
+
+/* If your code uses show/open classes, support both */
+#accountPanel,
+#accountModal,
+#authPanel,
+.modal,
+.accountPanel{
+  display: none;
+}
+#accountPanel.show,
+#accountModal.show,
+#authPanel.show,
+.modal.show,
+.accountPanel.show,
+#accountPanel.open,
+#accountModal.open,
+#authPanel.open,
+.modal.open,
+.accountPanel.open{
+  display: block !important;
+}
+
+/* Backdrop */
+#accountPanel::before,
+#accountModal::before,
+#authPanel::before,
+.modal::before,
+.accountPanel::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.38);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* The actual “card” inside the popup (targets your existing modal card + signed panel) */
+.modal-card,
+.signed-panel,
+#accountPanel .modal-card,
+#accountModal .modal-card,
+#authPanel .modal-card{
+  position: relative !important;
+  z-index: 1 !important;
+
+  width: min(520px, calc(100vw - 24px)) !important;
+  margin: clamp(86px, 10vh, 130px) auto 18px !important; /* keeps it BELOW logo/header */
+  padding: 16px 16px 14px !important;
+
+  border-radius: 22px !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+
+  background: rgba(255,255,255,.92) !important;
+  box-shadow: 0 30px 90px rgba(0,0,0,.28) !important;
+}
+
+/* Make the popup content look “app styled” even if it was plain */
+.modal-card * ,
+.signed-panel *{
+  font-family: Arial, sans-serif;
+}
+
+/* Keep buttons in the popup consistent */
+.modal-card button,
+.signed-panel button{
+  border-radius: 14px !important;
+}
+
+/* On dark mode, ensure popup text is readable */
+@media (prefers-color-scheme: dark){
+  .modal-card,
+  .signed-panel{
+    background: rgba(16, 20, 34, .92) !important;
+    color: rgba(255,255,255,.92) !important;
+    border-color: rgba(255,255,255,.14) !important;
+  }
+  .modal-card * ,
+  .signed-panel *{
+    color: rgba(255,255,255,.90) !important;
+  }
+}
