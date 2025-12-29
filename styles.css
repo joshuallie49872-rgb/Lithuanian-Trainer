@@ -602,3 +602,66 @@ button, .btn, .mapNode, .map-nodes, #mapNodes, #startBtn, #continueBtn, #checkBt
   align-items: center !important;
 }
 
+/* =========================
+   ACCOUNT BUTTON — HARD FIX
+   (small, same height as buttons, circular avatar)
+   Paste at VERY END of styles.css
+========================= */
+
+/* the pill/button itself */
+#accountBtn,
+.btn-account,
+.user-row{
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  height: 44px !important;          /* match your other buttons */
+  padding: 8px 12px !important;
+  border-radius: 999px !important;
+  max-width: 260px !important;
+  overflow: hidden !important;
+}
+
+/* kill any “card” sizing that might be making it tall */
+#accountBtn * ,
+.btn-account * ,
+.user-row *{
+  max-height: 44px !important;
+}
+
+/* avatar: force circle + small */
+#accountBtn img,
+.btn-account img,
+.user-row img,
+#accountAvatar,
+.accountAvatarSmall,
+.avatar{
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+  max-width: 30px !important;
+  max-height: 30px !important;
+
+  border-radius: 999px !important;   /* circle */
+  object-fit: cover !important;
+  flex: 0 0 auto !important;
+  display: block !important;
+}
+
+/* text next to avatar */
+#accountBtn .user-name,
+.btn-account .user-name,
+.user-row .user-name{
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+#accountBtn .user-email,
+.btn-account .user-email,
+.user-row .user-email{
+  display: none !important;          /* keep pill compact */
+}
