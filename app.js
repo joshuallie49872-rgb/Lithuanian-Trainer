@@ -970,6 +970,12 @@ function renderMap() {
   const nodesEl = DOM.mapNodes;
   const svg = DOM.mapSvg;
   if (!wrap || !nodesEl || !svg) return;
+   // ✅ WAIT UNTIL MAP IS ACTUALLY LAID OUT (fixes nodes=0)
+  const r = wrap.getBoundingClientRect();
+  if (r.width < 50 || r.height < 50) {
+    requestAnimationFrame(renderMap);
+    return;
+  }
 
   nodesEl.innerHTML = "";
   svg.innerHTML = "";
