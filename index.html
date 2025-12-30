@@ -8,7 +8,9 @@
   <!-- ✅ bump this when you change styles.css so GitHub Pages doesn’t serve old CSS -->
   <link rel="stylesheet" href="styles.css?v=1004" />
 
-  <!-- (Optional) nicer tab title -->
+  <!-- ✅ Fix favicon 404 (make sure favicon.ico exists at site root OR change path) -->
+  <link rel="icon" href="favicon.ico?v=1" />
+
   <title>OpenKalba</title>
 </head>
 
@@ -37,17 +39,14 @@
 
       <!-- Speak controls -->
       <button id="speakBtn" class="btn btn-ghost" style="display:none;">🔊 Hear it</button>
-      <!-- NEW: slow speak (app.js wires it automatically) -->
       <button id="speakSlowBtn" class="btn btn-ghost" style="display:none;">🐢 Hear it slow</button>
 
       <button id="mapBtn" class="btn btn-secondary">🗺️ Course Map</button>
       <button id="resetBtn" class="btn btn-warn">Restart lesson</button>
 
-      <!-- UPDATED: Account button supports avatar + name + guest label -->
       <button id="accountBtn" class="btn btn-ghost btn-account">
         <span class="dot" id="accountDot" aria-hidden="true"></span>
 
-        <!-- Small avatar (default hidden until signed in) -->
         <img
           id="accountAvatarSmall"
           class="accountAvatarSmall"
@@ -57,10 +56,7 @@
           style="display:none;"
         />
 
-        <!-- Signed-in name (hidden until signed in) -->
         <span id="accountNameSmall" class="accountNameSmall" style="display:none;"></span>
-
-        <!-- Guest label -->
         <span id="accountBtnLabel">Account</span>
       </button>
     </div>
@@ -75,7 +71,6 @@
           </p>
         </div>
 
-        <!-- NEW: learning mode placeholder -->
         <div class="homeModeRow">
           <div class="modeLabel">Learning Mode</div>
           <div class="modeSelectWrap">
@@ -111,7 +106,6 @@
     <div id="screenLesson" style="display:none;">
       <div class="card">
 
-        <!-- NEW: Progress bar (app.js updates it; safe if CSS not updated yet) -->
         <div id="lessonProgress" style="margin: 0 0 10px 0; display:block;">
           <div id="lessonProgressText" class="muted" style="font-size:12px; margin-bottom:6px;"></div>
           <div style="height:10px; border-radius:999px; background: rgba(0,0,0,0.08); overflow:hidden;">
@@ -119,7 +113,6 @@
           </div>
         </div>
 
-        <!-- OPTIONAL placeholder for later (wired in app.js) -->
         <div class="lessonHeader" style="display:none;">
           <div id="lessonPromptPretty" class="lessonPromptPretty"></div>
         </div>
@@ -234,7 +227,12 @@
 
   <script src="auth_ui.js"></script>
 
+  <!-- ✅ IMPORTANT: Guard so app.js can’t initialize twice even if something weird happens -->
+  <script>
+    window.__LT_APP_INITED__ = window.__LT_APP_INITED__ || false;
+  </script>
+
   <!-- ✅ bump this when you change app.js so browser definitely loads newest JS -->
-  <script src="app.js?v=5372"></script>
+  <script src="app.js?v=5373"></script>
 </body>
 </html>
