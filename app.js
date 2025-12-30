@@ -1,12 +1,12 @@
 /* =========================================================
-   Lithuanian Trainer — app.js (v5.3.7)
+   Lithuanian Trainer — app.js (v5.3.8)
    - Course Map with locked progression + topic/icon labels
    - Lesson engine (MCQ + type-in)
    - Speak button (Native MP3 first, fallback Web Speech)
    - Mikas emotion switching
    - Account button + Auth modal wiring (works with or without auth_ui.js)
 
-   FIXES / UPGRADES (2025-12-28 -> v5.3.7):
+   FIXES / UPGRADES (2025-12-28 -> v5.3.8):
    ✅ Dictation: NEVER reveal the answer text in UI (no more "labas" or "••••••")
       - Dictation card shows only: "🎧 Hear it — then type what you hear"
    ✅ Remove duplicate prompts:
@@ -21,6 +21,10 @@
       - Optional DOM ids: #lessonProgressText, #lessonProgressFill
       - Safe if not present (no errors)
    ✅ Better lesson-load errors for diagnosing missing lesson files (e.g. lesson 4)
+   ✅ Spanish mode:
+      - loadManifest() loads manifest_es.json when learningMode==="en_to_es"
+      - normalizeLessonToQuestions() now preserves Spanish fields:
+        prompt_es, es, choices_es, correct_es
 
    Notes:
    - Supports BOTH lesson formats:
@@ -395,9 +399,17 @@ function normalizeLessonToQuestions(data) {
         return {
           type: "choose",
           prompt: it.prompt || "Pick the correct meaning",
+          prompt_es: it.prompt_es || "",
+
           lt: it.lt || "",
+          es: it.es || "",
+
           choices,
+          choices_es: Array.isArray(it.choices_es) ? it.choices_es.slice() : [],
+
           correct: [answer].filter(Boolean),
+          correct_es: Array.isArray(it.correct_es) ? it.correct_es.slice() : [],
+
           tts: it.tts || (it.lt ? { lang: "lt-LT", text: it.lt } : ""),
         };
       }
@@ -412,19 +424,36 @@ function normalizeLessonToQuestions(data) {
         return {
           type: "translate",
           prompt: it.prompt || "Translate to Lithuanian",
+          prompt_es: it.prompt_es || "",
+
           en: it.en || "",
+          lt: it.lt || "",
+          es: it.es || "",
+
           correct: correctList.filter(Boolean),
-          placeholder: "Type Lithuanian…",
+          correct_es: Array.isArray(it.correct_es)
+            ? it.correct_es.slice().filter(Boolean)
+            : [],
+
+          placeholder: "Type your answer…",
           tts: it.tts || (correctList[0] ? { lang: "lt-LT", text: correctList[0] } : ""),
         };
       }
 
       return {
         prompt: it.prompt || "Question",
+        prompt_es: it.prompt_es || "",
+
         lt: it.lt || "",
+        es: it.es || "",
         en: it.en || "",
+
         choices: Array.isArray(it.choices) ? it.choices.slice() : [],
+        choices_es: Array.isArray(it.choices_es) ? it.choices_es.slice() : [],
+
         correct: Array.isArray(it.answers) ? it.answers.slice() : it.answer ? [it.answer] : [],
+        correct_es: Array.isArray(it.correct_es) ? it.correct_es.slice() : [],
+
         tts: it.tts || "",
       };
     });
@@ -506,6 +535,9 @@ function setControlsForQuestion(hasPrev) {
 
 function getSpeakText(q) {
   if (!q) return "";
+
+  // ✅ Spanish translate can speak Lithuanian via tts/correct like before, but we
+  // keep this function LT-centric (it’s used for speakLithuanian)
   if (q.tts && typeof q.tts === "object" && q.tts.text) return String(q.tts.text);
   if (typeof q.tts === "string" && q.tts.trim()) return q.tts;
   if (typeof q.lt === "string" && q.lt.trim()) return q.lt;
@@ -725,6 +757,7 @@ function updateLessonProgressUI() {
   if (DOM.lessonProgressText) {
     DOM.lessonProgressText.textContent = `Question ${cur} of ${total} (${pct}%)`;
   }
+  // NOTE: if you *do* want this shown, delete the next 3 lines.
   if (DOM.lessonProgressText) {
     DOM.lessonProgressText.textContent = "";
   }
@@ -746,7 +779,6 @@ function renderQuestion() {
   updateLessonProgressUI();
 
   const type = currentQuestion.type || "";
-  const p = (currentQuestion.prompt || "").trim();
   const lt = (currentQuestion.lt || "").trim();
   const en = (currentQuestion.en || "").trim();
 
