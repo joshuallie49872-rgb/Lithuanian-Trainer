@@ -139,6 +139,7 @@ body{
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 button, .btn{
@@ -154,8 +155,14 @@ button, .btn{
   box-shadow: var(--shadow-soft);
 }
 
-button:hover{ filter: brightness(1.03); }
-button:active{ transform: scale(.985); }
+button:hover, .btn:hover{ filter: brightness(1.03); }
+button:active, .btn:active{ transform: scale(.985); }
+
+button:disabled, .btn:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
 
 /* Primary actions */
 #startBtn,
@@ -200,7 +207,8 @@ textarea{
 }
 
 input:focus,
-select:focus{
+select:focus,
+textarea:focus{
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 4px rgba(50,170,202,.25);
@@ -233,6 +241,76 @@ select:focus{
 }
 .choice-wrong{
   background: rgba(239,68,68,.18) !important;
+}
+
+/* =========================
+   MAP (THIS FIXES "COURSE MAP IS GONE")
+   Your JS requires #mapWrap to have real height,
+   or renderMap() loops forever and renders nothing.
+========================= */
+#screenMap{
+  display: none;
+}
+
+#mapWrap, .map-wrap{
+  position: relative;
+  height: 70vh;
+  min-height: 420px;
+  overflow: auto;
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+#mapSvg, .map-svg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#mapNodes, .map-nodes{
+  position: relative;
+  z-index: 2;
+}
+
+.mapNode{
+  position: absolute;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
+}
+
+.mapNode-locked{
+  background: rgba(15,42,58,.22) !important;
+  color: rgba(255,255,255,.70) !important;
+  box-shadow: none !important;
+}
+
+.mapNode-done{
+  background: rgba(34,197,94,.95) !important;
+}
+
+.mapLabel{
+  position: absolute;
+  width: 190px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-muted);
+  pointer-events: none;
+  user-select: none;
+
+  padding: 6px 10px;
+  border-radius: 14px;
+  background: rgba(231,241,252,.90);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
 }
 
 /* =========================
@@ -279,6 +357,11 @@ select:focus{
   z-index: 99999;
 }
 
+/* IMPORTANT: do NOT block clicks when hidden */
+.modal[aria-hidden="true"]{
+  pointer-events: none;
+}
+
 .modal::before,
 #accountPanel::before{
   content: "";
@@ -311,6 +394,7 @@ select:focus{
   bottom: 18px;
   width: 240px;
   pointer-events: none;
+  z-index: 50;
 }
 
 .mikasImg{
