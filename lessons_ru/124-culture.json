@@ -1,0 +1,226 @@
+{
+  "id": "124-culture",
+  "title": "Culture & Everyday Life",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "šventė",
+      "choices": [
+        "holiday",
+        "workday",
+        "meeting",
+        "party"
+      ],
+      "answer": "holiday",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "šventė"
+      },
+      "ru": "šventė"
+    },
+    {
+      "prompt": "",
+      "lt": "tradicija",
+      "choices": [
+        "tradition",
+        "rule",
+        "law",
+        "habit"
+      ],
+      "answer": "tradition",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "tradicija"
+      },
+      "ru": "tradicija"
+    },
+    {
+      "prompt": "",
+      "lt": "paprotys",
+      "choices": [
+        "custom",
+        "law",
+        "work",
+        "plan"
+      ],
+      "answer": "custom",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "paprotys"
+      },
+      "ru": "paprotys"
+    },
+    {
+      "prompt": "",
+      "lt": "laisvalaikis",
+      "choices": [
+        "free time",
+        "work",
+        "sleep",
+        "travel"
+      ],
+      "answer": "free time",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "laisvalaikis"
+      },
+      "ru": "laisvalaikis"
+    },
+    {
+      "prompt": "",
+      "lt": "renginys",
+      "choices": [
+        "event",
+        "problem",
+        "place",
+        "job"
+      ],
+      "answer": "event",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "renginys"
+      },
+      "ru": "renginys"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šventė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "tradicija"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "paprotys"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "laisvalaikis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "renginys"
+    },
+    {
+      "prompt": "",
+      "lt": "šventė",
+      "choices": [
+        "holiday",
+        "workday",
+        "meeting",
+        "party"
+      ],
+      "answer": "holiday",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "šventė"
+      },
+      "ru": "šventė"
+    },
+    {
+      "prompt": "",
+      "lt": "tradicija",
+      "choices": [
+        "tradition",
+        "rule",
+        "law",
+        "habit"
+      ],
+      "answer": "tradition",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "tradicija"
+      },
+      "ru": "tradicija"
+    },
+    {
+      "prompt": "",
+      "lt": "paprotys",
+      "choices": [
+        "custom",
+        "law",
+        "work",
+        "plan"
+      ],
+      "answer": "custom",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "paprotys"
+      },
+      "ru": "paprotys"
+    },
+    {
+      "prompt": "",
+      "lt": "laisvalaikis",
+      "choices": [
+        "free time",
+        "work",
+        "sleep",
+        "travel"
+      ],
+      "answer": "free time",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "laisvalaikis"
+      },
+      "ru": "laisvalaikis"
+    },
+    {
+      "prompt": "",
+      "lt": "renginys",
+      "choices": [
+        "event",
+        "problem",
+        "place",
+        "job"
+      ],
+      "answer": "event",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "renginys"
+      },
+      "ru": "renginys"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šventė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "tradicija"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "paprotys"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "laisvalaikis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "renginys"
+    }
+  ]
+}

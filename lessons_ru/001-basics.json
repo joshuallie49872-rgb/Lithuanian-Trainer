@@ -1,0 +1,226 @@
+{
+  "id": "001-basics",
+  "title": "Basics 1",
+  "questions": [
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "labas",
+      "choices": [
+        "hello",
+        "thank you",
+        "yes",
+        "no"
+      ],
+      "answer": "hello",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "привет"
+      },
+      "ru": "привет"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "ačiū",
+      "choices": [
+        "sorry",
+        "thank you",
+        "please",
+        "hello"
+      ],
+      "answer": "thank you",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "спасибо"
+      },
+      "ru": "спасибо"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "taip",
+      "choices": [
+        "yes",
+        "no",
+        "goodbye",
+        "please"
+      ],
+      "answer": "yes",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "да"
+      },
+      "ru": "да"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "ne",
+      "choices": [
+        "yes",
+        "no",
+        "thanks",
+        "hi"
+      ],
+      "answer": "no",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "нет"
+      },
+      "ru": "нет"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "prašau",
+      "choices": [
+        "please / you're welcome",
+        "goodbye",
+        "sorry",
+        "hello"
+      ],
+      "answer": "please / you're welcome",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "пожалуйста"
+      },
+      "ru": "пожалуйста"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "atsiprašau",
+      "choices": [
+        "excuse me / sorry",
+        "please",
+        "thanks",
+        "yes"
+      ],
+      "answer": "excuse me / sorry",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "atsiprašau"
+      },
+      "ru": "atsiprašau"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "viso gero",
+      "choices": [
+        "goodbye",
+        "good morning",
+        "good night",
+        "see you"
+      ],
+      "answer": "goodbye",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "до свидания"
+      },
+      "ru": "до свидания"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "iki",
+      "choices": [
+        "see you",
+        "hello",
+        "thanks",
+        "no"
+      ],
+      "answer": "see you",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "iki"
+      },
+      "ru": "iki"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "gerai",
+      "choices": [
+        "okay / good",
+        "bad",
+        "please",
+        "tomorrow"
+      ],
+      "answer": "okay / good",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "gerai"
+      },
+      "ru": "gerai"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "blogai",
+      "choices": [
+        "badly",
+        "well",
+        "hello",
+        "thanks"
+      ],
+      "answer": "badly",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "blogai"
+      },
+      "ru": "blogai"
+    },
+    {
+      "prompt": "Translate to Lithuanian",
+      "lt": "",
+      "choices": [],
+      "tts": "labas"
+    },
+    {
+      "prompt": "Translate to Lithuanian",
+      "lt": "",
+      "choices": [],
+      "tts": "ačiū"
+    },
+    {
+      "prompt": "Translate to Lithuanian",
+      "lt": "",
+      "choices": [],
+      "tts": "taip"
+    },
+    {
+      "prompt": "Translate to Lithuanian",
+      "lt": "",
+      "choices": [],
+      "tts": "ne"
+    },
+    {
+      "prompt": "Translate to Lithuanian",
+      "lt": "",
+      "choices": [],
+      "tts": "prašau"
+    },
+    {
+      "prompt": "Translate to Lithuanian",
+      "lt": "",
+      "choices": [],
+      "tts": "atsiprašau"
+    },
+    {
+      "prompt": "Translate to Lithuanian",
+      "lt": "",
+      "choices": [],
+      "tts": "viso gero"
+    },
+    {
+      "prompt": "Translate to Lithuanian",
+      "lt": "",
+      "choices": [],
+      "tts": "iki"
+    },
+    {
+      "prompt": "Translate to Lithuanian",
+      "lt": "",
+      "choices": [],
+      "tts": "gerai"
+    },
+    {
+      "prompt": "Translate to Lithuanian",
+      "lt": "",
+      "choices": [],
+      "tts": "blogai"
+    }
+  ]
+}

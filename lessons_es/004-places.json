@@ -1,0 +1,186 @@
+{
+  "id": "004-places",
+  "title": "Lugares e indicaciones",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "čia",
+      "choices": [
+        "here",
+        "there",
+        "near",
+        "far"
+      ],
+      "answer": "here",
+      "tts": "čia"
+    },
+    {
+      "prompt": "",
+      "lt": "ten",
+      "choices": [
+        "here",
+        "there",
+        "left",
+        "right"
+      ],
+      "answer": "there",
+      "tts": "ten"
+    },
+    {
+      "prompt": "",
+      "lt": "kairė",
+      "choices": [
+        "left",
+        "right",
+        "straight",
+        "back"
+      ],
+      "answer": "left",
+      "tts": "kairė"
+    },
+    {
+      "prompt": "",
+      "lt": "dešinė",
+      "choices": [
+        "left",
+        "right",
+        "forward",
+        "near"
+      ],
+      "answer": "right",
+      "tts": "dešinė"
+    },
+    {
+      "prompt": "",
+      "lt": "tiesiai",
+      "choices": [
+        "straight",
+        "back",
+        "left",
+        "right"
+      ],
+      "answer": "straight",
+      "tts": "tiesiai"
+    },
+    {
+      "prompt": "",
+      "lt": "miestas",
+      "choices": [
+        "city",
+        "street",
+        "village",
+        "country"
+      ],
+      "answer": "city",
+      "tts": "miestas"
+    },
+    {
+      "prompt": "",
+      "lt": "gatvė",
+      "choices": [
+        "street",
+        "house",
+        "place",
+        "square"
+      ],
+      "answer": "street",
+      "tts": "gatvė"
+    },
+    {
+      "prompt": "",
+      "lt": "stotis",
+      "choices": [
+        "station",
+        "hotel",
+        "airport",
+        "shop"
+      ],
+      "answer": "station",
+      "tts": "stotis"
+    },
+    {
+      "prompt": "",
+      "lt": "oro uostas",
+      "choices": [
+        "airport",
+        "station",
+        "bus",
+        "hotel"
+      ],
+      "answer": "airport",
+      "tts": "oro uostas"
+    },
+    {
+      "prompt": "",
+      "lt": "viešbutis",
+      "choices": [
+        "hotel",
+        "hostel",
+        "home",
+        "restaurant"
+      ],
+      "answer": "hotel",
+      "tts": "viešbutis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "čia"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ten"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kairė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "dešinė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "tiesiai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "miestas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "gatvė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "viešbutis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "stotis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "oro uostas"
+    }
+  ]
+}

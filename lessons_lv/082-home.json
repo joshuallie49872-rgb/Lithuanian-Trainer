@@ -1,0 +1,226 @@
+{
+  "id": "082-home",
+  "title": "Home & Household",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "namai",
+      "choices": [
+        "home",
+        "house",
+        "room",
+        "apartment"
+      ],
+      "answer": "home",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "namai"
+      },
+      "lv": "namai"
+    },
+    {
+      "prompt": "",
+      "lt": "butas",
+      "choices": [
+        "apartment",
+        "house",
+        "room",
+        "hotel"
+      ],
+      "answer": "apartment",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "butas"
+      },
+      "lv": "butas"
+    },
+    {
+      "prompt": "",
+      "lt": "virtuvė",
+      "choices": [
+        "kitchen",
+        "bathroom",
+        "bedroom",
+        "hall"
+      ],
+      "answer": "kitchen",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "virtuvė"
+      },
+      "lv": "virtuvė"
+    },
+    {
+      "prompt": "",
+      "lt": "vonios kambarys",
+      "choices": [
+        "bathroom",
+        "kitchen",
+        "bedroom",
+        "hall"
+      ],
+      "answer": "bathroom",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "vonios kambarys"
+      },
+      "lv": "vonios kambarys"
+    },
+    {
+      "prompt": "",
+      "lt": "švara",
+      "choices": [
+        "cleanliness",
+        "dirt",
+        "mess",
+        "noise"
+      ],
+      "answer": "cleanliness",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "švara"
+      },
+      "lv": "švara"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "namai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "butas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "virtuvė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vonios kambarys"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "švara"
+    },
+    {
+      "prompt": "",
+      "lt": "namai",
+      "choices": [
+        "home",
+        "house",
+        "room",
+        "apartment"
+      ],
+      "answer": "home",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "namai"
+      },
+      "lv": "namai"
+    },
+    {
+      "prompt": "",
+      "lt": "butas",
+      "choices": [
+        "apartment",
+        "house",
+        "room",
+        "hotel"
+      ],
+      "answer": "apartment",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "butas"
+      },
+      "lv": "butas"
+    },
+    {
+      "prompt": "",
+      "lt": "virtuvė",
+      "choices": [
+        "kitchen",
+        "bathroom",
+        "bedroom",
+        "hall"
+      ],
+      "answer": "kitchen",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "virtuvė"
+      },
+      "lv": "virtuvė"
+    },
+    {
+      "prompt": "",
+      "lt": "vonios kambarys",
+      "choices": [
+        "bathroom",
+        "kitchen",
+        "bedroom",
+        "hall"
+      ],
+      "answer": "bathroom",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "vonios kambarys"
+      },
+      "lv": "vonios kambarys"
+    },
+    {
+      "prompt": "",
+      "lt": "švara",
+      "choices": [
+        "cleanliness",
+        "dirt",
+        "mess",
+        "noise"
+      ],
+      "answer": "cleanliness",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "švara"
+      },
+      "lv": "švara"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "namai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "butas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "virtuvė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vonios kambarys"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "švara"
+    }
+  ]
+}

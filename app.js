@@ -354,11 +354,13 @@ function setScreen(name) {
    Manifest + lesson loading
 ----------------------------- */
 async function loadManifest() {
-  const res = await fetch("./manifest.json", { cache: "no-store" });
-  if (!res.ok) throw new Error("Failed to load manifest.json");
+  const which = (learningMode === "en_to_es") ? "./manifest_es.json" : "./manifest.json";
+
+  const res = await fetch(which, { cache: "no-store" });
+  if (!res.ok) throw new Error(`Failed to load ${which}`);
   const m = await res.json();
   if (!m || !Array.isArray(m.lessons) || m.lessons.length === 0) {
-    throw new Error("manifest.json missing lessons[]");
+    throw new Error(`${which} missing lessons[]`);
   }
 
   m.lessons = m.lessons.map((x) => ({
@@ -511,7 +513,16 @@ function getSpeakText(q) {
   return "";
 }
 
+/* =============================
+   REPLACED FUNCTIONS (copy/paste)
+   shouldSpeakForMode
+   formatPrettyPrompt
+   renderChoices
+============================= */
 function shouldSpeakForMode(q, speakText = "") {
+  // ✅ For Spanish mode, we do NOT auto-speak (unless you later add Spanish audio/tts)
+  if (learningMode === "en_to_es") return false;
+
   if (!q) return false;
 
   const target =
@@ -533,18 +544,10 @@ function shouldSpeakForMode(q, speakText = "") {
   if (target === "lt" && q.lt) return true;
   if (target === "en" && q.en) return true;
 
-  // Dictation-style: no lt/en shown, but we DO have speakText.
-  // In en_to_lt mode, that speakText is Lithuanian by design.
+  // Dictation-style: in en_to_lt mode, speakText is Lithuanian by design.
   if (target === "lt") return true;
 
   return false;
-}
-
-
-
-function ensureLessonHeaderVisible() {
-  const header = document.querySelector(".lessonHeader");
-  if (header) header.style.display = "block";
 }
 
 function formatPrettyPrompt(q) {
@@ -552,13 +555,78 @@ function formatPrettyPrompt(q) {
   const lt = q && q.lt ? String(q.lt) : "";
   const en = q && q.en ? String(q.en) : "";
 
+  // ✅ Spanish UI uses prompt_es + es
+  const p_es = q && q.prompt_es ? String(q.prompt_es) : "";
+  const es = q && q.es ? String(q.es) : "";
+
+  if (learningMode === "en_to_es") {
+    const main = es || en || lt || p_es || p || "";
+    const sub = p_es || p || "";
+    return sub ? `${main} — ${sub}` : main;
+  }
+
   if (learningMode === "lt_to_en") {
     const main = lt || en || p || "";
     return p ? `${main} — ${p}` : main;
   }
 
+  // default en_to_lt
   const main = lt || en || p || "";
   return p ? `${main} — ${p}` : main;
+}
+
+function renderChoices(q) {
+  show(DOM.inputWrap, false);
+
+  // ✅ choose which choices to display
+  let choices =
+    (learningMode === "en_to_es" && Array.isArray(q.choices_es) && q.choices_es.length)
+      ? q.choices_es.slice()
+      : (Array.isArray(q.choices) ? q.choices.slice() : []);
+
+  // Shuffle by default unless explicitly disabled
+  const doShuffle = q.shuffle !== false;
+  if (doShuffle) choices.sort(() => Math.random() - 0.5);
+
+  for (const choice of choices) {
+    const b = document.createElement("button");
+    b.className = "choice btn btn-ghost";
+    b.textContent = choice;
+
+    b.onclick = async () => {
+      if (isAnswered) return;
+
+      // ✅ keep LT audio behavior for LT modes only
+      try {
+        if (learningMode !== "en_to_es" && shouldSpeakForMode(q)) {
+          const speakText =
+            learningMode === "en_to_lt"
+              ? (q.lt || "")
+              : learningMode === "lt_to_en"
+              ? (q.en || "")
+              : "";
+
+          if (speakText.trim()) {
+            speakLithuanian(speakText, 0.95);
+            await sleep(140);
+          }
+        }
+      } catch {}
+
+      if (isAnswered) return;
+      checkAnswer(choice);
+    };
+
+    DOM.answers.appendChild(b);
+  }
+}
+/* =============================
+   END REPLACED FUNCTIONS
+============================= */
+
+function ensureLessonHeaderVisible() {
+  const header = document.querySelector(".lessonHeader");
+  if (header) header.style.display = "block";
 }
 
 // Stronger normalization: accent-insensitive + consistent punctuation stripping
@@ -712,9 +780,8 @@ function renderQuestion() {
     } else {
       DOM.controls.speakSlowBtn.style.display = "none";
       DOM.controls.speakSlowBtn.onclick = null;
+    }
   }
-}
-
 
   ensureLessonHeaderVisible();
 
@@ -728,8 +795,14 @@ function renderQuestion() {
         `<div class="listenTag">🎧 Hear it — then type what you hear</div>`;
     } else {
       // Non-dictation: show main/sub prompt in card
-      const main = (currentQuestion.lt || currentQuestion.en || "").trim();
-      const sub = (currentQuestion.prompt || "").trim();
+      let main = (currentQuestion.lt || currentQuestion.en || "").trim();
+      let sub  = (currentQuestion.prompt || "").trim();
+
+      // ✅ Spanish display fields
+      if (learningMode === "en_to_es") {
+        main = (currentQuestion.es || currentQuestion.en || currentQuestion.lt || "").trim();
+        sub  = (currentQuestion.prompt_es || currentQuestion.prompt || "").trim();
+      }
 
       DOM.lessonHeader.style.display = "";
       DOM.lessonPromptPretty.innerHTML = `
@@ -750,49 +823,6 @@ function renderQuestion() {
 
   if (hasChoices) renderChoices(currentQuestion);
   else renderTextInput(currentQuestion);
-}
-
-function renderChoices(q) {
-  show(DOM.inputWrap, false);
-
-  const choices = q.choices.slice();
-
-  // Shuffle by default unless explicitly disabled
-  const doShuffle = q.shuffle !== false;
-  if (doShuffle) choices.sort(() => Math.random() - 0.5);
-
-  for (const choice of choices) {
-    const b = document.createElement("button");
-    b.className = "choice btn btn-ghost";
-    b.textContent = choice;
-
-    b.onclick = async () => {
-      if (isAnswered) return;
-
-    // Speak ONLY if target language matches learning mode
-    try {
-      if (shouldSpeakForMode(q)) {
-        const speakText =
-          learningMode === "en_to_lt"
-            ? (q.lt || "")
-            : learningMode === "lt_to_en"
-            ? (q.en || "")
-            : "";
-
-        if (speakText.trim()) {
-          speakLithuanian(speakText, 0.95);
-          await sleep(140);
-        }
-      }
-    } catch {}
-
-    if (isAnswered) return;
-    checkAnswer(choice);
-    };
-
-
-    DOM.answers.appendChild(b);
-  }
 }
 
 function renderTextInput(q) {
@@ -970,7 +1000,7 @@ function renderMap() {
   const nodesEl = DOM.mapNodes;
   const svg = DOM.mapSvg;
   if (!wrap || !nodesEl || !svg) return;
-   // ✅ WAIT UNTIL MAP IS ACTUALLY LAID OUT (fixes nodes=0)
+  // ✅ WAIT UNTIL MAP IS ACTUALLY LAID OUT (fixes nodes=0)
   const r = wrap.getBoundingClientRect();
   if (r.width < 50 || r.height < 50) {
     requestAnimationFrame(renderMap);
@@ -1184,6 +1214,7 @@ function wireEvents() {
     DOM.learningModeSelect.value = learningMode;
     DOM.learningModeSelect.onchange = () => {
       saveLearningMode(DOM.learningModeSelect.value || "en_to_lt");
+      location.reload();
     };
   }
 

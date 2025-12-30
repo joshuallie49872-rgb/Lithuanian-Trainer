@@ -1,0 +1,186 @@
+{
+  "id": "171-advancedlife",
+  "title": "Vida diaria avanzada",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "sprendimas",
+      "choices": [
+        "solution",
+        "problem",
+        "idea",
+        "mistake"
+      ],
+      "answer": "solution",
+      "tts": "sprendimas"
+    },
+    {
+      "prompt": "",
+      "lt": "problema",
+      "choices": [
+        "problem",
+        "solution",
+        "idea",
+        "plan"
+      ],
+      "answer": "problem",
+      "tts": "problema"
+    },
+    {
+      "prompt": "",
+      "lt": "pasirinkimas",
+      "choices": [
+        "choice",
+        "option",
+        "decision",
+        "plan"
+      ],
+      "answer": "choice",
+      "tts": "pasirinkimas"
+    },
+    {
+      "prompt": "",
+      "lt": "patirtis",
+      "choices": [
+        "experience",
+        "story",
+        "memory",
+        "lesson"
+      ],
+      "answer": "experience",
+      "tts": "patirtis"
+    },
+    {
+      "prompt": "",
+      "lt": "rezultatas",
+      "choices": [
+        "result",
+        "reason",
+        "argument",
+        "idea"
+      ],
+      "answer": "result",
+      "tts": "rezultatas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sprendimas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "problema"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pasirinkimas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "patirtis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "rezultatas"
+    },
+    {
+      "prompt": "",
+      "lt": "sprendimas",
+      "choices": [
+        "solution",
+        "problem",
+        "idea",
+        "mistake"
+      ],
+      "answer": "solution",
+      "tts": "sprendimas"
+    },
+    {
+      "prompt": "",
+      "lt": "problema",
+      "choices": [
+        "problem",
+        "solution",
+        "idea",
+        "plan"
+      ],
+      "answer": "problem",
+      "tts": "problema"
+    },
+    {
+      "prompt": "",
+      "lt": "pasirinkimas",
+      "choices": [
+        "choice",
+        "option",
+        "decision",
+        "plan"
+      ],
+      "answer": "choice",
+      "tts": "pasirinkimas"
+    },
+    {
+      "prompt": "",
+      "lt": "patirtis",
+      "choices": [
+        "experience",
+        "story",
+        "memory",
+        "lesson"
+      ],
+      "answer": "experience",
+      "tts": "patirtis"
+    },
+    {
+      "prompt": "",
+      "lt": "rezultatas",
+      "choices": [
+        "result",
+        "reason",
+        "argument",
+        "idea"
+      ],
+      "answer": "result",
+      "tts": "rezultatas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sprendimas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "problema"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pasirinkimas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "patirtis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "rezultatas"
+    }
+  ]
+}

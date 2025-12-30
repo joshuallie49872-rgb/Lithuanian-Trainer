@@ -1,0 +1,326 @@
+{
+  "id": "002-basics",
+  "title": "Basics 2",
+  "questions": [
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "vienas",
+      "choices": [
+        "one",
+        "two",
+        "three",
+        "five"
+      ],
+      "answer": "one",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "vienas"
+      },
+      "pl": "vienas"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "du",
+      "choices": [
+        "one",
+        "two",
+        "four",
+        "six"
+      ],
+      "answer": "two",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "du"
+      },
+      "pl": "du"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "trys",
+      "choices": [
+        "three",
+        "four",
+        "five",
+        "ten"
+      ],
+      "answer": "three",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "trys"
+      },
+      "pl": "trys"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "keturi",
+      "choices": [
+        "four",
+        "two",
+        "six",
+        "eight"
+      ],
+      "answer": "four",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "keturi"
+      },
+      "pl": "keturi"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "penki",
+      "choices": [
+        "five",
+        "nine",
+        "ten",
+        "four"
+      ],
+      "answer": "five",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "penki"
+      },
+      "pl": "penki"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "raudona",
+      "choices": [
+        "red",
+        "blue",
+        "green",
+        "black"
+      ],
+      "answer": "red",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "raudona"
+      },
+      "pl": "raudona"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "mėlyna",
+      "choices": [
+        "blue",
+        "red",
+        "yellow",
+        "white"
+      ],
+      "answer": "blue",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "mėlyna"
+      },
+      "pl": "mėlyna"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "žalia",
+      "choices": [
+        "green",
+        "black",
+        "gray",
+        "brown"
+      ],
+      "answer": "green",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "žalia"
+      },
+      "pl": "žalia"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "juoda",
+      "choices": [
+        "black",
+        "white",
+        "blue",
+        "red"
+      ],
+      "answer": "black",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "juoda"
+      },
+      "pl": "juoda"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "balta",
+      "choices": [
+        "white",
+        "black",
+        "green",
+        "yellow"
+      ],
+      "answer": "white",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "balta"
+      },
+      "pl": "balta"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "mama",
+      "choices": [
+        "mother",
+        "father",
+        "sister",
+        "daughter"
+      ],
+      "answer": "mother",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "mama"
+      },
+      "pl": "mama"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "tėtis",
+      "choices": [
+        "father",
+        "brother",
+        "son",
+        "uncle"
+      ],
+      "answer": "father",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "tėtis"
+      },
+      "pl": "tėtis"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "brolis",
+      "choices": [
+        "brother",
+        "father",
+        "husband",
+        "son"
+      ],
+      "answer": "brother",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "brolis"
+      },
+      "pl": "brolis"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "sesuo",
+      "choices": [
+        "sister",
+        "mother",
+        "daughter",
+        "wife"
+      ],
+      "answer": "sister",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "sesuo"
+      },
+      "pl": "sesuo"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "šeima",
+      "choices": [
+        "family",
+        "house",
+        "children",
+        "parents"
+      ],
+      "answer": "family",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "šeima"
+      },
+      "pl": "šeima"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "vanduo",
+      "choices": [
+        "water",
+        "coffee",
+        "tea",
+        "milk"
+      ],
+      "answer": "water",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "vanduo"
+      },
+      "pl": "vanduo"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "kava",
+      "choices": [
+        "coffee",
+        "tea",
+        "water",
+        "juice"
+      ],
+      "answer": "coffee",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "kava"
+      },
+      "pl": "kava"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "duona",
+      "choices": [
+        "bread",
+        "meat",
+        "soup",
+        "rice"
+      ],
+      "answer": "bread",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "duona"
+      },
+      "pl": "duona"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "viešbutis",
+      "choices": [
+        "hotel",
+        "airport",
+        "train",
+        "restaurant"
+      ],
+      "answer": "hotel",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "viešbutis"
+      },
+      "pl": "viešbutis"
+    },
+    {
+      "prompt": "Pick the correct meaning",
+      "lt": "bilietas",
+      "choices": [
+        "ticket",
+        "passport",
+        "money",
+        "bag"
+      ],
+      "answer": "ticket",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "bilietas"
+      },
+      "pl": "bilietas"
+    }
+  ]
+}

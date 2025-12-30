@@ -1,0 +1,186 @@
+{
+  "id": "157-food2",
+  "title": "Comida y comedor (expandido)",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "pusryčiai",
+      "choices": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "answer": "breakfast",
+      "tts": "pusryčiai"
+    },
+    {
+      "prompt": "",
+      "lt": "pietūs",
+      "choices": [
+        "lunch",
+        "breakfast",
+        "dinner",
+        "snack"
+      ],
+      "answer": "lunch",
+      "tts": "pietūs"
+    },
+    {
+      "prompt": "",
+      "lt": "vakarienė",
+      "choices": [
+        "dinner",
+        "lunch",
+        "breakfast",
+        "snack"
+      ],
+      "answer": "dinner",
+      "tts": "vakarienė"
+    },
+    {
+      "prompt": "",
+      "lt": "skanu",
+      "choices": [
+        "tasty",
+        "bad",
+        "cold",
+        "hot"
+      ],
+      "answer": "tasty",
+      "tts": "skanu"
+    },
+    {
+      "prompt": "",
+      "lt": "alkanas",
+      "choices": [
+        "hungry",
+        "full",
+        "thirsty",
+        "tired"
+      ],
+      "answer": "hungry",
+      "tts": "alkanas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pusryčiai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pietūs"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vakarienė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "skanu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "alkanas"
+    },
+    {
+      "prompt": "",
+      "lt": "pusryčiai",
+      "choices": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "answer": "breakfast",
+      "tts": "pusryčiai"
+    },
+    {
+      "prompt": "",
+      "lt": "pietūs",
+      "choices": [
+        "lunch",
+        "breakfast",
+        "dinner",
+        "snack"
+      ],
+      "answer": "lunch",
+      "tts": "pietūs"
+    },
+    {
+      "prompt": "",
+      "lt": "vakarienė",
+      "choices": [
+        "dinner",
+        "lunch",
+        "breakfast",
+        "snack"
+      ],
+      "answer": "dinner",
+      "tts": "vakarienė"
+    },
+    {
+      "prompt": "",
+      "lt": "skanu",
+      "choices": [
+        "tasty",
+        "bad",
+        "cold",
+        "hot"
+      ],
+      "answer": "tasty",
+      "tts": "skanu"
+    },
+    {
+      "prompt": "",
+      "lt": "alkanas",
+      "choices": [
+        "hungry",
+        "full",
+        "thirsty",
+        "tired"
+      ],
+      "answer": "hungry",
+      "tts": "alkanas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pusryčiai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pietūs"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vakarienė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "skanu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "alkanas"
+    }
+  ]
+}

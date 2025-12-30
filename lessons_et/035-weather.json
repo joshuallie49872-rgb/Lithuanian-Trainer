@@ -1,0 +1,226 @@
+{
+  "id": "035-weather",
+  "title": "Weather & Plans",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "oras",
+      "choices": [
+        "weather",
+        "wind",
+        "rain",
+        "sun"
+      ],
+      "answer": "weather",
+      "tts": {
+        "lang": "et-EE",
+        "text": "oras"
+      },
+      "et": "oras"
+    },
+    {
+      "prompt": "",
+      "lt": "lietus",
+      "choices": [
+        "rain",
+        "snow",
+        "sun",
+        "wind"
+      ],
+      "answer": "rain",
+      "tts": {
+        "lang": "et-EE",
+        "text": "lietus"
+      },
+      "et": "lietus"
+    },
+    {
+      "prompt": "",
+      "lt": "saulė",
+      "choices": [
+        "sun",
+        "rain",
+        "cloud",
+        "wind"
+      ],
+      "answer": "sun",
+      "tts": {
+        "lang": "et-EE",
+        "text": "saulė"
+      },
+      "et": "saulė"
+    },
+    {
+      "prompt": "",
+      "lt": "šalta",
+      "choices": [
+        "cold",
+        "hot",
+        "warm",
+        "cool"
+      ],
+      "answer": "cold",
+      "tts": {
+        "lang": "et-EE",
+        "text": "šalta"
+      },
+      "et": "šalta"
+    },
+    {
+      "prompt": "",
+      "lt": "karšta",
+      "choices": [
+        "hot",
+        "cold",
+        "warm",
+        "cool"
+      ],
+      "answer": "hot",
+      "tts": {
+        "lang": "et-EE",
+        "text": "karšta"
+      },
+      "et": "karšta"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "oras"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "lietus"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "saulė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šalta"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "karšta"
+    },
+    {
+      "prompt": "",
+      "lt": "oras",
+      "choices": [
+        "weather",
+        "wind",
+        "rain",
+        "sun"
+      ],
+      "answer": "weather",
+      "tts": {
+        "lang": "et-EE",
+        "text": "oras"
+      },
+      "et": "oras"
+    },
+    {
+      "prompt": "",
+      "lt": "lietus",
+      "choices": [
+        "rain",
+        "snow",
+        "sun",
+        "wind"
+      ],
+      "answer": "rain",
+      "tts": {
+        "lang": "et-EE",
+        "text": "lietus"
+      },
+      "et": "lietus"
+    },
+    {
+      "prompt": "",
+      "lt": "saulė",
+      "choices": [
+        "sun",
+        "rain",
+        "cloud",
+        "wind"
+      ],
+      "answer": "sun",
+      "tts": {
+        "lang": "et-EE",
+        "text": "saulė"
+      },
+      "et": "saulė"
+    },
+    {
+      "prompt": "",
+      "lt": "šalta",
+      "choices": [
+        "cold",
+        "hot",
+        "warm",
+        "cool"
+      ],
+      "answer": "cold",
+      "tts": {
+        "lang": "et-EE",
+        "text": "šalta"
+      },
+      "et": "šalta"
+    },
+    {
+      "prompt": "",
+      "lt": "karšta",
+      "choices": [
+        "hot",
+        "cold",
+        "warm",
+        "cool"
+      ],
+      "answer": "hot",
+      "tts": {
+        "lang": "et-EE",
+        "text": "karšta"
+      },
+      "et": "karšta"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "oras"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "lietus"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "saulė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šalta"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "karšta"
+    }
+  ]
+}

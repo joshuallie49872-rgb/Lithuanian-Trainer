@@ -1,0 +1,186 @@
+{
+  "id": "020-plans",
+  "title": "Planes y futuro simple",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "šiandien",
+      "choices": [
+        "today",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "answer": "today",
+      "tts": "šiandien"
+    },
+    {
+      "prompt": "",
+      "lt": "rytoj",
+      "choices": [
+        "tomorrow",
+        "today",
+        "later",
+        "yesterday"
+      ],
+      "answer": "tomorrow",
+      "tts": "rytoj"
+    },
+    {
+      "prompt": "",
+      "lt": "vėliau",
+      "choices": [
+        "later",
+        "now",
+        "today",
+        "tomorrow"
+      ],
+      "answer": "later",
+      "tts": "vėliau"
+    },
+    {
+      "prompt": "",
+      "lt": "planuoju",
+      "choices": [
+        "I plan",
+        "I eat",
+        "I go",
+        "I work"
+      ],
+      "answer": "I plan",
+      "tts": "planuoju"
+    },
+    {
+      "prompt": "",
+      "lt": "susitiksime",
+      "choices": [
+        "we will meet",
+        "we eat",
+        "we go",
+        "we sleep"
+      ],
+      "answer": "we will meet",
+      "tts": "susitiksime"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šiandien"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "rytoj"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vėliau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "planuoju"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susitiksime"
+    },
+    {
+      "prompt": "",
+      "lt": "šiandien",
+      "choices": [
+        "today",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "answer": "today",
+      "tts": "šiandien"
+    },
+    {
+      "prompt": "",
+      "lt": "rytoj",
+      "choices": [
+        "tomorrow",
+        "today",
+        "later",
+        "yesterday"
+      ],
+      "answer": "tomorrow",
+      "tts": "rytoj"
+    },
+    {
+      "prompt": "",
+      "lt": "vėliau",
+      "choices": [
+        "later",
+        "now",
+        "today",
+        "tomorrow"
+      ],
+      "answer": "later",
+      "tts": "vėliau"
+    },
+    {
+      "prompt": "",
+      "lt": "planuoju",
+      "choices": [
+        "I plan",
+        "I eat",
+        "I go",
+        "I work"
+      ],
+      "answer": "I plan",
+      "tts": "planuoju"
+    },
+    {
+      "prompt": "",
+      "lt": "susitiksime",
+      "choices": [
+        "we will meet",
+        "we eat",
+        "we go",
+        "we sleep"
+      ],
+      "answer": "we will meet",
+      "tts": "susitiksime"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šiandien"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "rytoj"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vėliau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "planuoju"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susitiksime"
+    }
+  ]
+}

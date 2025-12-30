@@ -1,0 +1,226 @@
+{
+  "id": "019-social",
+  "title": "Social & Polite Talk",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "atsiprašau",
+      "choices": [
+        "sorry",
+        "thanks",
+        "hello",
+        "bye"
+      ],
+      "answer": "sorry",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "atsiprašau"
+      },
+      "ru": "atsiprašau"
+    },
+    {
+      "prompt": "",
+      "lt": "prašau",
+      "choices": [
+        "please",
+        "sorry",
+        "yes",
+        "no"
+      ],
+      "answer": "please",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "пожалуйста"
+      },
+      "ru": "пожалуйста"
+    },
+    {
+      "prompt": "",
+      "lt": "ačiū",
+      "choices": [
+        "thank you",
+        "sorry",
+        "hello",
+        "bye"
+      ],
+      "answer": "thank you",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "спасибо"
+      },
+      "ru": "спасибо"
+    },
+    {
+      "prompt": "",
+      "lt": "malonu",
+      "choices": [
+        "nice",
+        "bad",
+        "late",
+        "slow"
+      ],
+      "answer": "nice",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "malonu"
+      },
+      "ru": "malonu"
+    },
+    {
+      "prompt": "",
+      "lt": "geras",
+      "choices": [
+        "good",
+        "bad",
+        "slow",
+        "fast"
+      ],
+      "answer": "good",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "geras"
+      },
+      "ru": "geras"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "atsiprašau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "prašau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ačiū"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "malonu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "geras"
+    },
+    {
+      "prompt": "",
+      "lt": "atsiprašau",
+      "choices": [
+        "sorry",
+        "thanks",
+        "hello",
+        "bye"
+      ],
+      "answer": "sorry",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "atsiprašau"
+      },
+      "ru": "atsiprašau"
+    },
+    {
+      "prompt": "",
+      "lt": "prašau",
+      "choices": [
+        "please",
+        "sorry",
+        "yes",
+        "no"
+      ],
+      "answer": "please",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "пожалуйста"
+      },
+      "ru": "пожалуйста"
+    },
+    {
+      "prompt": "",
+      "lt": "ačiū",
+      "choices": [
+        "thank you",
+        "sorry",
+        "hello",
+        "bye"
+      ],
+      "answer": "thank you",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "спасибо"
+      },
+      "ru": "спасибо"
+    },
+    {
+      "prompt": "",
+      "lt": "malonu",
+      "choices": [
+        "nice",
+        "bad",
+        "late",
+        "slow"
+      ],
+      "answer": "nice",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "malonu"
+      },
+      "ru": "malonu"
+    },
+    {
+      "prompt": "",
+      "lt": "geras",
+      "choices": [
+        "good",
+        "bad",
+        "slow",
+        "fast"
+      ],
+      "answer": "good",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "geras"
+      },
+      "ru": "geras"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "atsiprašau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "prašau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ačiū"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "malonu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "geras"
+    }
+  ]
+}

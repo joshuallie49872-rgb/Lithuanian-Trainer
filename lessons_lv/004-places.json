@@ -1,0 +1,226 @@
+{
+  "id": "004-places",
+  "title": "Places & Directions",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "čia",
+      "choices": [
+        "here",
+        "there",
+        "near",
+        "far"
+      ],
+      "answer": "here",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "čia"
+      },
+      "lv": "čia"
+    },
+    {
+      "prompt": "",
+      "lt": "ten",
+      "choices": [
+        "here",
+        "there",
+        "left",
+        "right"
+      ],
+      "answer": "there",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "ten"
+      },
+      "lv": "ten"
+    },
+    {
+      "prompt": "",
+      "lt": "kairė",
+      "choices": [
+        "left",
+        "right",
+        "straight",
+        "back"
+      ],
+      "answer": "left",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "kairė"
+      },
+      "lv": "kairė"
+    },
+    {
+      "prompt": "",
+      "lt": "dešinė",
+      "choices": [
+        "left",
+        "right",
+        "forward",
+        "near"
+      ],
+      "answer": "right",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "dešinė"
+      },
+      "lv": "dešinė"
+    },
+    {
+      "prompt": "",
+      "lt": "tiesiai",
+      "choices": [
+        "straight",
+        "back",
+        "left",
+        "right"
+      ],
+      "answer": "straight",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "tiesiai"
+      },
+      "lv": "tiesiai"
+    },
+    {
+      "prompt": "",
+      "lt": "miestas",
+      "choices": [
+        "city",
+        "street",
+        "village",
+        "country"
+      ],
+      "answer": "city",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "miestas"
+      },
+      "lv": "miestas"
+    },
+    {
+      "prompt": "",
+      "lt": "gatvė",
+      "choices": [
+        "street",
+        "house",
+        "place",
+        "square"
+      ],
+      "answer": "street",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "gatvė"
+      },
+      "lv": "gatvė"
+    },
+    {
+      "prompt": "",
+      "lt": "stotis",
+      "choices": [
+        "station",
+        "hotel",
+        "airport",
+        "shop"
+      ],
+      "answer": "station",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "stotis"
+      },
+      "lv": "stotis"
+    },
+    {
+      "prompt": "",
+      "lt": "oro uostas",
+      "choices": [
+        "airport",
+        "station",
+        "bus",
+        "hotel"
+      ],
+      "answer": "airport",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "oro uostas"
+      },
+      "lv": "oro uostas"
+    },
+    {
+      "prompt": "",
+      "lt": "viešbutis",
+      "choices": [
+        "hotel",
+        "hostel",
+        "home",
+        "restaurant"
+      ],
+      "answer": "hotel",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "viešbutis"
+      },
+      "lv": "viešbutis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "čia"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ten"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kairė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "dešinė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "tiesiai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "miestas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "gatvė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "viešbutis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "stotis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "oro uostas"
+    }
+  ]
+}

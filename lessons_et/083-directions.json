@@ -1,0 +1,226 @@
+{
+  "id": "083-directions",
+  "title": "Directions & Movement",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "kairė",
+      "choices": [
+        "left",
+        "right",
+        "straight",
+        "back"
+      ],
+      "answer": "left",
+      "tts": {
+        "lang": "et-EE",
+        "text": "kairė"
+      },
+      "et": "kairė"
+    },
+    {
+      "prompt": "",
+      "lt": "dešinė",
+      "choices": [
+        "right",
+        "left",
+        "straight",
+        "back"
+      ],
+      "answer": "right",
+      "tts": {
+        "lang": "et-EE",
+        "text": "dešinė"
+      },
+      "et": "dešinė"
+    },
+    {
+      "prompt": "",
+      "lt": "tiesiai",
+      "choices": [
+        "straight",
+        "left",
+        "right",
+        "back"
+      ],
+      "answer": "straight",
+      "tts": {
+        "lang": "et-EE",
+        "text": "tiesiai"
+      },
+      "et": "tiesiai"
+    },
+    {
+      "prompt": "",
+      "lt": "atgal",
+      "choices": [
+        "back",
+        "forward",
+        "left",
+        "right"
+      ],
+      "answer": "back",
+      "tts": {
+        "lang": "et-EE",
+        "text": "atgal"
+      },
+      "et": "atgal"
+    },
+    {
+      "prompt": "",
+      "lt": "arti",
+      "choices": [
+        "near",
+        "far",
+        "inside",
+        "outside"
+      ],
+      "answer": "near",
+      "tts": {
+        "lang": "et-EE",
+        "text": "arti"
+      },
+      "et": "arti"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kairė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "dešinė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "tiesiai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "atgal"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "arti"
+    },
+    {
+      "prompt": "",
+      "lt": "kairė",
+      "choices": [
+        "left",
+        "right",
+        "straight",
+        "back"
+      ],
+      "answer": "left",
+      "tts": {
+        "lang": "et-EE",
+        "text": "kairė"
+      },
+      "et": "kairė"
+    },
+    {
+      "prompt": "",
+      "lt": "dešinė",
+      "choices": [
+        "right",
+        "left",
+        "straight",
+        "back"
+      ],
+      "answer": "right",
+      "tts": {
+        "lang": "et-EE",
+        "text": "dešinė"
+      },
+      "et": "dešinė"
+    },
+    {
+      "prompt": "",
+      "lt": "tiesiai",
+      "choices": [
+        "straight",
+        "left",
+        "right",
+        "back"
+      ],
+      "answer": "straight",
+      "tts": {
+        "lang": "et-EE",
+        "text": "tiesiai"
+      },
+      "et": "tiesiai"
+    },
+    {
+      "prompt": "",
+      "lt": "atgal",
+      "choices": [
+        "back",
+        "forward",
+        "left",
+        "right"
+      ],
+      "answer": "back",
+      "tts": {
+        "lang": "et-EE",
+        "text": "atgal"
+      },
+      "et": "atgal"
+    },
+    {
+      "prompt": "",
+      "lt": "arti",
+      "choices": [
+        "near",
+        "far",
+        "inside",
+        "outside"
+      ],
+      "answer": "near",
+      "tts": {
+        "lang": "et-EE",
+        "text": "arti"
+      },
+      "et": "arti"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kairė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "dešinė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "tiesiai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "atgal"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "arti"
+    }
+  ]
+}

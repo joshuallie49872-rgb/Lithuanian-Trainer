@@ -1,0 +1,226 @@
+{
+  "id": "006-food",
+  "title": "Food & Drinks",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "vanduo",
+      "choices": [
+        "water",
+        "wine",
+        "coffee",
+        "beer"
+      ],
+      "answer": "water",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "vanduo"
+      },
+      "ru": "vanduo"
+    },
+    {
+      "prompt": "",
+      "lt": "kava",
+      "choices": [
+        "coffee",
+        "tea",
+        "beer",
+        "milk"
+      ],
+      "answer": "coffee",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "kava"
+      },
+      "ru": "kava"
+    },
+    {
+      "prompt": "",
+      "lt": "arbata",
+      "choices": [
+        "tea",
+        "coffee",
+        "juice",
+        "water"
+      ],
+      "answer": "tea",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "arbata"
+      },
+      "ru": "arbata"
+    },
+    {
+      "prompt": "",
+      "lt": "alus",
+      "choices": [
+        "beer",
+        "wine",
+        "juice",
+        "milk"
+      ],
+      "answer": "beer",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "alus"
+      },
+      "ru": "alus"
+    },
+    {
+      "prompt": "",
+      "lt": "vynas",
+      "choices": [
+        "wine",
+        "beer",
+        "water",
+        "tea"
+      ],
+      "answer": "wine",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "vynas"
+      },
+      "ru": "vynas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vanduo"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kava"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "arbata"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "alus"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vynas"
+    },
+    {
+      "prompt": "",
+      "lt": "duona",
+      "choices": [
+        "bread",
+        "meat",
+        "cheese",
+        "fish"
+      ],
+      "answer": "bread",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "duona"
+      },
+      "ru": "duona"
+    },
+    {
+      "prompt": "",
+      "lt": "sūris",
+      "choices": [
+        "cheese",
+        "meat",
+        "fish",
+        "bread"
+      ],
+      "answer": "cheese",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "sūris"
+      },
+      "ru": "sūris"
+    },
+    {
+      "prompt": "",
+      "lt": "mėsa",
+      "choices": [
+        "meat",
+        "fish",
+        "cheese",
+        "bread"
+      ],
+      "answer": "meat",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "mėsa"
+      },
+      "ru": "mėsa"
+    },
+    {
+      "prompt": "",
+      "lt": "žuvis",
+      "choices": [
+        "fish",
+        "meat",
+        "cheese",
+        "bread"
+      ],
+      "answer": "fish",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "žuvis"
+      },
+      "ru": "žuvis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "duona"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sūris"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "mėsa"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žuvis"
+    },
+    {
+      "prompt": "",
+      "lt": "skanu",
+      "choices": [
+        "tasty",
+        "bad",
+        "hot",
+        "cold"
+      ],
+      "answer": "tasty",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "skanu"
+      },
+      "ru": "skanu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "skanu"
+    }
+  ]
+}

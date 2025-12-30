@@ -1,0 +1,226 @@
+{
+  "id": "020-plans",
+  "title": "Plans & Simple Future",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "šiandien",
+      "choices": [
+        "today",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "answer": "today",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "šiandien"
+      },
+      "pl": "šiandien"
+    },
+    {
+      "prompt": "",
+      "lt": "rytoj",
+      "choices": [
+        "tomorrow",
+        "today",
+        "later",
+        "yesterday"
+      ],
+      "answer": "tomorrow",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "rytoj"
+      },
+      "pl": "rytoj"
+    },
+    {
+      "prompt": "",
+      "lt": "vėliau",
+      "choices": [
+        "later",
+        "now",
+        "today",
+        "tomorrow"
+      ],
+      "answer": "later",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "vėliau"
+      },
+      "pl": "vėliau"
+    },
+    {
+      "prompt": "",
+      "lt": "planuoju",
+      "choices": [
+        "I plan",
+        "I eat",
+        "I go",
+        "I work"
+      ],
+      "answer": "I plan",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "planuoju"
+      },
+      "pl": "planuoju"
+    },
+    {
+      "prompt": "",
+      "lt": "susitiksime",
+      "choices": [
+        "we will meet",
+        "we eat",
+        "we go",
+        "we sleep"
+      ],
+      "answer": "we will meet",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "susitiksime"
+      },
+      "pl": "susitiksime"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šiandien"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "rytoj"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vėliau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "planuoju"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susitiksime"
+    },
+    {
+      "prompt": "",
+      "lt": "šiandien",
+      "choices": [
+        "today",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "answer": "today",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "šiandien"
+      },
+      "pl": "šiandien"
+    },
+    {
+      "prompt": "",
+      "lt": "rytoj",
+      "choices": [
+        "tomorrow",
+        "today",
+        "later",
+        "yesterday"
+      ],
+      "answer": "tomorrow",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "rytoj"
+      },
+      "pl": "rytoj"
+    },
+    {
+      "prompt": "",
+      "lt": "vėliau",
+      "choices": [
+        "later",
+        "now",
+        "today",
+        "tomorrow"
+      ],
+      "answer": "later",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "vėliau"
+      },
+      "pl": "vėliau"
+    },
+    {
+      "prompt": "",
+      "lt": "planuoju",
+      "choices": [
+        "I plan",
+        "I eat",
+        "I go",
+        "I work"
+      ],
+      "answer": "I plan",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "planuoju"
+      },
+      "pl": "planuoju"
+    },
+    {
+      "prompt": "",
+      "lt": "susitiksime",
+      "choices": [
+        "we will meet",
+        "we eat",
+        "we go",
+        "we sleep"
+      ],
+      "answer": "we will meet",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "susitiksime"
+      },
+      "pl": "susitiksime"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šiandien"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "rytoj"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vėliau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "planuoju"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susitiksime"
+    }
+  ]
+}

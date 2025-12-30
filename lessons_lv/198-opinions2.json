@@ -1,0 +1,226 @@
+{
+  "id": "198-opinions2",
+  "title": "Opinions & Discussion",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "manau",
+      "choices": [
+        "I think",
+        "I know",
+        "I see",
+        "I feel"
+      ],
+      "answer": "I think",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "manau"
+      },
+      "lv": "manau"
+    },
+    {
+      "prompt": "",
+      "lt": "sutinku",
+      "choices": [
+        "I agree",
+        "I disagree",
+        "I leave",
+        "I wait"
+      ],
+      "answer": "I agree",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "sutinku"
+      },
+      "lv": "sutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "nesutinku",
+      "choices": [
+        "I disagree",
+        "I agree",
+        "I think",
+        "I know"
+      ],
+      "answer": "I disagree",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "nesutinku"
+      },
+      "lv": "nesutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "nuomonė",
+      "choices": [
+        "opinion",
+        "idea",
+        "plan",
+        "problem"
+      ],
+      "answer": "opinion",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "nuomonė"
+      },
+      "lv": "nuomonė"
+    },
+    {
+      "prompt": "",
+      "lt": "argumentas",
+      "choices": [
+        "argument",
+        "story",
+        "example",
+        "reason"
+      ],
+      "answer": "argument",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "argumentas"
+      },
+      "lv": "argumentas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "manau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nesutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuomonė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "argumentas"
+    },
+    {
+      "prompt": "",
+      "lt": "manau",
+      "choices": [
+        "I think",
+        "I know",
+        "I see",
+        "I feel"
+      ],
+      "answer": "I think",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "manau"
+      },
+      "lv": "manau"
+    },
+    {
+      "prompt": "",
+      "lt": "sutinku",
+      "choices": [
+        "I agree",
+        "I disagree",
+        "I leave",
+        "I wait"
+      ],
+      "answer": "I agree",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "sutinku"
+      },
+      "lv": "sutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "nesutinku",
+      "choices": [
+        "I disagree",
+        "I agree",
+        "I think",
+        "I know"
+      ],
+      "answer": "I disagree",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "nesutinku"
+      },
+      "lv": "nesutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "nuomonė",
+      "choices": [
+        "opinion",
+        "idea",
+        "plan",
+        "problem"
+      ],
+      "answer": "opinion",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "nuomonė"
+      },
+      "lv": "nuomonė"
+    },
+    {
+      "prompt": "",
+      "lt": "argumentas",
+      "choices": [
+        "argument",
+        "story",
+        "example",
+        "reason"
+      ],
+      "answer": "argument",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "argumentas"
+      },
+      "lv": "argumentas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "manau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nesutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuomonė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "argumentas"
+    }
+  ]
+}

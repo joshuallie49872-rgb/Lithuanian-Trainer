@@ -1,0 +1,226 @@
+{
+  "id": "026-travel",
+  "title": "Travel & Transport",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "autobusas",
+      "choices": [
+        "bus",
+        "train",
+        "car",
+        "plane"
+      ],
+      "answer": "bus",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "autobusas"
+      },
+      "ru": "autobusas"
+    },
+    {
+      "prompt": "",
+      "lt": "traukinys",
+      "choices": [
+        "train",
+        "bus",
+        "plane",
+        "taxi"
+      ],
+      "answer": "train",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "traukinys"
+      },
+      "ru": "traukinys"
+    },
+    {
+      "prompt": "",
+      "lt": "bilietas",
+      "choices": [
+        "ticket",
+        "passport",
+        "hotel",
+        "map"
+      ],
+      "answer": "ticket",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "bilietas"
+      },
+      "ru": "bilietas"
+    },
+    {
+      "prompt": "",
+      "lt": "taksi",
+      "choices": [
+        "taxi",
+        "bus",
+        "train",
+        "bike"
+      ],
+      "answer": "taxi",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "taksi"
+      },
+      "ru": "taksi"
+    },
+    {
+      "prompt": "",
+      "lt": "kelionė",
+      "choices": [
+        "trip",
+        "hotel",
+        "food",
+        "street"
+      ],
+      "answer": "trip",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "kelionė"
+      },
+      "ru": "kelionė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "autobusas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "traukinys"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "bilietas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "taksi"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kelionė"
+    },
+    {
+      "prompt": "",
+      "lt": "autobusas",
+      "choices": [
+        "bus",
+        "train",
+        "car",
+        "plane"
+      ],
+      "answer": "bus",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "autobusas"
+      },
+      "ru": "autobusas"
+    },
+    {
+      "prompt": "",
+      "lt": "traukinys",
+      "choices": [
+        "train",
+        "bus",
+        "plane",
+        "taxi"
+      ],
+      "answer": "train",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "traukinys"
+      },
+      "ru": "traukinys"
+    },
+    {
+      "prompt": "",
+      "lt": "bilietas",
+      "choices": [
+        "ticket",
+        "passport",
+        "hotel",
+        "map"
+      ],
+      "answer": "ticket",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "bilietas"
+      },
+      "ru": "bilietas"
+    },
+    {
+      "prompt": "",
+      "lt": "taksi",
+      "choices": [
+        "taxi",
+        "bus",
+        "train",
+        "bike"
+      ],
+      "answer": "taxi",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "taksi"
+      },
+      "ru": "taksi"
+    },
+    {
+      "prompt": "",
+      "lt": "kelionė",
+      "choices": [
+        "trip",
+        "hotel",
+        "food",
+        "street"
+      ],
+      "answer": "trip",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "kelionė"
+      },
+      "ru": "kelionė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "autobusas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "traukinys"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "bilietas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "taksi"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kelionė"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "id": "001-basics",
+  "title": "Básicos 1",
+  "questions": [
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "labas",
+      "choices": [
+        "hello",
+        "thank you",
+        "yes",
+        "no"
+      ],
+      "answer": "hello",
+      "tts": "labas"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "ačiū",
+      "choices": [
+        "sorry",
+        "thank you",
+        "please",
+        "hello"
+      ],
+      "answer": "thank you",
+      "tts": "ačiū"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "taip",
+      "choices": [
+        "yes",
+        "no",
+        "goodbye",
+        "please"
+      ],
+      "answer": "yes",
+      "tts": "taip"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "ne",
+      "choices": [
+        "yes",
+        "no",
+        "thanks",
+        "hi"
+      ],
+      "answer": "no",
+      "tts": "ne"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "prašau",
+      "choices": [
+        "please / you're welcome",
+        "goodbye",
+        "sorry",
+        "hello"
+      ],
+      "answer": "please / you're welcome",
+      "tts": "prašau"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "atsiprašau",
+      "choices": [
+        "excuse me / sorry",
+        "please",
+        "thanks",
+        "yes"
+      ],
+      "answer": "excuse me / sorry",
+      "tts": "atsiprašau"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "viso gero",
+      "choices": [
+        "goodbye",
+        "good morning",
+        "good night",
+        "see you"
+      ],
+      "answer": "goodbye",
+      "tts": "viso gero"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "iki",
+      "choices": [
+        "see you",
+        "hello",
+        "thanks",
+        "no"
+      ],
+      "answer": "see you",
+      "tts": "iki"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "gerai",
+      "choices": [
+        "okay / good",
+        "bad",
+        "please",
+        "tomorrow"
+      ],
+      "answer": "okay / good",
+      "tts": "gerai"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "blogai",
+      "choices": [
+        "badly",
+        "well",
+        "hello",
+        "thanks"
+      ],
+      "answer": "badly",
+      "tts": "blogai"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "labas"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "ačiū"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "taip"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "ne"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "prašau"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "atsiprašau"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "viso gero"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "iki"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "gerai"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "blogai"
+    }
+  ]
+}

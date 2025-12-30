@@ -1,0 +1,226 @@
+{
+  "id": "080-opinions",
+  "title": "Opinions & Preferences",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "man patinka",
+      "choices": [
+        "I like",
+        "I want",
+        "I need",
+        "I go"
+      ],
+      "answer": "I like",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "man patinka"
+      },
+      "ru": "man patinka"
+    },
+    {
+      "prompt": "",
+      "lt": "nepatinka",
+      "choices": [
+        "I don't like",
+        "I like",
+        "I want",
+        "I need"
+      ],
+      "answer": "I don't like",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "nepatinka"
+      },
+      "ru": "nepatinka"
+    },
+    {
+      "prompt": "",
+      "lt": "mėgstu",
+      "choices": [
+        "I enjoy",
+        "I hate",
+        "I go",
+        "I eat"
+      ],
+      "answer": "I enjoy",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "mėgstu"
+      },
+      "ru": "mėgstu"
+    },
+    {
+      "prompt": "",
+      "lt": "nenoriu",
+      "choices": [
+        "I don't want",
+        "I want",
+        "I like",
+        "I need"
+      ],
+      "answer": "I don't want",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "nenoriu"
+      },
+      "ru": "nenoriu"
+    },
+    {
+      "prompt": "",
+      "lt": "svarbu",
+      "choices": [
+        "important",
+        "cheap",
+        "easy",
+        "fast"
+      ],
+      "answer": "important",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "svarbu"
+      },
+      "ru": "svarbu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "man patinka"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nepatinka"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "mėgstu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nenoriu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "svarbu"
+    },
+    {
+      "prompt": "",
+      "lt": "man patinka",
+      "choices": [
+        "I like",
+        "I want",
+        "I need",
+        "I go"
+      ],
+      "answer": "I like",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "man patinka"
+      },
+      "ru": "man patinka"
+    },
+    {
+      "prompt": "",
+      "lt": "nepatinka",
+      "choices": [
+        "I don't like",
+        "I like",
+        "I want",
+        "I need"
+      ],
+      "answer": "I don't like",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "nepatinka"
+      },
+      "ru": "nepatinka"
+    },
+    {
+      "prompt": "",
+      "lt": "mėgstu",
+      "choices": [
+        "I enjoy",
+        "I hate",
+        "I go",
+        "I eat"
+      ],
+      "answer": "I enjoy",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "mėgstu"
+      },
+      "ru": "mėgstu"
+    },
+    {
+      "prompt": "",
+      "lt": "nenoriu",
+      "choices": [
+        "I don't want",
+        "I want",
+        "I like",
+        "I need"
+      ],
+      "answer": "I don't want",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "nenoriu"
+      },
+      "ru": "nenoriu"
+    },
+    {
+      "prompt": "",
+      "lt": "svarbu",
+      "choices": [
+        "important",
+        "cheap",
+        "easy",
+        "fast"
+      ],
+      "answer": "important",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "svarbu"
+      },
+      "ru": "svarbu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "man patinka"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nepatinka"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "mėgstu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nenoriu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "svarbu"
+    }
+  ]
+}

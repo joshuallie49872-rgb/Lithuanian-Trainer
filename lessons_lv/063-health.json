@@ -1,0 +1,226 @@
+{
+  "id": "063-health",
+  "title": "Health & Body",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "skausmas",
+      "choices": [
+        "pain",
+        "health",
+        "body",
+        "head"
+      ],
+      "answer": "pain",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "skausmas"
+      },
+      "lv": "skausmas"
+    },
+    {
+      "prompt": "",
+      "lt": "galva",
+      "choices": [
+        "head",
+        "arm",
+        "leg",
+        "hand"
+      ],
+      "answer": "head",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "galva"
+      },
+      "lv": "galva"
+    },
+    {
+      "prompt": "",
+      "lt": "ranką",
+      "choices": [
+        "hand",
+        "leg",
+        "foot",
+        "head"
+      ],
+      "answer": "hand",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "ranką"
+      },
+      "lv": "ranką"
+    },
+    {
+      "prompt": "",
+      "lt": "koja",
+      "choices": [
+        "leg",
+        "arm",
+        "hand",
+        "head"
+      ],
+      "answer": "leg",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "koja"
+      },
+      "lv": "koja"
+    },
+    {
+      "prompt": "",
+      "lt": "gydytojas",
+      "choices": [
+        "doctor",
+        "nurse",
+        "police",
+        "teacher"
+      ],
+      "answer": "doctor",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "gydytojas"
+      },
+      "lv": "gydytojas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "skausmas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "galva"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ranka"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "koja"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "gydytojas"
+    },
+    {
+      "prompt": "",
+      "lt": "skausmas",
+      "choices": [
+        "pain",
+        "health",
+        "body",
+        "head"
+      ],
+      "answer": "pain",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "skausmas"
+      },
+      "lv": "skausmas"
+    },
+    {
+      "prompt": "",
+      "lt": "galva",
+      "choices": [
+        "head",
+        "arm",
+        "leg",
+        "hand"
+      ],
+      "answer": "head",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "galva"
+      },
+      "lv": "galva"
+    },
+    {
+      "prompt": "",
+      "lt": "ranką",
+      "choices": [
+        "hand",
+        "leg",
+        "foot",
+        "head"
+      ],
+      "answer": "hand",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "ranką"
+      },
+      "lv": "ranką"
+    },
+    {
+      "prompt": "",
+      "lt": "koja",
+      "choices": [
+        "leg",
+        "arm",
+        "hand",
+        "head"
+      ],
+      "answer": "leg",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "koja"
+      },
+      "lv": "koja"
+    },
+    {
+      "prompt": "",
+      "lt": "gydytojas",
+      "choices": [
+        "doctor",
+        "nurse",
+        "police",
+        "teacher"
+      ],
+      "answer": "doctor",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "gydytojas"
+      },
+      "lv": "gydytojas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "skausmas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "galva"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ranka"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "koja"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "gydytojas"
+    }
+  ]
+}

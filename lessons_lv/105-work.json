@@ -1,0 +1,226 @@
+{
+  "id": "105-work",
+  "title": "Work & Office",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "darbas",
+      "choices": [
+        "work",
+        "office",
+        "job",
+        "money"
+      ],
+      "answer": "work",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "darbas"
+      },
+      "lv": "darbas"
+    },
+    {
+      "prompt": "",
+      "lt": "biuras",
+      "choices": [
+        "office",
+        "school",
+        "shop",
+        "hotel"
+      ],
+      "answer": "office",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "biuras"
+      },
+      "lv": "biuras"
+    },
+    {
+      "prompt": "",
+      "lt": "susitikimas",
+      "choices": [
+        "meeting",
+        "party",
+        "call",
+        "break"
+      ],
+      "answer": "meeting",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "susitikimas"
+      },
+      "lv": "susitikimas"
+    },
+    {
+      "prompt": "",
+      "lt": "el. paštas",
+      "choices": [
+        "email",
+        "phone",
+        "letter",
+        "message"
+      ],
+      "answer": "email",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "el. paštas"
+      },
+      "lv": "el. paštas"
+    },
+    {
+      "prompt": "",
+      "lt": "projektas",
+      "choices": [
+        "project",
+        "problem",
+        "plan",
+        "report"
+      ],
+      "answer": "project",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "projektas"
+      },
+      "lv": "projektas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "darbas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "biuras"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susitikimas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "el. paštas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "projektas"
+    },
+    {
+      "prompt": "",
+      "lt": "darbas",
+      "choices": [
+        "work",
+        "office",
+        "job",
+        "money"
+      ],
+      "answer": "work",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "darbas"
+      },
+      "lv": "darbas"
+    },
+    {
+      "prompt": "",
+      "lt": "biuras",
+      "choices": [
+        "office",
+        "school",
+        "shop",
+        "hotel"
+      ],
+      "answer": "office",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "biuras"
+      },
+      "lv": "biuras"
+    },
+    {
+      "prompt": "",
+      "lt": "susitikimas",
+      "choices": [
+        "meeting",
+        "party",
+        "call",
+        "break"
+      ],
+      "answer": "meeting",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "susitikimas"
+      },
+      "lv": "susitikimas"
+    },
+    {
+      "prompt": "",
+      "lt": "el. paštas",
+      "choices": [
+        "email",
+        "phone",
+        "letter",
+        "message"
+      ],
+      "answer": "email",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "el. paštas"
+      },
+      "lv": "el. paštas"
+    },
+    {
+      "prompt": "",
+      "lt": "projektas",
+      "choices": [
+        "project",
+        "problem",
+        "plan",
+        "report"
+      ],
+      "answer": "project",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "projektas"
+      },
+      "lv": "projektas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "darbas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "biuras"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susitikimas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "el. paštas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "projektas"
+    }
+  ]
+}

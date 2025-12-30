@@ -1,0 +1,226 @@
+{
+  "id": "172-culture2",
+  "title": "Culture, Media & Society",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "žiniasklaida",
+      "choices": [
+        "media",
+        "news",
+        "culture",
+        "society"
+      ],
+      "answer": "media",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "žiniasklaida"
+      },
+      "lv": "žiniasklaida"
+    },
+    {
+      "prompt": "",
+      "lt": "visuomenė",
+      "choices": [
+        "society",
+        "people",
+        "media",
+        "group"
+      ],
+      "answer": "society",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "visuomenė"
+      },
+      "lv": "visuomenė"
+    },
+    {
+      "prompt": "",
+      "lt": "nuomonės",
+      "choices": [
+        "opinions",
+        "facts",
+        "stories",
+        "rules"
+      ],
+      "answer": "opinions",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "nuomonės"
+      },
+      "lv": "nuomonės"
+    },
+    {
+      "prompt": "",
+      "lt": "diskusija",
+      "choices": [
+        "discussion",
+        "argument",
+        "meeting",
+        "speech"
+      ],
+      "answer": "discussion",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "diskusija"
+      },
+      "lv": "diskusija"
+    },
+    {
+      "prompt": "",
+      "lt": "kultūra",
+      "choices": [
+        "culture",
+        "tradition",
+        "habit",
+        "event"
+      ],
+      "answer": "culture",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "kultūra"
+      },
+      "lv": "kultūra"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žiniasklaida"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "visuomenė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuomonės"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "diskusija"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kultūra"
+    },
+    {
+      "prompt": "",
+      "lt": "žiniasklaida",
+      "choices": [
+        "media",
+        "news",
+        "culture",
+        "society"
+      ],
+      "answer": "media",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "žiniasklaida"
+      },
+      "lv": "žiniasklaida"
+    },
+    {
+      "prompt": "",
+      "lt": "visuomenė",
+      "choices": [
+        "society",
+        "people",
+        "media",
+        "group"
+      ],
+      "answer": "society",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "visuomenė"
+      },
+      "lv": "visuomenė"
+    },
+    {
+      "prompt": "",
+      "lt": "nuomonės",
+      "choices": [
+        "opinions",
+        "facts",
+        "stories",
+        "rules"
+      ],
+      "answer": "opinions",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "nuomonės"
+      },
+      "lv": "nuomonės"
+    },
+    {
+      "prompt": "",
+      "lt": "diskusija",
+      "choices": [
+        "discussion",
+        "argument",
+        "meeting",
+        "speech"
+      ],
+      "answer": "discussion",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "diskusija"
+      },
+      "lv": "diskusija"
+    },
+    {
+      "prompt": "",
+      "lt": "kultūra",
+      "choices": [
+        "culture",
+        "tradition",
+        "habit",
+        "event"
+      ],
+      "answer": "culture",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "kultūra"
+      },
+      "lv": "kultūra"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žiniasklaida"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "visuomenė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuomonės"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "diskusija"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kultūra"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "id": "127-feelings2",
+  "title": "Feelings & Reactions",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "nustebęs",
+      "choices": [
+        "surprised",
+        "angry",
+        "happy",
+        "sad"
+      ],
+      "answer": "surprised",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "nustebęs"
+      },
+      "lv": "nustebęs"
+    },
+    {
+      "prompt": "",
+      "lt": "piktas",
+      "choices": [
+        "angry",
+        "happy",
+        "sad",
+        "tired"
+      ],
+      "answer": "angry",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "piktas"
+      },
+      "lv": "piktas"
+    },
+    {
+      "prompt": "",
+      "lt": "ramus",
+      "choices": [
+        "calm",
+        "angry",
+        "sad",
+        "busy"
+      ],
+      "answer": "calm",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "ramus"
+      },
+      "lv": "ramus"
+    },
+    {
+      "prompt": "",
+      "lt": "susirūpinęs",
+      "choices": [
+        "worried",
+        "happy",
+        "calm",
+        "excited"
+      ],
+      "answer": "worried",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "susirūpinęs"
+      },
+      "lv": "susirūpinęs"
+    },
+    {
+      "prompt": "",
+      "lt": "patenkintas",
+      "choices": [
+        "satisfied",
+        "angry",
+        "sad",
+        "tired"
+      ],
+      "answer": "satisfied",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "patenkintas"
+      },
+      "lv": "patenkintas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nustebęs"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "piktas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ramus"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susirūpinęs"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "patenkintas"
+    },
+    {
+      "prompt": "",
+      "lt": "nustebęs",
+      "choices": [
+        "surprised",
+        "angry",
+        "happy",
+        "sad"
+      ],
+      "answer": "surprised",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "nustebęs"
+      },
+      "lv": "nustebęs"
+    },
+    {
+      "prompt": "",
+      "lt": "piktas",
+      "choices": [
+        "angry",
+        "happy",
+        "sad",
+        "tired"
+      ],
+      "answer": "angry",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "piktas"
+      },
+      "lv": "piktas"
+    },
+    {
+      "prompt": "",
+      "lt": "ramus",
+      "choices": [
+        "calm",
+        "angry",
+        "sad",
+        "busy"
+      ],
+      "answer": "calm",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "ramus"
+      },
+      "lv": "ramus"
+    },
+    {
+      "prompt": "",
+      "lt": "susirūpinęs",
+      "choices": [
+        "worried",
+        "happy",
+        "calm",
+        "excited"
+      ],
+      "answer": "worried",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "susirūpinęs"
+      },
+      "lv": "susirūpinęs"
+    },
+    {
+      "prompt": "",
+      "lt": "patenkintas",
+      "choices": [
+        "satisfied",
+        "angry",
+        "sad",
+        "tired"
+      ],
+      "answer": "satisfied",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "patenkintas"
+      },
+      "lv": "patenkintas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nustebęs"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "piktas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ramus"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susirūpinęs"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "patenkintas"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "id": "088-tech",
+  "title": "Technology & Media",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "telefonas",
+      "choices": [
+        "phone",
+        "computer",
+        "tablet",
+        "tv"
+      ],
+      "answer": "phone",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "telefonas"
+      },
+      "ru": "telefonas"
+    },
+    {
+      "prompt": "",
+      "lt": "kompiuteris",
+      "choices": [
+        "computer",
+        "phone",
+        "tablet",
+        "tv"
+      ],
+      "answer": "computer",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "kompiuteris"
+      },
+      "ru": "kompiuteris"
+    },
+    {
+      "prompt": "",
+      "lt": "internetas",
+      "choices": [
+        "internet",
+        "network",
+        "wifi",
+        "signal"
+      ],
+      "answer": "internet",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "internetas"
+      },
+      "ru": "internetas"
+    },
+    {
+      "prompt": "",
+      "lt": "programa",
+      "choices": [
+        "app",
+        "game",
+        "device",
+        "file"
+      ],
+      "answer": "app",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "programa"
+      },
+      "ru": "programa"
+    },
+    {
+      "prompt": "",
+      "lt": "žinutė",
+      "choices": [
+        "message",
+        "call",
+        "email",
+        "letter"
+      ],
+      "answer": "message",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "žinutė"
+      },
+      "ru": "žinutė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "telefonas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kompiuteris"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "internetas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "programa"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žinutė"
+    },
+    {
+      "prompt": "",
+      "lt": "telefonas",
+      "choices": [
+        "phone",
+        "computer",
+        "tablet",
+        "tv"
+      ],
+      "answer": "phone",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "telefonas"
+      },
+      "ru": "telefonas"
+    },
+    {
+      "prompt": "",
+      "lt": "kompiuteris",
+      "choices": [
+        "computer",
+        "phone",
+        "tablet",
+        "tv"
+      ],
+      "answer": "computer",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "kompiuteris"
+      },
+      "ru": "kompiuteris"
+    },
+    {
+      "prompt": "",
+      "lt": "internetas",
+      "choices": [
+        "internet",
+        "network",
+        "wifi",
+        "signal"
+      ],
+      "answer": "internet",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "internetas"
+      },
+      "ru": "internetas"
+    },
+    {
+      "prompt": "",
+      "lt": "programa",
+      "choices": [
+        "app",
+        "game",
+        "device",
+        "file"
+      ],
+      "answer": "app",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "programa"
+      },
+      "ru": "programa"
+    },
+    {
+      "prompt": "",
+      "lt": "žinutė",
+      "choices": [
+        "message",
+        "call",
+        "email",
+        "letter"
+      ],
+      "answer": "message",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "žinutė"
+      },
+      "ru": "žinutė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "telefonas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kompiuteris"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "internetas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "programa"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žinutė"
+    }
+  ]
+}

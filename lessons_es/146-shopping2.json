@@ -1,0 +1,186 @@
+{
+  "id": "146-shopping2",
+  "title": "Compras y servicios",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "brangu",
+      "choices": [
+        "expensive",
+        "cheap",
+        "free",
+        "fast"
+      ],
+      "answer": "expensive",
+      "tts": "brangu"
+    },
+    {
+      "prompt": "",
+      "lt": "pigu",
+      "choices": [
+        "cheap",
+        "expensive",
+        "slow",
+        "bad"
+      ],
+      "answer": "cheap",
+      "tts": "pigu"
+    },
+    {
+      "prompt": "",
+      "lt": "nuolaida",
+      "choices": [
+        "discount",
+        "price",
+        "money",
+        "tax"
+      ],
+      "answer": "discount",
+      "tts": "nuolaida"
+    },
+    {
+      "prompt": "",
+      "lt": "kasininkas",
+      "choices": [
+        "cashier",
+        "buyer",
+        "seller",
+        "manager"
+      ],
+      "answer": "cashier",
+      "tts": "kasininkas"
+    },
+    {
+      "prompt": "",
+      "lt": "čekis",
+      "choices": [
+        "receipt",
+        "bill",
+        "menu",
+        "card"
+      ],
+      "answer": "receipt",
+      "tts": "čekis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "brangu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pigu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuolaida"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kasininkas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "čekis"
+    },
+    {
+      "prompt": "",
+      "lt": "brangu",
+      "choices": [
+        "expensive",
+        "cheap",
+        "free",
+        "fast"
+      ],
+      "answer": "expensive",
+      "tts": "brangu"
+    },
+    {
+      "prompt": "",
+      "lt": "pigu",
+      "choices": [
+        "cheap",
+        "expensive",
+        "slow",
+        "bad"
+      ],
+      "answer": "cheap",
+      "tts": "pigu"
+    },
+    {
+      "prompt": "",
+      "lt": "nuolaida",
+      "choices": [
+        "discount",
+        "price",
+        "money",
+        "tax"
+      ],
+      "answer": "discount",
+      "tts": "nuolaida"
+    },
+    {
+      "prompt": "",
+      "lt": "kasininkas",
+      "choices": [
+        "cashier",
+        "buyer",
+        "seller",
+        "manager"
+      ],
+      "answer": "cashier",
+      "tts": "kasininkas"
+    },
+    {
+      "prompt": "",
+      "lt": "čekis",
+      "choices": [
+        "receipt",
+        "bill",
+        "menu",
+        "card"
+      ],
+      "answer": "receipt",
+      "tts": "čekis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "brangu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pigu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuolaida"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kasininkas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "čekis"
+    }
+  ]
+}

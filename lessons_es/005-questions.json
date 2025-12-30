@@ -1,0 +1,186 @@
+{
+  "id": "005-questions",
+  "title": "Preguntas y respuestas",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "kas",
+      "choices": [
+        "who",
+        "what",
+        "where",
+        "when"
+      ],
+      "answer": "who",
+      "tts": "kas"
+    },
+    {
+      "prompt": "",
+      "lt": "ką",
+      "choices": [
+        "what",
+        "who",
+        "where",
+        "why"
+      ],
+      "answer": "what",
+      "tts": "ką"
+    },
+    {
+      "prompt": "",
+      "lt": "kur",
+      "choices": [
+        "where",
+        "when",
+        "how",
+        "who"
+      ],
+      "answer": "where",
+      "tts": "kur"
+    },
+    {
+      "prompt": "",
+      "lt": "kada",
+      "choices": [
+        "when",
+        "where",
+        "why",
+        "how"
+      ],
+      "answer": "when",
+      "tts": "kada"
+    },
+    {
+      "prompt": "",
+      "lt": "kodėl",
+      "choices": [
+        "why",
+        "when",
+        "where",
+        "who"
+      ],
+      "answer": "why",
+      "tts": "kodėl"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ką"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kur"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kada"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kodėl"
+    },
+    {
+      "prompt": "",
+      "lt": "taip",
+      "choices": [
+        "yes",
+        "no",
+        "maybe",
+        "later"
+      ],
+      "answer": "yes",
+      "tts": "taip"
+    },
+    {
+      "prompt": "",
+      "lt": "ne",
+      "choices": [
+        "no",
+        "yes",
+        "later",
+        "always"
+      ],
+      "answer": "no",
+      "tts": "ne"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "taip"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ne"
+    },
+    {
+      "prompt": "",
+      "lt": "gerai",
+      "choices": [
+        "okay",
+        "bad",
+        "no",
+        "later"
+      ],
+      "answer": "okay",
+      "tts": "gerai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "gerai"
+    },
+    {
+      "prompt": "",
+      "lt": "blogai",
+      "choices": [
+        "badly",
+        "well",
+        "good",
+        "okay"
+      ],
+      "answer": "badly",
+      "tts": "blogai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "blogai"
+    },
+    {
+      "prompt": "",
+      "lt": "kaip",
+      "choices": [
+        "how",
+        "why",
+        "when",
+        "where"
+      ],
+      "answer": "how",
+      "tts": "kaip"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kaip"
+    }
+  ]
+}

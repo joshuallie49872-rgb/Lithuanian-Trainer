@@ -1,0 +1,226 @@
+{
+  "id": "122-shopping2",
+  "title": "Shopping & Services",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "brangu",
+      "choices": [
+        "expensive",
+        "cheap",
+        "free",
+        "fast"
+      ],
+      "answer": "expensive",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "brangu"
+      },
+      "pl": "brangu"
+    },
+    {
+      "prompt": "",
+      "lt": "pigu",
+      "choices": [
+        "cheap",
+        "expensive",
+        "slow",
+        "bad"
+      ],
+      "answer": "cheap",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "pigu"
+      },
+      "pl": "pigu"
+    },
+    {
+      "prompt": "",
+      "lt": "nuolaida",
+      "choices": [
+        "discount",
+        "price",
+        "money",
+        "tax"
+      ],
+      "answer": "discount",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "nuolaida"
+      },
+      "pl": "nuolaida"
+    },
+    {
+      "prompt": "",
+      "lt": "kasininkas",
+      "choices": [
+        "cashier",
+        "buyer",
+        "seller",
+        "manager"
+      ],
+      "answer": "cashier",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "kasininkas"
+      },
+      "pl": "kasininkas"
+    },
+    {
+      "prompt": "",
+      "lt": "čekis",
+      "choices": [
+        "receipt",
+        "bill",
+        "menu",
+        "card"
+      ],
+      "answer": "receipt",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "čekis"
+      },
+      "pl": "čekis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "brangu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pigu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuolaida"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kasininkas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "čekis"
+    },
+    {
+      "prompt": "",
+      "lt": "brangu",
+      "choices": [
+        "expensive",
+        "cheap",
+        "free",
+        "fast"
+      ],
+      "answer": "expensive",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "brangu"
+      },
+      "pl": "brangu"
+    },
+    {
+      "prompt": "",
+      "lt": "pigu",
+      "choices": [
+        "cheap",
+        "expensive",
+        "slow",
+        "bad"
+      ],
+      "answer": "cheap",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "pigu"
+      },
+      "pl": "pigu"
+    },
+    {
+      "prompt": "",
+      "lt": "nuolaida",
+      "choices": [
+        "discount",
+        "price",
+        "money",
+        "tax"
+      ],
+      "answer": "discount",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "nuolaida"
+      },
+      "pl": "nuolaida"
+    },
+    {
+      "prompt": "",
+      "lt": "kasininkas",
+      "choices": [
+        "cashier",
+        "buyer",
+        "seller",
+        "manager"
+      ],
+      "answer": "cashier",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "kasininkas"
+      },
+      "pl": "kasininkas"
+    },
+    {
+      "prompt": "",
+      "lt": "čekis",
+      "choices": [
+        "receipt",
+        "bill",
+        "menu",
+        "card"
+      ],
+      "answer": "receipt",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "čekis"
+      },
+      "pl": "čekis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "brangu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pigu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuolaida"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kasininkas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "čekis"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "id": "024-social",
+  "title": "Charla social y pequeña",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "draugas",
+      "choices": [
+        "friend",
+        "family",
+        "colleague",
+        "stranger"
+      ],
+      "answer": "friend",
+      "tts": "draugas"
+    },
+    {
+      "prompt": "",
+      "lt": "šeima",
+      "choices": [
+        "family",
+        "friend",
+        "child",
+        "parent"
+      ],
+      "answer": "family",
+      "tts": "šeima"
+    },
+    {
+      "prompt": "",
+      "lt": "vardas",
+      "choices": [
+        "name",
+        "address",
+        "number",
+        "city"
+      ],
+      "answer": "name",
+      "tts": "vardas"
+    },
+    {
+      "prompt": "",
+      "lt": "malonu",
+      "choices": [
+        "nice",
+        "sorry",
+        "thanks",
+        "okay"
+      ],
+      "answer": "nice",
+      "tts": "malonu"
+    },
+    {
+      "prompt": "",
+      "lt": "susitikti",
+      "choices": [
+        "to meet",
+        "to leave",
+        "to go",
+        "to eat"
+      ],
+      "answer": "to meet",
+      "tts": "susitikti"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "draugas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šeima"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vardas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "malonu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susitikti"
+    },
+    {
+      "prompt": "",
+      "lt": "draugas",
+      "choices": [
+        "friend",
+        "family",
+        "colleague",
+        "stranger"
+      ],
+      "answer": "friend",
+      "tts": "draugas"
+    },
+    {
+      "prompt": "",
+      "lt": "šeima",
+      "choices": [
+        "family",
+        "friend",
+        "child",
+        "parent"
+      ],
+      "answer": "family",
+      "tts": "šeima"
+    },
+    {
+      "prompt": "",
+      "lt": "vardas",
+      "choices": [
+        "name",
+        "address",
+        "number",
+        "city"
+      ],
+      "answer": "name",
+      "tts": "vardas"
+    },
+    {
+      "prompt": "",
+      "lt": "malonu",
+      "choices": [
+        "nice",
+        "sorry",
+        "thanks",
+        "okay"
+      ],
+      "answer": "nice",
+      "tts": "malonu"
+    },
+    {
+      "prompt": "",
+      "lt": "susitikti",
+      "choices": [
+        "to meet",
+        "to leave",
+        "to go",
+        "to eat"
+      ],
+      "answer": "to meet",
+      "tts": "susitikti"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "draugas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šeima"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vardas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "malonu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "susitikti"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "id": "014-time",
+  "title": "Time & Dates",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "šiandien",
+      "choices": [
+        "today",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "answer": "today",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "šiandien"
+      },
+      "ru": "šiandien"
+    },
+    {
+      "prompt": "",
+      "lt": "rytoj",
+      "choices": [
+        "tomorrow",
+        "today",
+        "later",
+        "yesterday"
+      ],
+      "answer": "tomorrow",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "rytoj"
+      },
+      "ru": "rytoj"
+    },
+    {
+      "prompt": "",
+      "lt": "vakar",
+      "choices": [
+        "yesterday",
+        "today",
+        "now",
+        "later"
+      ],
+      "answer": "yesterday",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "vakar"
+      },
+      "ru": "vakar"
+    },
+    {
+      "prompt": "",
+      "lt": "dabar",
+      "choices": [
+        "now",
+        "later",
+        "today",
+        "tomorrow"
+      ],
+      "answer": "now",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "dabar"
+      },
+      "ru": "dabar"
+    },
+    {
+      "prompt": "",
+      "lt": "valanda",
+      "choices": [
+        "hour",
+        "minute",
+        "day",
+        "week"
+      ],
+      "answer": "hour",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "valanda"
+      },
+      "ru": "valanda"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šiandien"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "rytoj"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vakar"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "dabar"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "valanda"
+    },
+    {
+      "prompt": "",
+      "lt": "šiandien",
+      "choices": [
+        "today",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "answer": "today",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "šiandien"
+      },
+      "ru": "šiandien"
+    },
+    {
+      "prompt": "",
+      "lt": "rytoj",
+      "choices": [
+        "tomorrow",
+        "today",
+        "later",
+        "yesterday"
+      ],
+      "answer": "tomorrow",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "rytoj"
+      },
+      "ru": "rytoj"
+    },
+    {
+      "prompt": "",
+      "lt": "vakar",
+      "choices": [
+        "yesterday",
+        "today",
+        "now",
+        "later"
+      ],
+      "answer": "yesterday",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "vakar"
+      },
+      "ru": "vakar"
+    },
+    {
+      "prompt": "",
+      "lt": "dabar",
+      "choices": [
+        "now",
+        "later",
+        "today",
+        "tomorrow"
+      ],
+      "answer": "now",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "dabar"
+      },
+      "ru": "dabar"
+    },
+    {
+      "prompt": "",
+      "lt": "valanda",
+      "choices": [
+        "hour",
+        "minute",
+        "day",
+        "week"
+      ],
+      "answer": "hour",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "valanda"
+      },
+      "ru": "valanda"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "šiandien"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "rytoj"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vakar"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "dabar"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "valanda"
+    }
+  ]
+}

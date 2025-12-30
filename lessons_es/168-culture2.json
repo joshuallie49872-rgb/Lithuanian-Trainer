@@ -1,0 +1,186 @@
+{
+  "id": "168-culture2",
+  "title": "Cultura, Medios y Sociedad",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "žiniasklaida",
+      "choices": [
+        "media",
+        "news",
+        "culture",
+        "society"
+      ],
+      "answer": "media",
+      "tts": "žiniasklaida"
+    },
+    {
+      "prompt": "",
+      "lt": "visuomenė",
+      "choices": [
+        "society",
+        "people",
+        "media",
+        "group"
+      ],
+      "answer": "society",
+      "tts": "visuomenė"
+    },
+    {
+      "prompt": "",
+      "lt": "nuomonės",
+      "choices": [
+        "opinions",
+        "facts",
+        "stories",
+        "rules"
+      ],
+      "answer": "opinions",
+      "tts": "nuomonės"
+    },
+    {
+      "prompt": "",
+      "lt": "diskusija",
+      "choices": [
+        "discussion",
+        "argument",
+        "meeting",
+        "speech"
+      ],
+      "answer": "discussion",
+      "tts": "diskusija"
+    },
+    {
+      "prompt": "",
+      "lt": "kultūra",
+      "choices": [
+        "culture",
+        "tradition",
+        "habit",
+        "event"
+      ],
+      "answer": "culture",
+      "tts": "kultūra"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žiniasklaida"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "visuomenė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuomonės"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "diskusija"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kultūra"
+    },
+    {
+      "prompt": "",
+      "lt": "žiniasklaida",
+      "choices": [
+        "media",
+        "news",
+        "culture",
+        "society"
+      ],
+      "answer": "media",
+      "tts": "žiniasklaida"
+    },
+    {
+      "prompt": "",
+      "lt": "visuomenė",
+      "choices": [
+        "society",
+        "people",
+        "media",
+        "group"
+      ],
+      "answer": "society",
+      "tts": "visuomenė"
+    },
+    {
+      "prompt": "",
+      "lt": "nuomonės",
+      "choices": [
+        "opinions",
+        "facts",
+        "stories",
+        "rules"
+      ],
+      "answer": "opinions",
+      "tts": "nuomonės"
+    },
+    {
+      "prompt": "",
+      "lt": "diskusija",
+      "choices": [
+        "discussion",
+        "argument",
+        "meeting",
+        "speech"
+      ],
+      "answer": "discussion",
+      "tts": "diskusija"
+    },
+    {
+      "prompt": "",
+      "lt": "kultūra",
+      "choices": [
+        "culture",
+        "tradition",
+        "habit",
+        "event"
+      ],
+      "answer": "culture",
+      "tts": "kultūra"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žiniasklaida"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "visuomenė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuomonės"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "diskusija"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kultūra"
+    }
+  ]
+}

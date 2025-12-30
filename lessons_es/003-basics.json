@@ -1,0 +1,204 @@
+{
+  "id": "003-basics",
+  "title": "Básicos 3",
+  "questions": [
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "noriu",
+      "choices": [
+        "I want",
+        "I have",
+        "I am",
+        "I go"
+      ],
+      "answer": "I want",
+      "tts": "noriu"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "turiu",
+      "choices": [
+        "I have",
+        "I want",
+        "I see",
+        "I eat"
+      ],
+      "answer": "I have",
+      "tts": "turiu"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "valgau",
+      "choices": [
+        "I eat",
+        "I drink",
+        "I go",
+        "I see"
+      ],
+      "answer": "I eat",
+      "tts": "valgau"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "geriu",
+      "choices": [
+        "I drink",
+        "I eat",
+        "I want",
+        "I go"
+      ],
+      "answer": "I drink",
+      "tts": "geriu"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "vanduo",
+      "choices": [
+        "water",
+        "coffee",
+        "beer",
+        "milk"
+      ],
+      "answer": "water",
+      "tts": "vanduo"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "kava",
+      "choices": [
+        "coffee",
+        "tea",
+        "water",
+        "juice"
+      ],
+      "answer": "coffee",
+      "tts": "kava"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "alus",
+      "choices": [
+        "beer",
+        "wine",
+        "water",
+        "milk"
+      ],
+      "answer": "beer",
+      "tts": "alus"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "duona",
+      "choices": [
+        "bread",
+        "meat",
+        "rice",
+        "soup"
+      ],
+      "answer": "bread",
+      "tts": "duona"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "noriu vandens"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "noriu kavos"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "čia",
+      "choices": [
+        "here",
+        "there",
+        "now",
+        "later"
+      ],
+      "answer": "here",
+      "tts": "čia"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "ten",
+      "choices": [
+        "there",
+        "here",
+        "today",
+        "tomorrow"
+      ],
+      "answer": "there",
+      "tts": "ten"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "čia vanduo"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "ten kava"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "prašau vandens",
+      "choices": [
+        "water please",
+        "thank you",
+        "I want bread",
+        "no water"
+      ],
+      "answer": "water please",
+      "tts": "prašau vandens"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "noriu alaus",
+      "choices": [
+        "I want beer",
+        "I drink beer",
+        "I have beer",
+        "Beer is here"
+      ],
+      "answer": "I want beer",
+      "tts": "noriu alaus"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "geriu vandenį"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "valgau duoną"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "gerai",
+      "choices": [
+        "okay",
+        "bad",
+        "hungry",
+        "thirsty"
+      ],
+      "answer": "okay",
+      "tts": "gerai"
+    },
+    {
+      "prompt": "Traducir al lituano",
+      "lt": "",
+      "choices": [],
+      "tts": "gerai"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "id": "008-cafe",
+  "title": "Ordering at a Café",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "prašau",
+      "choices": [
+        "please",
+        "thanks",
+        "hello",
+        "no"
+      ],
+      "answer": "please",
+      "tts": {
+        "lang": "et-EE",
+        "text": "palun"
+      },
+      "et": "palun"
+    },
+    {
+      "prompt": "",
+      "lt": "meniu",
+      "choices": [
+        "menu",
+        "bill",
+        "table",
+        "drink"
+      ],
+      "answer": "menu",
+      "tts": {
+        "lang": "et-EE",
+        "text": "meniu"
+      },
+      "et": "meniu"
+    },
+    {
+      "prompt": "",
+      "lt": "sąskaita",
+      "choices": [
+        "bill",
+        "menu",
+        "coffee",
+        "water"
+      ],
+      "answer": "bill",
+      "tts": {
+        "lang": "et-EE",
+        "text": "sąskaita"
+      },
+      "et": "sąskaita"
+    },
+    {
+      "prompt": "",
+      "lt": "stalas",
+      "choices": [
+        "table",
+        "chair",
+        "menu",
+        "food"
+      ],
+      "answer": "table",
+      "tts": {
+        "lang": "et-EE",
+        "text": "stalas"
+      },
+      "et": "stalas"
+    },
+    {
+      "prompt": "",
+      "lt": "kava",
+      "choices": [
+        "coffee",
+        "tea",
+        "beer",
+        "wine"
+      ],
+      "answer": "coffee",
+      "tts": {
+        "lang": "et-EE",
+        "text": "kava"
+      },
+      "et": "kava"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "meniu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sąskaita"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "stalas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kava"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "prašau"
+    },
+    {
+      "prompt": "",
+      "lt": "prašau",
+      "choices": [
+        "please",
+        "thanks",
+        "hello",
+        "no"
+      ],
+      "answer": "please",
+      "tts": {
+        "lang": "et-EE",
+        "text": "palun"
+      },
+      "et": "palun"
+    },
+    {
+      "prompt": "",
+      "lt": "meniu",
+      "choices": [
+        "menu",
+        "bill",
+        "table",
+        "drink"
+      ],
+      "answer": "menu",
+      "tts": {
+        "lang": "et-EE",
+        "text": "meniu"
+      },
+      "et": "meniu"
+    },
+    {
+      "prompt": "",
+      "lt": "sąskaita",
+      "choices": [
+        "bill",
+        "menu",
+        "coffee",
+        "water"
+      ],
+      "answer": "bill",
+      "tts": {
+        "lang": "et-EE",
+        "text": "sąskaita"
+      },
+      "et": "sąskaita"
+    },
+    {
+      "prompt": "",
+      "lt": "stalas",
+      "choices": [
+        "table",
+        "chair",
+        "menu",
+        "food"
+      ],
+      "answer": "table",
+      "tts": {
+        "lang": "et-EE",
+        "text": "stalas"
+      },
+      "et": "stalas"
+    },
+    {
+      "prompt": "",
+      "lt": "kava",
+      "choices": [
+        "coffee",
+        "tea",
+        "beer",
+        "wine"
+      ],
+      "answer": "coffee",
+      "tts": {
+        "lang": "et-EE",
+        "text": "kava"
+      },
+      "et": "kava"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "meniu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sąskaita"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "stalas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kava"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "prašau"
+    }
+  ]
+}

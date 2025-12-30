@@ -1,0 +1,186 @@
+{
+  "id": "108-tech",
+  "title": "Tecnología y medios de comunicación",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "telefonas",
+      "choices": [
+        "phone",
+        "computer",
+        "tablet",
+        "tv"
+      ],
+      "answer": "phone",
+      "tts": "telefonas"
+    },
+    {
+      "prompt": "",
+      "lt": "kompiuteris",
+      "choices": [
+        "computer",
+        "phone",
+        "tablet",
+        "tv"
+      ],
+      "answer": "computer",
+      "tts": "kompiuteris"
+    },
+    {
+      "prompt": "",
+      "lt": "internetas",
+      "choices": [
+        "internet",
+        "network",
+        "wifi",
+        "signal"
+      ],
+      "answer": "internet",
+      "tts": "internetas"
+    },
+    {
+      "prompt": "",
+      "lt": "programa",
+      "choices": [
+        "app",
+        "game",
+        "device",
+        "file"
+      ],
+      "answer": "app",
+      "tts": "programa"
+    },
+    {
+      "prompt": "",
+      "lt": "žinutė",
+      "choices": [
+        "message",
+        "call",
+        "email",
+        "letter"
+      ],
+      "answer": "message",
+      "tts": "žinutė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "telefonas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kompiuteris"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "internetas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "programa"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žinutė"
+    },
+    {
+      "prompt": "",
+      "lt": "telefonas",
+      "choices": [
+        "phone",
+        "computer",
+        "tablet",
+        "tv"
+      ],
+      "answer": "phone",
+      "tts": "telefonas"
+    },
+    {
+      "prompt": "",
+      "lt": "kompiuteris",
+      "choices": [
+        "computer",
+        "phone",
+        "tablet",
+        "tv"
+      ],
+      "answer": "computer",
+      "tts": "kompiuteris"
+    },
+    {
+      "prompt": "",
+      "lt": "internetas",
+      "choices": [
+        "internet",
+        "network",
+        "wifi",
+        "signal"
+      ],
+      "answer": "internet",
+      "tts": "internetas"
+    },
+    {
+      "prompt": "",
+      "lt": "programa",
+      "choices": [
+        "app",
+        "game",
+        "device",
+        "file"
+      ],
+      "answer": "app",
+      "tts": "programa"
+    },
+    {
+      "prompt": "",
+      "lt": "žinutė",
+      "choices": [
+        "message",
+        "call",
+        "email",
+        "letter"
+      ],
+      "answer": "message",
+      "tts": "žinutė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "telefonas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kompiuteris"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "internetas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "programa"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "žinutė"
+    }
+  ]
+}

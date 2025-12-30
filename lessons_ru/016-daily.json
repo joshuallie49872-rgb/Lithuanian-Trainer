@@ -1,0 +1,226 @@
+{
+  "id": "016-daily",
+  "title": "Daily Routine",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "dirbu",
+      "choices": [
+        "I work",
+        "I eat",
+        "I go",
+        "I sleep"
+      ],
+      "answer": "I work",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "dirbu"
+      },
+      "ru": "dirbu"
+    },
+    {
+      "prompt": "",
+      "lt": "miegu",
+      "choices": [
+        "I sleep",
+        "I wake",
+        "I eat",
+        "I go"
+      ],
+      "answer": "I sleep",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "miegu"
+      },
+      "ru": "miegu"
+    },
+    {
+      "prompt": "",
+      "lt": "valgau",
+      "choices": [
+        "I eat",
+        "I drink",
+        "I go",
+        "I sleep"
+      ],
+      "answer": "I eat",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "valgau"
+      },
+      "ru": "valgau"
+    },
+    {
+      "prompt": "",
+      "lt": "einu",
+      "choices": [
+        "I go",
+        "I come",
+        "I work",
+        "I eat"
+      ],
+      "answer": "I go",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "einu"
+      },
+      "ru": "einu"
+    },
+    {
+      "prompt": "",
+      "lt": "keliuosi",
+      "choices": [
+        "I wake up",
+        "I sleep",
+        "I eat",
+        "I go"
+      ],
+      "answer": "I wake up",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "keliuosi"
+      },
+      "ru": "keliuosi"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "dirbu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "miegu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "valgau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "einu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "keliuosi"
+    },
+    {
+      "prompt": "",
+      "lt": "dirbu",
+      "choices": [
+        "I work",
+        "I eat",
+        "I go",
+        "I sleep"
+      ],
+      "answer": "I work",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "dirbu"
+      },
+      "ru": "dirbu"
+    },
+    {
+      "prompt": "",
+      "lt": "miegu",
+      "choices": [
+        "I sleep",
+        "I wake",
+        "I eat",
+        "I go"
+      ],
+      "answer": "I sleep",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "miegu"
+      },
+      "ru": "miegu"
+    },
+    {
+      "prompt": "",
+      "lt": "valgau",
+      "choices": [
+        "I eat",
+        "I drink",
+        "I go",
+        "I sleep"
+      ],
+      "answer": "I eat",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "valgau"
+      },
+      "ru": "valgau"
+    },
+    {
+      "prompt": "",
+      "lt": "einu",
+      "choices": [
+        "I go",
+        "I come",
+        "I work",
+        "I eat"
+      ],
+      "answer": "I go",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "einu"
+      },
+      "ru": "einu"
+    },
+    {
+      "prompt": "",
+      "lt": "keliuosi",
+      "choices": [
+        "I wake up",
+        "I sleep",
+        "I eat",
+        "I go"
+      ],
+      "answer": "I wake up",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "keliuosi"
+      },
+      "ru": "keliuosi"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "dirbu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "miegu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "valgau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "einu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "keliuosi"
+    }
+  ]
+}

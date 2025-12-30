@@ -1,0 +1,246 @@
+{
+  "id": "002-basics",
+  "title": "Básicos 2",
+  "questions": [
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "vienas",
+      "choices": [
+        "one",
+        "two",
+        "three",
+        "five"
+      ],
+      "answer": "one",
+      "tts": "vienas"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "du",
+      "choices": [
+        "one",
+        "two",
+        "four",
+        "six"
+      ],
+      "answer": "two",
+      "tts": "du"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "trys",
+      "choices": [
+        "three",
+        "four",
+        "five",
+        "ten"
+      ],
+      "answer": "three",
+      "tts": "trys"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "keturi",
+      "choices": [
+        "four",
+        "two",
+        "six",
+        "eight"
+      ],
+      "answer": "four",
+      "tts": "keturi"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "penki",
+      "choices": [
+        "five",
+        "nine",
+        "ten",
+        "four"
+      ],
+      "answer": "five",
+      "tts": "penki"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "raudona",
+      "choices": [
+        "red",
+        "blue",
+        "green",
+        "black"
+      ],
+      "answer": "red",
+      "tts": "raudona"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "mėlyna",
+      "choices": [
+        "blue",
+        "red",
+        "yellow",
+        "white"
+      ],
+      "answer": "blue",
+      "tts": "mėlyna"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "žalia",
+      "choices": [
+        "green",
+        "black",
+        "gray",
+        "brown"
+      ],
+      "answer": "green",
+      "tts": "žalia"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "juoda",
+      "choices": [
+        "black",
+        "white",
+        "blue",
+        "red"
+      ],
+      "answer": "black",
+      "tts": "juoda"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "balta",
+      "choices": [
+        "white",
+        "black",
+        "green",
+        "yellow"
+      ],
+      "answer": "white",
+      "tts": "balta"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "mama",
+      "choices": [
+        "mother",
+        "father",
+        "sister",
+        "daughter"
+      ],
+      "answer": "mother",
+      "tts": "mama"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "tėtis",
+      "choices": [
+        "father",
+        "brother",
+        "son",
+        "uncle"
+      ],
+      "answer": "father",
+      "tts": "tėtis"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "brolis",
+      "choices": [
+        "brother",
+        "father",
+        "husband",
+        "son"
+      ],
+      "answer": "brother",
+      "tts": "brolis"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "sesuo",
+      "choices": [
+        "sister",
+        "mother",
+        "daughter",
+        "wife"
+      ],
+      "answer": "sister",
+      "tts": "sesuo"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "šeima",
+      "choices": [
+        "family",
+        "house",
+        "children",
+        "parents"
+      ],
+      "answer": "family",
+      "tts": "šeima"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "vanduo",
+      "choices": [
+        "water",
+        "coffee",
+        "tea",
+        "milk"
+      ],
+      "answer": "water",
+      "tts": "vanduo"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "kava",
+      "choices": [
+        "coffee",
+        "tea",
+        "water",
+        "juice"
+      ],
+      "answer": "coffee",
+      "tts": "kava"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "duona",
+      "choices": [
+        "bread",
+        "meat",
+        "soup",
+        "rice"
+      ],
+      "answer": "bread",
+      "tts": "duona"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "viešbutis",
+      "choices": [
+        "hotel",
+        "airport",
+        "train",
+        "restaurant"
+      ],
+      "answer": "hotel",
+      "tts": "viešbutis"
+    },
+    {
+      "prompt": "Elija el significado correcto",
+      "lt": "bilietas",
+      "choices": [
+        "ticket",
+        "passport",
+        "money",
+        "bag"
+      ],
+      "answer": "ticket",
+      "tts": "bilietas"
+    }
+  ]
+}

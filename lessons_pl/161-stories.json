@@ -1,0 +1,226 @@
+{
+  "id": "161-stories",
+  "title": "Stories & Narratives",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "istorija",
+      "choices": [
+        "story",
+        "history",
+        "news",
+        "book"
+      ],
+      "answer": "story",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "istorija"
+      },
+      "pl": "istorija"
+    },
+    {
+      "prompt": "",
+      "lt": "pasakojimas",
+      "choices": [
+        "narrative",
+        "meeting",
+        "problem",
+        "event"
+      ],
+      "answer": "narrative",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "pasakojimas"
+      },
+      "pl": "pasakojimas"
+    },
+    {
+      "prompt": "",
+      "lt": "pradžia",
+      "choices": [
+        "beginning",
+        "end",
+        "middle",
+        "result"
+      ],
+      "answer": "beginning",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "pradžia"
+      },
+      "pl": "pradžia"
+    },
+    {
+      "prompt": "",
+      "lt": "pabaiga",
+      "choices": [
+        "ending",
+        "start",
+        "problem",
+        "plan"
+      ],
+      "answer": "ending",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "pabaiga"
+      },
+      "pl": "pabaiga"
+    },
+    {
+      "prompt": "",
+      "lt": "nutiko",
+      "choices": [
+        "happened",
+        "planned",
+        "said",
+        "left"
+      ],
+      "answer": "happened",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "nutiko"
+      },
+      "pl": "nutiko"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "istorija"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pasakojimas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pradžia"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pabaiga"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nutiko"
+    },
+    {
+      "prompt": "",
+      "lt": "istorija",
+      "choices": [
+        "story",
+        "history",
+        "news",
+        "book"
+      ],
+      "answer": "story",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "istorija"
+      },
+      "pl": "istorija"
+    },
+    {
+      "prompt": "",
+      "lt": "pasakojimas",
+      "choices": [
+        "narrative",
+        "meeting",
+        "problem",
+        "event"
+      ],
+      "answer": "narrative",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "pasakojimas"
+      },
+      "pl": "pasakojimas"
+    },
+    {
+      "prompt": "",
+      "lt": "pradžia",
+      "choices": [
+        "beginning",
+        "end",
+        "middle",
+        "result"
+      ],
+      "answer": "beginning",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "pradžia"
+      },
+      "pl": "pradžia"
+    },
+    {
+      "prompt": "",
+      "lt": "pabaiga",
+      "choices": [
+        "ending",
+        "start",
+        "problem",
+        "plan"
+      ],
+      "answer": "ending",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "pabaiga"
+      },
+      "pl": "pabaiga"
+    },
+    {
+      "prompt": "",
+      "lt": "nutiko",
+      "choices": [
+        "happened",
+        "planned",
+        "said",
+        "left"
+      ],
+      "answer": "happened",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "nutiko"
+      },
+      "pl": "nutiko"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "istorija"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pasakojimas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pradžia"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pabaiga"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nutiko"
+    }
+  ]
+}

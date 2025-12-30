@@ -1,0 +1,226 @@
+{
+  "id": "019-social",
+  "title": "Social & Polite Talk",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "atsiprašau",
+      "choices": [
+        "sorry",
+        "thanks",
+        "hello",
+        "bye"
+      ],
+      "answer": "sorry",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "atsiprašau"
+      },
+      "lv": "atsiprašau"
+    },
+    {
+      "prompt": "",
+      "lt": "prašau",
+      "choices": [
+        "please",
+        "sorry",
+        "yes",
+        "no"
+      ],
+      "answer": "please",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "lūdzu"
+      },
+      "lv": "lūdzu"
+    },
+    {
+      "prompt": "",
+      "lt": "ačiū",
+      "choices": [
+        "thank you",
+        "sorry",
+        "hello",
+        "bye"
+      ],
+      "answer": "thank you",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "paldies"
+      },
+      "lv": "paldies"
+    },
+    {
+      "prompt": "",
+      "lt": "malonu",
+      "choices": [
+        "nice",
+        "bad",
+        "late",
+        "slow"
+      ],
+      "answer": "nice",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "malonu"
+      },
+      "lv": "malonu"
+    },
+    {
+      "prompt": "",
+      "lt": "geras",
+      "choices": [
+        "good",
+        "bad",
+        "slow",
+        "fast"
+      ],
+      "answer": "good",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "geras"
+      },
+      "lv": "geras"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "atsiprašau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "prašau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ačiū"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "malonu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "geras"
+    },
+    {
+      "prompt": "",
+      "lt": "atsiprašau",
+      "choices": [
+        "sorry",
+        "thanks",
+        "hello",
+        "bye"
+      ],
+      "answer": "sorry",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "atsiprašau"
+      },
+      "lv": "atsiprašau"
+    },
+    {
+      "prompt": "",
+      "lt": "prašau",
+      "choices": [
+        "please",
+        "sorry",
+        "yes",
+        "no"
+      ],
+      "answer": "please",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "lūdzu"
+      },
+      "lv": "lūdzu"
+    },
+    {
+      "prompt": "",
+      "lt": "ačiū",
+      "choices": [
+        "thank you",
+        "sorry",
+        "hello",
+        "bye"
+      ],
+      "answer": "thank you",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "paldies"
+      },
+      "lv": "paldies"
+    },
+    {
+      "prompt": "",
+      "lt": "malonu",
+      "choices": [
+        "nice",
+        "bad",
+        "late",
+        "slow"
+      ],
+      "answer": "nice",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "malonu"
+      },
+      "lv": "malonu"
+    },
+    {
+      "prompt": "",
+      "lt": "geras",
+      "choices": [
+        "good",
+        "bad",
+        "slow",
+        "fast"
+      ],
+      "answer": "good",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "geras"
+      },
+      "lv": "geras"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "atsiprašau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "prašau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ačiū"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "malonu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "geras"
+    }
+  ]
+}

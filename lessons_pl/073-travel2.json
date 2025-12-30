@@ -1,0 +1,226 @@
+{
+  "id": "073-travel2",
+  "title": "Advanced Travel",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "pasas",
+      "choices": [
+        "passport",
+        "ticket",
+        "hotel",
+        "map"
+      ],
+      "answer": "passport",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "pasas"
+      },
+      "pl": "pasas"
+    },
+    {
+      "prompt": "",
+      "lt": "sienos",
+      "choices": [
+        "borders",
+        "streets",
+        "doors",
+        "cities"
+      ],
+      "answer": "borders",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "sienos"
+      },
+      "pl": "sienos"
+    },
+    {
+      "prompt": "",
+      "lt": "keliauti",
+      "choices": [
+        "to travel",
+        "to stay",
+        "to eat",
+        "to sleep"
+      ],
+      "answer": "to travel",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "keliauti"
+      },
+      "pl": "keliauti"
+    },
+    {
+      "prompt": "",
+      "lt": "lagaminas",
+      "choices": [
+        "suitcase",
+        "bag",
+        "ticket",
+        "passport"
+      ],
+      "answer": "suitcase",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "lagaminas"
+      },
+      "pl": "lagaminas"
+    },
+    {
+      "prompt": "",
+      "lt": "muitinė",
+      "choices": [
+        "customs",
+        "hotel",
+        "airport",
+        "police"
+      ],
+      "answer": "customs",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "muitinė"
+      },
+      "pl": "muitinė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pasas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "siena"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "keliauti"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "lagaminas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "muitinė"
+    },
+    {
+      "prompt": "",
+      "lt": "pasas",
+      "choices": [
+        "passport",
+        "ticket",
+        "hotel",
+        "map"
+      ],
+      "answer": "passport",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "pasas"
+      },
+      "pl": "pasas"
+    },
+    {
+      "prompt": "",
+      "lt": "sienos",
+      "choices": [
+        "borders",
+        "streets",
+        "doors",
+        "cities"
+      ],
+      "answer": "borders",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "sienos"
+      },
+      "pl": "sienos"
+    },
+    {
+      "prompt": "",
+      "lt": "keliauti",
+      "choices": [
+        "to travel",
+        "to stay",
+        "to eat",
+        "to sleep"
+      ],
+      "answer": "to travel",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "keliauti"
+      },
+      "pl": "keliauti"
+    },
+    {
+      "prompt": "",
+      "lt": "lagaminas",
+      "choices": [
+        "suitcase",
+        "bag",
+        "ticket",
+        "passport"
+      ],
+      "answer": "suitcase",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "lagaminas"
+      },
+      "pl": "lagaminas"
+    },
+    {
+      "prompt": "",
+      "lt": "muitinė",
+      "choices": [
+        "customs",
+        "hotel",
+        "airport",
+        "police"
+      ],
+      "answer": "customs",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "muitinė"
+      },
+      "pl": "muitinė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pasas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "siena"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "keliauti"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "lagaminas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "muitinė"
+    }
+  ]
+}

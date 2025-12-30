@@ -1,0 +1,226 @@
+{
+  "id": "066-social2",
+  "title": "Conversation & Feelings",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "laimingas",
+      "choices": [
+        "happy",
+        "sad",
+        "angry",
+        "tired"
+      ],
+      "answer": "happy",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "laimingas"
+      },
+      "pl": "laimingas"
+    },
+    {
+      "prompt": "",
+      "lt": "liūdnas",
+      "choices": [
+        "sad",
+        "happy",
+        "angry",
+        "excited"
+      ],
+      "answer": "sad",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "liūdnas"
+      },
+      "pl": "liūdnas"
+    },
+    {
+      "prompt": "",
+      "lt": "pavargęs",
+      "choices": [
+        "tired",
+        "happy",
+        "sad",
+        "angry"
+      ],
+      "answer": "tired",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "pavargęs"
+      },
+      "pl": "pavargęs"
+    },
+    {
+      "prompt": "",
+      "lt": "džiaugiuosi",
+      "choices": [
+        "I am happy",
+        "I am sad",
+        "I am angry",
+        "I am tired"
+      ],
+      "answer": "I am happy",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "džiaugiuosi"
+      },
+      "pl": "džiaugiuosi"
+    },
+    {
+      "prompt": "",
+      "lt": "bijau",
+      "choices": [
+        "I am afraid",
+        "I am hungry",
+        "I am tired",
+        "I am happy"
+      ],
+      "answer": "I am afraid",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "bijau"
+      },
+      "pl": "bijau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "laimingas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "liūdnas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pavargęs"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "džiaugiuosi"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "bijau"
+    },
+    {
+      "prompt": "",
+      "lt": "laimingas",
+      "choices": [
+        "happy",
+        "sad",
+        "angry",
+        "tired"
+      ],
+      "answer": "happy",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "laimingas"
+      },
+      "pl": "laimingas"
+    },
+    {
+      "prompt": "",
+      "lt": "liūdnas",
+      "choices": [
+        "sad",
+        "happy",
+        "angry",
+        "excited"
+      ],
+      "answer": "sad",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "liūdnas"
+      },
+      "pl": "liūdnas"
+    },
+    {
+      "prompt": "",
+      "lt": "pavargęs",
+      "choices": [
+        "tired",
+        "happy",
+        "sad",
+        "angry"
+      ],
+      "answer": "tired",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "pavargęs"
+      },
+      "pl": "pavargęs"
+    },
+    {
+      "prompt": "",
+      "lt": "džiaugiuosi",
+      "choices": [
+        "I am happy",
+        "I am sad",
+        "I am angry",
+        "I am tired"
+      ],
+      "answer": "I am happy",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "džiaugiuosi"
+      },
+      "pl": "džiaugiuosi"
+    },
+    {
+      "prompt": "",
+      "lt": "bijau",
+      "choices": [
+        "I am afraid",
+        "I am hungry",
+        "I am tired",
+        "I am happy"
+      ],
+      "answer": "I am afraid",
+      "tts": {
+        "lang": "pl-PL",
+        "text": "bijau"
+      },
+      "pl": "bijau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "laimingas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "liūdnas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pavargęs"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "džiaugiuosi"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "bijau"
+    }
+  ]
+}

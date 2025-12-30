@@ -1,0 +1,186 @@
+{
+  "id": "076-opinions",
+  "title": "Opiniones & Preferencias",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "man patinka",
+      "choices": [
+        "I like",
+        "I want",
+        "I need",
+        "I go"
+      ],
+      "answer": "I like",
+      "tts": "man patinka"
+    },
+    {
+      "prompt": "",
+      "lt": "nepatinka",
+      "choices": [
+        "I don't like",
+        "I like",
+        "I want",
+        "I need"
+      ],
+      "answer": "I don't like",
+      "tts": "nepatinka"
+    },
+    {
+      "prompt": "",
+      "lt": "mėgstu",
+      "choices": [
+        "I enjoy",
+        "I hate",
+        "I go",
+        "I eat"
+      ],
+      "answer": "I enjoy",
+      "tts": "mėgstu"
+    },
+    {
+      "prompt": "",
+      "lt": "nenoriu",
+      "choices": [
+        "I don't want",
+        "I want",
+        "I like",
+        "I need"
+      ],
+      "answer": "I don't want",
+      "tts": "nenoriu"
+    },
+    {
+      "prompt": "",
+      "lt": "svarbu",
+      "choices": [
+        "important",
+        "cheap",
+        "easy",
+        "fast"
+      ],
+      "answer": "important",
+      "tts": "svarbu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "man patinka"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nepatinka"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "mėgstu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nenoriu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "svarbu"
+    },
+    {
+      "prompt": "",
+      "lt": "man patinka",
+      "choices": [
+        "I like",
+        "I want",
+        "I need",
+        "I go"
+      ],
+      "answer": "I like",
+      "tts": "man patinka"
+    },
+    {
+      "prompt": "",
+      "lt": "nepatinka",
+      "choices": [
+        "I don't like",
+        "I like",
+        "I want",
+        "I need"
+      ],
+      "answer": "I don't like",
+      "tts": "nepatinka"
+    },
+    {
+      "prompt": "",
+      "lt": "mėgstu",
+      "choices": [
+        "I enjoy",
+        "I hate",
+        "I go",
+        "I eat"
+      ],
+      "answer": "I enjoy",
+      "tts": "mėgstu"
+    },
+    {
+      "prompt": "",
+      "lt": "nenoriu",
+      "choices": [
+        "I don't want",
+        "I want",
+        "I like",
+        "I need"
+      ],
+      "answer": "I don't want",
+      "tts": "nenoriu"
+    },
+    {
+      "prompt": "",
+      "lt": "svarbu",
+      "choices": [
+        "important",
+        "cheap",
+        "easy",
+        "fast"
+      ],
+      "answer": "important",
+      "tts": "svarbu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "man patinka"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nepatinka"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "mėgstu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nenoriu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "svarbu"
+    }
+  ]
+}

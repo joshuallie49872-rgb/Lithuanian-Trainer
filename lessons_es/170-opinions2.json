@@ -1,0 +1,186 @@
+{
+  "id": "170-opinions2",
+  "title": "Opiniones y Discusión",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "manau",
+      "choices": [
+        "I think",
+        "I know",
+        "I see",
+        "I feel"
+      ],
+      "answer": "I think",
+      "tts": "manau"
+    },
+    {
+      "prompt": "",
+      "lt": "sutinku",
+      "choices": [
+        "I agree",
+        "I disagree",
+        "I leave",
+        "I wait"
+      ],
+      "answer": "I agree",
+      "tts": "sutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "nesutinku",
+      "choices": [
+        "I disagree",
+        "I agree",
+        "I think",
+        "I know"
+      ],
+      "answer": "I disagree",
+      "tts": "nesutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "nuomonė",
+      "choices": [
+        "opinion",
+        "idea",
+        "plan",
+        "problem"
+      ],
+      "answer": "opinion",
+      "tts": "nuomonė"
+    },
+    {
+      "prompt": "",
+      "lt": "argumentas",
+      "choices": [
+        "argument",
+        "story",
+        "example",
+        "reason"
+      ],
+      "answer": "argument",
+      "tts": "argumentas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "manau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nesutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuomonė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "argumentas"
+    },
+    {
+      "prompt": "",
+      "lt": "manau",
+      "choices": [
+        "I think",
+        "I know",
+        "I see",
+        "I feel"
+      ],
+      "answer": "I think",
+      "tts": "manau"
+    },
+    {
+      "prompt": "",
+      "lt": "sutinku",
+      "choices": [
+        "I agree",
+        "I disagree",
+        "I leave",
+        "I wait"
+      ],
+      "answer": "I agree",
+      "tts": "sutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "nesutinku",
+      "choices": [
+        "I disagree",
+        "I agree",
+        "I think",
+        "I know"
+      ],
+      "answer": "I disagree",
+      "tts": "nesutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "nuomonė",
+      "choices": [
+        "opinion",
+        "idea",
+        "plan",
+        "problem"
+      ],
+      "answer": "opinion",
+      "tts": "nuomonė"
+    },
+    {
+      "prompt": "",
+      "lt": "argumentas",
+      "choices": [
+        "argument",
+        "story",
+        "example",
+        "reason"
+      ],
+      "answer": "argument",
+      "tts": "argumentas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "manau"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nesutinku"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "nuomonė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "argumentas"
+    }
+  ]
+}

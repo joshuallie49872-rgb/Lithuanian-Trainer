@@ -1,0 +1,226 @@
+{
+  "id": "167-advancedlife",
+  "title": "Advanced Daily Life",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "sprendimas",
+      "choices": [
+        "solution",
+        "problem",
+        "idea",
+        "mistake"
+      ],
+      "answer": "solution",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "sprendimas"
+      },
+      "ru": "sprendimas"
+    },
+    {
+      "prompt": "",
+      "lt": "problema",
+      "choices": [
+        "problem",
+        "solution",
+        "idea",
+        "plan"
+      ],
+      "answer": "problem",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "problema"
+      },
+      "ru": "problema"
+    },
+    {
+      "prompt": "",
+      "lt": "pasirinkimas",
+      "choices": [
+        "choice",
+        "option",
+        "decision",
+        "plan"
+      ],
+      "answer": "choice",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "pasirinkimas"
+      },
+      "ru": "pasirinkimas"
+    },
+    {
+      "prompt": "",
+      "lt": "patirtis",
+      "choices": [
+        "experience",
+        "story",
+        "memory",
+        "lesson"
+      ],
+      "answer": "experience",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "patirtis"
+      },
+      "ru": "patirtis"
+    },
+    {
+      "prompt": "",
+      "lt": "rezultatas",
+      "choices": [
+        "result",
+        "reason",
+        "argument",
+        "idea"
+      ],
+      "answer": "result",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "rezultatas"
+      },
+      "ru": "rezultatas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sprendimas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "problema"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pasirinkimas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "patirtis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "rezultatas"
+    },
+    {
+      "prompt": "",
+      "lt": "sprendimas",
+      "choices": [
+        "solution",
+        "problem",
+        "idea",
+        "mistake"
+      ],
+      "answer": "solution",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "sprendimas"
+      },
+      "ru": "sprendimas"
+    },
+    {
+      "prompt": "",
+      "lt": "problema",
+      "choices": [
+        "problem",
+        "solution",
+        "idea",
+        "plan"
+      ],
+      "answer": "problem",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "problema"
+      },
+      "ru": "problema"
+    },
+    {
+      "prompt": "",
+      "lt": "pasirinkimas",
+      "choices": [
+        "choice",
+        "option",
+        "decision",
+        "plan"
+      ],
+      "answer": "choice",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "pasirinkimas"
+      },
+      "ru": "pasirinkimas"
+    },
+    {
+      "prompt": "",
+      "lt": "patirtis",
+      "choices": [
+        "experience",
+        "story",
+        "memory",
+        "lesson"
+      ],
+      "answer": "experience",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "patirtis"
+      },
+      "ru": "patirtis"
+    },
+    {
+      "prompt": "",
+      "lt": "rezultatas",
+      "choices": [
+        "result",
+        "reason",
+        "argument",
+        "idea"
+      ],
+      "answer": "result",
+      "tts": {
+        "lang": "ru-RU",
+        "text": "rezultatas"
+      },
+      "ru": "rezultatas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "sprendimas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "problema"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pasirinkimas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "patirtis"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "rezultatas"
+    }
+  ]
+}

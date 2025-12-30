@@ -1,0 +1,226 @@
+{
+  "id": "005-questions",
+  "title": "Questions & Answers",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "kas",
+      "choices": [
+        "who",
+        "what",
+        "where",
+        "when"
+      ],
+      "answer": "who",
+      "tts": {
+        "lang": "et-EE",
+        "text": "kas"
+      },
+      "et": "kas"
+    },
+    {
+      "prompt": "",
+      "lt": "ką",
+      "choices": [
+        "what",
+        "who",
+        "where",
+        "why"
+      ],
+      "answer": "what",
+      "tts": {
+        "lang": "et-EE",
+        "text": "ką"
+      },
+      "et": "ką"
+    },
+    {
+      "prompt": "",
+      "lt": "kur",
+      "choices": [
+        "where",
+        "when",
+        "how",
+        "who"
+      ],
+      "answer": "where",
+      "tts": {
+        "lang": "et-EE",
+        "text": "kur"
+      },
+      "et": "kur"
+    },
+    {
+      "prompt": "",
+      "lt": "kada",
+      "choices": [
+        "when",
+        "where",
+        "why",
+        "how"
+      ],
+      "answer": "when",
+      "tts": {
+        "lang": "et-EE",
+        "text": "kada"
+      },
+      "et": "kada"
+    },
+    {
+      "prompt": "",
+      "lt": "kodėl",
+      "choices": [
+        "why",
+        "when",
+        "where",
+        "who"
+      ],
+      "answer": "why",
+      "tts": {
+        "lang": "et-EE",
+        "text": "kodėl"
+      },
+      "et": "kodėl"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ką"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kur"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kada"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kodėl"
+    },
+    {
+      "prompt": "",
+      "lt": "taip",
+      "choices": [
+        "yes",
+        "no",
+        "maybe",
+        "later"
+      ],
+      "answer": "yes",
+      "tts": {
+        "lang": "et-EE",
+        "text": "jah"
+      },
+      "et": "jah"
+    },
+    {
+      "prompt": "",
+      "lt": "ne",
+      "choices": [
+        "no",
+        "yes",
+        "later",
+        "always"
+      ],
+      "answer": "no",
+      "tts": {
+        "lang": "et-EE",
+        "text": "ei"
+      },
+      "et": "ei"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "taip"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "ne"
+    },
+    {
+      "prompt": "",
+      "lt": "gerai",
+      "choices": [
+        "okay",
+        "bad",
+        "no",
+        "later"
+      ],
+      "answer": "okay",
+      "tts": {
+        "lang": "et-EE",
+        "text": "gerai"
+      },
+      "et": "gerai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "gerai"
+    },
+    {
+      "prompt": "",
+      "lt": "blogai",
+      "choices": [
+        "badly",
+        "well",
+        "good",
+        "okay"
+      ],
+      "answer": "badly",
+      "tts": {
+        "lang": "et-EE",
+        "text": "blogai"
+      },
+      "et": "blogai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "blogai"
+    },
+    {
+      "prompt": "",
+      "lt": "kaip",
+      "choices": [
+        "how",
+        "why",
+        "when",
+        "where"
+      ],
+      "answer": "how",
+      "tts": {
+        "lang": "et-EE",
+        "text": "kaip"
+      },
+      "et": "kaip"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kaip"
+    }
+  ]
+}

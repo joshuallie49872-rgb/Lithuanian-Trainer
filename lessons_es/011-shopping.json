@@ -1,0 +1,186 @@
+{
+  "id": "011-shopping",
+  "title": "Compras y dinero",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "parduotuvė",
+      "choices": [
+        "shop",
+        "market",
+        "bank",
+        "hotel"
+      ],
+      "answer": "shop",
+      "tts": "parduotuvė"
+    },
+    {
+      "prompt": "",
+      "lt": "kaina",
+      "choices": [
+        "price",
+        "money",
+        "change",
+        "bill"
+      ],
+      "answer": "price",
+      "tts": "kaina"
+    },
+    {
+      "prompt": "",
+      "lt": "pinigai",
+      "choices": [
+        "money",
+        "card",
+        "shop",
+        "bag"
+      ],
+      "answer": "money",
+      "tts": "pinigai"
+    },
+    {
+      "prompt": "",
+      "lt": "kortelė",
+      "choices": [
+        "card",
+        "cash",
+        "bank",
+        "bill"
+      ],
+      "answer": "card",
+      "tts": "kortelė"
+    },
+    {
+      "prompt": "",
+      "lt": "grynais",
+      "choices": [
+        "cash",
+        "card",
+        "cheap",
+        "expensive"
+      ],
+      "answer": "cash",
+      "tts": "grynais"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "parduotuvė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kaina"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pinigai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kortelė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "grynais"
+    },
+    {
+      "prompt": "",
+      "lt": "parduotuvė",
+      "choices": [
+        "shop",
+        "market",
+        "bank",
+        "hotel"
+      ],
+      "answer": "shop",
+      "tts": "parduotuvė"
+    },
+    {
+      "prompt": "",
+      "lt": "kaina",
+      "choices": [
+        "price",
+        "money",
+        "change",
+        "bill"
+      ],
+      "answer": "price",
+      "tts": "kaina"
+    },
+    {
+      "prompt": "",
+      "lt": "pinigai",
+      "choices": [
+        "money",
+        "card",
+        "shop",
+        "bag"
+      ],
+      "answer": "money",
+      "tts": "pinigai"
+    },
+    {
+      "prompt": "",
+      "lt": "kortelė",
+      "choices": [
+        "card",
+        "cash",
+        "bank",
+        "bill"
+      ],
+      "answer": "card",
+      "tts": "kortelė"
+    },
+    {
+      "prompt": "",
+      "lt": "grynais",
+      "choices": [
+        "cash",
+        "card",
+        "cheap",
+        "expensive"
+      ],
+      "answer": "cash",
+      "tts": "grynais"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "parduotuvė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kaina"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pinigai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "kortelė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "grynais"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "id": "149-food2",
+  "title": "Food & Dining (Expanded)",
+  "questions": [
+    {
+      "prompt": "",
+      "lt": "pusryčiai",
+      "choices": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "answer": "breakfast",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "pusryčiai"
+      },
+      "lv": "pusryčiai"
+    },
+    {
+      "prompt": "",
+      "lt": "pietūs",
+      "choices": [
+        "lunch",
+        "breakfast",
+        "dinner",
+        "snack"
+      ],
+      "answer": "lunch",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "pietūs"
+      },
+      "lv": "pietūs"
+    },
+    {
+      "prompt": "",
+      "lt": "vakarienė",
+      "choices": [
+        "dinner",
+        "lunch",
+        "breakfast",
+        "snack"
+      ],
+      "answer": "dinner",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "vakarienė"
+      },
+      "lv": "vakarienė"
+    },
+    {
+      "prompt": "",
+      "lt": "skanu",
+      "choices": [
+        "tasty",
+        "bad",
+        "cold",
+        "hot"
+      ],
+      "answer": "tasty",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "skanu"
+      },
+      "lv": "skanu"
+    },
+    {
+      "prompt": "",
+      "lt": "alkanas",
+      "choices": [
+        "hungry",
+        "full",
+        "thirsty",
+        "tired"
+      ],
+      "answer": "hungry",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "alkanas"
+      },
+      "lv": "alkanas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pusryčiai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pietūs"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vakarienė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "skanu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "alkanas"
+    },
+    {
+      "prompt": "",
+      "lt": "pusryčiai",
+      "choices": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "answer": "breakfast",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "pusryčiai"
+      },
+      "lv": "pusryčiai"
+    },
+    {
+      "prompt": "",
+      "lt": "pietūs",
+      "choices": [
+        "lunch",
+        "breakfast",
+        "dinner",
+        "snack"
+      ],
+      "answer": "lunch",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "pietūs"
+      },
+      "lv": "pietūs"
+    },
+    {
+      "prompt": "",
+      "lt": "vakarienė",
+      "choices": [
+        "dinner",
+        "lunch",
+        "breakfast",
+        "snack"
+      ],
+      "answer": "dinner",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "vakarienė"
+      },
+      "lv": "vakarienė"
+    },
+    {
+      "prompt": "",
+      "lt": "skanu",
+      "choices": [
+        "tasty",
+        "bad",
+        "cold",
+        "hot"
+      ],
+      "answer": "tasty",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "skanu"
+      },
+      "lv": "skanu"
+    },
+    {
+      "prompt": "",
+      "lt": "alkanas",
+      "choices": [
+        "hungry",
+        "full",
+        "thirsty",
+        "tired"
+      ],
+      "answer": "hungry",
+      "tts": {
+        "lang": "lv-LV",
+        "text": "alkanas"
+      },
+      "lv": "alkanas"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pusryčiai"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "pietūs"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "vakarienė"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "skanu"
+    },
+    {
+      "prompt": "",
+      "lt": "",
+      "choices": [],
+      "tts": "alkanas"
+    }
+  ]
+}
