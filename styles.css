@@ -324,3 +324,30 @@ select:focus{
 @media (max-width: 420px){
   .mikasImg{ width: 165px; }
 }
+
+/* ===== HARD LOCK: account avatar NEVER grows ===== */
+#accountBtn { height: 44px !important; }
+
+#accountAvatarSmall,
+.accountAvatarSmall,
+#accountBtn img#accountAvatarSmall{
+  width: 30px !important;
+  height: 30px !important;
+  max-width: 30px !important;
+  max-height: 30px !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+
+  border-radius: 999px !important;
+  object-fit: cover !important;
+  display: inline-block !important;
+  flex: 0 0 30px !important;
+}
+
+/* if ANY generic img rule is blowing up images, this blocks it for the account pill */
+#accountBtn img{
+  width: 30px !important;
+  height: 30px !important;
+  max-width: 30px !important;
+  max-height: 30px !important;
+}
