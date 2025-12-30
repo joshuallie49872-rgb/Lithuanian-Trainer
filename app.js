@@ -358,7 +358,8 @@ function setScreen(name) {
    Manifest + lesson loading
 ----------------------------- */
 async function loadManifest() {
-  const which = (learningMode === "en_to_es") ? "./manifest_es.json" : "./manifest.json";
+  const isEs = (learningMode === "en_to_es");
+  const which = isEs ? "./manifest_es.json" : "./manifest.json";
 
   const res = await fetch(which, { cache: "no-store" });
   if (!res.ok) throw new Error(`Failed to load ${which}`);
@@ -367,12 +368,14 @@ async function loadManifest() {
     throw new Error(`${which} missing lessons[]`);
   }
 
+  // ✅ FIX: if manifest_es.json lessons do NOT include "file",
+  // default to lessons_es/<id>.json (instead of lessons/<id>.json)
   m.lessons = m.lessons.map((x) => ({
     id: x.id,
     title: x.title || x.id,
     topic: x.topic || "",
     icon: x.icon || "",
-    file: x.file || `lessons/${x.id}.json`,
+    file: x.file || (isEs ? `lessons_es/${x.id}.json` : `lessons/${x.id}.json`),
   }));
 
   return m;
@@ -675,10 +678,14 @@ function normalizeAnswer(s) {
     .trim();
 }
 
-/* -----------------------------
-   Dictation + close-match helpers
------------------------------ */
 function getCorrectList(q) {
+  // ✅ Spanish mode uses correct_es when present
+  if (learningMode === "en_to_es") {
+    const ce = Array.isArray(q.correct_es) ? q.correct_es : [];
+    const cleaned = ce.map((x) => String(x || "").trim()).filter(Boolean);
+    if (cleaned.length) return cleaned;
+  }
+
   let correct =
     Array.isArray(q.correct)
       ? q.correct
@@ -688,7 +695,6 @@ function getCorrectList(q) {
       ? [q.correctAnswer]
       : [];
 
-  // If no correct answer but there IS TTS text, treat that as the correct answer.
   if (!correct || correct.length === 0) {
     if (q.tts && typeof q.tts === "object" && q.tts.text) correct = [q.tts.text];
     else if (typeof q.tts === "string" && q.tts.trim()) correct = [q.tts.trim()];
@@ -785,7 +791,11 @@ function renderQuestion() {
   const correctListRaw = getCorrectList(currentQuestion);
   const speakText = getSpeakText(currentQuestion);
 
-  const hasChoices = Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0;
+  const hasChoices =
+    (Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0) ||
+    (learningMode === "en_to_es" &&
+      Array.isArray(currentQuestion.choices_es) &&
+      currentQuestion.choices_es.length > 0);
 
   // Dictation-style: no visible lt/en, has speakText, expects typing, has correct answer, no choices
   const isDictation = !lt && !en && !!speakText && correctListRaw.length > 0 && !hasChoices;
@@ -808,7 +818,7 @@ function renderQuestion() {
   if (DOM.controls.speakSlowBtn) {
     if (speakText && shouldSpeakForMode(currentQuestion, speakText)) {
       DOM.controls.speakSlowBtn.style.display = "";
-      DOM.controls.speakSlowBtn.onclick = () => speakLithuanian(speakText, 0.50);
+      DOM.controls.speakSlowBtn.onclick = () => speakLithuanian(speakText, 0.5);
     } else {
       DOM.controls.speakSlowBtn.style.display = "none";
       DOM.controls.speakSlowBtn.onclick = null;
@@ -1056,7 +1066,12 @@ function renderMap() {
   nodesEl.style.height = `${H}px`;
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
 
-  const xs = [Math.round(W * 0.3), Math.round(W * 0.7), Math.round(W * 0.35), Math.round(W * 0.65)];
+  const xs = [
+    Math.round(W * 0.3),
+    Math.round(W * 0.7),
+    Math.round(W * 0.35),
+    Math.round(W * 0.65),
+  ];
 
   const maxUnlocked = unlockIndex();
 
