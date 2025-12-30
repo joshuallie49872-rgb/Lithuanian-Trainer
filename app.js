@@ -1307,4 +1307,11 @@ async function init() {
   }
 }
 
-init();
+// Prevent double-init if app.js is accidentally loaded twice
+if (window.__LT_APP_INITED__) {
+  console.warn("OpenKalba: init blocked (already initialized).");
+} else {
+  window.__LT_APP_INITED__ = true;
+  init();
+}
+
