@@ -75,23 +75,59 @@ const LS = {
   streak: "lt_streak_v1",
   lastLesson: "lt_last_lesson_v1",
   user: "lt_user_v1",
-
-  // learning mode selection (placeholder)
-  learningMode: "lt_learning_mode_v1",
+  // native + target language selection
+  nativeLang: "ok_native_lang_v1",
+  targetLang: "ok_target_lang_v1",
 
   // (future) mikas toggle etc.
 };
 
 /* -----------------------------
-   Learning mode (placeholder)
+   Language selection (native + target)
+   Option 1 (now): target is fixed to Lithuanian ("lt")
 ----------------------------- */
-let learningMode = localStorage.getItem(LS.learningMode) || "en_to_lt";
-function saveLearningMode(mode) {
-  learningMode = mode || "en_to_lt";
-  localStorage.setItem(LS.learningMode, learningMode);
+let nativeLang = (localStorage.getItem(LS.nativeLang) || "en").toLowerCase();
+let targetLang = (localStorage.getItem(LS.targetLang) || "lt").toLowerCase();
+
+function saveLangs(native, target) {
+  nativeLang = (native || "en").toLowerCase();
+  targetLang = (target || "lt").toLowerCase();
+  localStorage.setItem(LS.nativeLang, nativeLang);
+  localStorage.setItem(LS.targetLang, targetLang);
 }
 
 /* -----------------------------
+   Localization helpers
+----------------------------- */
+function langField(lang) {
+  const L = String(lang || "").toLowerCase();
+  if (L === "en") return "en";
+  if (L === "lt") return "lt";
+  if (L === "es") return "es";
+  if (L === "ru") return "ru";
+  if (L === "pl") return "pl";
+  if (L === "lv") return "lv";
+  if (L === "et") return "et";
+  return L;
+}
+
+function getText(q, baseKey, lang, fallback = "") {
+  if (!q) return fallback;
+  const k = `${baseKey}_${lang}`;
+  const v = (q[k] != null ? q[k] : q[baseKey]);
+  return (v != null && String(v).trim() !== "") ? String(v) : fallback;
+}
+
+function getArray(q, baseKey, lang) {
+  if (!q) return [];
+  const k = `${baseKey}_${lang}`;
+  const v = (Array.isArray(q[k]) && q[k].length) ? q[k] : (Array.isArray(q[baseKey]) ? q[baseKey] : []);
+  return Array.isArray(v) ? v.slice() : [];
+}
+
+/* -----------------------------
+   Native audio manifest (MP3)
+----------------------------- *//* -----------------------------
    Native audio manifest (MP3)
 ----------------------------- */
 const LT_AUDIO_MANIFEST_URL = "audio/lt/manifest.json";
@@ -166,7 +202,8 @@ const DOM = {
   // Home
   startBtn: el("startBtn"),
   continueBtn: el("continueBtn"),
-  learningModeSelect: el("learningModeSelect"),
+  nativeLangSelect: el("nativeLangSelect"),
+  targetLangSelect: el("targetLangSelect"),
 
   // Lesson UI
   lessonHeader: document.querySelector(".lessonHeader"),
@@ -358,24 +395,48 @@ function setScreen(name) {
    Manifest + lesson loading
 ----------------------------- */
 async function loadManifest() {
-  const isEs = (learningMode === "en_to_es");
-  const which = isEs ? "./manifest_es.json" : "./manifest.json";
+  // Option 1 (now): targetLang is fixed to Lithuanian ("lt")
+  // Load a manifest based on nativeLang when available.
+  // Priority:
+  //  - nativeLang === "en" -> ./manifest.json
+  //  - nativeLang === "es" -> ./manifest_es.json (exists)
+  //  - otherwise -> ./manifest_<native>.json if you add it later
+  //  - fallback -> ./manifest.json
+  const candidates = [];
+  if (nativeLang === "en") candidates.push("./manifest.json");
+  else if (nativeLang === "es") candidates.push("./manifest_es.json");
+  else candidates.push(`./manifest_${nativeLang}.json`, "./manifest.json");
 
-  const res = await fetch(which, { cache: "no-store" });
-  if (!res.ok) throw new Error(`Failed to load ${which}`);
+  let res = null;
+  let which = candidates[0];
+
+  for (const c of candidates) {
+    try {
+      const r = await fetch(c, { cache: "no-store" });
+      if (r.ok) {
+        res = r;
+        which = c;
+        break;
+      }
+    } catch {}
+  }
+
+  if (!res) throw new Error(`Failed to load manifest (tried: ${candidates.join(", ")})`);
+
   const m = await res.json();
   if (!m || !Array.isArray(m.lessons) || m.lessons.length === 0) {
     throw new Error(`${which} missing lessons[]`);
   }
 
-  // ✅ FIX: if manifest_es.json lessons do NOT include "file",
-  // default to lessons_es/<id>.json (instead of lessons/<id>.json)
+  // Lesson folder: lessons/ for English, lessons_<native>/ for other natives when present
+  const folder = (nativeLang && nativeLang !== "en") ? `lessons_${nativeLang}/` : "lessons/";
+
   m.lessons = m.lessons.map((x) => ({
     id: x.id,
     title: x.title || x.id,
     topic: x.topic || "",
     icon: x.icon || "",
-    file: x.file || (isEs ? `lessons_es/${x.id}.json` : `lessons/${x.id}.json`),
+    file: x.file || `${folder}${x.id}.json`,
   }));
 
   return m;
@@ -555,71 +616,31 @@ function getSpeakText(q) {
    renderChoices
 ============================= */
 function shouldSpeakForMode(q, speakText = "") {
-  // ✅ For Spanish mode, we do NOT auto-speak (unless you later add Spanish audio/tts)
-  if (learningMode === "en_to_es") return false;
-
   if (!q) return false;
-
-  const target =
-    learningMode === "en_to_lt" ? "lt" :
-    learningMode === "lt_to_en" ? "en" :
-    null;
-
-  if (!target) return false;
-
-  const s = String(speakText || "").trim();
-  if (!s) return false;
-
-  // If TTS explicitly declares language, trust it
-  if (q.tts && typeof q.tts === "object" && q.tts.lang) {
-    return String(q.tts.lang).toLowerCase().startsWith(target);
-  }
-
-  // If the question explicitly has the target field, allow speak
-  if (target === "lt" && q.lt) return true;
-  if (target === "en" && q.en) return true;
-
-  // Dictation-style: in en_to_lt mode, speakText is Lithuanian by design.
-  if (target === "lt") return true;
-
-  return false;
+  if (targetLang === "lt") return String(speakText || "").trim().length > 0;
+  return false; // future targets later
 }
 
 function formatPrettyPrompt(q) {
-  const p = q && q.prompt ? String(q.prompt) : "";
-  const lt = q && q.lt ? String(q.lt) : "";
-  const en = q && q.en ? String(q.en) : "";
+  const p = getText(q, "prompt", nativeLang, "");
+  const mainTarget = getText(q, langField(targetLang), targetLang, "");
 
-  // ✅ Spanish UI uses prompt_es + es
-  const p_es = q && q.prompt_es ? String(q.prompt_es) : "";
-  const es = q && q.es ? String(q.es) : "";
+  const main =
+    mainTarget ||
+    getText(q, "lt", nativeLang, "") ||
+    getText(q, "en", nativeLang, "") ||
+    p ||
+    "";
 
-  if (learningMode === "en_to_es") {
-    const main = es || en || lt || p_es || p || "";
-    const sub = p_es || p || "";
-    return sub ? `${main} — ${sub}` : main;
-  }
-
-  if (learningMode === "lt_to_en") {
-    const main = lt || en || p || "";
-    return p ? `${main} — ${p}` : main;
-  }
-
-  // default en_to_lt
-  const main = lt || en || p || "";
   return p ? `${main} — ${p}` : main;
 }
 
 function renderChoices(q) {
   show(DOM.inputWrap, false);
 
-  // ✅ choose which choices to display
-  let choices =
-    (learningMode === "en_to_es" && Array.isArray(q.choices_es) && q.choices_es.length)
-      ? q.choices_es.slice()
-      : (Array.isArray(q.choices) ? q.choices.slice() : []);
+  // Prefer choices_<nativeLang> if present, else choices
+  let choices = getArray(q, "choices", nativeLang);
 
-  // Shuffle by default unless explicitly disabled
   const doShuffle = q.shuffle !== false;
   if (doShuffle) choices.sort(() => Math.random() - 0.5);
 
@@ -631,16 +652,10 @@ function renderChoices(q) {
     b.onclick = async () => {
       if (isAnswered) return;
 
-      // ✅ keep LT audio behavior for LT modes only
+      // Play target audio (Lithuanian for now)
       try {
-        if (learningMode !== "en_to_es" && shouldSpeakForMode(q)) {
-          const speakText =
-            learningMode === "en_to_lt"
-              ? (q.lt || "")
-              : learningMode === "lt_to_en"
-              ? (q.en || "")
-              : "";
-
+        if (targetLang === "lt") {
+          const speakText = getSpeakText(q);
           if (speakText.trim()) {
             speakLithuanian(speakText, 0.95);
             await sleep(140);
@@ -679,12 +694,11 @@ function normalizeAnswer(s) {
 }
 
 function getCorrectList(q) {
-  // ✅ Spanish mode uses correct_es when present
-  if (learningMode === "en_to_es") {
-    const ce = Array.isArray(q.correct_es) ? q.correct_es : [];
-    const cleaned = ce.map((x) => String(x || "").trim()).filter(Boolean);
-    if (cleaned.length) return cleaned;
-  }
+  // Prefer correct_<nativeLang> if present
+  const localized = getArray(q, "correct", nativeLang)
+    .map((x) => String(x || "").trim())
+    .filter(Boolean);
+  if (localized.length) return localized;
 
   let correct =
     Array.isArray(q.correct)
@@ -791,11 +805,7 @@ function renderQuestion() {
   const correctListRaw = getCorrectList(currentQuestion);
   const speakText = getSpeakText(currentQuestion);
 
-  const hasChoices =
-    (Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0) ||
-    (learningMode === "en_to_es" &&
-      Array.isArray(currentQuestion.choices_es) &&
-      currentQuestion.choices_es.length > 0);
+  const hasChoices = getArray(currentQuestion, "choices", nativeLang).length > 0;
 
   // Dictation-style: no visible lt/en, has speakText, expects typing, has correct answer, no choices
   const isDictation = !lt && !en && !!speakText && correctListRaw.length > 0 && !hasChoices;
@@ -840,11 +850,8 @@ function renderQuestion() {
       let main = (currentQuestion.lt || currentQuestion.en || "").trim();
       let sub  = (currentQuestion.prompt || "").trim();
 
-      // ✅ Spanish display fields
-      if (learningMode === "en_to_es") {
-        main = (currentQuestion.es || currentQuestion.en || currentQuestion.lt || "").trim();
-        sub  = (currentQuestion.prompt_es || currentQuestion.prompt || "").trim();
-      }
+      // Localize sub-prompt (native language) if available
+      sub = getText(currentQuestion, "prompt", nativeLang, sub);
 
       DOM.lessonHeader.style.display = "";
       DOM.lessonPromptPretty.innerHTML = `
@@ -1257,10 +1264,18 @@ function wireEvents() {
   if (DOM.startBtn) DOM.startBtn.onclick = () => startLesson(0);
   if (DOM.continueBtn) DOM.continueBtn.onclick = () => startFromContinue();
 
-  if (DOM.learningModeSelect) {
-    DOM.learningModeSelect.value = learningMode;
-    DOM.learningModeSelect.onchange = () => {
-      saveLearningMode(DOM.learningModeSelect.value || "en_to_lt");
+  if (DOM.nativeLangSelect) {
+    DOM.nativeLangSelect.value = nativeLang;
+    DOM.nativeLangSelect.onchange = () => {
+      saveLangs(DOM.nativeLangSelect.value || "en", targetLang);
+      location.reload();
+    };
+  }
+
+  if (DOM.targetLangSelect) {
+    DOM.targetLangSelect.value = targetLang;
+    DOM.targetLangSelect.onchange = () => {
+      saveLangs(nativeLang, DOM.targetLangSelect.value || "lt");
       location.reload();
     };
   }

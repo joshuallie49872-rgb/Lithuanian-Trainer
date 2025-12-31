@@ -72,19 +72,36 @@
         </div>
 
         <div class="homeModeRow">
-          <div class="modeLabel">Learning Mode</div>
+          <div class="modeLabel">Languages</div>
           <div class="modeSelectWrap">
-            <select id="learningModeSelect" class="modeSelect" aria-label="Learning Mode">
-              <option value="en_to_lt" selected>English → Lithuanian (default)</option>
-              <option value="lt_to_en">Lithuanian → English</option>
-              <option value="es_to_lt" disabled>Spanish → Lithuanian (coming soon)</option>
-              <option value="en_to_es">English → Spanish</option>
-            </select>
-            <div class="modeHint muted">More languages later — for now this just sets the UI placeholder.</div>
+            <div class="modeGrid">
+              <div class="modeCol">
+                <div class="modeMiniLabel muted">My native language</div>
+                <select id="nativeLangSelect" class="modeSelect" aria-label="Native language">
+                  <option value="en" selected>English</option>
+                  <option value="es">Spanish</option>
+                  <option value="pl">Polish</option>
+                  <option value="ru">Russian</option>
+                  <option value="lv">Latvian</option>
+                  <option value="et">Estonian</option>
+                </select>
+              </div>
+
+              <div class="modeCol">
+                <div class="modeMiniLabel muted">I want to learn</div>
+                <select id="targetLangSelect" class="modeSelect" aria-label="Target language" disabled>
+                  <option value="lt" selected>Lithuanian</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="modeHint muted">
+              For now this switches the lesson pack/UI language while you learn Lithuanian.
+              (Next step later: any native → any target.)
+            </div>
           </div>
         </div>
-
-        <div class="row">
+<div class="row">
           <button id="startBtn" class="btn btn-primary">Start</button>
           <button id="continueBtn" class="btn btn-secondary">Continue</button>
         </div>
@@ -233,6 +250,6 @@
   </script>
 
   <!-- ✅ bump this when you change app.js so browser definitely loads newest JS -->
-  <script src="app.js?v=5373"></script>
+  <script src="app.js?v=5400"></script>
 </body>
 </html>
