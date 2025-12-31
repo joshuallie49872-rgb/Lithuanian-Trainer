@@ -549,6 +549,63 @@ async function loadLessonByIndex(i) {
   const coreQs = Array.isArray(coreData?.questions) ? coreData.questions : [];
   const ovQs = Array.isArray(overlayData?.questions) ? overlayData.questions : [];
 
+  // --- Overlay validation (non-fatal) ---
+  (function validateOverlay(coreQs, ovQs, coreUrl, overlayUrl) {
+    try {
+      if (!ovQs || ovQs.length === 0) return;
+
+      if (coreQs.length !== ovQs.length) {
+        console.warn(
+          `[OpenKalba] Overlay length mismatch for ${overlayUrl}: overlay=${ovQs.length}, core=${coreQs.length}. ` +
+            `Index-aligned merges may drift. Fix overlay questions[] to match core questions[].`
+        );
+      }
+
+      const minN = Math.min(coreQs.length, ovQs.length);
+      for (let i = 0; i < minN; i++) {
+        const cq = coreQs[i] || {};
+        const oq = ovQs[i] || {};
+
+        const cChoices = cq.choices;
+        const oChoices = oq.choices;
+
+        const cKeyed =
+          Array.isArray(cChoices) && cChoices.length && typeof cChoices[0] === "object" && cChoices[0] && "key" in cChoices[0];
+        const oKeyed =
+          Array.isArray(oChoices) && oChoices.length && typeof oChoices[0] === "object" && oChoices[0] && "key" in oChoices[0];
+
+        if (cKeyed && oChoices && !oKeyed) {
+          console.warn(
+            `[OpenKalba] Overlay choices not keyed at question #${i + 1} (${cq.qid || "no-qid"}) in ${overlayUrl}. ` +
+              `Core uses {key,label} but overlay uses plain strings. Convert overlay choices to {key,label}.`
+          );
+          continue;
+        }
+
+        if (cKeyed && oKeyed) {
+          const cKeys = cChoices.map((x) => String(x.key || "").trim()).filter(Boolean);
+          const oKeys = oChoices.map((x) => String(x.key || "").trim()).filter(Boolean);
+
+          // Compare key sets (order doesn't matter for correctness)
+          const cSet = new Set(cKeys);
+          const oSet = new Set(oKeys);
+
+          const missing = cKeys.filter((k) => !oSet.has(k));
+          const extra = oKeys.filter((k) => !cSet.has(k));
+
+          if (missing.length || extra.length) {
+            console.warn(
+              `[OpenKalba] Overlay key mismatch at question #${i + 1} (${cq.qid || "no-qid"}) in ${overlayUrl}. ` +
+                `Missing: [${missing.join(", ")}], Extra: [${extra.join(", ")}].`
+            );
+          }
+        }
+      }
+    } catch (e) {
+      console.warn("[OpenKalba] Overlay validation failed (ignored):", e);
+    }
+  })(coreQs, ovQs, coreUrl, overlayUrl);
+
   const ovById = {};
   for (const q of ovQs) {
     if (q && q.qid) ovById[String(q.qid)] = q;

@@ -5,111 +5,221 @@
       "qid": "q001",
       "prompt": "Pick the correct meaning",
       "choices": [
-        "hello",
-        "thank you",
-        "yes",
-        "no"
-      ],
-      "answer": "hello"
+        {
+          "key": "hello",
+          "label": "hello"
+        },
+        {
+          "key": "thank_you",
+          "label": "thank you"
+        },
+        {
+          "key": "yes",
+          "label": "yes"
+        },
+        {
+          "key": "no",
+          "label": "no"
+        }
+      ]
     },
     {
       "qid": "q002",
       "prompt": "Pick the correct meaning",
       "choices": [
-        "sorry",
-        "thank you",
-        "please",
-        "hello"
-      ],
-      "answer": "thank you"
+        {
+          "key": "sorry",
+          "label": "sorry"
+        },
+        {
+          "key": "thank_you",
+          "label": "thank you"
+        },
+        {
+          "key": "please",
+          "label": "please"
+        },
+        {
+          "key": "hello",
+          "label": "hello"
+        }
+      ]
     },
     {
       "qid": "q003",
       "prompt": "Pick the correct meaning",
       "choices": [
-        "yes",
-        "no",
-        "goodbye",
-        "please"
-      ],
-      "answer": "yes"
+        {
+          "key": "yes",
+          "label": "yes"
+        },
+        {
+          "key": "no",
+          "label": "no"
+        },
+        {
+          "key": "goodbye",
+          "label": "goodbye"
+        },
+        {
+          "key": "please",
+          "label": "please"
+        }
+      ]
     },
     {
       "qid": "q004",
       "prompt": "Pick the correct meaning",
       "choices": [
-        "yes",
-        "no",
-        "thanks",
-        "hi"
-      ],
-      "answer": "no"
+        {
+          "key": "yes",
+          "label": "yes"
+        },
+        {
+          "key": "no",
+          "label": "no"
+        },
+        {
+          "key": "thanks",
+          "label": "thanks"
+        },
+        {
+          "key": "hi",
+          "label": "hi"
+        }
+      ]
     },
     {
       "qid": "q005",
       "prompt": "Pick the correct meaning",
       "choices": [
-        "please / you're welcome",
-        "goodbye",
-        "sorry",
-        "hello"
-      ],
-      "answer": "please / you're welcome"
+        {
+          "key": "please_you_re_welcome",
+          "label": "please / you're welcome"
+        },
+        {
+          "key": "goodbye",
+          "label": "goodbye"
+        },
+        {
+          "key": "sorry",
+          "label": "sorry"
+        },
+        {
+          "key": "hello",
+          "label": "hello"
+        }
+      ]
     },
     {
       "qid": "q006",
       "prompt": "Pick the correct meaning",
       "choices": [
-        "excuse me / sorry",
-        "please",
-        "thanks",
-        "yes"
-      ],
-      "answer": "excuse me / sorry"
+        {
+          "key": "excuse_me_sorry",
+          "label": "excuse me / sorry"
+        },
+        {
+          "key": "please",
+          "label": "please"
+        },
+        {
+          "key": "thanks",
+          "label": "thanks"
+        },
+        {
+          "key": "yes",
+          "label": "yes"
+        }
+      ]
     },
     {
       "qid": "q007",
       "prompt": "Pick the correct meaning",
       "choices": [
-        "goodbye",
-        "good morning",
-        "good night",
-        "see you"
-      ],
-      "answer": "goodbye"
+        {
+          "key": "goodbye",
+          "label": "goodbye"
+        },
+        {
+          "key": "good_morning",
+          "label": "good morning"
+        },
+        {
+          "key": "good_night",
+          "label": "good night"
+        },
+        {
+          "key": "see_you",
+          "label": "see you"
+        }
+      ]
     },
     {
       "qid": "q008",
       "prompt": "Pick the correct meaning",
       "choices": [
-        "see you",
-        "hello",
-        "thanks",
-        "no"
-      ],
-      "answer": "see you"
+        {
+          "key": "see_you",
+          "label": "see you"
+        },
+        {
+          "key": "hello",
+          "label": "hello"
+        },
+        {
+          "key": "thanks",
+          "label": "thanks"
+        },
+        {
+          "key": "no",
+          "label": "no"
+        }
+      ]
     },
     {
       "qid": "q009",
       "prompt": "Pick the correct meaning",
       "choices": [
-        "okay / good",
-        "bad",
-        "please",
-        "tomorrow"
-      ],
-      "answer": "okay / good"
+        {
+          "key": "okay_good",
+          "label": "okay / good"
+        },
+        {
+          "key": "bad",
+          "label": "bad"
+        },
+        {
+          "key": "please",
+          "label": "please"
+        },
+        {
+          "key": "tomorrow",
+          "label": "tomorrow"
+        }
+      ]
     },
     {
       "qid": "q010",
       "prompt": "Pick the correct meaning",
       "choices": [
-        "badly",
-        "well",
-        "hello",
-        "thanks"
-      ],
-      "answer": "badly"
+        {
+          "key": "badly",
+          "label": "badly"
+        },
+        {
+          "key": "well",
+          "label": "well"
+        },
+        {
+          "key": "hello",
+          "label": "hello"
+        },
+        {
+          "key": "thanks",
+          "label": "thanks"
+        }
+      ]
     },
     {
       "qid": "q011",

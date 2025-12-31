@@ -5,121 +5,431 @@
       "qid": "q001",
       "type": "choose",
       "lt": "labas",
+<<<<<<< HEAD
       "tts": "labas"
+=======
+      "tts": "labas",
+      "prompt": "Pick the correct meaning",
+      "choices": [
+        {
+          "key": "hello",
+          "label": "hello"
+        },
+        {
+          "key": "thank_you",
+          "label": "thank you"
+        },
+        {
+          "key": "yes",
+          "label": "yes"
+        },
+        {
+          "key": "no",
+          "label": "no"
+        }
+      ],
+      "correct": [
+        "hello"
+      ]
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q002",
       "type": "choose",
       "lt": "ačiū",
+<<<<<<< HEAD
       "tts": "ačiū"
+=======
+      "tts": "ačiū",
+      "prompt": "Pick the correct meaning",
+      "choices": [
+        {
+          "key": "sorry",
+          "label": "sorry"
+        },
+        {
+          "key": "thank_you",
+          "label": "thank you"
+        },
+        {
+          "key": "please",
+          "label": "please"
+        },
+        {
+          "key": "hello",
+          "label": "hello"
+        }
+      ],
+      "correct": [
+        "thank_you"
+      ]
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q003",
       "type": "choose",
       "lt": "taip",
+<<<<<<< HEAD
       "tts": "taip"
+=======
+      "tts": "taip",
+      "prompt": "Pick the correct meaning",
+      "choices": [
+        {
+          "key": "yes",
+          "label": "yes"
+        },
+        {
+          "key": "no",
+          "label": "no"
+        },
+        {
+          "key": "goodbye",
+          "label": "goodbye"
+        },
+        {
+          "key": "please",
+          "label": "please"
+        }
+      ],
+      "correct": [
+        "yes"
+      ]
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q004",
       "type": "choose",
       "lt": "ne",
+<<<<<<< HEAD
       "tts": "ne"
+=======
+      "tts": "ne",
+      "prompt": "Pick the correct meaning",
+      "choices": [
+        {
+          "key": "yes",
+          "label": "yes"
+        },
+        {
+          "key": "no",
+          "label": "no"
+        },
+        {
+          "key": "thanks",
+          "label": "thanks"
+        },
+        {
+          "key": "hi",
+          "label": "hi"
+        }
+      ],
+      "correct": [
+        "no"
+      ]
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q005",
       "type": "choose",
       "lt": "prašau",
+<<<<<<< HEAD
       "tts": "prašau"
+=======
+      "tts": "prašau",
+      "prompt": "Pick the correct meaning",
+      "choices": [
+        {
+          "key": "please_you_re_welcome",
+          "label": "please / you're welcome"
+        },
+        {
+          "key": "goodbye",
+          "label": "goodbye"
+        },
+        {
+          "key": "sorry",
+          "label": "sorry"
+        },
+        {
+          "key": "hello",
+          "label": "hello"
+        }
+      ],
+      "correct": [
+        "please_you_re_welcome"
+      ]
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q006",
       "type": "choose",
       "lt": "atsiprašau",
+<<<<<<< HEAD
       "tts": "atsiprašau"
+=======
+      "tts": "atsiprašau",
+      "prompt": "Pick the correct meaning",
+      "choices": [
+        {
+          "key": "excuse_me_sorry",
+          "label": "excuse me / sorry"
+        },
+        {
+          "key": "please",
+          "label": "please"
+        },
+        {
+          "key": "thanks",
+          "label": "thanks"
+        },
+        {
+          "key": "yes",
+          "label": "yes"
+        }
+      ],
+      "correct": [
+        "excuse_me_sorry"
+      ]
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q007",
       "type": "choose",
       "lt": "viso gero",
+<<<<<<< HEAD
       "tts": "viso gero"
+=======
+      "tts": "viso gero",
+      "prompt": "Pick the correct meaning",
+      "choices": [
+        {
+          "key": "goodbye",
+          "label": "goodbye"
+        },
+        {
+          "key": "good_morning",
+          "label": "good morning"
+        },
+        {
+          "key": "good_night",
+          "label": "good night"
+        },
+        {
+          "key": "see_you",
+          "label": "see you"
+        }
+      ],
+      "correct": [
+        "goodbye"
+      ]
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q008",
       "type": "choose",
       "lt": "iki",
+<<<<<<< HEAD
       "tts": "iki"
+=======
+      "tts": "iki",
+      "prompt": "Pick the correct meaning",
+      "choices": [
+        {
+          "key": "see_you",
+          "label": "see you"
+        },
+        {
+          "key": "hello",
+          "label": "hello"
+        },
+        {
+          "key": "thanks",
+          "label": "thanks"
+        },
+        {
+          "key": "no",
+          "label": "no"
+        }
+      ],
+      "correct": [
+        "see_you"
+      ]
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q009",
       "type": "choose",
       "lt": "gerai",
+<<<<<<< HEAD
       "tts": "gerai"
+=======
+      "tts": "gerai",
+      "prompt": "Pick the correct meaning",
+      "choices": [
+        {
+          "key": "okay_good",
+          "label": "okay / good"
+        },
+        {
+          "key": "bad",
+          "label": "bad"
+        },
+        {
+          "key": "please",
+          "label": "please"
+        },
+        {
+          "key": "tomorrow",
+          "label": "tomorrow"
+        }
+      ],
+      "correct": [
+        "okay_good"
+      ]
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q010",
       "type": "choose",
       "lt": "blogai",
+<<<<<<< HEAD
       "tts": "blogai"
+=======
+      "tts": "blogai",
+      "prompt": "Pick the correct meaning",
+      "choices": [
+        {
+          "key": "badly",
+          "label": "badly"
+        },
+        {
+          "key": "well",
+          "label": "well"
+        },
+        {
+          "key": "hello",
+          "label": "hello"
+        },
+        {
+          "key": "thanks",
+          "label": "thanks"
+        }
+      ],
+      "correct": [
+        "badly"
+      ]
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q011",
       "type": "translate",
       "lt": "",
+<<<<<<< HEAD
       "tts": "labas"
+=======
+      "tts": "labas",
+      "prompt": "Translate to Lithuanian"
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q012",
       "type": "translate",
       "lt": "",
+<<<<<<< HEAD
       "tts": "ačiū"
+=======
+      "tts": "ačiū",
+      "prompt": "Translate to Lithuanian"
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q013",
       "type": "translate",
       "lt": "",
+<<<<<<< HEAD
       "tts": "taip"
+=======
+      "tts": "taip",
+      "prompt": "Translate to Lithuanian"
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q014",
       "type": "translate",
       "lt": "",
+<<<<<<< HEAD
       "tts": "ne"
+=======
+      "tts": "ne",
+      "prompt": "Translate to Lithuanian"
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q015",
       "type": "translate",
       "lt": "",
+<<<<<<< HEAD
       "tts": "prašau"
+=======
+      "tts": "prašau",
+      "prompt": "Translate to Lithuanian"
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q016",
       "type": "translate",
       "lt": "",
+<<<<<<< HEAD
       "tts": "atsiprašau"
+=======
+      "tts": "atsiprašau",
+      "prompt": "Translate to Lithuanian"
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q017",
       "type": "translate",
       "lt": "",
+<<<<<<< HEAD
       "tts": "viso gero"
+=======
+      "tts": "viso gero",
+      "prompt": "Translate to Lithuanian"
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q018",
       "type": "translate",
       "lt": "",
+<<<<<<< HEAD
       "tts": "iki"
+=======
+      "tts": "iki",
+      "prompt": "Translate to Lithuanian"
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q019",
       "type": "translate",
       "lt": "",
+<<<<<<< HEAD
       "tts": "gerai"
+=======
+      "tts": "gerai",
+      "prompt": "Translate to Lithuanian"
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     },
     {
       "qid": "q020",
       "type": "translate",
       "lt": "",
+<<<<<<< HEAD
       "tts": "blogai"
+=======
+      "tts": "blogai",
+      "prompt": "Translate to Lithuanian"
+>>>>>>> 5db5565 (Bundle: keyed choices for 001-basics + keyed overlays + overlay validator)
     }
   ]
 }
