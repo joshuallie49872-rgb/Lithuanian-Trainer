@@ -1,0 +1,125 @@
+{
+  "id": "090-home",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "namai",
+      "tts": "namai"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "butas",
+      "tts": "butas"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "virtuvė",
+      "tts": "virtuvė"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "vonios kambarys",
+      "tts": "vonios kambarys"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "švara",
+      "tts": "švara"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "namai"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "butas"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "virtuvė"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "vonios kambarys"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "švara"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "namai",
+      "tts": "namai"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "butas",
+      "tts": "butas"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "virtuvė",
+      "tts": "virtuvė"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "vonios kambarys",
+      "tts": "vonios kambarys"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "švara",
+      "tts": "švara"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "namai"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "butas"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "virtuvė"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "vonios kambarys"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "švara"
+    }
+  ]
+}

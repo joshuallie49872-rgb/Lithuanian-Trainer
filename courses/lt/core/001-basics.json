@@ -1,0 +1,125 @@
+{
+  "id": "001-basics",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "labas",
+      "tts": "labas"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "ačiū",
+      "tts": "ačiū"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "taip",
+      "tts": "taip"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "ne",
+      "tts": "ne"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "prašau",
+      "tts": "prašau"
+    },
+    {
+      "qid": "q006",
+      "type": "choose",
+      "lt": "atsiprašau",
+      "tts": "atsiprašau"
+    },
+    {
+      "qid": "q007",
+      "type": "choose",
+      "lt": "viso gero",
+      "tts": "viso gero"
+    },
+    {
+      "qid": "q008",
+      "type": "choose",
+      "lt": "iki",
+      "tts": "iki"
+    },
+    {
+      "qid": "q009",
+      "type": "choose",
+      "lt": "gerai",
+      "tts": "gerai"
+    },
+    {
+      "qid": "q010",
+      "type": "choose",
+      "lt": "blogai",
+      "tts": "blogai"
+    },
+    {
+      "qid": "q011",
+      "type": "translate",
+      "lt": "",
+      "tts": "labas"
+    },
+    {
+      "qid": "q012",
+      "type": "translate",
+      "lt": "",
+      "tts": "ačiū"
+    },
+    {
+      "qid": "q013",
+      "type": "translate",
+      "lt": "",
+      "tts": "taip"
+    },
+    {
+      "qid": "q014",
+      "type": "translate",
+      "lt": "",
+      "tts": "ne"
+    },
+    {
+      "qid": "q015",
+      "type": "translate",
+      "lt": "",
+      "tts": "prašau"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "atsiprašau"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "viso gero"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "iki"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "gerai"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "blogai"
+    }
+  ]
+}

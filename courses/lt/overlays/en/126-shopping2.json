@@ -1,0 +1,155 @@
+{
+  "id": "126-shopping2",
+  "questions": [
+    {
+      "qid": "q001",
+      "prompt": "",
+      "choices": [
+        "expensive",
+        "cheap",
+        "free",
+        "fast"
+      ],
+      "answer": "expensive"
+    },
+    {
+      "qid": "q002",
+      "prompt": "",
+      "choices": [
+        "cheap",
+        "expensive",
+        "slow",
+        "bad"
+      ],
+      "answer": "cheap"
+    },
+    {
+      "qid": "q003",
+      "prompt": "",
+      "choices": [
+        "discount",
+        "price",
+        "money",
+        "tax"
+      ],
+      "answer": "discount"
+    },
+    {
+      "qid": "q004",
+      "prompt": "",
+      "choices": [
+        "cashier",
+        "buyer",
+        "seller",
+        "manager"
+      ],
+      "answer": "cashier"
+    },
+    {
+      "qid": "q005",
+      "prompt": "",
+      "choices": [
+        "receipt",
+        "bill",
+        "menu",
+        "card"
+      ],
+      "answer": "receipt"
+    },
+    {
+      "qid": "q006",
+      "prompt": ""
+    },
+    {
+      "qid": "q007",
+      "prompt": ""
+    },
+    {
+      "qid": "q008",
+      "prompt": ""
+    },
+    {
+      "qid": "q009",
+      "prompt": ""
+    },
+    {
+      "qid": "q010",
+      "prompt": ""
+    },
+    {
+      "qid": "q011",
+      "prompt": "",
+      "choices": [
+        "expensive",
+        "cheap",
+        "free",
+        "fast"
+      ],
+      "answer": "expensive"
+    },
+    {
+      "qid": "q012",
+      "prompt": "",
+      "choices": [
+        "cheap",
+        "expensive",
+        "slow",
+        "bad"
+      ],
+      "answer": "cheap"
+    },
+    {
+      "qid": "q013",
+      "prompt": "",
+      "choices": [
+        "discount",
+        "price",
+        "money",
+        "tax"
+      ],
+      "answer": "discount"
+    },
+    {
+      "qid": "q014",
+      "prompt": "",
+      "choices": [
+        "cashier",
+        "buyer",
+        "seller",
+        "manager"
+      ],
+      "answer": "cashier"
+    },
+    {
+      "qid": "q015",
+      "prompt": "",
+      "choices": [
+        "receipt",
+        "bill",
+        "menu",
+        "card"
+      ],
+      "answer": "receipt"
+    },
+    {
+      "qid": "q016",
+      "prompt": ""
+    },
+    {
+      "qid": "q017",
+      "prompt": ""
+    },
+    {
+      "qid": "q018",
+      "prompt": ""
+    },
+    {
+      "qid": "q019",
+      "prompt": ""
+    },
+    {
+      "qid": "q020",
+      "prompt": ""
+    }
+  ]
+}

@@ -1,0 +1,3405 @@
+{
+  "target": "lt",
+  "lessons": [
+    {
+      "id": "001-basics",
+      "icon": "",
+      "title": {
+        "en": "Basics 1",
+        "es": "Básicos 1"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/001-basics.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/001-basics.json",
+        "es": "courses/lt/overlays/es/001-basics.json"
+      }
+    },
+    {
+      "id": "002-basics",
+      "icon": "",
+      "title": {
+        "en": "Basics 2",
+        "es": "Básicos 2"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/002-basics.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/002-basics.json",
+        "es": "courses/lt/overlays/es/002-basics.json"
+      }
+    },
+    {
+      "id": "003-basics",
+      "icon": "",
+      "title": {
+        "en": "Basics 3",
+        "es": "Básicos 3"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/003-basics.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/003-basics.json",
+        "es": "courses/lt/overlays/es/003-basics.json"
+      }
+    },
+    {
+      "id": "004-places",
+      "icon": "",
+      "title": {
+        "en": "Places & Directions",
+        "es": "Lugares e indicaciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/004-places.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/004-places.json",
+        "es": "courses/lt/overlays/es/004-places.json"
+      }
+    },
+    {
+      "id": "005-questions",
+      "icon": "",
+      "title": {
+        "en": "Questions & Answers",
+        "es": "Preguntas y respuestas"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/005-questions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/005-questions.json",
+        "es": "courses/lt/overlays/es/005-questions.json"
+      }
+    },
+    {
+      "id": "006-food",
+      "icon": "",
+      "title": {
+        "en": "Food & Drinks",
+        "es": "Alimentos y bebidas"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/006-food.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/006-food.json",
+        "es": "courses/lt/overlays/es/006-food.json"
+      }
+    },
+    {
+      "id": "007-cafe",
+      "icon": "",
+      "title": {
+        "en": "Ordering at a Café",
+        "es": "Ordenar en un café"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/007-cafe.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/007-cafe.json",
+        "es": "courses/lt/overlays/es/007-cafe.json"
+      }
+    },
+    {
+      "id": "008-cafe",
+      "icon": "",
+      "title": {
+        "en": "Ordering at a Café",
+        "es": "Ordenar en un café"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/008-cafe.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/008-cafe.json",
+        "es": "courses/lt/overlays/es/008-cafe.json"
+      }
+    },
+    {
+      "id": "009-cafe",
+      "icon": "",
+      "title": {
+        "en": "Ordering at a Café",
+        "es": "Ordenar en un café"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/009-cafe.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/009-cafe.json",
+        "es": "courses/lt/overlays/es/009-cafe.json"
+      }
+    },
+    {
+      "id": "010-shopping",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Money",
+        "es": "Compras y dinero"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/010-shopping.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/010-shopping.json",
+        "es": "courses/lt/overlays/es/010-shopping.json"
+      }
+    },
+    {
+      "id": "011-shopping",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Money",
+        "es": "Compras y dinero"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/011-shopping.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/011-shopping.json",
+        "es": "courses/lt/overlays/es/011-shopping.json"
+      }
+    },
+    {
+      "id": "012-shopping",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Money",
+        "es": "Compras y dinero"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/012-shopping.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/012-shopping.json",
+        "es": "courses/lt/overlays/es/012-shopping.json"
+      }
+    },
+    {
+      "id": "013-time",
+      "icon": "",
+      "title": {
+        "en": "Time & Dates",
+        "es": "Fechas y hora"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/013-time.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/013-time.json",
+        "es": "courses/lt/overlays/es/013-time.json"
+      }
+    },
+    {
+      "id": "014-time",
+      "icon": "",
+      "title": {
+        "en": "Time & Dates",
+        "es": "Fechas y hora"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/014-time.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/014-time.json",
+        "es": "courses/lt/overlays/es/014-time.json"
+      }
+    },
+    {
+      "id": "015-time",
+      "icon": "",
+      "title": {
+        "en": "Time & Dates",
+        "es": "Fechas y hora"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/015-time.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/015-time.json",
+        "es": "courses/lt/overlays/es/015-time.json"
+      }
+    },
+    {
+      "id": "016-daily",
+      "icon": "",
+      "title": {
+        "en": "Daily Routine",
+        "es": "Rutina diaria"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/016-daily.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/016-daily.json",
+        "es": "courses/lt/overlays/es/016-daily.json"
+      }
+    },
+    {
+      "id": "017-daily",
+      "icon": "",
+      "title": {
+        "en": "Daily Routine",
+        "es": "Rutina diaria"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/017-daily.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/017-daily.json",
+        "es": "courses/lt/overlays/es/017-daily.json"
+      }
+    },
+    {
+      "id": "018-daily",
+      "icon": "",
+      "title": {
+        "en": "Daily Routine",
+        "es": "Rutina diaria"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/018-daily.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/018-daily.json",
+        "es": "courses/lt/overlays/es/018-daily.json"
+      }
+    },
+    {
+      "id": "019-social",
+      "icon": "",
+      "title": {
+        "en": "Social & Polite Talk",
+        "es": "Charla social y cortés"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/019-social.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/019-social.json",
+        "es": "courses/lt/overlays/es/019-social.json"
+      }
+    },
+    {
+      "id": "020-plans",
+      "icon": "",
+      "title": {
+        "en": "Plans & Simple Future",
+        "es": "Planes y futuro simple"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/020-plans.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/020-plans.json",
+        "es": "courses/lt/overlays/es/020-plans.json"
+      }
+    },
+    {
+      "id": "021-travel",
+      "icon": "",
+      "title": {
+        "en": "Travel & Transport",
+        "es": "Viajes y transporte"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/021-travel.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/021-travel.json",
+        "es": "courses/lt/overlays/es/021-travel.json"
+      }
+    },
+    {
+      "id": "022-hotel",
+      "icon": "",
+      "title": {
+        "en": "Hotel & Stay",
+        "es": "Hotel & Stay"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/022-hotel.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/022-hotel.json",
+        "es": "courses/lt/overlays/es/022-hotel.json"
+      }
+    },
+    {
+      "id": "023-emergency",
+      "icon": "",
+      "title": {
+        "en": "Emergencies & Help",
+        "es": "Emergencias y ayuda"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/023-emergency.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/023-emergency.json",
+        "es": "courses/lt/overlays/es/023-emergency.json"
+      }
+    },
+    {
+      "id": "024-social",
+      "icon": "",
+      "title": {
+        "en": "Social & Small Talk",
+        "es": "Charla social y pequeña"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/024-social.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/024-social.json",
+        "es": "courses/lt/overlays/es/024-social.json"
+      }
+    },
+    {
+      "id": "025-weather",
+      "icon": "",
+      "title": {
+        "en": "Weather & Plans",
+        "es": "& Planes meteorológicos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/025-weather.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/025-weather.json",
+        "es": "courses/lt/overlays/es/025-weather.json"
+      }
+    },
+    {
+      "id": "026-travel",
+      "icon": "",
+      "title": {
+        "en": "Travel & Transport",
+        "es": "Viajes y transporte"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/026-travel.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/026-travel.json",
+        "es": "courses/lt/overlays/es/026-travel.json"
+      }
+    },
+    {
+      "id": "027-hotel",
+      "icon": "",
+      "title": {
+        "en": "Hotel & Stay",
+        "es": "Hotel & Stay"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/027-hotel.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/027-hotel.json",
+        "es": "courses/lt/overlays/es/027-hotel.json"
+      }
+    },
+    {
+      "id": "028-emergency",
+      "icon": "",
+      "title": {
+        "en": "Emergencies & Help",
+        "es": "Emergencias y ayuda"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/028-emergency.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/028-emergency.json",
+        "es": "courses/lt/overlays/es/028-emergency.json"
+      }
+    },
+    {
+      "id": "029-social",
+      "icon": "",
+      "title": {
+        "en": "Social & Small Talk",
+        "es": "Charla social y pequeña"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/029-social.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/029-social.json",
+        "es": "courses/lt/overlays/es/029-social.json"
+      }
+    },
+    {
+      "id": "030-weather",
+      "icon": "",
+      "title": {
+        "en": "Weather & Plans",
+        "es": "& Planes meteorológicos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/030-weather.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/030-weather.json",
+        "es": "courses/lt/overlays/es/030-weather.json"
+      }
+    },
+    {
+      "id": "031-travel",
+      "icon": "",
+      "title": {
+        "en": "Travel & Transport",
+        "es": "Viajes y transporte"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/031-travel.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/031-travel.json",
+        "es": "courses/lt/overlays/es/031-travel.json"
+      }
+    },
+    {
+      "id": "032-hotel",
+      "icon": "",
+      "title": {
+        "en": "Hotel & Stay",
+        "es": "Hotel & Stay"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/032-hotel.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/032-hotel.json",
+        "es": "courses/lt/overlays/es/032-hotel.json"
+      }
+    },
+    {
+      "id": "033-emergency",
+      "icon": "",
+      "title": {
+        "en": "Emergencies & Help",
+        "es": "Emergencias y ayuda"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/033-emergency.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/033-emergency.json",
+        "es": "courses/lt/overlays/es/033-emergency.json"
+      }
+    },
+    {
+      "id": "034-social",
+      "icon": "",
+      "title": {
+        "en": "Social & Small Talk",
+        "es": "Charla social y pequeña"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/034-social.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/034-social.json",
+        "es": "courses/lt/overlays/es/034-social.json"
+      }
+    },
+    {
+      "id": "035-weather",
+      "icon": "",
+      "title": {
+        "en": "Weather & Plans",
+        "es": "& Planes meteorológicos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/035-weather.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/035-weather.json",
+        "es": "courses/lt/overlays/es/035-weather.json"
+      }
+    },
+    {
+      "id": "036-travel",
+      "icon": "",
+      "title": {
+        "en": "Travel & Transport",
+        "es": "Viajes y transporte"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/036-travel.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/036-travel.json",
+        "es": "courses/lt/overlays/es/036-travel.json"
+      }
+    },
+    {
+      "id": "037-hotel",
+      "icon": "",
+      "title": {
+        "en": "Hotel & Stay",
+        "es": "Hotel & Stay"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/037-hotel.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/037-hotel.json",
+        "es": "courses/lt/overlays/es/037-hotel.json"
+      }
+    },
+    {
+      "id": "038-emergency",
+      "icon": "",
+      "title": {
+        "en": "Emergencies & Help",
+        "es": "Emergencias y ayuda"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/038-emergency.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/038-emergency.json",
+        "es": "courses/lt/overlays/es/038-emergency.json"
+      }
+    },
+    {
+      "id": "039-social",
+      "icon": "",
+      "title": {
+        "en": "Social & Small Talk",
+        "es": "Charla social y pequeña"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/039-social.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/039-social.json",
+        "es": "courses/lt/overlays/es/039-social.json"
+      }
+    },
+    {
+      "id": "040-weather",
+      "icon": "",
+      "title": {
+        "en": "Weather & Plans",
+        "es": "& Planes meteorológicos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/040-weather.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/040-weather.json",
+        "es": "courses/lt/overlays/es/040-weather.json"
+      }
+    },
+    {
+      "id": "041-travel2",
+      "icon": "",
+      "title": {
+        "en": "Advanced Travel",
+        "es": "Viajes avanzados"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/041-travel2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/041-travel2.json",
+        "es": "courses/lt/overlays/es/041-travel2.json"
+      }
+    },
+    {
+      "id": "042-social2",
+      "icon": "",
+      "title": {
+        "en": "Conversation & Feelings",
+        "es": "Conversación y sentimientos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/042-social2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/042-social2.json",
+        "es": "courses/lt/overlays/es/042-social2.json"
+      }
+    },
+    {
+      "id": "043-health",
+      "icon": "",
+      "title": {
+        "en": "Health & Body",
+        "es": "Salud y cuerpo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/043-health.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/043-health.json",
+        "es": "courses/lt/overlays/es/043-health.json"
+      }
+    },
+    {
+      "id": "044-opinions",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Preferences",
+        "es": "Opiniones & Preferencias"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/044-opinions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/044-opinions.json",
+        "es": "courses/lt/overlays/es/044-opinions.json"
+      }
+    },
+    {
+      "id": "045-travel2",
+      "icon": "",
+      "title": {
+        "en": "Advanced Travel",
+        "es": "Viajes avanzados"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/045-travel2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/045-travel2.json",
+        "es": "courses/lt/overlays/es/045-travel2.json"
+      }
+    },
+    {
+      "id": "046-social2",
+      "icon": "",
+      "title": {
+        "en": "Conversation & Feelings",
+        "es": "Conversación y sentimientos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/046-social2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/046-social2.json",
+        "es": "courses/lt/overlays/es/046-social2.json"
+      }
+    },
+    {
+      "id": "047-health",
+      "icon": "",
+      "title": {
+        "en": "Health & Body",
+        "es": "Salud y cuerpo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/047-health.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/047-health.json",
+        "es": "courses/lt/overlays/es/047-health.json"
+      }
+    },
+    {
+      "id": "048-opinions",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Preferences",
+        "es": "Opiniones & Preferencias"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/048-opinions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/048-opinions.json",
+        "es": "courses/lt/overlays/es/048-opinions.json"
+      }
+    },
+    {
+      "id": "049-travel2",
+      "icon": "",
+      "title": {
+        "en": "Advanced Travel",
+        "es": "Viajes avanzados"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/049-travel2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/049-travel2.json",
+        "es": "courses/lt/overlays/es/049-travel2.json"
+      }
+    },
+    {
+      "id": "050-social2",
+      "icon": "",
+      "title": {
+        "en": "Conversation & Feelings",
+        "es": "Conversación y sentimientos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/050-social2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/050-social2.json",
+        "es": "courses/lt/overlays/es/050-social2.json"
+      }
+    },
+    {
+      "id": "051-health",
+      "icon": "",
+      "title": {
+        "en": "Health & Body",
+        "es": "Salud y cuerpo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/051-health.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/051-health.json",
+        "es": "courses/lt/overlays/es/051-health.json"
+      }
+    },
+    {
+      "id": "052-opinions",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Preferences",
+        "es": "Opiniones & Preferencias"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/052-opinions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/052-opinions.json",
+        "es": "courses/lt/overlays/es/052-opinions.json"
+      }
+    },
+    {
+      "id": "053-travel2",
+      "icon": "",
+      "title": {
+        "en": "Advanced Travel",
+        "es": "Viajes avanzados"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/053-travel2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/053-travel2.json",
+        "es": "courses/lt/overlays/es/053-travel2.json"
+      }
+    },
+    {
+      "id": "054-social2",
+      "icon": "",
+      "title": {
+        "en": "Conversation & Feelings",
+        "es": "Conversación y sentimientos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/054-social2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/054-social2.json",
+        "es": "courses/lt/overlays/es/054-social2.json"
+      }
+    },
+    {
+      "id": "055-health",
+      "icon": "",
+      "title": {
+        "en": "Health & Body",
+        "es": "Salud y cuerpo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/055-health.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/055-health.json",
+        "es": "courses/lt/overlays/es/055-health.json"
+      }
+    },
+    {
+      "id": "056-opinions",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Preferences",
+        "es": "Opiniones & Preferencias"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/056-opinions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/056-opinions.json",
+        "es": "courses/lt/overlays/es/056-opinions.json"
+      }
+    },
+    {
+      "id": "057-travel2",
+      "icon": "",
+      "title": {
+        "en": "Advanced Travel",
+        "es": "Viajes avanzados"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/057-travel2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/057-travel2.json",
+        "es": "courses/lt/overlays/es/057-travel2.json"
+      }
+    },
+    {
+      "id": "058-social2",
+      "icon": "",
+      "title": {
+        "en": "Conversation & Feelings",
+        "es": "Conversación y sentimientos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/058-social2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/058-social2.json",
+        "es": "courses/lt/overlays/es/058-social2.json"
+      }
+    },
+    {
+      "id": "059-health",
+      "icon": "",
+      "title": {
+        "en": "Health & Body",
+        "es": "Salud y cuerpo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/059-health.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/059-health.json",
+        "es": "courses/lt/overlays/es/059-health.json"
+      }
+    },
+    {
+      "id": "060-opinions",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Preferences",
+        "es": "Opiniones & Preferencias"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/060-opinions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/060-opinions.json",
+        "es": "courses/lt/overlays/es/060-opinions.json"
+      }
+    },
+    {
+      "id": "061-travel2",
+      "icon": "",
+      "title": {
+        "en": "Advanced Travel",
+        "es": "Viajes avanzados"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/061-travel2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/061-travel2.json",
+        "es": "courses/lt/overlays/es/061-travel2.json"
+      }
+    },
+    {
+      "id": "062-social2",
+      "icon": "",
+      "title": {
+        "en": "Conversation & Feelings",
+        "es": "Conversación y sentimientos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/062-social2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/062-social2.json",
+        "es": "courses/lt/overlays/es/062-social2.json"
+      }
+    },
+    {
+      "id": "063-health",
+      "icon": "",
+      "title": {
+        "en": "Health & Body",
+        "es": "Salud y cuerpo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/063-health.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/063-health.json",
+        "es": "courses/lt/overlays/es/063-health.json"
+      }
+    },
+    {
+      "id": "064-opinions",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Preferences",
+        "es": "Opiniones & Preferencias"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/064-opinions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/064-opinions.json",
+        "es": "courses/lt/overlays/es/064-opinions.json"
+      }
+    },
+    {
+      "id": "065-travel2",
+      "icon": "",
+      "title": {
+        "en": "Advanced Travel",
+        "es": "Viajes avanzados"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/065-travel2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/065-travel2.json",
+        "es": "courses/lt/overlays/es/065-travel2.json"
+      }
+    },
+    {
+      "id": "066-social2",
+      "icon": "",
+      "title": {
+        "en": "Conversation & Feelings",
+        "es": "Conversación y sentimientos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/066-social2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/066-social2.json",
+        "es": "courses/lt/overlays/es/066-social2.json"
+      }
+    },
+    {
+      "id": "067-health",
+      "icon": "",
+      "title": {
+        "en": "Health & Body",
+        "es": "Salud y cuerpo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/067-health.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/067-health.json",
+        "es": "courses/lt/overlays/es/067-health.json"
+      }
+    },
+    {
+      "id": "068-opinions",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Preferences",
+        "es": "Opiniones & Preferencias"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/068-opinions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/068-opinions.json",
+        "es": "courses/lt/overlays/es/068-opinions.json"
+      }
+    },
+    {
+      "id": "069-travel2",
+      "icon": "",
+      "title": {
+        "en": "Advanced Travel",
+        "es": "Viajes avanzados"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/069-travel2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/069-travel2.json",
+        "es": "courses/lt/overlays/es/069-travel2.json"
+      }
+    },
+    {
+      "id": "070-social2",
+      "icon": "",
+      "title": {
+        "en": "Conversation & Feelings",
+        "es": "Conversación y sentimientos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/070-social2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/070-social2.json",
+        "es": "courses/lt/overlays/es/070-social2.json"
+      }
+    },
+    {
+      "id": "071-health",
+      "icon": "",
+      "title": {
+        "en": "Health & Body",
+        "es": "Salud y cuerpo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/071-health.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/071-health.json",
+        "es": "courses/lt/overlays/es/071-health.json"
+      }
+    },
+    {
+      "id": "072-opinions",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Preferences",
+        "es": "Opiniones & Preferencias"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/072-opinions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/072-opinions.json",
+        "es": "courses/lt/overlays/es/072-opinions.json"
+      }
+    },
+    {
+      "id": "073-travel2",
+      "icon": "",
+      "title": {
+        "en": "Advanced Travel",
+        "es": "Viajes avanzados"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/073-travel2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/073-travel2.json",
+        "es": "courses/lt/overlays/es/073-travel2.json"
+      }
+    },
+    {
+      "id": "074-social2",
+      "icon": "",
+      "title": {
+        "en": "Conversation & Feelings",
+        "es": "Conversación y sentimientos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/074-social2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/074-social2.json",
+        "es": "courses/lt/overlays/es/074-social2.json"
+      }
+    },
+    {
+      "id": "075-health",
+      "icon": "",
+      "title": {
+        "en": "Health & Body",
+        "es": "Salud y cuerpo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/075-health.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/075-health.json",
+        "es": "courses/lt/overlays/es/075-health.json"
+      }
+    },
+    {
+      "id": "076-opinions",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Preferences",
+        "es": "Opiniones & Preferencias"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/076-opinions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/076-opinions.json",
+        "es": "courses/lt/overlays/es/076-opinions.json"
+      }
+    },
+    {
+      "id": "077-travel2",
+      "icon": "",
+      "title": {
+        "en": "Advanced Travel",
+        "es": "Viajes avanzados"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/077-travel2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/077-travel2.json",
+        "es": "courses/lt/overlays/es/077-travel2.json"
+      }
+    },
+    {
+      "id": "078-social2",
+      "icon": "",
+      "title": {
+        "en": "Conversation & Feelings",
+        "es": "Conversación y sentimientos"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/078-social2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/078-social2.json",
+        "es": "courses/lt/overlays/es/078-social2.json"
+      }
+    },
+    {
+      "id": "079-health",
+      "icon": "",
+      "title": {
+        "en": "Health & Body",
+        "es": "Salud y cuerpo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/079-health.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/079-health.json",
+        "es": "courses/lt/overlays/es/079-health.json"
+      }
+    },
+    {
+      "id": "080-opinions",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Preferences",
+        "es": "Opiniones & Preferencias"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/080-opinions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/080-opinions.json",
+        "es": "courses/lt/overlays/es/080-opinions.json"
+      }
+    },
+    {
+      "id": "081-work",
+      "icon": "",
+      "title": {
+        "en": "Work & Office",
+        "es": "& Oficina de trabajo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/081-work.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/081-work.json",
+        "es": "courses/lt/overlays/es/081-work.json"
+      }
+    },
+    {
+      "id": "082-home",
+      "icon": "",
+      "title": {
+        "en": "Home & Household",
+        "es": "Hogar y hogar"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/082-home.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/082-home.json",
+        "es": "courses/lt/overlays/es/082-home.json"
+      }
+    },
+    {
+      "id": "083-directions",
+      "icon": "",
+      "title": {
+        "en": "Directions & Movement",
+        "es": "Instrucciones y movimiento"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/083-directions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/083-directions.json",
+        "es": "courses/lt/overlays/es/083-directions.json"
+      }
+    },
+    {
+      "id": "084-tech",
+      "icon": "",
+      "title": {
+        "en": "Technology & Media",
+        "es": "Tecnología y medios de comunicación"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/084-tech.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/084-tech.json",
+        "es": "courses/lt/overlays/es/084-tech.json"
+      }
+    },
+    {
+      "id": "085-work",
+      "icon": "",
+      "title": {
+        "en": "Work & Office",
+        "es": "& Oficina de trabajo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/085-work.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/085-work.json",
+        "es": "courses/lt/overlays/es/085-work.json"
+      }
+    },
+    {
+      "id": "086-home",
+      "icon": "",
+      "title": {
+        "en": "Home & Household",
+        "es": "Hogar y hogar"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/086-home.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/086-home.json",
+        "es": "courses/lt/overlays/es/086-home.json"
+      }
+    },
+    {
+      "id": "087-directions",
+      "icon": "",
+      "title": {
+        "en": "Directions & Movement",
+        "es": "Instrucciones y movimiento"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/087-directions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/087-directions.json",
+        "es": "courses/lt/overlays/es/087-directions.json"
+      }
+    },
+    {
+      "id": "088-tech",
+      "icon": "",
+      "title": {
+        "en": "Technology & Media",
+        "es": "Tecnología y medios de comunicación"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/088-tech.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/088-tech.json",
+        "es": "courses/lt/overlays/es/088-tech.json"
+      }
+    },
+    {
+      "id": "089-work",
+      "icon": "",
+      "title": {
+        "en": "Work & Office",
+        "es": "& Oficina de trabajo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/089-work.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/089-work.json",
+        "es": "courses/lt/overlays/es/089-work.json"
+      }
+    },
+    {
+      "id": "090-home",
+      "icon": "",
+      "title": {
+        "en": "Home & Household",
+        "es": "Hogar y hogar"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/090-home.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/090-home.json",
+        "es": "courses/lt/overlays/es/090-home.json"
+      }
+    },
+    {
+      "id": "091-directions",
+      "icon": "",
+      "title": {
+        "en": "Directions & Movement",
+        "es": "Instrucciones y movimiento"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/091-directions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/091-directions.json",
+        "es": "courses/lt/overlays/es/091-directions.json"
+      }
+    },
+    {
+      "id": "092-tech",
+      "icon": "",
+      "title": {
+        "en": "Technology & Media",
+        "es": "Tecnología y medios de comunicación"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/092-tech.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/092-tech.json",
+        "es": "courses/lt/overlays/es/092-tech.json"
+      }
+    },
+    {
+      "id": "093-work",
+      "icon": "",
+      "title": {
+        "en": "Work & Office",
+        "es": "& Oficina de trabajo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/093-work.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/093-work.json",
+        "es": "courses/lt/overlays/es/093-work.json"
+      }
+    },
+    {
+      "id": "094-home",
+      "icon": "",
+      "title": {
+        "en": "Home & Household",
+        "es": "Hogar y hogar"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/094-home.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/094-home.json",
+        "es": "courses/lt/overlays/es/094-home.json"
+      }
+    },
+    {
+      "id": "095-directions",
+      "icon": "",
+      "title": {
+        "en": "Directions & Movement",
+        "es": "Instrucciones y movimiento"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/095-directions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/095-directions.json",
+        "es": "courses/lt/overlays/es/095-directions.json"
+      }
+    },
+    {
+      "id": "096-tech",
+      "icon": "",
+      "title": {
+        "en": "Technology & Media",
+        "es": "Tecnología y medios de comunicación"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/096-tech.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/096-tech.json",
+        "es": "courses/lt/overlays/es/096-tech.json"
+      }
+    },
+    {
+      "id": "097-work",
+      "icon": "",
+      "title": {
+        "en": "Work & Office",
+        "es": "& Oficina de trabajo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/097-work.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/097-work.json",
+        "es": "courses/lt/overlays/es/097-work.json"
+      }
+    },
+    {
+      "id": "098-home",
+      "icon": "",
+      "title": {
+        "en": "Home & Household",
+        "es": "Hogar y hogar"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/098-home.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/098-home.json",
+        "es": "courses/lt/overlays/es/098-home.json"
+      }
+    },
+    {
+      "id": "099-directions",
+      "icon": "",
+      "title": {
+        "en": "Directions & Movement",
+        "es": "Instrucciones y movimiento"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/099-directions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/099-directions.json",
+        "es": "courses/lt/overlays/es/099-directions.json"
+      }
+    },
+    {
+      "id": "100-tech",
+      "icon": "",
+      "title": {
+        "en": "Technology & Media",
+        "es": "Tecnología y medios de comunicación"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/100-tech.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/100-tech.json",
+        "es": "courses/lt/overlays/es/100-tech.json"
+      }
+    },
+    {
+      "id": "101-work",
+      "icon": "",
+      "title": {
+        "en": "Work & Office",
+        "es": "& Oficina de trabajo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/101-work.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/101-work.json",
+        "es": "courses/lt/overlays/es/101-work.json"
+      }
+    },
+    {
+      "id": "102-home",
+      "icon": "",
+      "title": {
+        "en": "Home & Household",
+        "es": "Hogar y hogar"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/102-home.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/102-home.json",
+        "es": "courses/lt/overlays/es/102-home.json"
+      }
+    },
+    {
+      "id": "103-directions",
+      "icon": "",
+      "title": {
+        "en": "Directions & Movement",
+        "es": "Instrucciones y movimiento"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/103-directions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/103-directions.json",
+        "es": "courses/lt/overlays/es/103-directions.json"
+      }
+    },
+    {
+      "id": "104-tech",
+      "icon": "",
+      "title": {
+        "en": "Technology & Media",
+        "es": "Tecnología y medios de comunicación"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/104-tech.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/104-tech.json",
+        "es": "courses/lt/overlays/es/104-tech.json"
+      }
+    },
+    {
+      "id": "105-work",
+      "icon": "",
+      "title": {
+        "en": "Work & Office",
+        "es": "& Oficina de trabajo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/105-work.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/105-work.json",
+        "es": "courses/lt/overlays/es/105-work.json"
+      }
+    },
+    {
+      "id": "106-home",
+      "icon": "",
+      "title": {
+        "en": "Home & Household",
+        "es": "Hogar y hogar"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/106-home.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/106-home.json",
+        "es": "courses/lt/overlays/es/106-home.json"
+      }
+    },
+    {
+      "id": "107-directions",
+      "icon": "",
+      "title": {
+        "en": "Directions & Movement",
+        "es": "Instrucciones y movimiento"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/107-directions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/107-directions.json",
+        "es": "courses/lt/overlays/es/107-directions.json"
+      }
+    },
+    {
+      "id": "108-tech",
+      "icon": "",
+      "title": {
+        "en": "Technology & Media",
+        "es": "Tecnología y medios de comunicación"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/108-tech.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/108-tech.json",
+        "es": "courses/lt/overlays/es/108-tech.json"
+      }
+    },
+    {
+      "id": "109-work",
+      "icon": "",
+      "title": {
+        "en": "Work & Office",
+        "es": "& Oficina de trabajo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/109-work.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/109-work.json",
+        "es": "courses/lt/overlays/es/109-work.json"
+      }
+    },
+    {
+      "id": "110-home",
+      "icon": "",
+      "title": {
+        "en": "Home & Household",
+        "es": "Hogar y hogar"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/110-home.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/110-home.json",
+        "es": "courses/lt/overlays/es/110-home.json"
+      }
+    },
+    {
+      "id": "111-directions",
+      "icon": "",
+      "title": {
+        "en": "Directions & Movement",
+        "es": "Instrucciones y movimiento"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/111-directions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/111-directions.json",
+        "es": "courses/lt/overlays/es/111-directions.json"
+      }
+    },
+    {
+      "id": "112-tech",
+      "icon": "",
+      "title": {
+        "en": "Technology & Media",
+        "es": "Tecnología y medios de comunicación"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/112-tech.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/112-tech.json",
+        "es": "courses/lt/overlays/es/112-tech.json"
+      }
+    },
+    {
+      "id": "113-work",
+      "icon": "",
+      "title": {
+        "en": "Work & Office",
+        "es": "& Oficina de trabajo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/113-work.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/113-work.json",
+        "es": "courses/lt/overlays/es/113-work.json"
+      }
+    },
+    {
+      "id": "114-home",
+      "icon": "",
+      "title": {
+        "en": "Home & Household",
+        "es": "Hogar y hogar"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/114-home.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/114-home.json",
+        "es": "courses/lt/overlays/es/114-home.json"
+      }
+    },
+    {
+      "id": "115-directions",
+      "icon": "",
+      "title": {
+        "en": "Directions & Movement",
+        "es": "Instrucciones y movimiento"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/115-directions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/115-directions.json",
+        "es": "courses/lt/overlays/es/115-directions.json"
+      }
+    },
+    {
+      "id": "116-tech",
+      "icon": "",
+      "title": {
+        "en": "Technology & Media",
+        "es": "Tecnología y medios de comunicación"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/116-tech.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/116-tech.json",
+        "es": "courses/lt/overlays/es/116-tech.json"
+      }
+    },
+    {
+      "id": "117-work",
+      "icon": "",
+      "title": {
+        "en": "Work & Office",
+        "es": "& Oficina de trabajo"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/117-work.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/117-work.json",
+        "es": "courses/lt/overlays/es/117-work.json"
+      }
+    },
+    {
+      "id": "118-home",
+      "icon": "",
+      "title": {
+        "en": "Home & Household",
+        "es": "Hogar y hogar"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/118-home.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/118-home.json",
+        "es": "courses/lt/overlays/es/118-home.json"
+      }
+    },
+    {
+      "id": "119-directions",
+      "icon": "",
+      "title": {
+        "en": "Directions & Movement",
+        "es": "Instrucciones y movimiento"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/119-directions.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/119-directions.json",
+        "es": "courses/lt/overlays/es/119-directions.json"
+      }
+    },
+    {
+      "id": "120-tech",
+      "icon": "",
+      "title": {
+        "en": "Technology & Media",
+        "es": "Tecnología y medios de comunicación"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/120-tech.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/120-tech.json",
+        "es": "courses/lt/overlays/es/120-tech.json"
+      }
+    },
+    {
+      "id": "121-food2",
+      "icon": "",
+      "title": {
+        "en": "Food & Dining (Expanded)",
+        "es": "Comida y comedor (expandido)"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/121-food2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/121-food2.json",
+        "es": "courses/lt/overlays/es/121-food2.json"
+      }
+    },
+    {
+      "id": "122-shopping2",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Services",
+        "es": "Compras y servicios"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/122-shopping2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/122-shopping2.json",
+        "es": "courses/lt/overlays/es/122-shopping2.json"
+      }
+    },
+    {
+      "id": "123-feelings2",
+      "icon": "",
+      "title": {
+        "en": "Feelings & Reactions",
+        "es": "Sentimientos y reacciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/123-feelings2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/123-feelings2.json",
+        "es": "courses/lt/overlays/es/123-feelings2.json"
+      }
+    },
+    {
+      "id": "124-culture",
+      "icon": "",
+      "title": {
+        "en": "Culture & Everyday Life",
+        "es": "Cultura y vida cotidiana"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/124-culture.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/124-culture.json",
+        "es": "courses/lt/overlays/es/124-culture.json"
+      }
+    },
+    {
+      "id": "125-food2",
+      "icon": "",
+      "title": {
+        "en": "Food & Dining (Expanded)",
+        "es": "Comida y comedor (expandido)"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/125-food2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/125-food2.json",
+        "es": "courses/lt/overlays/es/125-food2.json"
+      }
+    },
+    {
+      "id": "126-shopping2",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Services",
+        "es": "Compras y servicios"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/126-shopping2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/126-shopping2.json",
+        "es": "courses/lt/overlays/es/126-shopping2.json"
+      }
+    },
+    {
+      "id": "127-feelings2",
+      "icon": "",
+      "title": {
+        "en": "Feelings & Reactions",
+        "es": "Sentimientos y reacciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/127-feelings2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/127-feelings2.json",
+        "es": "courses/lt/overlays/es/127-feelings2.json"
+      }
+    },
+    {
+      "id": "128-culture",
+      "icon": "",
+      "title": {
+        "en": "Culture & Everyday Life",
+        "es": "Cultura y vida cotidiana"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/128-culture.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/128-culture.json",
+        "es": "courses/lt/overlays/es/128-culture.json"
+      }
+    },
+    {
+      "id": "129-food2",
+      "icon": "",
+      "title": {
+        "en": "Food & Dining (Expanded)",
+        "es": "Comida y comedor (expandido)"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/129-food2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/129-food2.json",
+        "es": "courses/lt/overlays/es/129-food2.json"
+      }
+    },
+    {
+      "id": "130-shopping2",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Services",
+        "es": "Compras y servicios"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/130-shopping2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/130-shopping2.json",
+        "es": "courses/lt/overlays/es/130-shopping2.json"
+      }
+    },
+    {
+      "id": "131-feelings2",
+      "icon": "",
+      "title": {
+        "en": "Feelings & Reactions",
+        "es": "Sentimientos y reacciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/131-feelings2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/131-feelings2.json",
+        "es": "courses/lt/overlays/es/131-feelings2.json"
+      }
+    },
+    {
+      "id": "132-culture",
+      "icon": "",
+      "title": {
+        "en": "Culture & Everyday Life",
+        "es": "Cultura y vida cotidiana"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/132-culture.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/132-culture.json",
+        "es": "courses/lt/overlays/es/132-culture.json"
+      }
+    },
+    {
+      "id": "133-food2",
+      "icon": "",
+      "title": {
+        "en": "Food & Dining (Expanded)",
+        "es": "Comida y comedor (expandido)"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/133-food2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/133-food2.json",
+        "es": "courses/lt/overlays/es/133-food2.json"
+      }
+    },
+    {
+      "id": "134-shopping2",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Services",
+        "es": "Compras y servicios"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/134-shopping2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/134-shopping2.json",
+        "es": "courses/lt/overlays/es/134-shopping2.json"
+      }
+    },
+    {
+      "id": "135-feelings2",
+      "icon": "",
+      "title": {
+        "en": "Feelings & Reactions",
+        "es": "Sentimientos y reacciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/135-feelings2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/135-feelings2.json",
+        "es": "courses/lt/overlays/es/135-feelings2.json"
+      }
+    },
+    {
+      "id": "136-culture",
+      "icon": "",
+      "title": {
+        "en": "Culture & Everyday Life",
+        "es": "Cultura y vida cotidiana"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/136-culture.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/136-culture.json",
+        "es": "courses/lt/overlays/es/136-culture.json"
+      }
+    },
+    {
+      "id": "137-food2",
+      "icon": "",
+      "title": {
+        "en": "Food & Dining (Expanded)",
+        "es": "Comida y comedor (expandido)"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/137-food2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/137-food2.json",
+        "es": "courses/lt/overlays/es/137-food2.json"
+      }
+    },
+    {
+      "id": "138-shopping2",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Services",
+        "es": "Compras y servicios"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/138-shopping2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/138-shopping2.json",
+        "es": "courses/lt/overlays/es/138-shopping2.json"
+      }
+    },
+    {
+      "id": "139-feelings2",
+      "icon": "",
+      "title": {
+        "en": "Feelings & Reactions",
+        "es": "Sentimientos y reacciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/139-feelings2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/139-feelings2.json",
+        "es": "courses/lt/overlays/es/139-feelings2.json"
+      }
+    },
+    {
+      "id": "140-culture",
+      "icon": "",
+      "title": {
+        "en": "Culture & Everyday Life",
+        "es": "Cultura y vida cotidiana"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/140-culture.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/140-culture.json",
+        "es": "courses/lt/overlays/es/140-culture.json"
+      }
+    },
+    {
+      "id": "141-food2",
+      "icon": "",
+      "title": {
+        "en": "Food & Dining (Expanded)",
+        "es": "Comida y comedor (expandido)"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/141-food2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/141-food2.json",
+        "es": "courses/lt/overlays/es/141-food2.json"
+      }
+    },
+    {
+      "id": "142-shopping2",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Services",
+        "es": "Compras y servicios"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/142-shopping2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/142-shopping2.json",
+        "es": "courses/lt/overlays/es/142-shopping2.json"
+      }
+    },
+    {
+      "id": "143-feelings2",
+      "icon": "",
+      "title": {
+        "en": "Feelings & Reactions",
+        "es": "Sentimientos y reacciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/143-feelings2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/143-feelings2.json",
+        "es": "courses/lt/overlays/es/143-feelings2.json"
+      }
+    },
+    {
+      "id": "144-culture",
+      "icon": "",
+      "title": {
+        "en": "Culture & Everyday Life",
+        "es": "Cultura y vida cotidiana"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/144-culture.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/144-culture.json",
+        "es": "courses/lt/overlays/es/144-culture.json"
+      }
+    },
+    {
+      "id": "145-food2",
+      "icon": "",
+      "title": {
+        "en": "Food & Dining (Expanded)",
+        "es": "Comida y comedor (expandido)"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/145-food2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/145-food2.json",
+        "es": "courses/lt/overlays/es/145-food2.json"
+      }
+    },
+    {
+      "id": "146-shopping2",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Services",
+        "es": "Compras y servicios"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/146-shopping2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/146-shopping2.json",
+        "es": "courses/lt/overlays/es/146-shopping2.json"
+      }
+    },
+    {
+      "id": "147-feelings2",
+      "icon": "",
+      "title": {
+        "en": "Feelings & Reactions",
+        "es": "Sentimientos y reacciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/147-feelings2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/147-feelings2.json",
+        "es": "courses/lt/overlays/es/147-feelings2.json"
+      }
+    },
+    {
+      "id": "148-culture",
+      "icon": "",
+      "title": {
+        "en": "Culture & Everyday Life",
+        "es": "Cultura y vida cotidiana"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/148-culture.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/148-culture.json",
+        "es": "courses/lt/overlays/es/148-culture.json"
+      }
+    },
+    {
+      "id": "149-food2",
+      "icon": "",
+      "title": {
+        "en": "Food & Dining (Expanded)",
+        "es": "Comida y comedor (expandido)"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/149-food2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/149-food2.json",
+        "es": "courses/lt/overlays/es/149-food2.json"
+      }
+    },
+    {
+      "id": "150-shopping2",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Services",
+        "es": "Compras y servicios"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/150-shopping2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/150-shopping2.json",
+        "es": "courses/lt/overlays/es/150-shopping2.json"
+      }
+    },
+    {
+      "id": "151-feelings2",
+      "icon": "",
+      "title": {
+        "en": "Feelings & Reactions",
+        "es": "Sentimientos y reacciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/151-feelings2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/151-feelings2.json",
+        "es": "courses/lt/overlays/es/151-feelings2.json"
+      }
+    },
+    {
+      "id": "152-culture",
+      "icon": "",
+      "title": {
+        "en": "Culture & Everyday Life",
+        "es": "Cultura y vida cotidiana"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/152-culture.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/152-culture.json",
+        "es": "courses/lt/overlays/es/152-culture.json"
+      }
+    },
+    {
+      "id": "153-food2",
+      "icon": "",
+      "title": {
+        "en": "Food & Dining (Expanded)",
+        "es": "Comida y comedor (expandido)"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/153-food2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/153-food2.json",
+        "es": "courses/lt/overlays/es/153-food2.json"
+      }
+    },
+    {
+      "id": "154-shopping2",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Services",
+        "es": "Compras y servicios"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/154-shopping2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/154-shopping2.json",
+        "es": "courses/lt/overlays/es/154-shopping2.json"
+      }
+    },
+    {
+      "id": "155-feelings2",
+      "icon": "",
+      "title": {
+        "en": "Feelings & Reactions",
+        "es": "Sentimientos y reacciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/155-feelings2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/155-feelings2.json",
+        "es": "courses/lt/overlays/es/155-feelings2.json"
+      }
+    },
+    {
+      "id": "156-culture",
+      "icon": "",
+      "title": {
+        "en": "Culture & Everyday Life",
+        "es": "Cultura y vida cotidiana"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/156-culture.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/156-culture.json",
+        "es": "courses/lt/overlays/es/156-culture.json"
+      }
+    },
+    {
+      "id": "157-food2",
+      "icon": "",
+      "title": {
+        "en": "Food & Dining (Expanded)",
+        "es": "Comida y comedor (expandido)"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/157-food2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/157-food2.json",
+        "es": "courses/lt/overlays/es/157-food2.json"
+      }
+    },
+    {
+      "id": "158-shopping2",
+      "icon": "",
+      "title": {
+        "en": "Shopping & Services",
+        "es": "Compras y servicios"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/158-shopping2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/158-shopping2.json",
+        "es": "courses/lt/overlays/es/158-shopping2.json"
+      }
+    },
+    {
+      "id": "159-feelings2",
+      "icon": "",
+      "title": {
+        "en": "Feelings & Reactions",
+        "es": "Sentimientos y reacciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/159-feelings2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/159-feelings2.json",
+        "es": "courses/lt/overlays/es/159-feelings2.json"
+      }
+    },
+    {
+      "id": "160-culture",
+      "icon": "",
+      "title": {
+        "en": "Culture & Everyday Life",
+        "es": "Cultura y vida cotidiana"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/160-culture.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/160-culture.json",
+        "es": "courses/lt/overlays/es/160-culture.json"
+      }
+    },
+    {
+      "id": "161-stories",
+      "icon": "",
+      "title": {
+        "en": "Stories & Narratives",
+        "es": "Historias y narraciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/161-stories.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/161-stories.json",
+        "es": "courses/lt/overlays/es/161-stories.json"
+      }
+    },
+    {
+      "id": "162-opinions2",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Discussion",
+        "es": "Opiniones y Discusión"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/162-opinions2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/162-opinions2.json",
+        "es": "courses/lt/overlays/es/162-opinions2.json"
+      }
+    },
+    {
+      "id": "163-advancedlife",
+      "icon": "",
+      "title": {
+        "en": "Advanced Daily Life",
+        "es": "Vida diaria avanzada"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/163-advancedlife.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/163-advancedlife.json",
+        "es": "courses/lt/overlays/es/163-advancedlife.json"
+      }
+    },
+    {
+      "id": "164-culture2",
+      "icon": "",
+      "title": {
+        "en": "Culture, Media & Society",
+        "es": "Cultura, Medios y Sociedad"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/164-culture2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/164-culture2.json",
+        "es": "courses/lt/overlays/es/164-culture2.json"
+      }
+    },
+    {
+      "id": "165-stories",
+      "icon": "",
+      "title": {
+        "en": "Stories & Narratives",
+        "es": "Historias y narraciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/165-stories.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/165-stories.json",
+        "es": "courses/lt/overlays/es/165-stories.json"
+      }
+    },
+    {
+      "id": "166-opinions2",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Discussion",
+        "es": "Opiniones y Discusión"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/166-opinions2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/166-opinions2.json",
+        "es": "courses/lt/overlays/es/166-opinions2.json"
+      }
+    },
+    {
+      "id": "167-advancedlife",
+      "icon": "",
+      "title": {
+        "en": "Advanced Daily Life",
+        "es": "Vida diaria avanzada"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/167-advancedlife.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/167-advancedlife.json",
+        "es": "courses/lt/overlays/es/167-advancedlife.json"
+      }
+    },
+    {
+      "id": "168-culture2",
+      "icon": "",
+      "title": {
+        "en": "Culture, Media & Society",
+        "es": "Cultura, Medios y Sociedad"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/168-culture2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/168-culture2.json",
+        "es": "courses/lt/overlays/es/168-culture2.json"
+      }
+    },
+    {
+      "id": "169-stories",
+      "icon": "",
+      "title": {
+        "en": "Stories & Narratives",
+        "es": "Historias y narraciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/169-stories.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/169-stories.json",
+        "es": "courses/lt/overlays/es/169-stories.json"
+      }
+    },
+    {
+      "id": "170-opinions2",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Discussion",
+        "es": "Opiniones y Discusión"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/170-opinions2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/170-opinions2.json",
+        "es": "courses/lt/overlays/es/170-opinions2.json"
+      }
+    },
+    {
+      "id": "171-advancedlife",
+      "icon": "",
+      "title": {
+        "en": "Advanced Daily Life",
+        "es": "Vida diaria avanzada"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/171-advancedlife.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/171-advancedlife.json",
+        "es": "courses/lt/overlays/es/171-advancedlife.json"
+      }
+    },
+    {
+      "id": "172-culture2",
+      "icon": "",
+      "title": {
+        "en": "Culture, Media & Society",
+        "es": "Cultura, Medios y Sociedad"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/172-culture2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/172-culture2.json",
+        "es": "courses/lt/overlays/es/172-culture2.json"
+      }
+    },
+    {
+      "id": "173-stories",
+      "icon": "",
+      "title": {
+        "en": "Stories & Narratives",
+        "es": "Historias y narraciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/173-stories.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/173-stories.json",
+        "es": "courses/lt/overlays/es/173-stories.json"
+      }
+    },
+    {
+      "id": "174-opinions2",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Discussion",
+        "es": "Opiniones y Discusión"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/174-opinions2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/174-opinions2.json",
+        "es": "courses/lt/overlays/es/174-opinions2.json"
+      }
+    },
+    {
+      "id": "175-advancedlife",
+      "icon": "",
+      "title": {
+        "en": "Advanced Daily Life",
+        "es": "Vida diaria avanzada"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/175-advancedlife.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/175-advancedlife.json",
+        "es": "courses/lt/overlays/es/175-advancedlife.json"
+      }
+    },
+    {
+      "id": "176-culture2",
+      "icon": "",
+      "title": {
+        "en": "Culture, Media & Society",
+        "es": "Cultura, Medios y Sociedad"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/176-culture2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/176-culture2.json",
+        "es": "courses/lt/overlays/es/176-culture2.json"
+      }
+    },
+    {
+      "id": "177-stories",
+      "icon": "",
+      "title": {
+        "en": "Stories & Narratives",
+        "es": "Historias y narraciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/177-stories.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/177-stories.json",
+        "es": "courses/lt/overlays/es/177-stories.json"
+      }
+    },
+    {
+      "id": "178-opinions2",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Discussion",
+        "es": "Opiniones y Discusión"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/178-opinions2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/178-opinions2.json",
+        "es": "courses/lt/overlays/es/178-opinions2.json"
+      }
+    },
+    {
+      "id": "179-advancedlife",
+      "icon": "",
+      "title": {
+        "en": "Advanced Daily Life",
+        "es": "Vida diaria avanzada"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/179-advancedlife.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/179-advancedlife.json",
+        "es": "courses/lt/overlays/es/179-advancedlife.json"
+      }
+    },
+    {
+      "id": "180-culture2",
+      "icon": "",
+      "title": {
+        "en": "Culture, Media & Society",
+        "es": "Cultura, Medios y Sociedad"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/180-culture2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/180-culture2.json",
+        "es": "courses/lt/overlays/es/180-culture2.json"
+      }
+    },
+    {
+      "id": "181-stories",
+      "icon": "",
+      "title": {
+        "en": "Stories & Narratives",
+        "es": "Historias y narraciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/181-stories.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/181-stories.json",
+        "es": "courses/lt/overlays/es/181-stories.json"
+      }
+    },
+    {
+      "id": "182-opinions2",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Discussion",
+        "es": "Opiniones y Discusión"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/182-opinions2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/182-opinions2.json",
+        "es": "courses/lt/overlays/es/182-opinions2.json"
+      }
+    },
+    {
+      "id": "183-advancedlife",
+      "icon": "",
+      "title": {
+        "en": "Advanced Daily Life",
+        "es": "Vida diaria avanzada"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/183-advancedlife.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/183-advancedlife.json",
+        "es": "courses/lt/overlays/es/183-advancedlife.json"
+      }
+    },
+    {
+      "id": "184-culture2",
+      "icon": "",
+      "title": {
+        "en": "Culture, Media & Society",
+        "es": "Cultura, Medios y Sociedad"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/184-culture2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/184-culture2.json",
+        "es": "courses/lt/overlays/es/184-culture2.json"
+      }
+    },
+    {
+      "id": "185-stories",
+      "icon": "",
+      "title": {
+        "en": "Stories & Narratives",
+        "es": "Historias y narraciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/185-stories.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/185-stories.json",
+        "es": "courses/lt/overlays/es/185-stories.json"
+      }
+    },
+    {
+      "id": "186-opinions2",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Discussion",
+        "es": "Opiniones y Discusión"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/186-opinions2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/186-opinions2.json",
+        "es": "courses/lt/overlays/es/186-opinions2.json"
+      }
+    },
+    {
+      "id": "187-advancedlife",
+      "icon": "",
+      "title": {
+        "en": "Advanced Daily Life",
+        "es": "Vida diaria avanzada"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/187-advancedlife.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/187-advancedlife.json",
+        "es": "courses/lt/overlays/es/187-advancedlife.json"
+      }
+    },
+    {
+      "id": "188-culture2",
+      "icon": "",
+      "title": {
+        "en": "Culture, Media & Society",
+        "es": "Cultura, Medios y Sociedad"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/188-culture2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/188-culture2.json",
+        "es": "courses/lt/overlays/es/188-culture2.json"
+      }
+    },
+    {
+      "id": "189-stories",
+      "icon": "",
+      "title": {
+        "en": "Stories & Narratives",
+        "es": "Historias y narraciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/189-stories.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/189-stories.json",
+        "es": "courses/lt/overlays/es/189-stories.json"
+      }
+    },
+    {
+      "id": "190-opinions2",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Discussion",
+        "es": "Opiniones y Discusión"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/190-opinions2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/190-opinions2.json",
+        "es": "courses/lt/overlays/es/190-opinions2.json"
+      }
+    },
+    {
+      "id": "191-advancedlife",
+      "icon": "",
+      "title": {
+        "en": "Advanced Daily Life",
+        "es": "Vida diaria avanzada"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/191-advancedlife.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/191-advancedlife.json",
+        "es": "courses/lt/overlays/es/191-advancedlife.json"
+      }
+    },
+    {
+      "id": "192-culture2",
+      "icon": "",
+      "title": {
+        "en": "Culture, Media & Society",
+        "es": "Cultura, Medios y Sociedad"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/192-culture2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/192-culture2.json",
+        "es": "courses/lt/overlays/es/192-culture2.json"
+      }
+    },
+    {
+      "id": "193-stories",
+      "icon": "",
+      "title": {
+        "en": "Stories & Narratives",
+        "es": "Historias y narraciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/193-stories.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/193-stories.json",
+        "es": "courses/lt/overlays/es/193-stories.json"
+      }
+    },
+    {
+      "id": "194-opinions2",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Discussion",
+        "es": "Opiniones y Discusión"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/194-opinions2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/194-opinions2.json",
+        "es": "courses/lt/overlays/es/194-opinions2.json"
+      }
+    },
+    {
+      "id": "195-advancedlife",
+      "icon": "",
+      "title": {
+        "en": "Advanced Daily Life",
+        "es": "Vida diaria avanzada"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/195-advancedlife.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/195-advancedlife.json",
+        "es": "courses/lt/overlays/es/195-advancedlife.json"
+      }
+    },
+    {
+      "id": "196-culture2",
+      "icon": "",
+      "title": {
+        "en": "Culture, Media & Society",
+        "es": "Cultura, Medios y Sociedad"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/196-culture2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/196-culture2.json",
+        "es": "courses/lt/overlays/es/196-culture2.json"
+      }
+    },
+    {
+      "id": "197-stories",
+      "icon": "",
+      "title": {
+        "en": "Stories & Narratives",
+        "es": "Historias y narraciones"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/197-stories.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/197-stories.json",
+        "es": "courses/lt/overlays/es/197-stories.json"
+      }
+    },
+    {
+      "id": "198-opinions2",
+      "icon": "",
+      "title": {
+        "en": "Opinions & Discussion",
+        "es": "Opiniones y Discusión"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/198-opinions2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/198-opinions2.json",
+        "es": "courses/lt/overlays/es/198-opinions2.json"
+      }
+    },
+    {
+      "id": "199-advancedlife",
+      "icon": "",
+      "title": {
+        "en": "Advanced Daily Life",
+        "es": "Vida diaria avanzada"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/199-advancedlife.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/199-advancedlife.json",
+        "es": "courses/lt/overlays/es/199-advancedlife.json"
+      }
+    },
+    {
+      "id": "200-culture2",
+      "icon": "",
+      "title": {
+        "en": "Culture, Media & Society",
+        "es": "Cultura, Medios y Sociedad"
+      },
+      "topic": {
+        "en": "",
+        "es": ""
+      },
+      "core": "courses/lt/core/200-culture2.json",
+      "overlays": {
+        "en": "courses/lt/overlays/en/200-culture2.json",
+        "es": "courses/lt/overlays/es/200-culture2.json"
+      }
+    }
+  ]
+}

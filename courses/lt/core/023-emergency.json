@@ -1,0 +1,125 @@
+{
+  "id": "023-emergency",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "pagalba",
+      "tts": "pagalba"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "policija",
+      "tts": "policija"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "ligoninė",
+      "tts": "ligoninė"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "gaisras",
+      "tts": "gaisras"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "pavojus",
+      "tts": "pavojus"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "pagalba"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "policija"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "ligoninė"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "gaisras"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "pavojus"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "pagalba",
+      "tts": "pagalba"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "policija",
+      "tts": "policija"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "ligoninė",
+      "tts": "ligoninė"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "gaisras",
+      "tts": "gaisras"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "pavojus",
+      "tts": "pavojus"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "pagalba"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "policija"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "ligoninė"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "gaisras"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "pavojus"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "id": "051-health",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "skausmas",
+      "tts": "skausmas"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "galva",
+      "tts": "galva"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "ranką",
+      "tts": "ranką"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "koja",
+      "tts": "koja"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "gydytojas",
+      "tts": "gydytojas"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "skausmas"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "galva"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "ranka"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "koja"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "gydytojas"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "skausmas",
+      "tts": "skausmas"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "galva",
+      "tts": "galva"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "ranką",
+      "tts": "ranką"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "koja",
+      "tts": "koja"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "gydytojas",
+      "tts": "gydytojas"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "skausmas"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "galva"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "ranka"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "koja"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "gydytojas"
+    }
+  ]
+}

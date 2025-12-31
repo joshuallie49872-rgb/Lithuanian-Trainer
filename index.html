@@ -71,16 +71,29 @@
           </p>
         </div>
 
+                <!-- Native language + course picker (scales) -->
         <div class="homeModeRow">
-          <div class="modeLabel">Learning Mode</div>
+          <div class="modeLabel">Native language</div>
           <div class="modeSelectWrap">
-            <select id="learningModeSelect" class="modeSelect" aria-label="Learning Mode">
-              <option value="en_to_lt" selected>English → Lithuanian (default)</option>
-              <option value="lt_to_en">Lithuanian → English</option>
-              <option value="es_to_lt" disabled>Spanish → Lithuanian (coming soon)</option>
-              <option value="en_to_es">English → Spanish</option>
+            <select id="nativeLangSelect" class="modeSelect" aria-label="Native language">
+              <option value="en" selected>🇺🇸 English</option>
+              <option value="es">🇪🇸 Español</option>
+              <option value="et">🇪🇪 Eesti</option>
+              <option value="lv">🇱🇻 Latviešu</option>
+              <option value="pl">🇵🇱 Polski</option>
+              <option value="ru">🇷🇺 Русский</option>
             </select>
-            <div class="modeHint muted">More languages later — for now this just sets the UI placeholder.</div>
+            <div class="modeHint muted">This changes the UI + answer choices. (Lithuanian stays the target language for now.)</div>
+          </div>
+        </div>
+
+        <div class="homeModeRow" style="margin-top:10px;">
+          <div class="modeLabel">Learning</div>
+          <div class="modeSelectWrap">
+            <select id="targetLangSelect" class="modeSelect" aria-label="Learning language" disabled>
+              <option value="lt" selected>🇱🇹 Lithuanian</option>
+            </select>
+            <div class="modeHint muted">More target languages later.</div>
           </div>
         </div>
 

@@ -1,0 +1,125 @@
+{
+  "id": "096-tech",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "telefonas",
+      "tts": "telefonas"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "kompiuteris",
+      "tts": "kompiuteris"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "internetas",
+      "tts": "internetas"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "programa",
+      "tts": "programa"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "žinutė",
+      "tts": "žinutė"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "telefonas"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "kompiuteris"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "internetas"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "programa"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "žinutė"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "telefonas",
+      "tts": "telefonas"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "kompiuteris",
+      "tts": "kompiuteris"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "internetas",
+      "tts": "internetas"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "programa",
+      "tts": "programa"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "žinutė",
+      "tts": "žinutė"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "telefonas"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "kompiuteris"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "internetas"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "programa"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "žinutė"
+    }
+  ]
+}

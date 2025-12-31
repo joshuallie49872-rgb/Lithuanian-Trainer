@@ -1,0 +1,125 @@
+{
+  "id": "019-social",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "atsiprašau",
+      "tts": "atsiprašau"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "prašau",
+      "tts": "prašau"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "ačiū",
+      "tts": "ačiū"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "malonu",
+      "tts": "malonu"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "geras",
+      "tts": "geras"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "atsiprašau"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "prašau"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "ačiū"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "malonu"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "geras"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "atsiprašau",
+      "tts": "atsiprašau"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "prašau",
+      "tts": "prašau"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "ačiū",
+      "tts": "ačiū"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "malonu",
+      "tts": "malonu"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "geras",
+      "tts": "geras"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "atsiprašau"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "prašau"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "ačiū"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "malonu"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "geras"
+    }
+  ]
+}

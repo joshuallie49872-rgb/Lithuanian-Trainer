@@ -1,0 +1,125 @@
+{
+  "id": "004-places",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "čia",
+      "tts": "čia"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "ten",
+      "tts": "ten"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "kairė",
+      "tts": "kairė"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "dešinė",
+      "tts": "dešinė"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "tiesiai",
+      "tts": "tiesiai"
+    },
+    {
+      "qid": "q006",
+      "type": "choose",
+      "lt": "miestas",
+      "tts": "miestas"
+    },
+    {
+      "qid": "q007",
+      "type": "choose",
+      "lt": "gatvė",
+      "tts": "gatvė"
+    },
+    {
+      "qid": "q008",
+      "type": "choose",
+      "lt": "stotis",
+      "tts": "stotis"
+    },
+    {
+      "qid": "q009",
+      "type": "choose",
+      "lt": "oro uostas",
+      "tts": "oro uostas"
+    },
+    {
+      "qid": "q010",
+      "type": "choose",
+      "lt": "viešbutis",
+      "tts": "viešbutis"
+    },
+    {
+      "qid": "q011",
+      "type": "translate",
+      "lt": "",
+      "tts": "čia"
+    },
+    {
+      "qid": "q012",
+      "type": "translate",
+      "lt": "",
+      "tts": "ten"
+    },
+    {
+      "qid": "q013",
+      "type": "translate",
+      "lt": "",
+      "tts": "kairė"
+    },
+    {
+      "qid": "q014",
+      "type": "translate",
+      "lt": "",
+      "tts": "dešinė"
+    },
+    {
+      "qid": "q015",
+      "type": "translate",
+      "lt": "",
+      "tts": "tiesiai"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "miestas"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "gatvė"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "viešbutis"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "stotis"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "oro uostas"
+    }
+  ]
+}

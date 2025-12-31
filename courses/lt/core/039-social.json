@@ -1,0 +1,125 @@
+{
+  "id": "039-social",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "draugas",
+      "tts": "draugas"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "šeima",
+      "tts": "šeima"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "vardas",
+      "tts": "vardas"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "malonu",
+      "tts": "malonu"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "susitikti",
+      "tts": "susitikti"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "draugas"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "šeima"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "vardas"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "malonu"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "susitikti"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "draugas",
+      "tts": "draugas"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "šeima",
+      "tts": "šeima"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "vardas",
+      "tts": "vardas"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "malonu",
+      "tts": "malonu"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "susitikti",
+      "tts": "susitikti"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "draugas"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "šeima"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "vardas"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "malonu"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "susitikti"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "id": "109-work",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "darbas",
+      "tts": "darbas"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "biuras",
+      "tts": "biuras"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "susitikimas",
+      "tts": "susitikimas"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "el. paštas",
+      "tts": "el. paštas"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "projektas",
+      "tts": "projektas"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "darbas"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "biuras"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "susitikimas"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "el. paštas"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "projektas"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "darbas",
+      "tts": "darbas"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "biuras",
+      "tts": "biuras"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "susitikimas",
+      "tts": "susitikimas"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "el. paštas",
+      "tts": "el. paštas"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "projektas",
+      "tts": "projektas"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "darbas"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "biuras"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "susitikimas"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "el. paštas"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "projektas"
+    }
+  ]
+}

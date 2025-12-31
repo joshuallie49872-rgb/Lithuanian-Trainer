@@ -1,0 +1,125 @@
+{
+  "id": "073-travel2",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "pasas",
+      "tts": "pasas"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "sienos",
+      "tts": "sienos"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "keliauti",
+      "tts": "keliauti"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "lagaminas",
+      "tts": "lagaminas"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "muitinė",
+      "tts": "muitinė"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "pasas"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "siena"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "keliauti"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "lagaminas"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "muitinė"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "pasas",
+      "tts": "pasas"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "sienos",
+      "tts": "sienos"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "keliauti",
+      "tts": "keliauti"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "lagaminas",
+      "tts": "lagaminas"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "muitinė",
+      "tts": "muitinė"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "pasas"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "siena"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "keliauti"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "lagaminas"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "muitinė"
+    }
+  ]
+}

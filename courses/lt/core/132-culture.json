@@ -1,0 +1,125 @@
+{
+  "id": "132-culture",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "šventė",
+      "tts": "šventė"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "tradicija",
+      "tts": "tradicija"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "paprotys",
+      "tts": "paprotys"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "laisvalaikis",
+      "tts": "laisvalaikis"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "renginys",
+      "tts": "renginys"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "šventė"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "tradicija"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "paprotys"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "laisvalaikis"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "renginys"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "šventė",
+      "tts": "šventė"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "tradicija",
+      "tts": "tradicija"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "paprotys",
+      "tts": "paprotys"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "laisvalaikis",
+      "tts": "laisvalaikis"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "renginys",
+      "tts": "renginys"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "šventė"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "tradicija"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "paprotys"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "laisvalaikis"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "renginys"
+    }
+  ]
+}

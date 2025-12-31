@@ -1,0 +1,225 @@
+{
+  "id": "002-basics",
+  "questions": [
+    {
+      "qid": "q001",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "one",
+        "two",
+        "three",
+        "five"
+      ],
+      "answer": "one"
+    },
+    {
+      "qid": "q002",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "one",
+        "two",
+        "four",
+        "six"
+      ],
+      "answer": "two"
+    },
+    {
+      "qid": "q003",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "three",
+        "four",
+        "five",
+        "ten"
+      ],
+      "answer": "three"
+    },
+    {
+      "qid": "q004",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "four",
+        "two",
+        "six",
+        "eight"
+      ],
+      "answer": "four"
+    },
+    {
+      "qid": "q005",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "five",
+        "nine",
+        "ten",
+        "four"
+      ],
+      "answer": "five"
+    },
+    {
+      "qid": "q006",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "red",
+        "blue",
+        "green",
+        "black"
+      ],
+      "answer": "red"
+    },
+    {
+      "qid": "q007",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "blue",
+        "red",
+        "yellow",
+        "white"
+      ],
+      "answer": "blue"
+    },
+    {
+      "qid": "q008",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "green",
+        "black",
+        "gray",
+        "brown"
+      ],
+      "answer": "green"
+    },
+    {
+      "qid": "q009",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "black",
+        "white",
+        "blue",
+        "red"
+      ],
+      "answer": "black"
+    },
+    {
+      "qid": "q010",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "white",
+        "black",
+        "green",
+        "yellow"
+      ],
+      "answer": "white"
+    },
+    {
+      "qid": "q011",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "mother",
+        "father",
+        "sister",
+        "daughter"
+      ],
+      "answer": "mother"
+    },
+    {
+      "qid": "q012",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "father",
+        "brother",
+        "son",
+        "uncle"
+      ],
+      "answer": "father"
+    },
+    {
+      "qid": "q013",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "brother",
+        "father",
+        "husband",
+        "son"
+      ],
+      "answer": "brother"
+    },
+    {
+      "qid": "q014",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "sister",
+        "mother",
+        "daughter",
+        "wife"
+      ],
+      "answer": "sister"
+    },
+    {
+      "qid": "q015",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "family",
+        "house",
+        "children",
+        "parents"
+      ],
+      "answer": "family"
+    },
+    {
+      "qid": "q016",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "water",
+        "coffee",
+        "tea",
+        "milk"
+      ],
+      "answer": "water"
+    },
+    {
+      "qid": "q017",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "coffee",
+        "tea",
+        "water",
+        "juice"
+      ],
+      "answer": "coffee"
+    },
+    {
+      "qid": "q018",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "bread",
+        "meat",
+        "soup",
+        "rice"
+      ],
+      "answer": "bread"
+    },
+    {
+      "qid": "q019",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "hotel",
+        "airport",
+        "train",
+        "restaurant"
+      ],
+      "answer": "hotel"
+    },
+    {
+      "qid": "q020",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "ticket",
+        "passport",
+        "money",
+        "bag"
+      ],
+      "answer": "ticket"
+    }
+  ]
+}

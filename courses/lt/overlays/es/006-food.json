@@ -1,0 +1,155 @@
+{
+  "id": "006-food",
+  "questions": [
+    {
+      "qid": "q001",
+      "prompt": "",
+      "choices": [
+        "water",
+        "wine",
+        "coffee",
+        "beer"
+      ],
+      "answer": "water"
+    },
+    {
+      "qid": "q002",
+      "prompt": "",
+      "choices": [
+        "coffee",
+        "tea",
+        "beer",
+        "milk"
+      ],
+      "answer": "coffee"
+    },
+    {
+      "qid": "q003",
+      "prompt": "",
+      "choices": [
+        "tea",
+        "coffee",
+        "juice",
+        "water"
+      ],
+      "answer": "tea"
+    },
+    {
+      "qid": "q004",
+      "prompt": "",
+      "choices": [
+        "beer",
+        "wine",
+        "juice",
+        "milk"
+      ],
+      "answer": "beer"
+    },
+    {
+      "qid": "q005",
+      "prompt": "",
+      "choices": [
+        "wine",
+        "beer",
+        "water",
+        "tea"
+      ],
+      "answer": "wine"
+    },
+    {
+      "qid": "q006",
+      "prompt": ""
+    },
+    {
+      "qid": "q007",
+      "prompt": ""
+    },
+    {
+      "qid": "q008",
+      "prompt": ""
+    },
+    {
+      "qid": "q009",
+      "prompt": ""
+    },
+    {
+      "qid": "q010",
+      "prompt": ""
+    },
+    {
+      "qid": "q011",
+      "prompt": "",
+      "choices": [
+        "bread",
+        "meat",
+        "cheese",
+        "fish"
+      ],
+      "answer": "bread"
+    },
+    {
+      "qid": "q012",
+      "prompt": "",
+      "choices": [
+        "cheese",
+        "meat",
+        "fish",
+        "bread"
+      ],
+      "answer": "cheese"
+    },
+    {
+      "qid": "q013",
+      "prompt": "",
+      "choices": [
+        "meat",
+        "fish",
+        "cheese",
+        "bread"
+      ],
+      "answer": "meat"
+    },
+    {
+      "qid": "q014",
+      "prompt": "",
+      "choices": [
+        "fish",
+        "meat",
+        "cheese",
+        "bread"
+      ],
+      "answer": "fish"
+    },
+    {
+      "qid": "q015",
+      "prompt": ""
+    },
+    {
+      "qid": "q016",
+      "prompt": ""
+    },
+    {
+      "qid": "q017",
+      "prompt": ""
+    },
+    {
+      "qid": "q018",
+      "prompt": ""
+    },
+    {
+      "qid": "q019",
+      "prompt": "",
+      "choices": [
+        "tasty",
+        "bad",
+        "hot",
+        "cold"
+      ],
+      "answer": "tasty"
+    },
+    {
+      "qid": "q020",
+      "prompt": ""
+    }
+  ]
+}

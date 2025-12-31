@@ -1,0 +1,125 @@
+{
+  "id": "159-feelings2",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "nustebęs",
+      "tts": "nustebęs"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "piktas",
+      "tts": "piktas"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "ramus",
+      "tts": "ramus"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "susirūpinęs",
+      "tts": "susirūpinęs"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "patenkintas",
+      "tts": "patenkintas"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "nustebęs"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "piktas"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "ramus"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "susirūpinęs"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "patenkintas"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "nustebęs",
+      "tts": "nustebęs"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "piktas",
+      "tts": "piktas"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "ramus",
+      "tts": "ramus"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "susirūpinęs",
+      "tts": "susirūpinęs"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "patenkintas",
+      "tts": "patenkintas"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "nustebęs"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "piktas"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "ramus"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "susirūpinęs"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "patenkintas"
+    }
+  ]
+}

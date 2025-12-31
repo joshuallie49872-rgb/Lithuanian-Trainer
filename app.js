@@ -75,9 +75,9 @@ const LS = {
   streak: "lt_streak_v1",
   lastLesson: "lt_last_lesson_v1",
   user: "lt_user_v1",
-
-  // learning mode selection (placeholder)
-  learningMode: "lt_learning_mode_v1",
+  // native + target language
+  nativeLang: "ok_native_lang_v1",
+  targetLang: "ok_target_lang_v1",
 
   // (future) mikas toggle etc.
 };
@@ -85,12 +85,21 @@ const LS = {
 /* -----------------------------
    Learning mode (placeholder)
 ----------------------------- */
-let learningMode = localStorage.getItem(LS.learningMode) || "en_to_lt";
-function saveLearningMode(mode) {
-  learningMode = mode || "en_to_lt";
-  localStorage.setItem(LS.learningMode, learningMode);
+/* -----------------------------
+   Language selection
+----------------------------- */
+let nativeLang = localStorage.getItem(LS.nativeLang) || "en";
+let targetLang = localStorage.getItem(LS.targetLang) || "lt"; // fixed for now
+
+function saveNativeLang(lang) {
+  nativeLang = (lang || "en").toLowerCase();
+  localStorage.setItem(LS.nativeLang, nativeLang);
 }
 
+function saveTargetLang(lang) {
+  targetLang = (lang || "lt").toLowerCase();
+  localStorage.setItem(LS.targetLang, targetLang);
+}
 /* -----------------------------
    Native audio manifest (MP3)
 ----------------------------- */
@@ -166,7 +175,8 @@ const DOM = {
   // Home
   startBtn: el("startBtn"),
   continueBtn: el("continueBtn"),
-  learningModeSelect: el("learningModeSelect"),
+  nativeLangSelect: el("nativeLangSelect"),
+  targetLangSelect: el("targetLangSelect"),
 
   // Lesson UI
   lessonHeader: document.querySelector(".lessonHeader"),
@@ -203,6 +213,15 @@ const DOM = {
 /* -----------------------------
    Brand header helper
 ----------------------------- */
+function pickLang(obj) {
+  if (!obj) return "";
+  if (typeof obj === "string") return obj;
+  if (typeof obj === "object") {
+    return obj[nativeLang] || obj.en || obj.es || Object.values(obj)[0] || "";
+  }
+  return "";
+}
+
 function setHeaderMode(mode, meta = null) {
   // mode: "home" | "lesson" | "map" | "done"
   // Keep brand logo always visible, but change the small prompt line
@@ -240,7 +259,7 @@ function setHeaderMode(mode, meta = null) {
   // (avoids duplicate prompt). Keep it high-level.
   if (mode === "lesson" && meta) {
     DOM.prompt.textContent =
-      `${meta.icon ? meta.icon + " " : ""}${meta.title}${meta.topic ? " — " + meta.topic : ""}`;
+      `${meta.icon ? meta.icon + " " : ""}${pickLang(meta.title)}${pickLang(meta.topic) ? " — " + pickLang(meta.topic) : ""}`;
     return;
   }
 
@@ -358,24 +377,27 @@ function setScreen(name) {
    Manifest + lesson loading
 ----------------------------- */
 async function loadManifest() {
-  const isEs = (learningMode === "en_to_es");
-  const which = isEs ? "./manifest_es.json" : "./manifest.json";
+  // ✅ Scalable course format (target language fixed to Lithuanian for now)
+  // courses/lt/manifest.json contains lesson meta + file paths for core + overlays
+  const which = "./courses/lt/manifest.json";
 
   const res = await fetch(which, { cache: "no-store" });
   if (!res.ok) throw new Error(`Failed to load ${which}`);
+
   const m = await res.json();
   if (!m || !Array.isArray(m.lessons) || m.lessons.length === 0) {
     throw new Error(`${which} missing lessons[]`);
   }
 
-  // ✅ FIX: if manifest_es.json lessons do NOT include "file",
-  // default to lessons_es/<id>.json (instead of lessons/<id>.json)
+  // normalize lesson meta
   m.lessons = m.lessons.map((x) => ({
     id: x.id,
+    icon: x.icon || "",
     title: x.title || x.id,
     topic: x.topic || "",
-    icon: x.icon || "",
-    file: x.file || (isEs ? `lessons_es/${x.id}.json` : `lessons/${x.id}.json`),
+    core: x.core || `courses/lt/core/${x.id}.json`,
+    // overlays are generated as: courses/lt/overlays/<nativeLang>/<id>.json
+    overlayBase: x.overlayBase || `courses/lt/overlays`,
   }));
 
   return m;
@@ -471,45 +493,72 @@ async function loadLessonByIndex(i) {
   lessonIndex = clamp(i, 0, manifest.lessons.length - 1);
   const meta = manifest.lessons[lessonIndex];
 
-  const url = `./${meta.file}`;
-  let res = null;
+  const coreUrl = `./${meta.core}`;
+  const overlayUrl = `./${meta.overlayBase}/${nativeLang}/${meta.id}.json`;
+  const fallbackOverlayUrl = `./${meta.overlayBase}/en/${meta.id}.json`;
 
+  let coreRes;
   try {
-    res = await fetch(url, { cache: "no-store" });
-  } catch (e) {
-    throw new Error(`Failed to fetch lesson file: ${url}`);
+    coreRes = await fetch(coreUrl, { cache: "no-store" });
+  } catch {
+    throw new Error(`Failed to fetch lesson file: ${coreUrl}`);
   }
-
-  if (!res.ok) {
-    // ✅ Better error for debugging "Lesson 4 won't load" (usually 404 / case mismatch)
+  if (!coreRes.ok) {
     throw new Error(
-      `Lesson file not found or failed to load (${res.status}): ${url}\n` +
+      `Lesson core file not found (${coreRes.status}): ${coreUrl}
+` +
         `Common cause on GitHub Pages: filename case mismatch (Windows vs web).`
     );
   }
 
-  let data = null;
+  let coreData;
   try {
-    data = await res.json();
+    coreData = await coreRes.json();
   } catch {
     throw new Error(
-      `Lesson JSON is invalid: ${url}\n` +
+      `Lesson JSON is invalid: ${coreUrl}
+` +
         `Fix the JSON (missing comma/quote) and push again.`
     );
   }
 
-  data = normalizeLessonToQuestions(data);
-
-  if (!data || !Array.isArray(data.questions) || data.questions.length === 0) {
-    throw new Error(`Lesson ${meta.id} has no questions[] (or items[])`);
+  // overlay (native language) with fallback to English
+  async function tryLoadOverlay(url) {
+    try {
+      const r = await fetch(url, { cache: "no-store" });
+      if (!r.ok) return null;
+      return await r.json();
+    } catch {
+      return null;
+    }
   }
 
-  lessonData = data;
+  let overlayData = await tryLoadOverlay(overlayUrl);
+  if (!overlayData) overlayData = await tryLoadOverlay(fallbackOverlayUrl);
+
+  const coreQs = Array.isArray(coreData?.questions) ? coreData.questions : [];
+  const ovQs = Array.isArray(overlayData?.questions) ? overlayData.questions : [];
+
+  const ovById = {};
+  for (const q of ovQs) {
+    if (q && q.qid) ovById[String(q.qid)] = q;
+  }
+
+  const mergedQuestions = coreQs.map((cq) => {
+    const ov = ovById[String(cq.qid)] || {};
+    return { ...cq, ...ov };
+  });
+
+  if (!mergedQuestions.length) {
+    throw new Error(`Lesson ${meta.id} has no questions[]`);
+  }
+
+  lessonData = { id: meta.id, questions: mergedQuestions };
   qIndex = 0;
   streak = loadStreak();
 
   localStorage.setItem(LS.lastLesson, meta.id);
-  return data;
+  return lessonData;
 }
 
 /* -----------------------------
@@ -555,69 +604,21 @@ function getSpeakText(q) {
    renderChoices
 ============================= */
 function shouldSpeakForMode(q, speakText = "") {
-  // ✅ For Spanish mode, we do NOT auto-speak (unless you later add Spanish audio/tts)
-  if (learningMode === "en_to_es") return false;
-
-  if (!q) return false;
-
-  const target =
-    learningMode === "en_to_lt" ? "lt" :
-    learningMode === "lt_to_en" ? "en" :
-    null;
-
-  if (!target) return false;
-
+  // Only Lithuanian audio/tts for now
   const s = String(speakText || "").trim();
-  if (!s) return false;
-
-  // If TTS explicitly declares language, trust it
-  if (q.tts && typeof q.tts === "object" && q.tts.lang) {
-    return String(q.tts.lang).toLowerCase().startsWith(target);
-  }
-
-  // If the question explicitly has the target field, allow speak
-  if (target === "lt" && q.lt) return true;
-  if (target === "en" && q.en) return true;
-
-  // Dictation-style: in en_to_lt mode, speakText is Lithuanian by design.
-  if (target === "lt") return true;
-
-  return false;
+  return !!s;
 }
 
 function formatPrettyPrompt(q) {
-  const p = q && q.prompt ? String(q.prompt) : "";
-  const lt = q && q.lt ? String(q.lt) : "";
-  const en = q && q.en ? String(q.en) : "";
-
-  // ✅ Spanish UI uses prompt_es + es
-  const p_es = q && q.prompt_es ? String(q.prompt_es) : "";
-  const es = q && q.es ? String(q.es) : "";
-
-  if (learningMode === "en_to_es") {
-    const main = es || en || lt || p_es || p || "";
-    const sub = p_es || p || "";
-    return sub ? `${main} — ${sub}` : main;
-  }
-
-  if (learningMode === "lt_to_en") {
-    const main = lt || en || p || "";
-    return p ? `${main} — ${p}` : main;
-  }
-
-  // default en_to_lt
-  const main = lt || en || p || "";
-  return p ? `${main} — ${p}` : main;
+  const main = (q && q.lt ? String(q.lt) : "").trim();
+  const sub = (q && q.prompt ? String(q.prompt) : "").trim();
+  return sub ? `${main} — ${sub}` : main;
 }
 
 function renderChoices(q) {
   show(DOM.inputWrap, false);
 
-  // ✅ choose which choices to display
-  let choices =
-    (learningMode === "en_to_es" && Array.isArray(q.choices_es) && q.choices_es.length)
-      ? q.choices_es.slice()
-      : (Array.isArray(q.choices) ? q.choices.slice() : []);
+  const choices = Array.isArray(q.choices) ? q.choices.slice() : [];
 
   // Shuffle by default unless explicitly disabled
   const doShuffle = q.shuffle !== false;
@@ -631,20 +632,13 @@ function renderChoices(q) {
     b.onclick = async () => {
       if (isAnswered) return;
 
-      // ✅ keep LT audio behavior for LT modes only
+      // Play Lithuanian audio immediately (native MP3 if available),
+      // then submit the answer.
       try {
-        if (learningMode !== "en_to_es" && shouldSpeakForMode(q)) {
-          const speakText =
-            learningMode === "en_to_lt"
-              ? (q.lt || "")
-              : learningMode === "lt_to_en"
-              ? (q.en || "")
-              : "";
-
-          if (speakText.trim()) {
-            speakLithuanian(speakText, 0.95);
-            await sleep(140);
-          }
+        const speakText = getSpeakText(q);
+        if (speakText.trim()) {
+          speakLithuanian(speakText, 0.95);
+          await sleep(140);
         }
       } catch {}
 
@@ -658,6 +652,7 @@ function renderChoices(q) {
 /* =============================
    END REPLACED FUNCTIONS
 ============================= */
+
 
 function ensureLessonHeaderVisible() {
   const header = document.querySelector(".lessonHeader");
@@ -679,12 +674,6 @@ function normalizeAnswer(s) {
 }
 
 function getCorrectList(q) {
-  // ✅ Spanish mode uses correct_es when present
-  if (learningMode === "en_to_es") {
-    const ce = Array.isArray(q.correct_es) ? q.correct_es : [];
-    const cleaned = ce.map((x) => String(x || "").trim()).filter(Boolean);
-    if (cleaned.length) return cleaned;
-  }
 
   let correct =
     Array.isArray(q.correct)
@@ -791,11 +780,7 @@ function renderQuestion() {
   const correctListRaw = getCorrectList(currentQuestion);
   const speakText = getSpeakText(currentQuestion);
 
-  const hasChoices =
-    (Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0) ||
-    (learningMode === "en_to_es" &&
-      Array.isArray(currentQuestion.choices_es) &&
-      currentQuestion.choices_es.length > 0);
+  const hasChoices = Array.isArray(currentQuestion.choices) && currentQuestion.choices.length > 0;
 
   // Dictation-style: no visible lt/en, has speakText, expects typing, has correct answer, no choices
   const isDictation = !lt && !en && !!speakText && correctListRaw.length > 0 && !hasChoices;
@@ -839,12 +824,6 @@ function renderQuestion() {
       // Non-dictation: show main/sub prompt in card
       let main = (currentQuestion.lt || currentQuestion.en || "").trim();
       let sub  = (currentQuestion.prompt || "").trim();
-
-      // ✅ Spanish display fields
-      if (learningMode === "en_to_es") {
-        main = (currentQuestion.es || currentQuestion.en || currentQuestion.lt || "").trim();
-        sub  = (currentQuestion.prompt_es || currentQuestion.prompt || "").trim();
-      }
 
       DOM.lessonHeader.style.display = "";
       DOM.lessonPromptPretty.innerHTML = `
@@ -1016,7 +995,7 @@ function onLessonComplete() {
     const nextMeta = manifest.lessons[clamp(lessonIndex + 1, 0, manifest.lessons.length - 1)];
     DOM.doneBody.textContent =
       lessonIndex < manifest.lessons.length - 1
-        ? `Next unlocked: ${nextMeta.icon ? nextMeta.icon + " " : ""}${nextMeta.title}`
+        ? `Next unlocked: ${nextMeta.icon ? nextMeta.icon + " " : ""}${pickLang(nextMeta.title)}`
         : "You finished all lessons 🎉";
   }
 
@@ -1123,8 +1102,9 @@ function renderMap() {
 
     const label = document.createElement("div");
     label.className = "mapLabel";
-    const topicText = meta.topic ? ` — ${meta.topic}` : "";
-    label.textContent = `${meta.title}${topicText}`;
+    const topicVal = pickLang(meta.topic);
+    const topicText = topicVal ? ` — ${topicVal}` : "";
+    label.textContent = `${pickLang(meta.title)}${topicText}`;
     label.style.left = `${x}px`;
     label.style.top = `${y + nodeR + 10}px`;
     label.style.transform = "translateX(-50%)";
@@ -1257,13 +1237,23 @@ function wireEvents() {
   if (DOM.startBtn) DOM.startBtn.onclick = () => startLesson(0);
   if (DOM.continueBtn) DOM.continueBtn.onclick = () => startFromContinue();
 
-  if (DOM.learningModeSelect) {
-    DOM.learningModeSelect.value = learningMode;
-    DOM.learningModeSelect.onchange = () => {
-      saveLearningMode(DOM.learningModeSelect.value || "en_to_lt");
-      location.reload();
-    };
-  }
+  if (DOM.nativeLangSelect) {
+  DOM.nativeLangSelect.value = nativeLang;
+  DOM.nativeLangSelect.onchange = () => {
+    saveNativeLang(DOM.nativeLangSelect.value || "en");
+    location.reload();
+  };
+}
+
+if (DOM.targetLangSelect) {
+  DOM.targetLangSelect.value = targetLang;
+  // targetLangSelect is disabled in index.html for now (Lithuanian only),
+  // but this keeps it future-proof.
+  DOM.targetLangSelect.onchange = () => {
+    saveTargetLang(DOM.targetLangSelect.value || "lt");
+    location.reload();
+  };
+}
 
   if (DOM.doneBtn)
     DOM.doneBtn.onclick = () => {

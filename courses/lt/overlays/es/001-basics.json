@@ -1,0 +1,155 @@
+{
+  "id": "001-basics",
+  "questions": [
+    {
+      "qid": "q001",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "hello",
+        "thank you",
+        "yes",
+        "no"
+      ],
+      "answer": "hello"
+    },
+    {
+      "qid": "q002",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "sorry",
+        "thank you",
+        "please",
+        "hello"
+      ],
+      "answer": "thank you"
+    },
+    {
+      "qid": "q003",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "yes",
+        "no",
+        "goodbye",
+        "please"
+      ],
+      "answer": "yes"
+    },
+    {
+      "qid": "q004",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "yes",
+        "no",
+        "thanks",
+        "hi"
+      ],
+      "answer": "no"
+    },
+    {
+      "qid": "q005",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "please / you're welcome",
+        "goodbye",
+        "sorry",
+        "hello"
+      ],
+      "answer": "please / you're welcome"
+    },
+    {
+      "qid": "q006",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "excuse me / sorry",
+        "please",
+        "thanks",
+        "yes"
+      ],
+      "answer": "excuse me / sorry"
+    },
+    {
+      "qid": "q007",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "goodbye",
+        "good morning",
+        "good night",
+        "see you"
+      ],
+      "answer": "goodbye"
+    },
+    {
+      "qid": "q008",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "see you",
+        "hello",
+        "thanks",
+        "no"
+      ],
+      "answer": "see you"
+    },
+    {
+      "qid": "q009",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "okay / good",
+        "bad",
+        "please",
+        "tomorrow"
+      ],
+      "answer": "okay / good"
+    },
+    {
+      "qid": "q010",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "badly",
+        "well",
+        "hello",
+        "thanks"
+      ],
+      "answer": "badly"
+    },
+    {
+      "qid": "q011",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q012",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q013",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q014",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q015",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q016",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q017",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q018",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q019",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q020",
+      "prompt": "Traducir al lituano"
+    }
+  ]
+}

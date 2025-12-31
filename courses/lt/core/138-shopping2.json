@@ -1,0 +1,125 @@
+{
+  "id": "138-shopping2",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "brangu",
+      "tts": "brangu"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "pigu",
+      "tts": "pigu"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "nuolaida",
+      "tts": "nuolaida"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "kasininkas",
+      "tts": "kasininkas"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "čekis",
+      "tts": "čekis"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "brangu"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "pigu"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "nuolaida"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "kasininkas"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "čekis"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "brangu",
+      "tts": "brangu"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "pigu",
+      "tts": "pigu"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "nuolaida",
+      "tts": "nuolaida"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "kasininkas",
+      "tts": "kasininkas"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "čekis",
+      "tts": "čekis"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "brangu"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "pigu"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "nuolaida"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "kasininkas"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "čekis"
+    }
+  ]
+}

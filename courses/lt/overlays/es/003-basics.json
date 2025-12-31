@@ -1,0 +1,176 @@
+{
+  "id": "003-basics",
+  "questions": [
+    {
+      "qid": "q001",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "I want",
+        "I have",
+        "I am",
+        "I go"
+      ],
+      "answer": "I want"
+    },
+    {
+      "qid": "q002",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "I have",
+        "I want",
+        "I see",
+        "I eat"
+      ],
+      "answer": "I have"
+    },
+    {
+      "qid": "q003",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "I eat",
+        "I drink",
+        "I go",
+        "I see"
+      ],
+      "answer": "I eat"
+    },
+    {
+      "qid": "q004",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "I drink",
+        "I eat",
+        "I want",
+        "I go"
+      ],
+      "answer": "I drink"
+    },
+    {
+      "qid": "q005",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "water",
+        "coffee",
+        "beer",
+        "milk"
+      ],
+      "answer": "water"
+    },
+    {
+      "qid": "q006",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "coffee",
+        "tea",
+        "water",
+        "juice"
+      ],
+      "answer": "coffee"
+    },
+    {
+      "qid": "q007",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "beer",
+        "wine",
+        "water",
+        "milk"
+      ],
+      "answer": "beer"
+    },
+    {
+      "qid": "q008",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "bread",
+        "meat",
+        "rice",
+        "soup"
+      ],
+      "answer": "bread"
+    },
+    {
+      "qid": "q009",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q010",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q011",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "here",
+        "there",
+        "now",
+        "later"
+      ],
+      "answer": "here"
+    },
+    {
+      "qid": "q012",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "there",
+        "here",
+        "today",
+        "tomorrow"
+      ],
+      "answer": "there"
+    },
+    {
+      "qid": "q013",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q014",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q015",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "water please",
+        "thank you",
+        "I want bread",
+        "no water"
+      ],
+      "answer": "water please"
+    },
+    {
+      "qid": "q016",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "I want beer",
+        "I drink beer",
+        "I have beer",
+        "Beer is here"
+      ],
+      "answer": "I want beer"
+    },
+    {
+      "qid": "q017",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q018",
+      "prompt": "Traducir al lituano"
+    },
+    {
+      "qid": "q019",
+      "prompt": "Elija el significado correcto",
+      "choices": [
+        "okay",
+        "bad",
+        "hungry",
+        "thirsty"
+      ],
+      "answer": "okay"
+    },
+    {
+      "qid": "q020",
+      "prompt": "Traducir al lituano"
+    }
+  ]
+}
