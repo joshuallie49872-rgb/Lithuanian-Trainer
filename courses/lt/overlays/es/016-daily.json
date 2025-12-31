@@ -4,56 +4,31 @@
     {
       "qid": "q001",
       "prompt": "",
-      "choices": [
-        "I work",
-        "I eat",
-        "I go",
-        "I sleep"
-      ],
+      "choices": [],
       "answer": "I work"
     },
     {
       "qid": "q002",
       "prompt": "",
-      "choices": [
-        "I sleep",
-        "I wake",
-        "I eat",
-        "I go"
-      ],
+      "choices": [],
       "answer": "I sleep"
     },
     {
       "qid": "q003",
       "prompt": "",
-      "choices": [
-        "I eat",
-        "I drink",
-        "I go",
-        "I sleep"
-      ],
+      "choices": [],
       "answer": "I eat"
     },
     {
       "qid": "q004",
       "prompt": "",
-      "choices": [
-        "I go",
-        "I come",
-        "I work",
-        "I eat"
-      ],
+      "choices": [],
       "answer": "I go"
     },
     {
       "qid": "q005",
       "prompt": "",
-      "choices": [
-        "I wake up",
-        "I sleep",
-        "I eat",
-        "I go"
-      ],
+      "choices": [],
       "answer": "I wake up"
     },
     {
@@ -79,56 +54,31 @@
     {
       "qid": "q011",
       "prompt": "",
-      "choices": [
-        "I work",
-        "I eat",
-        "I go",
-        "I sleep"
-      ],
+      "choices": [],
       "answer": "I work"
     },
     {
       "qid": "q012",
       "prompt": "",
-      "choices": [
-        "I sleep",
-        "I wake",
-        "I eat",
-        "I go"
-      ],
+      "choices": [],
       "answer": "I sleep"
     },
     {
       "qid": "q013",
       "prompt": "",
-      "choices": [
-        "I eat",
-        "I drink",
-        "I go",
-        "I sleep"
-      ],
+      "choices": [],
       "answer": "I eat"
     },
     {
       "qid": "q014",
       "prompt": "",
-      "choices": [
-        "I go",
-        "I come",
-        "I work",
-        "I eat"
-      ],
+      "choices": [],
       "answer": "I go"
     },
     {
       "qid": "q015",
       "prompt": "",
-      "choices": [
-        "I wake up",
-        "I sleep",
-        "I eat",
-        "I go"
-      ],
+      "choices": [],
       "answer": "I wake up"
     },
     {

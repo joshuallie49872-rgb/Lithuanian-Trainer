@@ -4,89 +4,49 @@
     {
       "qid": "q001",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "I want",
-        "I have",
-        "I am",
-        "I go"
-      ],
+      "choices": [],
       "answer": "I want"
     },
     {
       "qid": "q002",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "I have",
-        "I want",
-        "I see",
-        "I eat"
-      ],
+      "choices": [],
       "answer": "I have"
     },
     {
       "qid": "q003",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "I eat",
-        "I drink",
-        "I go",
-        "I see"
-      ],
+      "choices": [],
       "answer": "I eat"
     },
     {
       "qid": "q004",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "I drink",
-        "I eat",
-        "I want",
-        "I go"
-      ],
+      "choices": [],
       "answer": "I drink"
     },
     {
       "qid": "q005",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "water",
-        "coffee",
-        "beer",
-        "milk"
-      ],
+      "choices": [],
       "answer": "water"
     },
     {
       "qid": "q006",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "coffee",
-        "tea",
-        "water",
-        "juice"
-      ],
+      "choices": [],
       "answer": "coffee"
     },
     {
       "qid": "q007",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "beer",
-        "wine",
-        "water",
-        "milk"
-      ],
+      "choices": [],
       "answer": "beer"
     },
     {
       "qid": "q008",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "bread",
-        "meat",
-        "rice",
-        "soup"
-      ],
+      "choices": [],
       "answer": "bread"
     },
     {
@@ -100,23 +60,13 @@
     {
       "qid": "q011",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "here",
-        "there",
-        "now",
-        "later"
-      ],
+      "choices": [],
       "answer": "here"
     },
     {
       "qid": "q012",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "there",
-        "here",
-        "today",
-        "tomorrow"
-      ],
+      "choices": [],
       "answer": "there"
     },
     {
@@ -130,23 +80,13 @@
     {
       "qid": "q015",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "water please",
-        "thank you",
-        "I want bread",
-        "no water"
-      ],
+      "choices": [],
       "answer": "water please"
     },
     {
       "qid": "q016",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "I want beer",
-        "I drink beer",
-        "I have beer",
-        "Beer is here"
-      ],
+      "choices": [],
       "answer": "I want beer"
     },
     {
@@ -160,12 +100,7 @@
     {
       "qid": "q019",
       "prompt": "Elija el significado correcto",
-      "choices": [
-        "okay",
-        "bad",
-        "hungry",
-        "thirsty"
-      ],
+      "choices": [],
       "answer": "okay"
     },
     {

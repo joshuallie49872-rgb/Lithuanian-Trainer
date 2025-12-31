@@ -4,56 +4,31 @@
     {
       "qid": "q001",
       "prompt": "",
-      "choices": [
-        "sorry",
-        "thanks",
-        "hello",
-        "bye"
-      ],
+      "choices": [],
       "answer": "sorry"
     },
     {
       "qid": "q002",
       "prompt": "",
-      "choices": [
-        "please",
-        "sorry",
-        "yes",
-        "no"
-      ],
+      "choices": [],
       "answer": "please"
     },
     {
       "qid": "q003",
       "prompt": "",
-      "choices": [
-        "thank you",
-        "sorry",
-        "hello",
-        "bye"
-      ],
+      "choices": [],
       "answer": "thank you"
     },
     {
       "qid": "q004",
       "prompt": "",
-      "choices": [
-        "nice",
-        "bad",
-        "late",
-        "slow"
-      ],
+      "choices": [],
       "answer": "nice"
     },
     {
       "qid": "q005",
       "prompt": "",
-      "choices": [
-        "good",
-        "bad",
-        "slow",
-        "fast"
-      ],
+      "choices": [],
       "answer": "good"
     },
     {
@@ -79,56 +54,31 @@
     {
       "qid": "q011",
       "prompt": "",
-      "choices": [
-        "sorry",
-        "thanks",
-        "hello",
-        "bye"
-      ],
+      "choices": [],
       "answer": "sorry"
     },
     {
       "qid": "q012",
       "prompt": "",
-      "choices": [
-        "please",
-        "sorry",
-        "yes",
-        "no"
-      ],
+      "choices": [],
       "answer": "please"
     },
     {
       "qid": "q013",
       "prompt": "",
-      "choices": [
-        "thank you",
-        "sorry",
-        "hello",
-        "bye"
-      ],
+      "choices": [],
       "answer": "thank you"
     },
     {
       "qid": "q014",
       "prompt": "",
-      "choices": [
-        "nice",
-        "bad",
-        "late",
-        "slow"
-      ],
+      "choices": [],
       "answer": "nice"
     },
     {
       "qid": "q015",
       "prompt": "",
-      "choices": [
-        "good",
-        "bad",
-        "slow",
-        "fast"
-      ],
+      "choices": [],
       "answer": "good"
     },
     {

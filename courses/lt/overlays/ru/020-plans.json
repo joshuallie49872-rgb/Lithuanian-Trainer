@@ -4,56 +4,31 @@
     {
       "qid": "q001",
       "prompt": "",
-      "choices": [
-        "today",
-        "tomorrow",
-        "yesterday",
-        "now"
-      ],
+      "choices": [],
       "answer": "today"
     },
     {
       "qid": "q002",
       "prompt": "",
-      "choices": [
-        "tomorrow",
-        "today",
-        "later",
-        "yesterday"
-      ],
+      "choices": [],
       "answer": "tomorrow"
     },
     {
       "qid": "q003",
       "prompt": "",
-      "choices": [
-        "later",
-        "now",
-        "today",
-        "tomorrow"
-      ],
+      "choices": [],
       "answer": "later"
     },
     {
       "qid": "q004",
       "prompt": "",
-      "choices": [
-        "I plan",
-        "I eat",
-        "I go",
-        "I work"
-      ],
+      "choices": [],
       "answer": "I plan"
     },
     {
       "qid": "q005",
       "prompt": "",
-      "choices": [
-        "we will meet",
-        "we eat",
-        "we go",
-        "we sleep"
-      ],
+      "choices": [],
       "answer": "we will meet"
     },
     {
@@ -79,56 +54,31 @@
     {
       "qid": "q011",
       "prompt": "",
-      "choices": [
-        "today",
-        "tomorrow",
-        "yesterday",
-        "now"
-      ],
+      "choices": [],
       "answer": "today"
     },
     {
       "qid": "q012",
       "prompt": "",
-      "choices": [
-        "tomorrow",
-        "today",
-        "later",
-        "yesterday"
-      ],
+      "choices": [],
       "answer": "tomorrow"
     },
     {
       "qid": "q013",
       "prompt": "",
-      "choices": [
-        "later",
-        "now",
-        "today",
-        "tomorrow"
-      ],
+      "choices": [],
       "answer": "later"
     },
     {
       "qid": "q014",
       "prompt": "",
-      "choices": [
-        "I plan",
-        "I eat",
-        "I go",
-        "I work"
-      ],
+      "choices": [],
       "answer": "I plan"
     },
     {
       "qid": "q015",
       "prompt": "",
-      "choices": [
-        "we will meet",
-        "we eat",
-        "we go",
-        "we sleep"
-      ],
+      "choices": [],
       "answer": "we will meet"
     },
     {

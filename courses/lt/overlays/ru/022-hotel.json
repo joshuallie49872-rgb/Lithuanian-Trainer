@@ -4,56 +4,31 @@
     {
       "qid": "q001",
       "prompt": "",
-      "choices": [
-        "room",
-        "key",
-        "hotel",
-        "bed"
-      ],
+      "choices": [],
       "answer": "room"
     },
     {
       "qid": "q002",
       "prompt": "",
-      "choices": [
-        "key",
-        "door",
-        "room",
-        "window"
-      ],
+      "choices": [],
       "answer": "key"
     },
     {
       "qid": "q003",
       "prompt": "",
-      "choices": [
-        "bed",
-        "table",
-        "chair",
-        "door"
-      ],
+      "choices": [],
       "answer": "bed"
     },
     {
       "qid": "q004",
       "prompt": "",
-      "choices": [
-        "check-in",
-        "breakfast",
-        "exit",
-        "key"
-      ],
+      "choices": [],
       "answer": "check-in"
     },
     {
       "qid": "q005",
       "prompt": "",
-      "choices": [
-        "overnight",
-        "breakfast",
-        "lunch",
-        "dinner"
-      ],
+      "choices": [],
       "answer": "overnight"
     },
     {
@@ -79,56 +54,31 @@
     {
       "qid": "q011",
       "prompt": "",
-      "choices": [
-        "room",
-        "key",
-        "hotel",
-        "bed"
-      ],
+      "choices": [],
       "answer": "room"
     },
     {
       "qid": "q012",
       "prompt": "",
-      "choices": [
-        "key",
-        "door",
-        "room",
-        "window"
-      ],
+      "choices": [],
       "answer": "key"
     },
     {
       "qid": "q013",
       "prompt": "",
-      "choices": [
-        "bed",
-        "table",
-        "chair",
-        "door"
-      ],
+      "choices": [],
       "answer": "bed"
     },
     {
       "qid": "q014",
       "prompt": "",
-      "choices": [
-        "check-in",
-        "breakfast",
-        "exit",
-        "key"
-      ],
+      "choices": [],
       "answer": "check-in"
     },
     {
       "qid": "q015",
       "prompt": "",
-      "choices": [
-        "overnight",
-        "breakfast",
-        "lunch",
-        "dinner"
-      ],
+      "choices": [],
       "answer": "overnight"
     },
     {

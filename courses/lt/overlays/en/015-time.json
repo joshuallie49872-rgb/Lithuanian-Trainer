@@ -4,56 +4,31 @@
     {
       "qid": "q001",
       "prompt": "",
-      "choices": [
-        "today",
-        "tomorrow",
-        "yesterday",
-        "now"
-      ],
+      "choices": [],
       "answer": "today"
     },
     {
       "qid": "q002",
       "prompt": "",
-      "choices": [
-        "tomorrow",
-        "today",
-        "later",
-        "yesterday"
-      ],
+      "choices": [],
       "answer": "tomorrow"
     },
     {
       "qid": "q003",
       "prompt": "",
-      "choices": [
-        "yesterday",
-        "today",
-        "now",
-        "later"
-      ],
+      "choices": [],
       "answer": "yesterday"
     },
     {
       "qid": "q004",
       "prompt": "",
-      "choices": [
-        "now",
-        "later",
-        "today",
-        "tomorrow"
-      ],
+      "choices": [],
       "answer": "now"
     },
     {
       "qid": "q005",
       "prompt": "",
-      "choices": [
-        "hour",
-        "minute",
-        "day",
-        "week"
-      ],
+      "choices": [],
       "answer": "hour"
     },
     {
@@ -79,56 +54,31 @@
     {
       "qid": "q011",
       "prompt": "",
-      "choices": [
-        "today",
-        "tomorrow",
-        "yesterday",
-        "now"
-      ],
+      "choices": [],
       "answer": "today"
     },
     {
       "qid": "q012",
       "prompt": "",
-      "choices": [
-        "tomorrow",
-        "today",
-        "later",
-        "yesterday"
-      ],
+      "choices": [],
       "answer": "tomorrow"
     },
     {
       "qid": "q013",
       "prompt": "",
-      "choices": [
-        "yesterday",
-        "today",
-        "now",
-        "later"
-      ],
+      "choices": [],
       "answer": "yesterday"
     },
     {
       "qid": "q014",
       "prompt": "",
-      "choices": [
-        "now",
-        "later",
-        "today",
-        "tomorrow"
-      ],
+      "choices": [],
       "answer": "now"
     },
     {
       "qid": "q015",
       "prompt": "",
-      "choices": [
-        "hour",
-        "minute",
-        "day",
-        "week"
-      ],
+      "choices": [],
       "answer": "hour"
     },
     {

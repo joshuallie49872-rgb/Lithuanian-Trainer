@@ -4,56 +4,31 @@
     {
       "qid": "q001",
       "prompt": "",
-      "choices": [
-        "bus",
-        "train",
-        "car",
-        "plane"
-      ],
+      "choices": [],
       "answer": "bus"
     },
     {
       "qid": "q002",
       "prompt": "",
-      "choices": [
-        "train",
-        "bus",
-        "plane",
-        "taxi"
-      ],
+      "choices": [],
       "answer": "train"
     },
     {
       "qid": "q003",
       "prompt": "",
-      "choices": [
-        "ticket",
-        "passport",
-        "hotel",
-        "map"
-      ],
+      "choices": [],
       "answer": "ticket"
     },
     {
       "qid": "q004",
       "prompt": "",
-      "choices": [
-        "taxi",
-        "bus",
-        "train",
-        "bike"
-      ],
+      "choices": [],
       "answer": "taxi"
     },
     {
       "qid": "q005",
       "prompt": "",
-      "choices": [
-        "trip",
-        "hotel",
-        "food",
-        "street"
-      ],
+      "choices": [],
       "answer": "trip"
     },
     {
@@ -79,56 +54,31 @@
     {
       "qid": "q011",
       "prompt": "",
-      "choices": [
-        "bus",
-        "train",
-        "car",
-        "plane"
-      ],
+      "choices": [],
       "answer": "bus"
     },
     {
       "qid": "q012",
       "prompt": "",
-      "choices": [
-        "train",
-        "bus",
-        "plane",
-        "taxi"
-      ],
+      "choices": [],
       "answer": "train"
     },
     {
       "qid": "q013",
       "prompt": "",
-      "choices": [
-        "ticket",
-        "passport",
-        "hotel",
-        "map"
-      ],
+      "choices": [],
       "answer": "ticket"
     },
     {
       "qid": "q014",
       "prompt": "",
-      "choices": [
-        "taxi",
-        "bus",
-        "train",
-        "bike"
-      ],
+      "choices": [],
       "answer": "taxi"
     },
     {
       "qid": "q015",
       "prompt": "",
-      "choices": [
-        "trip",
-        "hotel",
-        "food",
-        "street"
-      ],
+      "choices": [],
       "answer": "trip"
     },
     {

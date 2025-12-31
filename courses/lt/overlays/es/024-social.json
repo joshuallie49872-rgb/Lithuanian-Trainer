@@ -4,56 +4,31 @@
     {
       "qid": "q001",
       "prompt": "",
-      "choices": [
-        "friend",
-        "family",
-        "colleague",
-        "stranger"
-      ],
+      "choices": [],
       "answer": "friend"
     },
     {
       "qid": "q002",
       "prompt": "",
-      "choices": [
-        "family",
-        "friend",
-        "child",
-        "parent"
-      ],
+      "choices": [],
       "answer": "family"
     },
     {
       "qid": "q003",
       "prompt": "",
-      "choices": [
-        "name",
-        "address",
-        "number",
-        "city"
-      ],
+      "choices": [],
       "answer": "name"
     },
     {
       "qid": "q004",
       "prompt": "",
-      "choices": [
-        "nice",
-        "sorry",
-        "thanks",
-        "okay"
-      ],
+      "choices": [],
       "answer": "nice"
     },
     {
       "qid": "q005",
       "prompt": "",
-      "choices": [
-        "to meet",
-        "to leave",
-        "to go",
-        "to eat"
-      ],
+      "choices": [],
       "answer": "to meet"
     },
     {
@@ -79,56 +54,31 @@
     {
       "qid": "q011",
       "prompt": "",
-      "choices": [
-        "friend",
-        "family",
-        "colleague",
-        "stranger"
-      ],
+      "choices": [],
       "answer": "friend"
     },
     {
       "qid": "q012",
       "prompt": "",
-      "choices": [
-        "family",
-        "friend",
-        "child",
-        "parent"
-      ],
+      "choices": [],
       "answer": "family"
     },
     {
       "qid": "q013",
       "prompt": "",
-      "choices": [
-        "name",
-        "address",
-        "number",
-        "city"
-      ],
+      "choices": [],
       "answer": "name"
     },
     {
       "qid": "q014",
       "prompt": "",
-      "choices": [
-        "nice",
-        "sorry",
-        "thanks",
-        "okay"
-      ],
+      "choices": [],
       "answer": "nice"
     },
     {
       "qid": "q015",
       "prompt": "",
-      "choices": [
-        "to meet",
-        "to leave",
-        "to go",
-        "to eat"
-      ],
+      "choices": [],
       "answer": "to meet"
     },
     {

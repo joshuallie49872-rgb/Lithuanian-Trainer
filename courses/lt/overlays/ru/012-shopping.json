@@ -4,56 +4,31 @@
     {
       "qid": "q001",
       "prompt": "",
-      "choices": [
-        "shop",
-        "market",
-        "bank",
-        "hotel"
-      ],
+      "choices": [],
       "answer": "shop"
     },
     {
       "qid": "q002",
       "prompt": "",
-      "choices": [
-        "price",
-        "money",
-        "change",
-        "bill"
-      ],
+      "choices": [],
       "answer": "price"
     },
     {
       "qid": "q003",
       "prompt": "",
-      "choices": [
-        "money",
-        "card",
-        "shop",
-        "bag"
-      ],
+      "choices": [],
       "answer": "money"
     },
     {
       "qid": "q004",
       "prompt": "",
-      "choices": [
-        "card",
-        "cash",
-        "bank",
-        "bill"
-      ],
+      "choices": [],
       "answer": "card"
     },
     {
       "qid": "q005",
       "prompt": "",
-      "choices": [
-        "cash",
-        "card",
-        "cheap",
-        "expensive"
-      ],
+      "choices": [],
       "answer": "cash"
     },
     {
@@ -79,56 +54,31 @@
     {
       "qid": "q011",
       "prompt": "",
-      "choices": [
-        "shop",
-        "market",
-        "bank",
-        "hotel"
-      ],
+      "choices": [],
       "answer": "shop"
     },
     {
       "qid": "q012",
       "prompt": "",
-      "choices": [
-        "price",
-        "money",
-        "change",
-        "bill"
-      ],
+      "choices": [],
       "answer": "price"
     },
     {
       "qid": "q013",
       "prompt": "",
-      "choices": [
-        "money",
-        "card",
-        "shop",
-        "bag"
-      ],
+      "choices": [],
       "answer": "money"
     },
     {
       "qid": "q014",
       "prompt": "",
-      "choices": [
-        "card",
-        "cash",
-        "bank",
-        "bill"
-      ],
+      "choices": [],
       "answer": "card"
     },
     {
       "qid": "q015",
       "prompt": "",
-      "choices": [
-        "cash",
-        "card",
-        "cheap",
-        "expensive"
-      ],
+      "choices": [],
       "answer": "cash"
     },
     {

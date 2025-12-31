@@ -4,56 +4,31 @@
     {
       "qid": "q001",
       "prompt": "",
-      "choices": [
-        "who",
-        "what",
-        "where",
-        "when"
-      ],
+      "choices": [],
       "answer": "who"
     },
     {
       "qid": "q002",
       "prompt": "",
-      "choices": [
-        "what",
-        "who",
-        "where",
-        "why"
-      ],
+      "choices": [],
       "answer": "what"
     },
     {
       "qid": "q003",
       "prompt": "",
-      "choices": [
-        "where",
-        "when",
-        "how",
-        "who"
-      ],
+      "choices": [],
       "answer": "where"
     },
     {
       "qid": "q004",
       "prompt": "",
-      "choices": [
-        "when",
-        "where",
-        "why",
-        "how"
-      ],
+      "choices": [],
       "answer": "when"
     },
     {
       "qid": "q005",
       "prompt": "",
-      "choices": [
-        "why",
-        "when",
-        "where",
-        "who"
-      ],
+      "choices": [],
       "answer": "why"
     },
     {
@@ -79,23 +54,13 @@
     {
       "qid": "q011",
       "prompt": "",
-      "choices": [
-        "yes",
-        "no",
-        "maybe",
-        "later"
-      ],
+      "choices": [],
       "answer": "yes"
     },
     {
       "qid": "q012",
       "prompt": "",
-      "choices": [
-        "no",
-        "yes",
-        "later",
-        "always"
-      ],
+      "choices": [],
       "answer": "no"
     },
     {
@@ -109,12 +74,7 @@
     {
       "qid": "q015",
       "prompt": "",
-      "choices": [
-        "okay",
-        "bad",
-        "no",
-        "later"
-      ],
+      "choices": [],
       "answer": "okay"
     },
     {
@@ -124,12 +84,7 @@
     {
       "qid": "q017",
       "prompt": "",
-      "choices": [
-        "badly",
-        "well",
-        "good",
-        "okay"
-      ],
+      "choices": [],
       "answer": "badly"
     },
     {
@@ -139,12 +94,7 @@
     {
       "qid": "q019",
       "prompt": "",
-      "choices": [
-        "how",
-        "why",
-        "when",
-        "where"
-      ],
+      "choices": [],
       "answer": "how"
     },
     {

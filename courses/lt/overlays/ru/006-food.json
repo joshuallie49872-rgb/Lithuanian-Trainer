@@ -4,56 +4,31 @@
     {
       "qid": "q001",
       "prompt": "",
-      "choices": [
-        "water",
-        "wine",
-        "coffee",
-        "beer"
-      ],
+      "choices": [],
       "answer": "water"
     },
     {
       "qid": "q002",
       "prompt": "",
-      "choices": [
-        "coffee",
-        "tea",
-        "beer",
-        "milk"
-      ],
+      "choices": [],
       "answer": "coffee"
     },
     {
       "qid": "q003",
       "prompt": "",
-      "choices": [
-        "tea",
-        "coffee",
-        "juice",
-        "water"
-      ],
+      "choices": [],
       "answer": "tea"
     },
     {
       "qid": "q004",
       "prompt": "",
-      "choices": [
-        "beer",
-        "wine",
-        "juice",
-        "milk"
-      ],
+      "choices": [],
       "answer": "beer"
     },
     {
       "qid": "q005",
       "prompt": "",
-      "choices": [
-        "wine",
-        "beer",
-        "water",
-        "tea"
-      ],
+      "choices": [],
       "answer": "wine"
     },
     {
@@ -79,45 +54,25 @@
     {
       "qid": "q011",
       "prompt": "",
-      "choices": [
-        "bread",
-        "meat",
-        "cheese",
-        "fish"
-      ],
+      "choices": [],
       "answer": "bread"
     },
     {
       "qid": "q012",
       "prompt": "",
-      "choices": [
-        "cheese",
-        "meat",
-        "fish",
-        "bread"
-      ],
+      "choices": [],
       "answer": "cheese"
     },
     {
       "qid": "q013",
       "prompt": "",
-      "choices": [
-        "meat",
-        "fish",
-        "cheese",
-        "bread"
-      ],
+      "choices": [],
       "answer": "meat"
     },
     {
       "qid": "q014",
       "prompt": "",
-      "choices": [
-        "fish",
-        "meat",
-        "cheese",
-        "bread"
-      ],
+      "choices": [],
       "answer": "fish"
     },
     {
@@ -139,12 +94,7 @@
     {
       "qid": "q019",
       "prompt": "",
-      "choices": [
-        "tasty",
-        "bad",
-        "hot",
-        "cold"
-      ],
+      "choices": [],
       "answer": "tasty"
     },
     {

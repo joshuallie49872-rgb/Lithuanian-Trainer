@@ -4,111 +4,61 @@
     {
       "qid": "q001",
       "prompt": "",
-      "choices": [
-        "here",
-        "there",
-        "near",
-        "far"
-      ],
+      "choices": [],
       "answer": "here"
     },
     {
       "qid": "q002",
       "prompt": "",
-      "choices": [
-        "here",
-        "there",
-        "left",
-        "right"
-      ],
+      "choices": [],
       "answer": "there"
     },
     {
       "qid": "q003",
       "prompt": "",
-      "choices": [
-        "left",
-        "right",
-        "straight",
-        "back"
-      ],
+      "choices": [],
       "answer": "left"
     },
     {
       "qid": "q004",
       "prompt": "",
-      "choices": [
-        "left",
-        "right",
-        "forward",
-        "near"
-      ],
+      "choices": [],
       "answer": "right"
     },
     {
       "qid": "q005",
       "prompt": "",
-      "choices": [
-        "straight",
-        "back",
-        "left",
-        "right"
-      ],
+      "choices": [],
       "answer": "straight"
     },
     {
       "qid": "q006",
       "prompt": "",
-      "choices": [
-        "city",
-        "street",
-        "village",
-        "country"
-      ],
+      "choices": [],
       "answer": "city"
     },
     {
       "qid": "q007",
       "prompt": "",
-      "choices": [
-        "street",
-        "house",
-        "place",
-        "square"
-      ],
+      "choices": [],
       "answer": "street"
     },
     {
       "qid": "q008",
       "prompt": "",
-      "choices": [
-        "station",
-        "hotel",
-        "airport",
-        "shop"
-      ],
+      "choices": [],
       "answer": "station"
     },
     {
       "qid": "q009",
       "prompt": "",
-      "choices": [
-        "airport",
-        "station",
-        "bus",
-        "hotel"
-      ],
+      "choices": [],
       "answer": "airport"
     },
     {
       "qid": "q010",
       "prompt": "",
-      "choices": [
-        "hotel",
-        "hostel",
-        "home",
-        "restaurant"
-      ],
+      "choices": [],
       "answer": "hotel"
     },
     {
