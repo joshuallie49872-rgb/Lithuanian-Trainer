@@ -1,0 +1,125 @@
+{
+  "id": "002-basics",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "vienas",
+      "tts": "vienas"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "du",
+      "tts": "du"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "trys",
+      "tts": "trys"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "keturi",
+      "tts": "keturi"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "penki",
+      "tts": "penki"
+    },
+    {
+      "qid": "q006",
+      "type": "choose",
+      "lt": "raudona",
+      "tts": "raudona"
+    },
+    {
+      "qid": "q007",
+      "type": "choose",
+      "lt": "mėlyna",
+      "tts": "mėlyna"
+    },
+    {
+      "qid": "q008",
+      "type": "choose",
+      "lt": "žalia",
+      "tts": "žalia"
+    },
+    {
+      "qid": "q009",
+      "type": "choose",
+      "lt": "juoda",
+      "tts": "juoda"
+    },
+    {
+      "qid": "q010",
+      "type": "choose",
+      "lt": "balta",
+      "tts": "balta"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "mama",
+      "tts": "mama"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "tėtis",
+      "tts": "tėtis"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "brolis",
+      "tts": "brolis"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "sesuo",
+      "tts": "sesuo"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "šeima",
+      "tts": "šeima"
+    },
+    {
+      "qid": "q016",
+      "type": "choose",
+      "lt": "vanduo",
+      "tts": "vanduo"
+    },
+    {
+      "qid": "q017",
+      "type": "choose",
+      "lt": "kava",
+      "tts": "kava"
+    },
+    {
+      "qid": "q018",
+      "type": "choose",
+      "lt": "duona",
+      "tts": "duona"
+    },
+    {
+      "qid": "q019",
+      "type": "choose",
+      "lt": "viešbutis",
+      "tts": "viešbutis"
+    },
+    {
+      "qid": "q020",
+      "type": "choose",
+      "lt": "bilietas",
+      "tts": "bilietas"
+    }
+  ]
+}

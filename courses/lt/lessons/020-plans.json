@@ -1,0 +1,125 @@
+{
+  "id": "020-plans",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "šiandien",
+      "tts": "šiandien"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "rytoj",
+      "tts": "rytoj"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "vėliau",
+      "tts": "vėliau"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "planuoju",
+      "tts": "planuoju"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "susitiksime",
+      "tts": "susitiksime"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "šiandien"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "rytoj"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "vėliau"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "planuoju"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "susitiksime"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "šiandien",
+      "tts": "šiandien"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "rytoj",
+      "tts": "rytoj"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "vėliau",
+      "tts": "vėliau"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "planuoju",
+      "tts": "planuoju"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "susitiksime",
+      "tts": "susitiksime"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "šiandien"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "rytoj"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "vėliau"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "planuoju"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "susitiksime"
+    }
+  ]
+}

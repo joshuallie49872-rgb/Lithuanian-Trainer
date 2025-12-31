@@ -1,0 +1,125 @@
+{
+  "id": "189-stories",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "istorija",
+      "tts": "istorija"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "pasakojimas",
+      "tts": "pasakojimas"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "pradžia",
+      "tts": "pradžia"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "pabaiga",
+      "tts": "pabaiga"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "nutiko",
+      "tts": "nutiko"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "istorija"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "pasakojimas"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "pradžia"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "pabaiga"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "nutiko"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "istorija",
+      "tts": "istorija"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "pasakojimas",
+      "tts": "pasakojimas"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "pradžia",
+      "tts": "pradžia"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "pabaiga",
+      "tts": "pabaiga"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "nutiko",
+      "tts": "nutiko"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "istorija"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "pasakojimas"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "pradžia"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "pabaiga"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "nutiko"
+    }
+  ]
+}

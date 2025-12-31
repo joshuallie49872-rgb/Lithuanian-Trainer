@@ -1,0 +1,125 @@
+{
+  "id": "006-food",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "vanduo",
+      "tts": "vanduo"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "kava",
+      "tts": "kava"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "arbata",
+      "tts": "arbata"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "alus",
+      "tts": "alus"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "vynas",
+      "tts": "vynas"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "vanduo"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "kava"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "arbata"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "alus"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "vynas"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "duona",
+      "tts": "duona"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "sūris",
+      "tts": "sūris"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "mėsa",
+      "tts": "mėsa"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "žuvis",
+      "tts": "žuvis"
+    },
+    {
+      "qid": "q015",
+      "type": "translate",
+      "lt": "",
+      "tts": "duona"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "sūris"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "mėsa"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "žuvis"
+    },
+    {
+      "qid": "q019",
+      "type": "choose",
+      "lt": "skanu",
+      "tts": "skanu"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "skanu"
+    }
+  ]
+}

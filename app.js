@@ -376,34 +376,44 @@ function setScreen(name) {
 /* -----------------------------
    Manifest + lesson loading
 ----------------------------- */
-async function loadManifest() {
-  // ✅ Scalable course format (target language fixed to Lithuanian for now)
-  // courses/lt/manifest.json contains lesson meta + file paths for core + overlays
-  const which = "./courses/lt/manifest.json";
+async function loadCourse() {
+  const target = (localStorage.getItem(LS.targetLang) || "lt").trim() || "lt";
+  const which = `./courses/${target}/course.json`;
 
   const res = await fetch(which, { cache: "no-store" });
   if (!res.ok) throw new Error(`Failed to load ${which}`);
 
-  const m = await res.json();
-  if (!m || !Array.isArray(m.lessons) || m.lessons.length === 0) {
+  const c = await res.json();
+  if (!c || !Array.isArray(c.lessons) || c.lessons.length === 0) {
     throw new Error(`${which} missing lessons[]`);
   }
 
-  // normalize lesson meta
-  m.lessons = m.lessons.map((x) => ({
-    id: x.id,
-    icon: x.icon || "",
-    title: x.title || x.id,
-    topic: x.topic || "",
-    core: x.core || `courses/lt/core/${x.id}.json`,
-    // overlays are generated as: courses/lt/overlays/<nativeLang>/<id>.json
-    overlayBase: x.overlayBase || `courses/lt/overlays`,
-  }));
+  // normalize lesson meta -> keep same shape the rest of the app expects
+  const m = {
+    id: c.id || target,
+    title: c.title || target,
+    lessons: c.lessons.map((x) => ({
+      id: x.id,
+      title: x.title || x.id,
+      topic: x.topic || "",
+      icon: x.icon || "",
+      // core lesson file path (new scalable format)
+      core: `courses/${target}/lessons/${x.id}.json`,
+      // overlays are: courses/<target>/overlays/<native>/<id>.json
+      overlayBase: `courses/${target}/overlays`,
+    })),
+  };
 
   return m;
 }
 
+// Back-compat: if anything still calls loadManifest(), route to loadCourse()
+async function loadManifest() {
+  return loadCourse();
+}
+
 // Convert {items:[...]} -> {questions:[...]}
+...]} -> {questions:[...]}
 function normalizeLessonToQuestions(data) {
   if (!data || typeof data !== "object") return data;
 
@@ -544,9 +554,82 @@ async function loadLessonByIndex(i) {
     if (q && q.qid) ovById[String(q.qid)] = q;
   }
 
-  const mergedQuestions = coreQs.map((cq) => {
-    const ov = ovById[String(cq.qid)] || {};
-    return { ...cq, ...ov };
+  // UI-only merge: overlays should "paint" prompt/choices/hints etc.
+  const UI_KEYS = new Set([
+    "prompt",
+    "prompt_short",
+    "hint",
+    "placeholder",
+    "explain",
+    "note",
+    "choices", // merged carefully below
+  ]);
+
+  function normalizeChoiceArray(arr) {
+    if (!Array.isArray(arr)) return [];
+    return arr
+      .filter(Boolean)
+      .map((c) => {
+        if (typeof c === "string") return { key: c, label: c };
+        if (typeof c === "object") {
+          const key = String(c.key ?? c.value ?? c.id ?? "").trim();
+          const label = String(c.label ?? c.text ?? key).trim();
+          return { key, label };
+        }
+        return null;
+      })
+      .filter((c) => c && c.key);
+  }
+
+  function mergeChoices(coreChoices, overlayChoices) {
+    const coreN = normalizeChoiceArray(coreChoices);
+    const ovN = normalizeChoiceArray(overlayChoices);
+    if (!ovN.length) return coreChoices;
+
+    // If overlay provides keyed choices, prefer matching by key and only replacing labels.
+    if (coreN.length && ovN.length) {
+      const ovByKey = {};
+      for (const c of ovN) ovByKey[c.key] = c;
+
+      const merged = coreN.map((c) => {
+        const o = ovByKey[c.key];
+        return o ? { key: c.key, label: o.label || c.label } : c;
+      });
+
+      // Preserve original representation style:
+      // - if core choices were strings, keep strings
+      // - else keep {key,label}
+      const coreWasStrings = Array.isArray(coreChoices) && coreChoices.every((x) => typeof x === "string");
+      return coreWasStrings ? merged.map((c) => c.label) : merged;
+    }
+
+    // Otherwise, accept overlay as-is (index-aligned), but keep it UI-only.
+    return overlayChoices;
+  }
+
+  function safeMergeQuestion(coreQ, overlayQ) {
+    const out = { ...coreQ };
+
+    if (overlayQ && typeof overlayQ === "object") {
+      for (const k of Object.keys(overlayQ)) {
+        if (!UI_KEYS.has(k)) continue;
+        if (k === "choices") continue; // handled separately
+        if (overlayQ[k] !== undefined && overlayQ[k] !== null && overlayQ[k] !== "") {
+          out[k] = overlayQ[k];
+        }
+      }
+
+      if (overlayQ.choices !== undefined) {
+        out.choices = mergeChoices(coreQ.choices, overlayQ.choices);
+      }
+    }
+
+    return out;
+  }
+
+  const mergedQuestions = coreQs.map((cq, idx) => {
+    const ov = ovById[String(cq.qid)] || ovQs[idx] || {};
+    return safeMergeQuestion(cq, ov);
   });
 
   if (!mergedQuestions.length) {
@@ -618,7 +701,21 @@ function formatPrettyPrompt(q) {
 function renderChoices(q) {
   show(DOM.inputWrap, false);
 
-  const choices = Array.isArray(q.choices) ? q.choices.slice() : [];
+  const raw = Array.isArray(q.choices) ? q.choices.slice() : [];
+
+  // Normalize: support ["hello", ...] and [{key,label}, ...]
+  const choices = raw
+    .filter(Boolean)
+    .map((c) => {
+      if (typeof c === "string") return { key: c, label: c };
+      if (typeof c === "object") {
+        const key = String(c.key ?? c.value ?? c.id ?? "").trim();
+        const label = String(c.label ?? c.text ?? key).trim();
+        return key ? { key, label } : null;
+      }
+      return null;
+    })
+    .filter(Boolean);
 
   // Shuffle by default unless explicitly disabled
   const doShuffle = q.shuffle !== false;
@@ -627,23 +724,15 @@ function renderChoices(q) {
   for (const choice of choices) {
     const b = document.createElement("button");
     b.className = "choice btn btn-ghost";
-    b.textContent = choice;
+    b.textContent = choice.label;
 
     b.onclick = async () => {
       if (isAnswered) return;
 
-      // Play Lithuanian audio immediately (native MP3 if available),
-      // then submit the answer.
-      try {
-        const speakText = getSpeakText(q);
-        if (speakText.trim()) {
-          speakLithuanian(speakText, 0.95);
-          await sleep(140);
-        }
-      } catch {}
-
+      // 🔊 Optional: speak on tap, if configured for this question type
+      // (Existing logic elsewhere handles speak; this just keeps current behavior.)
       if (isAnswered) return;
-      checkAnswer(choice);
+      checkAnswer(choice.key);
     };
 
     DOM.answers.appendChild(b);
@@ -878,10 +967,20 @@ function checkAnswer(userValue) {
   const q = currentQuestion;
   const correct = getCorrectList(q);
 
-  const userN = normalizeAnswer(userValue);
-  const correctNList = correct.map(normalizeAnswer);
+  const hasKeyedChoices =
+    Array.isArray(q.choices) &&
+    q.choices.some((c) => c && typeof c === "object" && ("key" in c || "label" in c));
 
-  const ok = correctNList.includes(userN) || correctNList.some((c) => isCloseEnough(userN, c));
+  // If this is a keyed-choice question, compare raw keys (don't normalize)
+  // so keys like "thank_you" or "hello" never get mangled.
+  let ok = false;
+  if (hasKeyedChoices && Array.isArray(correct) && correct.length) {
+    ok = correct.includes(String(userValue));
+  } else {
+    const userN = normalizeAnswer(userValue);
+    const correctNList = correct.map(normalizeAnswer);
+    ok = correctNList.includes(userN) || correctNList.some((c) => isCloseEnough(userN, c));
+  }
 
   let closeScore = 0;
   if (!ok && userN && correct && correct.length > 0) {
@@ -1269,7 +1368,7 @@ if (DOM.targetLangSelect) {
 
 async function init() {
   try {
-    manifest = await loadManifest();
+    manifest = await loadCourse();
 
     // Load native audio map (if present)
     ltAudioMap = await loadLtAudioManifest();

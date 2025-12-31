@@ -1,0 +1,125 @@
+{
+  "id": "005-questions",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "kas",
+      "tts": "kas"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "ką",
+      "tts": "ką"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "kur",
+      "tts": "kur"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "kada",
+      "tts": "kada"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "kodėl",
+      "tts": "kodėl"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "kas"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "ką"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "kur"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "kada"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "kodėl"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "taip",
+      "tts": "taip"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "ne",
+      "tts": "ne"
+    },
+    {
+      "qid": "q013",
+      "type": "translate",
+      "lt": "",
+      "tts": "taip"
+    },
+    {
+      "qid": "q014",
+      "type": "translate",
+      "lt": "",
+      "tts": "ne"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "gerai",
+      "tts": "gerai"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "gerai"
+    },
+    {
+      "qid": "q017",
+      "type": "choose",
+      "lt": "blogai",
+      "tts": "blogai"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "blogai"
+    },
+    {
+      "qid": "q019",
+      "type": "choose",
+      "lt": "kaip",
+      "tts": "kaip"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "kaip"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "id": "003-basics",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "noriu",
+      "tts": "noriu"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "turiu",
+      "tts": "turiu"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "valgau",
+      "tts": "valgau"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "geriu",
+      "tts": "geriu"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "vanduo",
+      "tts": "vanduo"
+    },
+    {
+      "qid": "q006",
+      "type": "choose",
+      "lt": "kava",
+      "tts": "kava"
+    },
+    {
+      "qid": "q007",
+      "type": "choose",
+      "lt": "alus",
+      "tts": "alus"
+    },
+    {
+      "qid": "q008",
+      "type": "choose",
+      "lt": "duona",
+      "tts": "duona"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "noriu vandens"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "noriu kavos"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "čia",
+      "tts": "čia"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "ten",
+      "tts": "ten"
+    },
+    {
+      "qid": "q013",
+      "type": "translate",
+      "lt": "",
+      "tts": "čia vanduo"
+    },
+    {
+      "qid": "q014",
+      "type": "translate",
+      "lt": "",
+      "tts": "ten kava"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "prašau vandens",
+      "tts": "prašau vandens"
+    },
+    {
+      "qid": "q016",
+      "type": "choose",
+      "lt": "noriu alaus",
+      "tts": "noriu alaus"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "geriu vandenį"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "valgau duoną"
+    },
+    {
+      "qid": "q019",
+      "type": "choose",
+      "lt": "gerai",
+      "tts": "gerai"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "gerai"
+    }
+  ]
+}

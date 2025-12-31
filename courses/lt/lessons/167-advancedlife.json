@@ -1,0 +1,125 @@
+{
+  "id": "167-advancedlife",
+  "questions": [
+    {
+      "qid": "q001",
+      "type": "choose",
+      "lt": "sprendimas",
+      "tts": "sprendimas"
+    },
+    {
+      "qid": "q002",
+      "type": "choose",
+      "lt": "problema",
+      "tts": "problema"
+    },
+    {
+      "qid": "q003",
+      "type": "choose",
+      "lt": "pasirinkimas",
+      "tts": "pasirinkimas"
+    },
+    {
+      "qid": "q004",
+      "type": "choose",
+      "lt": "patirtis",
+      "tts": "patirtis"
+    },
+    {
+      "qid": "q005",
+      "type": "choose",
+      "lt": "rezultatas",
+      "tts": "rezultatas"
+    },
+    {
+      "qid": "q006",
+      "type": "translate",
+      "lt": "",
+      "tts": "sprendimas"
+    },
+    {
+      "qid": "q007",
+      "type": "translate",
+      "lt": "",
+      "tts": "problema"
+    },
+    {
+      "qid": "q008",
+      "type": "translate",
+      "lt": "",
+      "tts": "pasirinkimas"
+    },
+    {
+      "qid": "q009",
+      "type": "translate",
+      "lt": "",
+      "tts": "patirtis"
+    },
+    {
+      "qid": "q010",
+      "type": "translate",
+      "lt": "",
+      "tts": "rezultatas"
+    },
+    {
+      "qid": "q011",
+      "type": "choose",
+      "lt": "sprendimas",
+      "tts": "sprendimas"
+    },
+    {
+      "qid": "q012",
+      "type": "choose",
+      "lt": "problema",
+      "tts": "problema"
+    },
+    {
+      "qid": "q013",
+      "type": "choose",
+      "lt": "pasirinkimas",
+      "tts": "pasirinkimas"
+    },
+    {
+      "qid": "q014",
+      "type": "choose",
+      "lt": "patirtis",
+      "tts": "patirtis"
+    },
+    {
+      "qid": "q015",
+      "type": "choose",
+      "lt": "rezultatas",
+      "tts": "rezultatas"
+    },
+    {
+      "qid": "q016",
+      "type": "translate",
+      "lt": "",
+      "tts": "sprendimas"
+    },
+    {
+      "qid": "q017",
+      "type": "translate",
+      "lt": "",
+      "tts": "problema"
+    },
+    {
+      "qid": "q018",
+      "type": "translate",
+      "lt": "",
+      "tts": "pasirinkimas"
+    },
+    {
+      "qid": "q019",
+      "type": "translate",
+      "lt": "",
+      "tts": "patirtis"
+    },
+    {
+      "qid": "q020",
+      "type": "translate",
+      "lt": "",
+      "tts": "rezultatas"
+    }
+  ]
+}
