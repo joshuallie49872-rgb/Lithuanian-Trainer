@@ -1373,7 +1373,70 @@ function openAuth() {
 /* -----------------------------
    Events / init
 ----------------------------- */
-function wireEvents() {
+
+/* -----------------------------
+   Target language catalog
+------------------------------ */
+async function getAvailableTargets() {
+  // GitHub Pages can't list directories, so we use an index file.
+  // Fallback to Lithuanian-only if missing.
+  try {
+    const res = await fetch("./courses/index.json?v=" + CACHE_BUST);
+    if (!res.ok) throw new Error("no index");
+    const data = await res.json();
+    const targets = Array.isArray(data.targets) ? data.targets.filter(Boolean) : [];
+    return targets.length ? targets : ["lt"];
+  } catch (e) {
+    return ["lt"];
+  }
+}
+
+function targetLabel(code) {
+  // Minimal labels for now. We can expand later.
+  const map = {
+    lt: "🇱🇹 Lithuanian",
+    et: "🇪🇪 Estonian",
+    lv: "🇱🇻 Latvian",
+  };
+  return map[code] || code;
+}
+
+async function populateTargetSelect(selected) {
+  if (!DOM.targetLangSelect) return;
+  const sel = DOM.targetLangSelect;
+
+  // Keep any disabled "(soon)" options you hardcoded, but ensure real targets exist & are selectable.
+  const targets = await getAvailableTargets();
+
+  // Build options fresh
+  sel.innerHTML = "";
+  for (const t of targets) {
+    const opt = document.createElement("option");
+    opt.value = t;
+    opt.textContent = targetLabel(t);
+    sel.appendChild(opt);
+  }
+
+  // Add placeholders for future languages (non-selectable) if not present
+  const soon = [
+    { value: "et", text: "🇪🇪 Estonian (soon)" },
+    { value: "lv", text: "🇱🇻 Latvian (soon)" },
+  ];
+  for (const s of soon) {
+    if (!targets.includes(s.value)) {
+      const opt = document.createElement("option");
+      opt.value = s.value;
+      opt.textContent = s.text;
+      opt.disabled = true;
+      sel.appendChild(opt);
+    }
+  }
+
+  sel.disabled = false;
+  sel.value = targets.includes(selected) ? selected : targets[0];
+}
+
+async function wireEvents() {
   if (DOM.controls.prevBtn) DOM.controls.prevBtn.onclick = () => prevQuestion();
   if (DOM.controls.mapBtn)
     DOM.controls.mapBtn.onclick = () => {
@@ -1401,13 +1464,12 @@ function wireEvents() {
 }
 
 if (DOM.targetLangSelect) {
-  DOM.targetLangSelect.value = targetLang;
-  // targetLangSelect is disabled in index.html for now (Lithuanian only),
-  // but this keeps it future-proof.
+  await populateTargetSelect(targetLang);
   DOM.targetLangSelect.onchange = () => {
     saveTargetLang(DOM.targetLangSelect.value || "lt");
     location.reload();
   };
+}
 }
 
   if (DOM.doneBtn)
@@ -1430,7 +1492,7 @@ async function init() {
     ltAudioMap = await loadLtAudioManifest();
 
     refreshAccountDot();
-    wireEvents();
+    await wireEvents();
 
     setScreen("home");
     setHeaderMode("home");
