@@ -575,3 +575,43 @@ textarea:focus{
   .card{ padding: 14px; }
   #mapWrap, .map-wrap{ min-height: 360px; }
 }
+
+/* ===== CLICKABILITY HOTFIX (kills invisible click-blockers) ===== */
+
+/* 1) Decorative overlays/pseudo-layers should never capture clicks */
+*::before,
+*::after{
+  pointer-events: none !important;
+}
+
+/* 2) Make sure real interactive controls CAN receive clicks */
+button,
+a,
+select,
+input,
+textarea,
+label{
+  pointer-events: auto !important;
+}
+
+/* 3) Put common UI containers above any background layers */
+#app,
+#appRoot,
+#homeScreen,
+#lessonScreen,
+.card,
+.panel,
+.hero,
+.controls,
+.topBar,
+.navBar{
+  position: relative;
+  z-index: 5;
+}
+
+/* 4) Put buttons explicitly on top */
+button{
+  position: relative;
+  z-index: 10;
+}
+
