@@ -1,5 +1,4 @@
 import json
-import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]  # repo root
@@ -9,9 +8,12 @@ COURSE_JSON = ROOT / "courses" / TARGET / "course.json"
 LESSONS_DIR = ROOT / "courses" / TARGET / "lessons"
 OVERLAYS_DIR = ROOT / "courses" / TARGET / "overlays"
 
+# Which native overlays to convert (only if the overlay file exists)
 NATIVE_LANGS = ["en", "es", "ru"]
-BATCH_SIZE = 25
-SKIP_FIRST = 1  # skip 001-basics (already converted)
+
+# Convert EVERYTHING after 001-basics (already converted)
+BATCH_SIZE = 9999
+SKIP_FIRST = 1
 
 def load_json(path: Path):
     with path.open("r", encoding="utf-8") as f:
@@ -22,33 +24,57 @@ def save_json(path: Path, data):
     with path.open("w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-def is_keyed_choices(choices):
-    return isinstance(choices, list) and len(choices) > 0 and isinstance(choices[0], dict) and "key" in choices[0] and "label" in choices[0]
+def hard_fail(msg: str):
+    raise SystemExit("\nHARD FAIL: " + msg + "\nFix the file(s) above and re-run.\n")
 
-def to_keyed_choices_from_strings(choice_strings):
-    # Keys are the exact original strings so correctness doesn't break.
-    return [{"key": s, "label": s} for s in choice_strings]
+def is_keyed_choices(choices):
+    return (
+        isinstance(choices, list)
+        and len(choices) > 0
+        and isinstance(choices[0], dict)
+        and "key" in choices[0]
+        and "label" in choices[0]
+    )
 
 def core_choice_keys(core_choices):
     if is_keyed_choices(core_choices):
-        return [c.get("key", "") for c in core_choices]
+        return [str(c.get("key", "")) for c in core_choices]
     if isinstance(core_choices, list):
         return [str(x) for x in core_choices]
     return []
 
-def convert_core_lesson(lesson_path: Path):
-    data = load_json(lesson_path)
+def to_keyed_choices_from_strings(choice_strings):
+    # Keys are the exact original strings so correctness won't change.
+    return [{"key": s, "label": s} for s in choice_strings]
 
-    # tolerate either questions[] or items[]; prefer questions[]
+def normalize_questions_container(data: dict):
+    """
+    Ensure we have data["questions"] as the canonical list.
+    If data has items[], we promote it to questions[].
+    """
     questions = data.get("questions")
     if questions is None and isinstance(data.get("items"), list):
-        questions = data["items"]
-        data["questions"] = questions
+        data["questions"] = data["items"]
         data.pop("items", None)
-
+        questions = data["questions"]
     if not isinstance(questions, list):
-        print(f"SKIP (no questions list): {lesson_path.name}")
-        return False, None
+        return None
+    return questions
+
+def validate_correct_against_keys(lesson_path: Path, q_index: int, keys: list, correct):
+    if correct is None:
+        hard_fail(f"{lesson_path} q{q_index}: missing correct[] for choose question")
+    if not isinstance(correct, list):
+        hard_fail(f"{lesson_path} q{q_index}: correct must be an array")
+    for ans in correct:
+        if ans not in keys:
+            hard_fail(f"{lesson_path} q{q_index}: correct '{ans}' not in choice keys {keys}")
+
+def convert_core_lesson(lesson_path: Path):
+    data = load_json(lesson_path)
+    questions = normalize_questions_container(data)
+    if questions is None:
+        hard_fail(f"{lesson_path}: no questions[] (or items[]) list")
 
     changed = False
     core_keys_by_qindex = {}
@@ -60,18 +86,24 @@ def convert_core_lesson(lesson_path: Path):
             continue
 
         choices = q.get("choices")
+
+        # Already keyed: validate correct[] against keys
         if is_keyed_choices(choices):
-            core_keys_by_qindex[i] = core_choice_keys(choices)
+            keys = [str(c.get("key")) for c in choices]
+            core_keys_by_qindex[i] = keys
+            validate_correct_against_keys(lesson_path, i, keys, q.get("correct"))
             continue
 
+        # String list: convert to keyed
         if isinstance(choices, list) and all(isinstance(x, str) for x in choices):
             keyed = to_keyed_choices_from_strings(choices)
             q["choices"] = keyed
+            keys = [c["key"] for c in keyed]
+            core_keys_by_qindex[i] = keys
+            validate_correct_against_keys(lesson_path, i, keys, q.get("correct"))
             changed = True
-            core_keys_by_qindex[i] = [c["key"] for c in keyed]
         else:
-            # unknown format
-            core_keys_by_qindex[i] = core_choice_keys(choices)
+            hard_fail(f"{lesson_path} q{i}: unknown choices format (expected list of strings or list of {{key,label}})")
 
     if changed:
         save_json(lesson_path, data)
@@ -86,42 +118,35 @@ def convert_overlay_for_lesson(lesson_id: str, lang: str, core_keys_by_qindex: d
     overlay = load_json(overlay_path)
     oqs = overlay.get("questions")
     if not isinstance(oqs, list):
-        print(f"OVERLAY SKIP (no questions[]): {overlay_path}")
-        return False
+        hard_fail(f"{overlay_path}: overlay missing questions[] list")
 
+    # HARD STOP: overlay must align by index with core question list length
+    # (we can only validate this if core has the lesson file length; done in main)
     changed = False
 
     for i, oq in enumerate(oqs):
         if not isinstance(oq, dict):
             continue
 
-        # Only convert choices if overlay has them and core has keys for that question index
         if "choices" in oq and i in core_keys_by_qindex:
             ochoices = oq.get("choices")
+            core_keys = core_keys_by_qindex.get(i, [])
 
-            # If overlay already keyed, leave it
+            # If overlay already keyed: ensure keys match exactly
             if is_keyed_choices(ochoices):
-                # optional: validate keys
-                ok = [c.get("key") for c in ochoices]
-                ck = core_keys_by_qindex.get(i, [])
-                if ck and ok and ck != ok:
-                    print(f"WARNING keys mismatch {lesson_id} [{lang}] q{i}: core!=overlay")
+                overlay_keys = [str(c.get("key")) for c in ochoices]
+                if overlay_keys != core_keys:
+                    hard_fail(f"{overlay_path} q{i}: overlay keys != core keys\noverlay={overlay_keys}\ncore={core_keys}")
                 continue
 
-            # If overlay has string labels, convert to keyed using core keys by index
+            # If overlay is string labels: convert using core keys by index
             if isinstance(ochoices, list) and all(isinstance(x, str) for x in ochoices):
-                ck = core_keys_by_qindex.get(i, [])
-                if len(ck) != len(ochoices):
-                    print(f"WARNING choice count mismatch {lesson_id} [{lang}] q{i}: core {len(ck)} vs overlay {len(ochoices)}")
-                    # still do best-effort zip
-                new_choices = []
-                for key, label in zip(ck, ochoices):
-                    new_choices.append({"key": key, "label": label})
-                oq["choices"] = new_choices
+                if len(ochoices) != len(core_keys):
+                    hard_fail(f"{overlay_path} q{i}: overlay choice count {len(ochoices)} != core choice count {len(core_keys)}")
+                oq["choices"] = [{"key": k, "label": lbl} for k, lbl in zip(core_keys, ochoices)]
                 changed = True
             else:
-                # unknown overlay format; leave it
-                pass
+                hard_fail(f"{overlay_path} q{i}: unknown overlay choices format")
 
     if changed:
         save_json(overlay_path, overlay)
@@ -130,15 +155,14 @@ def convert_overlay_for_lesson(lesson_id: str, lang: str, core_keys_by_qindex: d
 
 def main():
     if not COURSE_JSON.exists():
-        raise SystemExit(f"Missing course.json at {COURSE_JSON}")
+        hard_fail(f"Missing {COURSE_JSON}")
 
     course = load_json(COURSE_JSON)
     lessons = course.get("lessons", [])
     ids = [l.get("id") for l in lessons if isinstance(l, dict) and l.get("id")]
 
     batch = ids[SKIP_FIRST:SKIP_FIRST + BATCH_SIZE]
-    print(f"Converting {len(batch)} lessons to keyed choices:")
-    print(", ".join(batch))
+    print(f"Converting {len(batch)} lessons to keyed choices (hard-stop validation ON)...")
 
     core_changed_count = 0
     overlay_changed_count = 0
@@ -146,26 +170,36 @@ def main():
     for lesson_id in batch:
         lesson_path = LESSONS_DIR / f"{lesson_id}.json"
         if not lesson_path.exists():
-            print(f"SKIP missing core lesson: {lesson_path}")
-            continue
+            hard_fail(f"Missing core lesson file: {lesson_path}")
 
+        # Convert core; get key map
         core_changed, core_keys_by_qindex = convert_core_lesson(lesson_path)
         if core_changed:
             core_changed_count += 1
 
-        # If we couldn't compute any keys, still try overlays but likely no-op
-        if core_keys_by_qindex is None:
-            core_keys_by_qindex = {}
+        # HARD STOP: overlay question count must match core question count
+        core_data = load_json(lesson_path)
+        core_qs = normalize_questions_container(core_data)
+        core_len = len(core_qs)
 
         for lang in NATIVE_LANGS:
+            overlay_path = OVERLAYS_DIR / lang / f"{lesson_id}.json"
+            if overlay_path.exists():
+                overlay_data = load_json(overlay_path)
+                oqs = overlay_data.get("questions")
+                if not isinstance(oqs, list):
+                    hard_fail(f"{overlay_path}: overlay missing questions[]")
+                if len(oqs) != core_len:
+                    hard_fail(f"{overlay_path}: overlay questions len {len(oqs)} != core {core_len}")
+
             oc = convert_overlay_for_lesson(lesson_id, lang, core_keys_by_qindex)
             if oc:
                 overlay_changed_count += 1
 
-    print(f"\nDONE.")
+    print("\nDONE.")
     print(f"Core lessons changed: {core_changed_count}")
     print(f"Overlay files changed: {overlay_changed_count}")
-    print("If you saw WARNINGS, open those specific overlay/core files and fix counts/order.")
+    print("No hard fails => conversion is safe to commit/push.")
 
 if __name__ == "__main__":
     main()
