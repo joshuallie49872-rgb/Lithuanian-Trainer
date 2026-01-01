@@ -413,7 +413,6 @@ async function loadManifest() {
 }
 
 // Convert {items:[...]} -> {questions:[...]}
-...]} -> {questions:[...]}
 function normalizeLessonToQuestions(data) {
   if (!data || typeof data !== "object") return data;
 
