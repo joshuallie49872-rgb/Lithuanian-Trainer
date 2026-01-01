@@ -407,13 +407,6 @@ async function loadCourse() {
   return m;
 }
 
-<<<<<<< HEAD
-// Back-compat: if anything still calls loadManifest(), route to loadCourse()
-async function loadManifest() {
-  return loadCourse();
-}
-
-=======
 // ===== Course loader (Phase 5) =====
 async function loadCoursesIndex() {
   try {
@@ -509,7 +502,6 @@ async function loadLessonCoreAndOverlay(lessonId) {
 }
 
 
->>>>>>> 0f8a395 (Fix: clickable buttons + target course loader + add 200 LT lessons (keyed choices))
 // Convert {items:[...]} -> {questions:[...]}
 function normalizeLessonToQuestions(data) {
   if (!data || typeof data !== "object") return data;
@@ -1471,72 +1463,6 @@ function openAuth() {
 /* -----------------------------
    Events / init
 ----------------------------- */
-<<<<<<< HEAD
-
-/* -----------------------------
-   Target language catalog
------------------------------- */
-async function getAvailableTargets() {
-  // GitHub Pages can't list directories, so we use an index file.
-  // Fallback to Lithuanian-only if missing.
-  try {
-    const res = await fetch("./courses/index.json?v=" + CACHE_BUST);
-    if (!res.ok) throw new Error("no index");
-    const data = await res.json();
-    const targets = Array.isArray(data.targets) ? data.targets.filter(Boolean) : [];
-    return targets.length ? targets : ["lt"];
-  } catch (e) {
-    return ["lt"];
-  }
-}
-
-function targetLabel(code) {
-  // Minimal labels for now. We can expand later.
-  const map = {
-    lt: "🇱🇹 Lithuanian",
-    et: "🇪🇪 Estonian",
-    lv: "🇱🇻 Latvian",
-  };
-  return map[code] || code;
-}
-
-async function populateTargetSelect(selected) {
-  if (!DOM.targetLangSelect) return;
-  const sel = DOM.targetLangSelect;
-
-  // Keep any disabled "(soon)" options you hardcoded, but ensure real targets exist & are selectable.
-  const targets = await getAvailableTargets();
-
-  // Build options fresh
-  sel.innerHTML = "";
-  for (const t of targets) {
-    const opt = document.createElement("option");
-    opt.value = t;
-    opt.textContent = targetLabel(t);
-    sel.appendChild(opt);
-  }
-
-  // Add placeholders for future languages (non-selectable) if not present
-  const soon = [
-    { value: "et", text: "🇪🇪 Estonian (soon)" },
-    { value: "lv", text: "🇱🇻 Latvian (soon)" },
-  ];
-  for (const s of soon) {
-    if (!targets.includes(s.value)) {
-      const opt = document.createElement("option");
-      opt.value = s.value;
-      opt.textContent = s.text;
-      opt.disabled = true;
-      sel.appendChild(opt);
-    }
-  }
-
-  sel.disabled = false;
-  sel.value = targets.includes(selected) ? selected : targets[0];
-}
-
-=======
->>>>>>> 0f8a395 (Fix: clickable buttons + target course loader + add 200 LT lessons (keyed choices))
 async function wireEvents() {
   if (DOM.controls.prevBtn) DOM.controls.prevBtn.onclick = () => prevQuestion();
   if (DOM.controls.mapBtn)
@@ -1565,16 +1491,6 @@ async function wireEvents() {
     };
   }
 
-<<<<<<< HEAD
-if (DOM.targetLangSelect) {
-  await populateTargetSelect(targetLang);
-  DOM.targetLangSelect.onchange = () => {
-    saveTargetLang(DOM.targetLangSelect.value || "lt");
-    location.reload();
-  };
-}
-}
-=======
   if (DOM.targetLangSelect) {
     await populateTargetSelect(getTargetLang());
     DOM.targetLangSelect.onchange = () => {
@@ -1582,7 +1498,6 @@ if (DOM.targetLangSelect) {
       location.reload();
     };
   }
->>>>>>> 0f8a395 (Fix: clickable buttons + target course loader + add 200 LT lessons (keyed choices))
 
   if (DOM.doneBtn)
     DOM.doneBtn.onclick = () => {
@@ -1598,25 +1513,7 @@ if (DOM.targetLangSelect) {
 
 async function init() {
   try {
-<<<<<<< HEAD
-=======
-    refreshAccountDot();
-    await wireEvents();
-
->>>>>>> 0f8a395 (Fix: clickable buttons + target course loader + add 200 LT lessons (keyed choices))
-    manifest = await loadCourse();
-
-    // Load native audio map (if present)
-    ltAudioMap = await loadLtAudioManifest();
-
-<<<<<<< HEAD
-    refreshAccountDot();
-    await wireEvents();
-
-    setScreen("home");
-=======
 setScreen("home");
->>>>>>> 0f8a395 (Fix: clickable buttons + target course loader + add 200 LT lessons (keyed choices))
     setHeaderMode("home");
 
     if ("speechSynthesis" in window) {
