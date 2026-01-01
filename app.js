@@ -407,11 +407,109 @@ async function loadCourse() {
   return m;
 }
 
+<<<<<<< HEAD
 // Back-compat: if anything still calls loadManifest(), route to loadCourse()
 async function loadManifest() {
   return loadCourse();
 }
 
+=======
+// ===== Course loader (Phase 5) =====
+async function loadCoursesIndex() {
+  try {
+    const res = await fetch("courses/index.json?v=" + Date.now());
+    if (!res.ok) throw new Error("Missing courses/index.json");
+    return await res.json();
+  } catch (e) {
+    console.warn("[OpenKalba] courses/index.json not found, defaulting to lt");
+    return { targets: ["lt"] };
+  }
+}
+
+async function populateTargetSelect(selected) {
+  if (!DOM.targetLangSelect) return;
+  const idx = await loadCoursesIndex();
+  const targets = Array.isArray(idx.targets) ? idx.targets : ["lt"];
+
+  const labels = { lt: "🇱🇹 Lithuanian", et: "🇪🇪 Estonian", lv: "🇱🇻 Latvian" };
+
+  DOM.targetLangSelect.innerHTML = "";
+  for (const t of targets) {
+    const opt = document.createElement("option");
+    opt.value = t;
+    opt.textContent = labels[t] || t;
+    DOM.targetLangSelect.appendChild(opt);
+  }
+  DOM.targetLangSelect.value = selected || targets[0] || "lt";
+}
+
+async function loadCourse() {
+  const t = getTargetLang();
+  const url = `courses/${t}/course.json?v=` + Date.now();
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Course not found: ${url}`);
+  return await res.json();
+}
+
+function lessonUrlFor(id) {
+  const t = getTargetLang();
+  return `courses/${t}/lessons/${id}.json?v=` + Date.now();
+}
+
+function overlayUrlFor(id) {
+  const t = getTargetLang();
+  const n = getNativeLang();
+  return `courses/${t}/overlays/${n}/${id}.json?v=` + Date.now();
+}
+
+async function loadLessonCoreAndOverlay(lessonId) {
+  const coreRes = await fetch(lessonUrlFor(lessonId));
+  if (!coreRes.ok) throw new Error(`Missing lesson: ${lessonId}`);
+  const core = await coreRes.json();
+
+  // optional overlay
+  let overlay = null;
+  try {
+    const oRes = await fetch(overlayUrlFor(lessonId));
+    if (oRes.ok) overlay = await oRes.json();
+  } catch (_) {}
+
+  if (overlay && Array.isArray(core.questions) && Array.isArray(overlay.questions)) {
+    // merge UI fields by index; keep correctness from core
+    for (let i = 0; i < core.questions.length; i++) {
+      const cq = core.questions[i];
+      const oq = overlay.questions[i];
+      if (!cq || !oq) continue;
+
+      if (typeof oq.prompt === "string" && oq.prompt) cq.prompt = oq.prompt;
+
+      if (oq.choices && cq.choices) {
+        const cChoices = cq.choices;
+        const oChoices = oq.choices;
+        const cKeyed = Array.isArray(cChoices) && cChoices[0] && typeof cChoices[0] === "object" && "key" in cChoices[0];
+        const oKeyed = Array.isArray(oChoices) && oChoices[0] && typeof oChoices[0] === "object" && "key" in oChoices[0];
+
+        if (cKeyed && Array.isArray(oChoices) && !oKeyed) {
+          // overlay labels are plain strings -> convert to {key,label} using core keys by index
+          if (oChoices.length === cChoices.length) {
+            cq.choices = cChoices.map((c, idx) => ({ key: c.key, label: String(oChoices[idx] ?? c.label) }));
+          }
+        } else if (cKeyed && oKeyed) {
+          // overlay keyed -> replace labels by matching key
+          const map = new Map(oChoices.map((x) => [String(x.key), String(x.label)]));
+          cq.choices = cChoices.map((c) => ({ key: c.key, label: map.get(String(c.key)) ?? c.label }));
+        } else if (!cKeyed && Array.isArray(oChoices)) {
+          // core unkeyed -> just override choices (display)
+          cq.choices = oChoices;
+        }
+      }
+    }
+  }
+  return core;
+}
+
+
+>>>>>>> 0f8a395 (Fix: clickable buttons + target course loader + add 200 LT lessons (keyed choices))
 // Convert {items:[...]} -> {questions:[...]}
 function normalizeLessonToQuestions(data) {
   if (!data || typeof data !== "object") return data;
@@ -1373,6 +1471,7 @@ function openAuth() {
 /* -----------------------------
    Events / init
 ----------------------------- */
+<<<<<<< HEAD
 
 /* -----------------------------
    Target language catalog
@@ -1436,6 +1535,8 @@ async function populateTargetSelect(selected) {
   sel.value = targets.includes(selected) ? selected : targets[0];
 }
 
+=======
+>>>>>>> 0f8a395 (Fix: clickable buttons + target course loader + add 200 LT lessons (keyed choices))
 async function wireEvents() {
   if (DOM.controls.prevBtn) DOM.controls.prevBtn.onclick = () => prevQuestion();
   if (DOM.controls.mapBtn)
@@ -1456,13 +1557,15 @@ async function wireEvents() {
   if (DOM.continueBtn) DOM.continueBtn.onclick = () => startFromContinue();
 
   if (DOM.nativeLangSelect) {
-  DOM.nativeLangSelect.value = nativeLang;
-  DOM.nativeLangSelect.onchange = () => {
-    saveNativeLang(DOM.nativeLangSelect.value || "en");
-    location.reload();
-  };
-}
+    const native = getNativeLang();
+    DOM.nativeLangSelect.value = native;
+    DOM.nativeLangSelect.onchange = () => {
+      saveNativeLang(DOM.nativeLangSelect.value || "en");
+      location.reload();
+    };
+  }
 
+<<<<<<< HEAD
 if (DOM.targetLangSelect) {
   await populateTargetSelect(targetLang);
   DOM.targetLangSelect.onchange = () => {
@@ -1471,6 +1574,15 @@ if (DOM.targetLangSelect) {
   };
 }
 }
+=======
+  if (DOM.targetLangSelect) {
+    await populateTargetSelect(getTargetLang());
+    DOM.targetLangSelect.onchange = () => {
+      saveTargetLang(DOM.targetLangSelect.value || "lt");
+      location.reload();
+    };
+  }
+>>>>>>> 0f8a395 (Fix: clickable buttons + target course loader + add 200 LT lessons (keyed choices))
 
   if (DOM.doneBtn)
     DOM.doneBtn.onclick = () => {
@@ -1486,15 +1598,25 @@ if (DOM.targetLangSelect) {
 
 async function init() {
   try {
+<<<<<<< HEAD
+=======
+    refreshAccountDot();
+    await wireEvents();
+
+>>>>>>> 0f8a395 (Fix: clickable buttons + target course loader + add 200 LT lessons (keyed choices))
     manifest = await loadCourse();
 
     // Load native audio map (if present)
     ltAudioMap = await loadLtAudioManifest();
 
+<<<<<<< HEAD
     refreshAccountDot();
     await wireEvents();
 
     setScreen("home");
+=======
+setScreen("home");
+>>>>>>> 0f8a395 (Fix: clickable buttons + target course loader + add 200 LT lessons (keyed choices))
     setHeaderMode("home");
 
     if ("speechSynthesis" in window) {
