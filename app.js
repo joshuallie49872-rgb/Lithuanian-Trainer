@@ -436,13 +436,7 @@ async function populateTargetSelect(selected) {
   DOM.targetLangSelect.value = selected || targets[0] || "lt";
 }
 
-async function loadCourse() {
-  const t = getTargetLang();
-  const url = `courses/${t}/course.json?v=` + Date.now();
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Course not found: ${url}`);
-  return await res.json();
-}
+// NOTE: loadCourse() defined earlier returns normalized manifest shape.
 
 function lessonUrlFor(id) {
   const t = getTargetLang();
@@ -1513,19 +1507,28 @@ async function wireEvents() {
 
 async function init() {
   try {
-setScreen("home");
+await wireEvents();
+
+    // Load selected target course (normalized into the existing `manifest` shape)
+    manifest = await loadCourse();
+
+    // Default to home screen
+    setScreen("home");
     setHeaderMode("home");
 
+    // Prime Web Speech voices (some browsers require a tick)
     if ("speechSynthesis" in window) {
       await sleep(50);
       window.speechSynthesis.getVoices?.();
     }
 
+    // If home screen missing for some reason, fall back to map
     if (!DOM.screens.home && DOM.screens.map) {
       setScreen("map");
       setHeaderMode("map");
       renderMap();
     }
+
   } catch (err) {
     console.error(err);
     if (DOM.title) DOM.title.textContent = "Error";
@@ -1537,7 +1540,16 @@ setScreen("home");
 if (window.__LT_APP_INITED__) {
   console.warn("OpenKalba: init blocked (already initialized).");
 } else {
-  window.__LT_APP_INITED__ = true;
-  init();
+  // mark in-progress; flip to true only after successful init
+  window.__LT_APP_INITED__ = "running";
+  init()
+    .then(() => {
+      window.__LT_APP_INITED__ = true;
+    })
+    .catch((err) => {
+      console.error("OpenKalba init failed:", err);
+      window.__LT_APP_INITED__ = false;
+    });
+
 }
 
