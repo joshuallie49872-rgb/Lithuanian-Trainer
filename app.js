@@ -376,125 +376,79 @@ function setScreen(name) {
 /* -----------------------------
    Manifest + lesson loading
 ----------------------------- */
-async function loadCourse() {
-  const target = (localStorage.getItem(LS.targetLang) || "lt").trim() || "lt";
-  const which = `./courses/${target}/course.json`;
+async function loadManifest(){
+  // Scalable loader (supports both old + new folder layouts)
+  const native = (localStorage.getItem("ok_native_lang") || "en").trim();
+  const target = (localStorage.getItem("ok_target_lang") || "lt").trim();
 
-  const res = await fetch(which, { cache: "no-store" });
-  if (!res.ok) throw new Error(`Failed to load ${which}`);
-
-  const c = await res.json();
-  if (!c || !Array.isArray(c.lessons) || c.lessons.length === 0) {
-    throw new Error(`${which} missing lessons[]`);
-  }
-
-  // normalize lesson meta -> keep same shape the rest of the app expects
-  const m = {
-    id: c.id || target,
-    title: c.title || target,
-    lessons: c.lessons.map((x) => ({
-      id: x.id,
-      title: x.title || x.id,
-      topic: x.topic || "",
-      icon: x.icon || "",
-      // core lesson file path (new scalable format)
-      core: `courses/${target}/lessons/${x.id}.json`,
-      // overlays are: courses/<target>/overlays/<native>/<id>.json
-      overlayBase: `courses/${target}/overlays`,
-    })),
-  };
-
-  return m;
-}
-
-// ===== Course loader (Phase 5) =====
-async function loadCoursesIndex() {
-  try {
-    const res = await fetch("courses/index.json?v=" + Date.now());
-    if (!res.ok) throw new Error("Missing courses/index.json");
-    return await res.json();
-  } catch (e) {
-    console.warn("[OpenKalba] courses/index.json not found, defaulting to lt");
-    return { targets: ["lt"] };
-  }
-}
-
-async function populateTargetSelect(selected) {
-  if (!DOM.targetLangSelect) return;
-  const idx = await loadCoursesIndex();
-  const targets = Array.isArray(idx.targets) ? idx.targets : ["lt"];
-
-  const labels = { lt: "🇱🇹 Lithuanian", et: "🇪🇪 Estonian", lv: "🇱🇻 Latvian" };
-
-  DOM.targetLangSelect.innerHTML = "";
-  for (const t of targets) {
-    const opt = document.createElement("option");
-    opt.value = t;
-    opt.textContent = labels[t] || t;
-    DOM.targetLangSelect.appendChild(opt);
-  }
-  DOM.targetLangSelect.value = selected || targets[0] || "lt";
-}
-
-// NOTE: loadCourse() defined earlier returns normalized manifest shape.
-
-function lessonUrlFor(id) {
-  const t = getTargetLang();
-  return `courses/${t}/lessons/${id}.json?v=` + Date.now();
-}
-
-function overlayUrlFor(id) {
-  const t = getTargetLang();
-  const n = getNativeLang();
-  return `courses/${t}/overlays/${n}/${id}.json?v=` + Date.now();
-}
-
-async function loadLessonCoreAndOverlay(lessonId) {
-  const coreRes = await fetch(lessonUrlFor(lessonId));
-  if (!coreRes.ok) throw new Error(`Missing lesson: ${lessonId}`);
-  const core = await coreRes.json();
-
-  // optional overlay
-  let overlay = null;
-  try {
-    const oRes = await fetch(overlayUrlFor(lessonId));
-    if (oRes.ok) overlay = await oRes.json();
-  } catch (_) {}
-
-  if (overlay && Array.isArray(core.questions) && Array.isArray(overlay.questions)) {
-    // merge UI fields by index; keep correctness from core
-    for (let i = 0; i < core.questions.length; i++) {
-      const cq = core.questions[i];
-      const oq = overlay.questions[i];
-      if (!cq || !oq) continue;
-
-      if (typeof oq.prompt === "string" && oq.prompt) cq.prompt = oq.prompt;
-
-      if (oq.choices && cq.choices) {
-        const cChoices = cq.choices;
-        const oChoices = oq.choices;
-        const cKeyed = Array.isArray(cChoices) && cChoices[0] && typeof cChoices[0] === "object" && "key" in cChoices[0];
-        const oKeyed = Array.isArray(oChoices) && oChoices[0] && typeof oChoices[0] === "object" && "key" in oChoices[0];
-
-        if (cKeyed && Array.isArray(oChoices) && !oKeyed) {
-          // overlay labels are plain strings -> convert to {key,label} using core keys by index
-          if (oChoices.length === cChoices.length) {
-            cq.choices = cChoices.map((c, idx) => ({ key: c.key, label: String(oChoices[idx] ?? c.label) }));
-          }
-        } else if (cKeyed && oKeyed) {
-          // overlay keyed -> replace labels by matching key
-          const map = new Map(oChoices.map((x) => [String(x.key), String(x.label)]));
-          cq.choices = cChoices.map((c) => ({ key: c.key, label: map.get(String(c.key)) ?? c.label }));
-        } else if (!cKeyed && Array.isArray(oChoices)) {
-          // core unkeyed -> just override choices (display)
-          cq.choices = oChoices;
-        }
-      }
+  async function tryJson(url){
+    try{
+      const r = await fetch(url, { cache: "no-store" });
+      if(!r.ok) return null;
+      return await r.json();
+    }catch(_e){
+      return null;
     }
   }
-  return core;
-}
 
+  // 1) New format: courses/<target>/course.json + lessons/ + overlays/<native>/
+  const course = await tryJson(`courses/${target}/course.json`);
+  if(course && Array.isArray(course.lessons)){
+    manifest = {
+      target,
+      overlayBase: `courses/${target}/overlays`,
+      lessons: course.lessons.map((L)=>({
+        id: L.id,
+        title: (typeof L.title === "string" ? L.title : (L.title?.[native] || L.title?.en || "")) || "",
+        topic: (typeof L.topic === "string" ? L.topic : (L.topic?.[native] || L.topic?.en || "")) || "",
+        icon: L.icon || "📘",
+        core: `courses/${target}/lessons/${L.id}.json`,
+        overlayBase: `courses/${target}/overlays`
+      }))
+    };
+    return;
+  }
+
+  // 2) Current repo format: courses/<target>/manifest.json + core/ + overlays/<native>/
+  const cman = await tryJson(`courses/${target}/manifest.json`);
+  if(cman && Array.isArray(cman.lessons)){
+    manifest = {
+      target,
+      overlayBase: `courses/${target}/overlays`,
+      lessons: cman.lessons.map((L)=>({
+        id: L.id,
+        title: (L.title && (L.title[native] || L.title.en)) || L.title || "",
+        topic: (L.topic && (L.topic[native] || L.topic.en)) || L.topic || "",
+        icon: L.icon || "📘",
+        core: `courses/${target}/core/${L.id}.json`,
+        overlayBase: `courses/${target}/overlays`
+      }))
+    };
+    return;
+  }
+
+  // 3) Legacy root manifest.json (if present)
+  const legacy = await tryJson("manifest.json");
+  if(legacy && Array.isArray(legacy.lessons)){
+    // Ensure meta fields exist for the current lesson loader
+    manifest = {
+      target: legacy.target || target,
+      overlayBase: legacy.overlayBase || "courses/lt/overlays",
+      lessons: legacy.lessons.map((L)=>({
+        ...L,
+        id: L.id,
+        title: L.title || "",
+        topic: L.topic || "",
+        icon: L.icon || "📘",
+        core: L.core || `lessons/${L.id}.json`,
+        overlayBase: L.overlayBase || legacy.overlayBase || "courses/lt/overlays"
+      }))
+    };
+    return;
+  }
+
+  manifest = { target, overlayBase: `courses/${target}/overlays`, lessons: [] };
+}
 
 // Convert {items:[...]} -> {questions:[...]}
 function normalizeLessonToQuestions(data) {
@@ -632,144 +586,14 @@ async function loadLessonByIndex(i) {
   const coreQs = Array.isArray(coreData?.questions) ? coreData.questions : [];
   const ovQs = Array.isArray(overlayData?.questions) ? overlayData.questions : [];
 
-  // --- Overlay validation (non-fatal) ---
-  (function validateOverlay(coreQs, ovQs, coreUrl, overlayUrl) {
-    try {
-      if (!ovQs || ovQs.length === 0) return;
-
-      if (coreQs.length !== ovQs.length) {
-        console.warn(
-          `[OpenKalba] Overlay length mismatch for ${overlayUrl}: overlay=${ovQs.length}, core=${coreQs.length}. ` +
-            `Index-aligned merges may drift. Fix overlay questions[] to match core questions[].`
-        );
-      }
-
-      const minN = Math.min(coreQs.length, ovQs.length);
-      for (let i = 0; i < minN; i++) {
-        const cq = coreQs[i] || {};
-        const oq = ovQs[i] || {};
-
-        const cChoices = cq.choices;
-        const oChoices = oq.choices;
-
-        const cKeyed =
-          Array.isArray(cChoices) && cChoices.length && typeof cChoices[0] === "object" && cChoices[0] && "key" in cChoices[0];
-        const oKeyed =
-          Array.isArray(oChoices) && oChoices.length && typeof oChoices[0] === "object" && oChoices[0] && "key" in oChoices[0];
-
-        if (cKeyed && oChoices && !oKeyed) {
-          console.warn(
-            `[OpenKalba] Overlay choices not keyed at question #${i + 1} (${cq.qid || "no-qid"}) in ${overlayUrl}. ` +
-              `Core uses {key,label} but overlay uses plain strings. Convert overlay choices to {key,label}.`
-          );
-          continue;
-        }
-
-        if (cKeyed && oKeyed) {
-          const cKeys = cChoices.map((x) => String(x.key || "").trim()).filter(Boolean);
-          const oKeys = oChoices.map((x) => String(x.key || "").trim()).filter(Boolean);
-
-          // Compare key sets (order doesn't matter for correctness)
-          const cSet = new Set(cKeys);
-          const oSet = new Set(oKeys);
-
-          const missing = cKeys.filter((k) => !oSet.has(k));
-          const extra = oKeys.filter((k) => !cSet.has(k));
-
-          if (missing.length || extra.length) {
-            console.warn(
-              `[OpenKalba] Overlay key mismatch at question #${i + 1} (${cq.qid || "no-qid"}) in ${overlayUrl}. ` +
-                `Missing: [${missing.join(", ")}], Extra: [${extra.join(", ")}].`
-            );
-          }
-        }
-      }
-    } catch (e) {
-      console.warn("[OpenKalba] Overlay validation failed (ignored):", e);
-    }
-  })(coreQs, ovQs, coreUrl, overlayUrl);
-
   const ovById = {};
   for (const q of ovQs) {
     if (q && q.qid) ovById[String(q.qid)] = q;
   }
 
-  // UI-only merge: overlays should "paint" prompt/choices/hints etc.
-  const UI_KEYS = new Set([
-    "prompt",
-    "prompt_short",
-    "hint",
-    "placeholder",
-    "explain",
-    "note",
-    "choices", // merged carefully below
-  ]);
-
-  function normalizeChoiceArray(arr) {
-    if (!Array.isArray(arr)) return [];
-    return arr
-      .filter(Boolean)
-      .map((c) => {
-        if (typeof c === "string") return { key: c, label: c };
-        if (typeof c === "object") {
-          const key = String(c.key ?? c.value ?? c.id ?? "").trim();
-          const label = String(c.label ?? c.text ?? key).trim();
-          return { key, label };
-        }
-        return null;
-      })
-      .filter((c) => c && c.key);
-  }
-
-  function mergeChoices(coreChoices, overlayChoices) {
-    const coreN = normalizeChoiceArray(coreChoices);
-    const ovN = normalizeChoiceArray(overlayChoices);
-    if (!ovN.length) return coreChoices;
-
-    // If overlay provides keyed choices, prefer matching by key and only replacing labels.
-    if (coreN.length && ovN.length) {
-      const ovByKey = {};
-      for (const c of ovN) ovByKey[c.key] = c;
-
-      const merged = coreN.map((c) => {
-        const o = ovByKey[c.key];
-        return o ? { key: c.key, label: o.label || c.label } : c;
-      });
-
-      // Preserve original representation style:
-      // - if core choices were strings, keep strings
-      // - else keep {key,label}
-      const coreWasStrings = Array.isArray(coreChoices) && coreChoices.every((x) => typeof x === "string");
-      return coreWasStrings ? merged.map((c) => c.label) : merged;
-    }
-
-    // Otherwise, accept overlay as-is (index-aligned), but keep it UI-only.
-    return overlayChoices;
-  }
-
-  function safeMergeQuestion(coreQ, overlayQ) {
-    const out = { ...coreQ };
-
-    if (overlayQ && typeof overlayQ === "object") {
-      for (const k of Object.keys(overlayQ)) {
-        if (!UI_KEYS.has(k)) continue;
-        if (k === "choices") continue; // handled separately
-        if (overlayQ[k] !== undefined && overlayQ[k] !== null && overlayQ[k] !== "") {
-          out[k] = overlayQ[k];
-        }
-      }
-
-      if (overlayQ.choices !== undefined) {
-        out.choices = mergeChoices(coreQ.choices, overlayQ.choices);
-      }
-    }
-
-    return out;
-  }
-
-  const mergedQuestions = coreQs.map((cq, idx) => {
-    const ov = ovById[String(cq.qid)] || ovQs[idx] || {};
-    return safeMergeQuestion(cq, ov);
+  const mergedQuestions = coreQs.map((cq) => {
+    const ov = ovById[String(cq.qid)] || {};
+    return { ...cq, ...ov };
   });
 
   if (!mergedQuestions.length) {
@@ -841,21 +665,7 @@ function formatPrettyPrompt(q) {
 function renderChoices(q) {
   show(DOM.inputWrap, false);
 
-  const raw = Array.isArray(q.choices) ? q.choices.slice() : [];
-
-  // Normalize: support ["hello", ...] and [{key,label}, ...]
-  const choices = raw
-    .filter(Boolean)
-    .map((c) => {
-      if (typeof c === "string") return { key: c, label: c };
-      if (typeof c === "object") {
-        const key = String(c.key ?? c.value ?? c.id ?? "").trim();
-        const label = String(c.label ?? c.text ?? key).trim();
-        return key ? { key, label } : null;
-      }
-      return null;
-    })
-    .filter(Boolean);
+  const choices = Array.isArray(q.choices) ? q.choices.slice() : [];
 
   // Shuffle by default unless explicitly disabled
   const doShuffle = q.shuffle !== false;
@@ -864,15 +674,23 @@ function renderChoices(q) {
   for (const choice of choices) {
     const b = document.createElement("button");
     b.className = "choice btn btn-ghost";
-    b.textContent = choice.label;
+    b.textContent = choice;
 
     b.onclick = async () => {
       if (isAnswered) return;
 
-      // 🔊 Optional: speak on tap, if configured for this question type
-      // (Existing logic elsewhere handles speak; this just keeps current behavior.)
+      // Play Lithuanian audio immediately (native MP3 if available),
+      // then submit the answer.
+      try {
+        const speakText = getSpeakText(q);
+        if (speakText.trim()) {
+          speakLithuanian(speakText, 0.95);
+          await sleep(140);
+        }
+      } catch {}
+
       if (isAnswered) return;
-      checkAnswer(choice.key);
+      checkAnswer(choice);
     };
 
     DOM.answers.appendChild(b);
@@ -1107,20 +925,10 @@ function checkAnswer(userValue) {
   const q = currentQuestion;
   const correct = getCorrectList(q);
 
-  const hasKeyedChoices =
-    Array.isArray(q.choices) &&
-    q.choices.some((c) => c && typeof c === "object" && ("key" in c || "label" in c));
+  const userN = normalizeAnswer(userValue);
+  const correctNList = correct.map(normalizeAnswer);
 
-  // If this is a keyed-choice question, compare raw keys (don't normalize)
-  // so keys like "thank_you" or "hello" never get mangled.
-  let ok = false;
-  if (hasKeyedChoices && Array.isArray(correct) && correct.length) {
-    ok = correct.includes(String(userValue));
-  } else {
-    const userN = normalizeAnswer(userValue);
-    const correctNList = correct.map(normalizeAnswer);
-    ok = correctNList.includes(userN) || correctNList.some((c) => isCloseEnough(userN, c));
-  }
+  const ok = correctNList.includes(userN) || correctNList.some((c) => isCloseEnough(userN, c));
 
   let closeScore = 0;
   if (!ok && userN && correct && correct.length > 0) {
@@ -1457,7 +1265,7 @@ function openAuth() {
 /* -----------------------------
    Events / init
 ----------------------------- */
-async function wireEvents() {
+function wireEvents() {
   if (DOM.controls.prevBtn) DOM.controls.prevBtn.onclick = () => prevQuestion();
   if (DOM.controls.mapBtn)
     DOM.controls.mapBtn.onclick = () => {
@@ -1477,21 +1285,22 @@ async function wireEvents() {
   if (DOM.continueBtn) DOM.continueBtn.onclick = () => startFromContinue();
 
   if (DOM.nativeLangSelect) {
-    const native = getNativeLang();
-    DOM.nativeLangSelect.value = native;
-    DOM.nativeLangSelect.onchange = () => {
-      saveNativeLang(DOM.nativeLangSelect.value || "en");
-      location.reload();
-    };
-  }
+  DOM.nativeLangSelect.value = nativeLang;
+  DOM.nativeLangSelect.onchange = () => {
+    saveNativeLang(DOM.nativeLangSelect.value || "en");
+    location.reload();
+  };
+}
 
-  if (DOM.targetLangSelect) {
-    await populateTargetSelect(getTargetLang());
-    DOM.targetLangSelect.onchange = () => {
-      saveTargetLang(DOM.targetLangSelect.value || "lt");
-      location.reload();
-    };
-  }
+if (DOM.targetLangSelect) {
+  DOM.targetLangSelect.value = targetLang;
+  // targetLangSelect is disabled in index.html for now (Lithuanian only),
+  // but this keeps it future-proof.
+  DOM.targetLangSelect.onchange = () => {
+    saveTargetLang(DOM.targetLangSelect.value || "lt");
+    location.reload();
+  };
+}
 
   if (DOM.doneBtn)
     DOM.doneBtn.onclick = () => {
@@ -1507,28 +1316,27 @@ async function wireEvents() {
 
 async function init() {
   try {
-await wireEvents();
+    manifest = await loadManifest();
 
-    // Load selected target course (normalized into the existing `manifest` shape)
-    manifest = await loadCourse();
+    // Load native audio map (if present)
+    ltAudioMap = await loadLtAudioManifest();
 
-    // Default to home screen
+    refreshAccountDot();
+    wireEvents();
+
     setScreen("home");
     setHeaderMode("home");
 
-    // Prime Web Speech voices (some browsers require a tick)
     if ("speechSynthesis" in window) {
       await sleep(50);
       window.speechSynthesis.getVoices?.();
     }
 
-    // If home screen missing for some reason, fall back to map
     if (!DOM.screens.home && DOM.screens.map) {
       setScreen("map");
       setHeaderMode("map");
       renderMap();
     }
-
   } catch (err) {
     console.error(err);
     if (DOM.title) DOM.title.textContent = "Error";
@@ -1540,16 +1348,7 @@ await wireEvents();
 if (window.__LT_APP_INITED__) {
   console.warn("OpenKalba: init blocked (already initialized).");
 } else {
-  // mark in-progress; flip to true only after successful init
-  window.__LT_APP_INITED__ = "running";
-  init()
-    .then(() => {
-      window.__LT_APP_INITED__ = true;
-    })
-    .catch((err) => {
-      console.error("OpenKalba init failed:", err);
-      window.__LT_APP_INITED__ = false;
-    });
-
+  window.__LT_APP_INITED__ = true;
+  init();
 }
 
