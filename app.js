@@ -421,7 +421,7 @@ async function loadCourse() {
   return m;
 }
 
-// ===== Course loader (Phase 5) =====
+// ===== Course loader (Phase 5) — FIXED (single source of truth) =====
 async function loadCoursesIndex() {
   try {
     const res = await fetch("courses/index.json?v=" + Date.now());
@@ -450,71 +450,50 @@ async function populateTargetSelect(selected) {
   DOM.targetLangSelect.value = selected || targets[0] || "lt";
 }
 
+// ✅ KEEP ONLY ONE loadCourse() — normalized to the shape the app expects
 async function loadCourse() {
-  const t = getTargetLang();
-  const url = `courses/${t}/course.json?v=` + Date.now();
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Course not found: ${url}`);
-  return await res.json();
-}
+  const target = (localStorage.getItem(LS.targetLang) || "lt").trim() || "lt";
+  const which = `./courses/${target}/course.json?v=` + Date.now();
 
-function lessonUrlFor(id) {
-  const t = getTargetLang();
-  return `courses/${t}/lessons/${id}.json?v=` + Date.now();
-}
+  const res = await fetch(which, { cache: "no-store" });
+  if (!res.ok) throw new Error(`Failed to load ${which}`);
 
-function overlayUrlFor(id) {
-  const t = getTargetLang();
-  const n = getNativeLang();
-  return `courses/${t}/overlays/${n}/${id}.json?v=` + Date.now();
-}
-
-async function loadLessonCoreAndOverlay(lessonId) {
-  const coreRes = await fetch(lessonUrlFor(lessonId));
-  if (!coreRes.ok) throw new Error(`Missing lesson: ${lessonId}`);
-  const core = await coreRes.json();
-
-  // optional overlay
-  let overlay = null;
-  try {
-    const oRes = await fetch(overlayUrlFor(lessonId));
-    if (oRes.ok) overlay = await oRes.json();
-  } catch (_) {}
-
-  if (overlay && Array.isArray(core.questions) && Array.isArray(overlay.questions)) {
-    // merge UI fields by index; keep correctness from core
-    for (let i = 0; i < core.questions.length; i++) {
-      const cq = core.questions[i];
-      const oq = overlay.questions[i];
-      if (!cq || !oq) continue;
-
-      if (typeof oq.prompt === "string" && oq.prompt) cq.prompt = oq.prompt;
-
-      if (oq.choices && cq.choices) {
-        const cChoices = cq.choices;
-        const oChoices = oq.choices;
-        const cKeyed = Array.isArray(cChoices) && cChoices[0] && typeof cChoices[0] === "object" && "key" in cChoices[0];
-        const oKeyed = Array.isArray(oChoices) && oChoices[0] && typeof oChoices[0] === "object" && "key" in oChoices[0];
-
-        if (cKeyed && Array.isArray(oChoices) && !oKeyed) {
-          // overlay labels are plain strings -> convert to {key,label} using core keys by index
-          if (oChoices.length === cChoices.length) {
-            cq.choices = cChoices.map((c, idx) => ({ key: c.key, label: String(oChoices[idx] ?? c.label) }));
-          }
-        } else if (cKeyed && oKeyed) {
-          // overlay keyed -> replace labels by matching key
-          const map = new Map(oChoices.map((x) => [String(x.key), String(x.label)]));
-          cq.choices = cChoices.map((c) => ({ key: c.key, label: map.get(String(c.key)) ?? c.label }));
-        } else if (!cKeyed && Array.isArray(oChoices)) {
-          // core unkeyed -> just override choices (display)
-          cq.choices = oChoices;
-        }
-      }
-    }
+  const c = await res.json();
+  if (!c || !Array.isArray(c.lessons) || c.lessons.length === 0) {
+    throw new Error(`${which} missing lessons[]`);
   }
-  return core;
+
+  return {
+    id: c.id || target,
+    title: c.title || target,
+    lessons: c.lessons.map((x) => ({
+      id: x.id,
+      title: x.title || x.id,
+      topic: x.topic || "",
+      icon: x.icon || "",
+      // keep whatever course.json says, otherwise we’ll auto-resolve at load time
+      core: (x && typeof x.core === "string" && x.core.trim()) ? x.core.trim() : "",
+      overlayBase:
+        (x && typeof x.overlayBase === "string" && x.overlayBase.trim())
+          ? x.overlayBase.trim()
+          : `courses/${target}/overlays`,
+    })),
+  };
 }
 
+// ✅ Robust resolver: tries meta.core, then core/, then lessons/ (covers both folder layouts)
+function candidateCorePaths(meta) {
+  const t = getTargetLang();
+  const id = meta?.id || "";
+  const fromMeta = (meta?.core || "").trim();
+
+  const list = [];
+  if (fromMeta) list.push(fromMeta);
+  list.push(`courses/${t}/core/${id}.json`);
+  list.push(`courses/${t}/lessons/${id}.json`);
+
+  return Array.from(new Set(list)).filter(Boolean);
+}
 
 // Convert {items:[...]} -> {questions:[...]}
 function normalizeLessonToQuestions(data) {
@@ -606,34 +585,45 @@ async function loadLessonByIndex(i) {
   lessonIndex = clamp(i, 0, manifest.lessons.length - 1);
   const meta = manifest.lessons[lessonIndex];
 
-  const coreUrl = `./${meta.core}`;
-  const overlayUrl = `./${meta.overlayBase}/${nativeLang}/${meta.id}.json`;
-  const fallbackOverlayUrl = `./${meta.overlayBase}/en/${meta.id}.json`;
+// ✅ Robust core resolver: meta.core OR courses/<target>/core/<id>.json OR courses/<target>/lessons/<id>.json
+const overlayUrl = `./${meta.overlayBase}/${nativeLang}/${meta.id}.json`;
+const fallbackOverlayUrl = `./${meta.overlayBase}/en/${meta.id}.json`;
 
-  let coreRes;
-  try {
-    coreRes = await fetch(coreUrl, { cache: "no-store" });
-  } catch {
-    throw new Error(`Failed to fetch lesson file: ${coreUrl}`);
-  }
-  if (!coreRes.ok) {
-    throw new Error(
-      `Lesson core file not found (${coreRes.status}): ${coreUrl}
-` +
-        `Common cause on GitHub Pages: filename case mismatch (Windows vs web).`
-    );
-  }
+let coreRes = null;
+let coreUrl = "";
+const tries = candidateCorePaths(meta);
 
-  let coreData;
+for (const p of tries) {
+  const url = `./${p}`;
   try {
-    coreData = await coreRes.json();
+    const r = await fetch(url, { cache: "no-store" });
+    if (r.ok) {
+      coreRes = r;
+      coreUrl = url;
+      break;
+    }
   } catch {
-    throw new Error(
-      `Lesson JSON is invalid: ${coreUrl}
-` +
-        `Fix the JSON (missing comma/quote) and push again.`
-    );
+    // keep trying
   }
+}
+
+if (!coreRes) {
+  throw new Error(
+    `Lesson core file not found. Tried:\n` +
+    tries.map((p) => `- ./${p}`).join("\n") +
+    `\n\nCommon cause on GitHub Pages: filename case mismatch (Windows vs web).`
+  );
+}
+
+let coreData;
+try {
+  coreData = await coreRes.json();
+} catch {
+  throw new Error(
+    `Lesson JSON is invalid: ${coreUrl}\n` +
+    `Fix the JSON (missing comma/quote) and push again.`
+  );
+}
 
   // overlay (native language) with fallback to English
   async function tryLoadOverlay(url) {
@@ -845,7 +835,6 @@ function getSpeakText(q) {
    shouldSpeakForMode
    formatPrettyPrompt
    renderChoices
-============================= */
 function shouldSpeakForMode(q, speakText = "") {
   // Only Lithuanian audio/tts for now
   const s = String(speakText || "").trim();
@@ -900,7 +889,6 @@ function renderChoices(q) {
 }
 /* =============================
    END REPLACED FUNCTIONS
-============================= */
 
 
 function ensureLessonHeaderVisible() {
@@ -1565,11 +1553,9 @@ async function init() {
 }
 
 // Prevent double-init if app.js is accidentally loaded twice
- if app.js is accidentally loaded twice
 if (window.__LT_APP_INITED__) {
   console.warn("OpenKalba: init blocked (already initialized).");
 } else {
   window.__LT_APP_INITED__ = true;
   init();
 }
-
