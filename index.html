@@ -3,19 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-  <title>Lithuanian Trainer</title>
+  <meta name="theme-color" content="#2F6BFF" />
+
+  <!-- ✅ bump this when you change styles.css so GitHub Pages doesn’t serve old CSS -->
+  <link rel="stylesheet" href="styles.css?v=1003" />
+
+  <!-- (Optional) nicer tab title -->
+  <title>OpenKalba</title>
 </head>
 
 <body>
   <div class="wrap">
-    <!-- NOTE: app.js expects these IDs to exist -->
-    <h1 id="title"></h1>
+    <!-- Brand header -->
+    <div class="brandHeader" id="brandHeader">
+      <img
+        id="brandLogo"
+        class="brandLogo"
+        src="assets/openkalba-logo.png?v=4"
+        alt="OpenKalba"
+      />
+      <!-- fallback text if image fails -->
+      <div id="brandText" class="brandText" style="display:none;">OpenKalba</div>
+    </div>
+
+    <!-- Small context line under header (app.js uses #prompt) -->
     <div id="prompt" class="prompt"></div>
+
+    <!-- Keep #title in DOM for app.js safety (hidden) -->
+    <h1 id="title" style="display:none;"></h1>
 
     <div class="controls">
       <button id="prevBtn" class="btn btn-ghost">Back</button>
+
+      <!-- Speak controls -->
       <button id="speakBtn" class="btn btn-ghost" style="display:none;">🔊 Hear it</button>
+      <!-- NEW: slow speak (app.js wires it automatically) -->
+      <button id="speakSlowBtn" class="btn btn-ghost" style="display:none;">🐢 Hear it slow</button>
 
       <button id="mapBtn" class="btn btn-secondary">🗺️ Course Map</button>
       <button id="resetBtn" class="btn btn-warn">Restart lesson</button>
@@ -55,13 +78,50 @@
         <!-- NEW: learning mode placeholder -->
         <div class="homeModeRow">
           <div class="modeLabel">Learning Mode</div>
+
           <div class="modeSelectWrap">
-            <select id="learningModeSelect" class="modeSelect" aria-label="Learning Mode">
-              <option value="en_to_lt" selected>English → Lithuanian (default)</option>
-              <option value="lt_to_en">Lithuanian → English</option>
-              <option value="es_to_lt" disabled>Spanish → Lithuanian (coming soon)</option>
-              <option value="en_to_es" disabled>English → Spanish (coming soon)</option>
-            </select>
+            <!-- FLAG UI (visual) -->
+            <div class="flagSelect" id="learningModeFlagSelect">
+              <button
+                type="button"
+                class="flagSelectBtn"
+                id="learningModeFlagBtn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+              >
+                <span class="flagOption">
+                  <img
+                    class="flagImg"
+                    id="learningModeFlagImg"
+                    src="assets/flags/us.svg"
+                    alt="English"
+                  />
+                  <span class="flagLabel" id="learningModeFlagLabel">
+                    English → Lithuanian (default)
+                  </span>
+                </span>
+                <span class="flagChevron">▾</span>
+              </button>
+
+              <div class="flagMenu" id="learningModeFlagMenu" role="listbox"></div>
+
+              <!-- REAL select stays for your existing JS logic -->
+              <select id="learningModeSelect" class="modeSelect nativeSelect" aria-label="Learning Mode">
+                <option value="en_to_lt" data-left-flag="assets/flags/us.svg" data-right-flag="assets/flags/lt.svg" selected>
+                  English → Lithuanian (default)
+                </option>
+                <option value="lt_to_en" data-left-flag="assets/flags/lt.svg" data-right-flag="assets/flags/us.svg">
+                  Lithuanian → English
+                </option>
+                <option value="es_to_lt" data-left-flag="assets/flags/es.svg" data-right-flag="assets/flags/lt.svg" disabled>
+                  Spanish → Lithuanian (coming soon)
+                </option>
+                <option value="en_to_es" data-left-flag="assets/flags/us.svg" data-right-flag="assets/flags/es.svg" disabled>
+                  English → Spanish (coming soon)
+                </option>
+              </select>
+            </div>
+
             <div class="modeHint muted">More languages later — for now this just sets the UI placeholder.</div>
           </div>
         </div>
@@ -87,7 +147,16 @@
 
     <div id="screenLesson" style="display:none;">
       <div class="card">
-        <!-- OPTIONAL placeholder for later (we will wire it in app.js) -->
+
+        <!-- NEW: Progress bar (app.js updates it; safe if CSS not updated yet) -->
+        <div id="lessonProgress" style="margin: 0 0 10px 0; display:block;">
+          <div id="lessonProgressText" class="muted" style="font-size:12px; margin-bottom:6px;"></div>
+          <div style="height:10px; border-radius:999px; background: rgba(0,0,0,0.08); overflow:hidden;">
+            <div id="lessonProgressFill" style="height:100%; width:0%; border-radius:999px; background: rgba(111,175,142,0.85);"></div>
+          </div>
+        </div>
+
+        <!-- OPTIONAL placeholder for later (wired in app.js) -->
         <div class="lessonHeader" style="display:none;">
           <div id="lessonPromptPretty" class="lessonPromptPretty"></div>
         </div>
@@ -201,6 +270,8 @@
   </script>
 
   <script src="auth_ui.js"></script>
-  <script src="app.js?v=5320"></script>
+
+  <!-- ✅ bump this when you change app.js so browser definitely loads newest JS -->
+  <script src="app.js?v=5371"></script>
 </body>
 </html>

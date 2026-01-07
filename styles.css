@@ -1,375 +1,443 @@
+/* =========================
+   OpenKalba — BLUE APP THEME (ONE THEME, NO DARK MODE)
+   PATCH = COLORS ONLY (no layout logic changes)
+   - Outer background: #316493
+   - Canvas: #C0DBEC (replaces the lighter blue)
+   - Accent: #32AACA
+   - Removes “whitey” look by tinting surfaces slightly blue (still clean)
+========================= */
+
+/* -------------------------
+   TOKENS (ONE THEME)
+------------------------- */
 :root{
-  /* Your palette */
-  --bg: #FFF7ED;          /* warm cream */
-  --card: #FFFFFF;        /* card background */
-  --primary: #F4C430;     /* soft golden yellow */
-  --secondary: #6FAF8E;   /* sage green */
-  --tertiary: #E07A5F;    /* soft terracotta */
-  --text: #2F2F2F;        /* main text */
-  --textSoft: #6B7280;    /* soft text */
-  --border: rgba(47,47,47,0.10);
-  --shadow: 0 12px 30px rgba(47,47,47,0.10);
+  /* Your 3 core colors */
+  --outer:  #316493;   /* dark blue background */
+  --canvas: #C0DBEC;   /* light blue canvas (replaces the white space) */
+  --accent: #32AACA;   /* pop accent */
+
+  /* Supporting blues (keep your vibe, but aligned) */
+  --primary:   var(--accent);
+  --primary-2: #1F7FA0;                 /* deeper accent for button depth */
+  --primary-3: #7FCFE0;                 /* soft highlight */
+  --primary-soft: rgba(50,170,202,.16);
+
+  /* Surfaces (TINTED — NOT WHITE) */
+  --card:   rgba(231,241,252,.92);      /* based on #E7F1FC but glassy */
+  --card-2: rgba(231,241,252,.78);
+  --border: rgba(15,23,42,.10);
+
+  /* Text (always readable) */
+  --text:  #0F172A;
+  --muted: rgba(15,23,42,.70);
+
+  /* Shadows */
+  --shadow:      0 18px 50px rgba(15,23,42,.14);
+  --shadow-soft: 0 10px 28px rgba(15,23,42,.14);
+
+  /* Radius */
+  --r-xl: 22px;
+  --r-lg: 16px;
+  --r-md: 12px;
+
+  /* Layout */
+  --maxw: 1040px;
+}
+
+/* -------------------------
+   BASE PAGE
+------------------------- */
+html, body{
+  height: 100%;
+  margin: 0;
+  background: var(--outer); /* SOLID, NO GRADIENT */
 }
 
 body{
   font-family: Arial, sans-serif;
-  margin: 0;
   color: var(--text);
-
-  /* warm, app-like background */
-  background:
-    radial-gradient(circle at 18% 12%, rgba(244,196,48,0.20) 0%, rgba(255,247,237,1) 45%),
-    radial-gradient(circle at 85% 20%, rgba(111,175,142,0.18) 0%, rgba(255,247,237,1) 55%),
-    radial-gradient(circle at 70% 92%, rgba(224,122,95,0.16) 0%, rgba(255,247,237,1) 55%),
-    var(--bg);
 }
 
+/* App canvas (kills the “white space” feel) */
 .wrap{
-  max-width: 760px;
-  margin: 22px auto;
-  padding: 16px;
+  max-width: var(--maxw);
+  margin: 14px auto;
+  padding: 12px 16px 28px;
+
+  background: var(--canvas);
+  border-radius: 28px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.30);
 }
 
-#title{
-  margin: 8px 0 12px;
-  font-size: 44px;
+/* -------------------------
+   TOP BAR / BRAND
+------------------------- */
+.brandHeader{
+  position: sticky;
+  top: 10px;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 10px 14px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--card);
+
+  box-shadow: var(--shadow-soft);
+}
+
+/* logo sizing */
+.brandLogo{
+  height: 150px; /* desktop */
+  width: auto;
+  display: block;
+  max-width: 100%;
+}
+@media (max-width: 900px){ .brandLogo{ height: 120px; } }
+@media (max-width: 720px){ .brandLogo{ height: 92px; } }
+@media (max-width: 420px){ .brandLogo{ height: 78px; } }
+
+.brandText{
   font-weight: 900;
-  letter-spacing: 0.2px;
-  line-height: 1.05;
-
-  /* nicer look */
-  color: var(--text);
-  text-shadow: 0 10px 30px rgba(47,47,47,0.10);
+  font-size: 46px;
+  letter-spacing: 0.3px;
 }
 
+/* -------------------------
+   "Basics 1" pill (prompt)
+------------------------- */
 .prompt{
-  color: var(--textSoft);
-  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 10px 2px 14px;
+  padding: 8px 12px;
+
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+  background: rgba(231,241,252,.92); /* tinted, not white */
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
 }
 
+/* -------------------------
+   MAIN SCREEN CARDS
+------------------------- */
+.card, .panel, .lessonWrap, .mapWrap,
+.screen, #screenHome, #screenLesson, #screenMap, #screenDone{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow);
+}
+
+.card{
+  padding: 18px;
+  min-height: 120px;
+}
+
+/* -------------------------
+   CONTROLS / BUTTONS
+------------------------- */
 .controls{
   display: flex;
   gap: 10px;
   margin-bottom: 12px;
   flex-wrap: wrap;
-  align-items: center; /* vertically align buttons */
+  align-items: center;
 }
 
-/* Base button look (existing) */
-button{
+button, .btn{
   padding: 10px 12px;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
+
   border: 1px solid var(--border);
-  background: #fff;
+  background: rgba(231,241,252,.92);  /* tinted, not white */
   color: var(--text);
-  box-shadow: 0 8px 18px rgba(47,47,47,0.08);
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
   transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
 }
 
-button:hover{
+button:hover, .btn:hover{
   transform: translateY(-1px);
-  box-shadow: 0 12px 24px rgba(47,47,47,0.10);
+  filter: brightness(1.02);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.09);
 }
 
-button:disabled{
+button:active, .btn:active{ transform: scale(.985); }
+
+button:disabled, .btn:disabled{
   opacity: 0.55;
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
 }
 
-#mapBtn{
-  background: linear-gradient(180deg, rgba(244,196,48,1), rgba(244,196,48,0.88));
-  border-color: rgba(244,196,48,0.35);
+/* Primary actions = ACCENT BLUE ONLY */
+.btn-primary, .btn-main, #startBtn, #continueBtn, #checkBtn, #nextBtn{
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-2) 100%) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  box-shadow: 0 14px 35px rgba(50,170,202,.28) !important;
 }
 
-#resetBtn{
-  background: linear-gradient(180deg, rgba(224,122,95,0.95), rgba(224,122,95,0.85));
-  border-color: rgba(224,122,95,0.35);
-  color: #fff;
+#nextBtn{
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-2) 100%) !important;
 }
 
-#speakBtn{
-  background: linear-gradient(180deg, rgba(111,175,142,0.95), rgba(111,175,142,0.85));
-  border-color: rgba(111,175,142,0.35);
-  color: #fff;
-}
-
-.card{
-  background: var(--card);
-  padding: 16px;
-  border-radius: 18px;
-  min-height: 120px;
-  box-shadow: var(--shadow);
+/* Ghost buttons */
+.btn-ghost{
+  background: rgba(231,241,252,.65);
   border: 1px solid var(--border);
 }
 
-/* =========================
-   LESSON CARD (fix alignment)
-   ========================= */
-
-.card{
-  padding: 18px;                /* a touch more breathing room */
+/* -------------------------
+   PROGRESS BAR
+------------------------- */
+.progressTrack{
+  background: rgba(49,100,147,.22); /* based on outer, but subtle */
 }
 
-/* The in-card prompt header we render in app.js */
-.lessonHeader{
-  display: block;
-  margin-bottom: 12px;
+.progressFill,
+#lessonProgressFill{
+  background: linear-gradient(90deg, var(--primary-2) 0%, var(--primary) 60%, var(--primary-3) 100%) !important;
+  transition: width 220ms ease;
 }
 
-.lessonPromptPretty{
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 12px 12px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.75);
-  border: 1px solid rgba(47,47,47,0.08);
-  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
+#lessonProgressText{
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
 }
 
-/* Big Lithuanian word (āčiu) */
-.lpMain{
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: 0.2px;
+#lessonProgress{
+  margin: 0 0 10px 0;
 }
 
-/* Smaller instruction (Pick the correct meaning) */
-.lpSub{
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--textSoft);
-}
-
-/* Choices container */
-.choices{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-  align-items: flex-start;
-}
-
-/* Answer buttons */
-.choice{
-  padding: 10px 12px;
+/* -------------------------
+   INPUTS
+------------------------- */
+input[type="text"], input, .input, #answerInput, select, textarea{
+  background: rgba(231,241,252,.92); /* tinted */
+  border: 1px solid var(--border);
   border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.10);
-  background: rgba(255,255,255,0.85);
-  box-shadow: 0 10px 22px rgba(47,47,47,0.07);
-  font-weight: 800;
+  color: var(--text);
+  outline: none;
+
+  padding: 14px 14px;
+  font-size: 16px;
+}
+
+input:focus, #answerInput:focus, select:focus, textarea:focus{
+  border-color: rgba(50,170,202,.55);
+  box-shadow: 0 0 0 4px rgba(50,170,202,.22);
+}
+
+/* -------------------------
+   LESSON HEADER
+------------------------- */
+.lessonHeader{
+  padding: 14px 14px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 14px;
+}
+
+.lpMain{
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: .2px;
+  margin-bottom: 6px;
+}
+.lpSub{
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.listenTag{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(50,170,202,.14);
+  color: var(--text);
+  font-weight: 650;
+}
+
+/* Choices grid */
+.choices{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+@media (min-width: 720px){
+  .choices{ grid-template-columns: 1fr 1fr; }
+}
+
+.choice{
+  padding: 14px 14px;
+  font-size: 16px;
+  font-weight: 650;
+  min-height: 52px;
+
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(231,241,252,.92); /* tinted */
+  box-shadow: 0 8px 18px rgba(0,0,0,.05);
+
   cursor: pointer;
   transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
 }
-
 .choice:hover{
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(47,47,47,0.10);
+  filter: brightness(1.02);
+  box-shadow: 0 14px 28px rgba(0,0,0,.09);
 }
+.choice:active{ transform: scale(.985); }
 
-/* Correct / wrong states (app.js adds these classes) */
 .choice-correct{
-  background: rgba(111,175,142,0.22);
-  border-color: rgba(111,175,142,0.40);
+  border-color: rgba(34,197,94,.55) !important;
+  background: rgba(34,197,94,.14) !important;
 }
-
 .choice-wrong{
-  background: rgba(224,122,95,0.18);
-  border-color: rgba(224,122,95,0.40);
+  border-color: rgba(239,68,68,.55) !important;
+  background: rgba(239,68,68,.14) !important;
 }
 
-.q{
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-input{
-  padding: 10px;
-  width: 100%;
-  max-width: 420px;
-  border-radius: 12px;
+/* Feedback pill */
+.feedback{
+  margin-top: 12px;
+  padding: 12px 12px;
+  border-radius: var(--r-lg);
   border: 1px solid var(--border);
-  background: #fff;
-  color: var(--text);
-  outline: none;
+  background: rgba(231,241,252,.85); /* tinted */
+}
+.feedback-ok{
+  border-color: rgba(34,197,94,.45);
+  background: rgba(34,197,94,.12);
+}
+.feedback-bad{
+  border-color: rgba(239,68,68,.45);
+  background: rgba(239,68,68,.12);
 }
 
-input:focus{
-  border-color: rgba(244,196,48,0.7);
-  box-shadow: 0 0 0 4px rgba(244,196,48,0.18);
-}
-
-/* Old #choices no longer used — keep spacing via .choices/.choice instead */
-
-#feedback{
-  margin-top: 10px;
-  font-size: 18px;
-}
-
-/* ===== Course Map ===== */
-.map-wrap{
+/* -------------------------
+   MAP
+------------------------- */
+#mapWrap, .map-wrap{
   position: relative;
   height: 70vh;
   overflow: auto;
   border-radius: 20px;
-  background: rgba(255,255,255,0.65);
+  background: var(--card);
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
 }
 
-/* JS sets svg + nodes height dynamically */
-.map-svg{
+#mapSvg, .map-svg{
   position: absolute;
   inset: 0;
   width: 100%;
-  pointer-events: none;
+  pointer-events: none !important;
 }
 
-.map-nodes{
-  position: relative;
-}
-
-.map-node{
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
-  border: 2px solid rgba(47,47,47,0.12);
-  box-shadow: 0 12px 22px rgba(47,47,47,0.14);
-}
-
-.map-node:hover{
-  transform: translateY(-2px) scale(1.03);
-}
-
-.map-node .mini{
-  position: absolute;
-  bottom: -10px;
-  font-size: 12px;
-  opacity: 0.9;
-  color: var(--textSoft);
-}
-
-.node-unlocked{
-  background: linear-gradient(180deg, rgba(244,196,48,1), rgba(244,196,48,0.86));
-}
-
-.node-complete{
-  background: linear-gradient(180deg, rgba(111,175,142,0.98), rgba(111,175,142,0.84));
-  filter: drop-shadow(0 0 10px rgba(111,175,142,0.25));
-  color: #fff;
-}
-
-.node-locked{
-  background: linear-gradient(180deg, rgba(107,114,128,0.22), rgba(107,114,128,0.12));
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
-.node-current{
-  animation: pulse 1.4s infinite ease-in-out;
-}
-
-@keyframes pulse{
-  0%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(244,196,48,0)); }
-  50%{ transform: scale(1.06); filter: drop-shadow(0 0 14px rgba(244,196,48,0.35)); }
-  100%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(244,196,48,0)); }
-}
+#mapNodes, .map-nodes{ position: relative; }
 
 .path-stroke{
-  stroke: rgba(47,47,47,0.16);
+  stroke: rgba(15,23,42,.16);
   stroke-width: 8;
   fill: none;
   stroke-linecap: round;
   stroke-dasharray: 2 14;
 }
 
-/* ===== Map labels (NEW for v5.3.1) =====
-   app.js creates <div class="mapLabel"> under each node.
-   This makes locked lessons show "Food / Numbers" etc. */
+.mapNode, .map-node{
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+
+  cursor: pointer;
+  user-select: none;
+
+  border: 2px solid rgba(15,23,42,.12);
+  box-shadow: 0 12px 22px rgba(0,0,0,0.16);
+
+  background: linear-gradient(180deg, var(--primary), var(--primary-2));
+  transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
+}
+.mapNode:hover, .map-node:hover{ transform: translateY(-2px) scale(1.03); }
+
+.mapNode-locked, .node-locked{
+  background: linear-gradient(180deg, rgba(107,114,128,0.30), rgba(107,114,128,0.15));
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.mapNode-done, .node-complete{
+  background: linear-gradient(180deg, rgba(34,197,94,0.95), rgba(34,197,94,0.78));
+  filter: drop-shadow(0 0 10px rgba(34,197,94,0.25));
+  color: #fff;
+}
+
+.node-current{ animation: pulse 1.4s infinite ease-in-out; }
+@keyframes pulse{
+  0%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(50,170,202,0)); }
+  50%{ transform: scale(1.06); filter: drop-shadow(0 0 14px rgba(50,170,202,0.35)); }
+  100%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(50,170,202,0)); }
+}
+
 .mapLabel{
   position: absolute;
   width: 190px;
   text-align: center;
   font-size: 12px;
   line-height: 1.2;
-  color: var(--textSoft);
+
+  color: var(--muted);
   user-select: none;
   pointer-events: none;
 
   padding: 6px 10px;
   border-radius: 14px;
-  background: rgba(255,255,255,0.62);
-  border: 1px solid rgba(47,47,47,0.08);
-  box-shadow: 0 10px 22px rgba(47,47,47,0.08);
+  background: rgba(231,241,252,.85);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
 
-  /* app.js positions left/top; we only style */
   transform: translateX(-50%);
-  backdrop-filter: blur(6px);
 }
 
-/* ===== app.js node classes (NEW) =====
-   app.js uses .mapNode / .mapNode-locked / .mapNode-done
-   Your old CSS uses .map-node / .node-locked etc.
-   Keep both so either code path still looks correct. */
-.mapNode{
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
-  border: 2px solid rgba(47,47,47,0.12);
-  box-shadow: 0 12px 22px rgba(47,47,47,0.14);
-  background: linear-gradient(180deg, rgba(244,196,48,1), rgba(244,196,48,0.86));
-}
+/* Inner markup */
+.mapNodeInner{ display: grid; place-items: center; line-height: 1; }
+.mapNodeIcon{ font-size: 18px; margin-bottom: 4px; }
+.mapNodeNum{ font-size: 12px; opacity: 0.92; }
 
-.mapNode:hover{
-  transform: translateY(-2px) scale(1.03);
-}
-
-.mapNode-locked{
-  background: linear-gradient(180deg, rgba(107,114,128,0.22), rgba(107,114,128,0.12));
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
-.mapNode-done{
-  background: linear-gradient(180deg, rgba(111,175,142,0.98), rgba(111,175,142,0.84));
-  filter: drop-shadow(0 0 10px rgba(111,175,142,0.25));
-  color: #fff;
-}
-
-/* Inner markup that app.js injects into mapNode */
-.mapNodeInner{
-  display: grid;
-  place-items: center;
-  line-height: 1;
-}
-.mapNodeIcon{
-  font-size: 18px;
-  margin-bottom: 4px;
-}
-.mapNodeNum{
-  font-size: 12px;
-  opacity: 0.92;
-}
-
-/* ========================= */
-/* Mikas coach (right side) */
-/* ========================= */
+/* -------------------------
+   MIKAS
+------------------------- */
 .mikasDock{
   position: fixed;
   right: 18px;
@@ -383,477 +451,179 @@ input:focus{
   align-items: flex-end;
   gap: 10px;
 
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity .25s ease, transform .25s ease;
-
-  /* IMPORTANT: never block taps/clicks */
-  pointer-events: none;
-}
-
-/* If older code ever adds this class, don't let it hide Mikas anymore */
-.mikasHidden{
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+  pointer-events: none; /* never block clicks */
 }
 
 .mikasImg{
   width: 240px;
   height: auto;
-
-  /* ensure PNG never stretches / never blurs */
   display: block;
   object-fit: contain;
   image-rendering: auto;
-
-  filter: drop-shadow(0 14px 24px rgba(47,47,47,0.18));
+  filter: drop-shadow(0 14px 24px rgba(0,0,0,0.18));
 }
 
 .mikasBubble{
   display: none;
   max-width: 240px;
-  background: rgba(255,255,255,0.98);
+  background: rgba(231,241,252,.92);
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 10px 12px;
   font-size: 14px;
   color: var(--text);
-  box-shadow: 0 10px 25px rgba(47,47,47,0.12);
+  box-shadow: var(--shadow-soft);
   line-height: 1.25;
 }
-
 .mikasBubble.show{ display:block; }
 
-/* keep him from covering controls on small screens */
 @media (max-width: 720px){
-  .mikasDock{
-    right: 10px;
-    bottom: 92px; /* clears the button row */
-    width: 190px;
-    max-width: 52vw;
-  }
+  .mikasDock{ right: 10px; bottom: 92px; width: 190px; max-width: 52vw; }
   .mikasImg{ width: 190px; }
   .mikasBubble{ max-width: 190px; }
 }
-
-/* very small phones */
 @media (max-width: 420px){
-  .mikasDock{
-    bottom: 110px;
-    width: 165px;
-    max-width: 58vw;
-  }
+  .mikasDock{ bottom: 110px; width: 165px; max-width: 58vw; }
   .mikasImg{ width: 165px; }
   .mikasBubble{ max-width: 165px; font-size: 13px; }
 }
 
-/* ========================================================= */
-/* ACCOUNT / AUTH UI (NEW) — fixes "plain text / generic UI"  */
-/* ========================================================= */
-
-/* New button classes (optional, but index.html uses these) */
-.btn{
-  border: 1px solid rgba(0,0,0,0.10);
-  background: #fff;
-  color: var(--text);
-  padding: 10px 14px;
-  border-radius: 14px;
-  font-weight: 650;
-  cursor: pointer;
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-}
-
-.btn:hover{ transform: translateY(-1px); filter: brightness(1.01); }
-.btn:active{ transform: translateY(0px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
-.btn:disabled{ opacity: .55; cursor: not-allowed; box-shadow: none; transform: none; }
-
-.btn-primary{
-  background: linear-gradient(180deg, #F4C430, #E9B400);
-  border-color: rgba(0,0,0,0.08);
-}
-
-.btn-secondary{
-  background: linear-gradient(180deg, #7BBF9A, #6FAF8E);
-  border-color: rgba(0,0,0,0.08);
-}
-
-.btn-warn{
-  background: linear-gradient(180deg, #F28B7D, #E07A5F);
-  border-color: rgba(0,0,0,0.08);
-  color: #2F2F2F;
-}
-
-.btn-ghost{
-  background: rgba(255,255,255,0.65);
-  backdrop-filter: blur(6px);
-}
-
-.btn-ghost.danger{
-  border-color: rgba(224, 122, 95, 0.45);
-}
-
-.btn-account{
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 46px;        /* match other buttons */
-  padding: 10px 14px;
-}
-
-.dot{
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.15);
-  display: inline-block;
-  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.8);
-}
-.dot.on{ background: #58CC77; }
-
-/* Modal */
-body.modal-open{ overflow: hidden; }
-
-.modal{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.modal-backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(20, 20, 20, 0.35);
-  backdrop-filter: blur(4px);
-}
-
-.modal-card{
-  position: relative;
-  width: min(520px, calc(100vw - 28px));
-  margin: 72px auto;
-  background: rgba(255,255,255,0.92);
-  border: 1px solid rgba(0,0,0,0.10);
-  border-radius: 22px;
-  box-shadow: 0 30px 90px rgba(0,0,0,0.20);
-  padding: 18px 18px 16px;
-}
-
-.modal-head{
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
-.modal-title{
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: 0.2px;
-}
-
-.modal-sub{
-  font-size: 13px;
-  color: var(--textSoft);
-  margin-top: 4px;
-}
-
-.icon-btn{
-  border: 1px solid rgba(0,0,0,0.10);
-  background: rgba(255,255,255,0.75);
-  border-radius: 12px;
-  padding: 8px 10px;
-  cursor: pointer;
-}
-
-.pill-row{
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin: 12px 0 14px;
-}
-
-.pill{
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255, 247, 237, 0.9);
-  border: 1px solid rgba(0,0,0,0.08);
-  color: var(--text);
-}
-
-/* Google button */
-.btn-google{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.12);
-  box-shadow: 0 14px 35px rgba(0,0,0,0.10);
-  padding: 12px 14px;
-  width: 100%;
-}
-
-.g-badge{
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.12);
-}
-
-/* Auth form */
-.field{ display: block; margin-top: 12px; }
-
-.field span{
-  display: block;
-  font-size: 12px;
-  color: var(--textSoft);
-  margin-bottom: 6px;
-}
-
-/* Ensure modal inputs look consistent even with global input{} */
-.field input{
-  width: 100%;
-  height: 48px;
-  max-width: none;
-  border-radius: 16px;
-  border: 1px solid rgba(0,0,0,0.10);
-  background: rgba(255,255,255,0.9);
-  padding: 0 14px;
-  font-size: 15px;
-  outline: none;
-}
-
-.field input:focus{
-  border-color: rgba(244, 196, 48, 0.75);
-  box-shadow: 0 0 0 4px rgba(244, 196, 48, 0.20);
-}
-
-.row{
-  display: flex;
-  gap: 10px;
-  margin-top: 12px;
-}
-.row .btn{ flex: 1; }
-
-.divider{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 14px 0 8px;
-  color: var(--textSoft);
-  font-size: 12px;
-}
-.divider::before,
-.divider::after{
-  content: "";
-  height: 1px;
-  flex: 1;
-  background: rgba(0,0,0,0.10);
-}
-
-.msg{
-  margin-top: 10px;
-  font-size: 13px;
-  color: var(--text);
-  background: rgba(111, 175, 142, 0.12);
-  border: 1px solid rgba(111, 175, 142, 0.25);
-  border-radius: 14px;
-  padding: 10px 12px;
-  display: none;
-}
-.msg.error{
-  background: rgba(224, 122, 95, 0.12);
-  border-color: rgba(224, 122, 95, 0.25);
-}
-
-/* Signed in block */
-.signed-panel{ margin-top: 6px; }
-
+/* -------------------------
+   ACCOUNT BUTTON (pill + circle avatar)
+   Keeps it same height as buttons
+------------------------- */
+#accountBtn,
+.btn-account,
 .user-row{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
-  border-radius: 16px;
-  background: rgba(255, 247, 237, 0.7);
-  border: 1px solid rgba(0,0,0,0.06);
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+
+  height: 44px !important;
+  padding: 0 12px !important;
+
+  border-radius: 999px !important;
+  max-width: 260px !important;
+  overflow: hidden !important;
+
+  background: rgba(231,241,252,.70) !important; /* tinted */
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
 }
 
+/* avatar: force circle + small */
+#accountBtn img,
+.btn-account img,
+.user-row img,
+#accountAvatar,
+.accountAvatarSmall,
 .avatar{
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  object-fit: cover;
-  border: 1px solid rgba(0,0,0,0.10);
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+  max-width: 30px !important;
+  max-height: 30px !important;
+
+  border-radius: 999px !important;
+  object-fit: cover !important;
+  flex: 0 0 auto !important;
+  display: block !important;
 }
 
-.user-name{
-  font-weight: 800;
-  font-size: 14px;
-}
-.user-email{
-  font-size: 12px;
-  color: var(--textSoft);
-  margin-top: 2px;
+#accountBtn .user-name,
+.btn-account .user-name,
+.user-row .user-name{
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
-/* Re-enable clicks where needed (SAFE) */
-button,
-.btn,
-.mapNode,
-.map-nodes,
-#mapNodes,
-#startBtn,
-#continueBtn,
-.modal,
-.modal-card,
-.modal-backdrop {
+#accountBtn .user-email,
+.btn-account .user-email,
+.user-row .user-email{
+  display: none !important;
+}
+
+/* Click safety */
+button, .btn, .mapNode, .map-nodes, #mapNodes, #startBtn, #continueBtn, #checkBtn, #nextBtn{
   pointer-events: auto !important;
 }
-
-/* Keep map SVG from stealing clicks */
-.map-svg,
-#mapSvg {
-  pointer-events: none !important;
-}
+#mapSvg, .map-svg{ pointer-events: none !important; }
 
 /* =========================================================
-   HOME UPGRADE (NEW) — hero + mode selector + account chip
-   (Safe: only targets the new IDs/classes we added in index.html)
-   ========================================================= */
-
-/* Home card layout */
-.homeCard{
-  padding: 18px 18px 16px;
-}
-
-.homeHero{
-  margin-bottom: 14px;
-}
-
-.homeKicker{
-  display: inline-block;
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(47,47,47,0.70);
-  background: rgba(255,255,255,0.65);
-  border: 1px solid rgba(47,47,47,0.08);
-  border-radius: 999px;
-  padding: 6px 10px;
-  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
-  margin-bottom: 10px;
-}
-
-.homeTitle{
-  font-size: 26px;
-  line-height: 1.15;
-  margin: 0 0 8px 0;
-}
-
-.homeSub{
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-/* Learning Mode row */
-.homeModeRow{
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  padding: 12px 12px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.55);
-  border: 1px solid rgba(47,47,47,0.08);
-  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
-  margin: 10px 0 14px;
-}
-
-.modeLabel{
-  font-weight: 800;
-  font-size: 12px;
-  color: rgba(47,47,47,0.72);
-  padding-top: 8px;
-  min-width: 96px;
-}
-
-.modeSelectWrap{
-  flex: 1;
-}
-
-.modeSelect{
-  width: 100%;
-  height: 46px;
-  border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.10);
-  background: rgba(255,255,255,0.90);
-  color: var(--text);
-  font-weight: 700;
-  padding: 0 12px;
-  outline: none;
-  box-shadow: 0 10px 22px rgba(47,47,47,0.06);
-}
-
-.modeSelect:focus{
-  border-color: rgba(244,196,48,0.75);
-  box-shadow: 0 0 0 4px rgba(244,196,48,0.20);
-}
-
-.modeHint{
-  font-size: 12px;
-  margin-top: 8px;
-  color: var(--textSoft);
-}
-
-/* Account button “chip” look (avatar + name) */
-.accountAvatarSmall{
-  width: 26px;
-  height: 26px;
-  border-radius: 10px;
-  object-fit: cover;
-  border: 1px solid rgba(0,0,0,0.10);
-  box-shadow: 0 8px 18px rgba(47,47,47,0.10);
-}
-
-.accountNameSmall{
-  font-weight: 800;
-  font-size: 13px;
-  color: rgba(47,47,47,0.85);
-}
-
-/* On small screens: tighten up */
+   MOBILE ONLY: keep Next visible without changing desktop
+   Paste at VERY END of styles.css
+========================================================= */
 @media (max-width: 520px){
-  .homeTitle{ font-size: 22px; }
-  .modeLabel{ min-width: 82px; }
-  .accountNameSmall{ display: none; } /* keeps top bar compact */
+
+  /* shrink outer padding so the lesson fits */
+  .wrap{
+    padding: 10px 12px 14px !important;
+  }
+
+  /* shrink the big top logo space a bit on phones */
+  .brandLogo{ height: 78px !important; }
+  .brandHeader{ padding: 8px 10px !important; }
+
+  /* tighten the lesson card */
+  .card{
+    padding: 14px !important;
+  }
+
+  /* reduce extra whitespace above the question/choices */
+  .lessonHeader{
+    padding: 12px !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* choices are the main “height hog” */
+  .choices{
+    gap: 8px !important;
+    margin-top: 10px !important;
+  }
+
+  .choice{
+    min-height: 46px !important;
+    padding: 12px 12px !important;
+  }
+
+  /* feedback + Next area */
+  .feedback{
+    margin-top: 10px !important;
+    padding: 10px 10px !important;
+  }
+
+  #checkBtn, #nextBtn{
+    margin-top: 8px !important;
+  }
+
+  /* keep Mikas from eating the bottom space visually */
+  .mikasDock{
+    bottom: 74px !important;
+  }
 }
 
-/* ===== MAP COMPAT PATCH (keep your existing CSS) ===== */
-#mapWrap { 
-  position: relative;
-  height: 70vh;
-  overflow: auto;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.65);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
+/* ===== HOTFIX: Map nodes visible + clickable (no overlays blocking) ===== */
+#mapWrap, .map-wrap { position: relative !important; }
+#mapSvg, .map-svg  { position: absolute !important; inset: 0 !important; z-index: 0 !important; pointer-events: none !important; }
+#mapNodes, .map-nodes { position: relative !important; z-index: 2 !important; pointer-events: auto !important; }
+.mapNode, .map-node { z-index: 3 !important; pointer-events: auto !important; }
 
-#mapSvg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  pointer-events: none !important;
-}
-
-#mapNodes {
-  position: relative;
+/* ===== HOTFIX: Account button avatar never grows ===== */
+#accountAvatarSmall,
+.accountAvatarSmall{
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+  max-width: 30px !important;
+  max-height: 30px !important;
+  border-radius: 999px !important;
+  object-fit: cover !important;
+  display: inline-block !important;
 }
